@@ -1,0 +1,646 @@
+[
+  {
+    "id": 1,
+    "week": 1,
+    "day": 1,
+    "weekTitle": "라포 형성 & 첫 만남",
+    "topicKo": "도착 인사, 차량 하차씬",
+    "topicEn": "Arrival Greeting & Car Exit",
+    "emoji": "🚗",
+    "filename": "0001-arrival-greeting-car-exit.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "도착 환영",
+        "en": "You made it! You both look amazing already."
+      },
+      {
+        "situation": "차량 하차 안내",
+        "en": "Watch your step — let me get that door for you."
+      },
+      {
+        "situation": "첫인상 칭찬",
+        "en": "I love the colour palette today."
+      },
+      {
+        "situation": "컨디션 체크",
+        "en": "How are you both feeling — excited, nervous, a bit of both?"
+      },
+      {
+        "situation": "일정 예고",
+        "en": "We've got a beautiful couple of hours ahead — let's start easy."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "week": 1,
+    "day": 2,
+    "weekTitle": "라포 형성 & 첫 만남",
+    "topicKo": "스몰토크 소재 — 드레스 칭찬, 신혼여행 질문",
+    "topicEn": "Small Talk: Dress & Honeymoon",
+    "emoji": "💬",
+    "filename": "0002-small-talk-dress-honeymoon.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "드레스 디테일 칭찬",
+        "en": "That lace detail on the sleeve is beautiful."
+      },
+      {
+        "situation": "소재/스타일 질문",
+        "en": "Did you choose the fabric, or was it a designer's pick?"
+      },
+      {
+        "situation": "신혼여행지 질문",
+        "en": "Where are you two headed for the honeymoon?"
+      },
+      {
+        "situation": "기대감 리액션",
+        "en": "Oh, that's such a good choice — you'll love it."
+      },
+      {
+        "situation": "화제 전환",
+        "en": "Speaking of travel — let's get a shot with that breeze."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "week": 1,
+    "day": 3,
+    "weekTitle": "라포 형성 & 첫 만남",
+    "topicKo": "어색함 풀기 — 컨디션 체크, 안심시키기",
+    "topicEn": "Breaking the Ice & Reassurance",
+    "emoji": "🌤️",
+    "filename": "0003-breaking-the-ice-reassurance.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "표정 안심시키기",
+        "en": "You're doing great — this already looks so natural."
+      },
+      {
+        "situation": "실수 괜찮다고 말하기",
+        "en": "There's no wrong way to do this, just relax."
+      },
+      {
+        "situation": "호흡 유도",
+        "en": "Take a breath, drop your shoulders — perfect."
+      },
+      {
+        "situation": "가벼운 농담",
+        "en": "You can stop smiling like it's a passport photo."
+      },
+      {
+        "situation": "재도전 격려",
+        "en": "Let's try that again, even better this time."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "week": 1,
+    "day": 4,
+    "weekTitle": "라포 형성 & 첫 만남",
+    "topicKo": "관계 관찰형 프리토킹 — 어떻게 만났어요?",
+    "topicEn": "Getting to Know the Couple",
+    "emoji": "💞",
+    "filename": "0004-getting-to-know-the-couple.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "만남 질문",
+        "en": "So how did you two actually meet?"
+      },
+      {
+        "situation": "리액션 유도",
+        "en": "That's such a good story — tell me more."
+      },
+      {
+        "situation": "첫인상 질문",
+        "en": "What was your first impression of each other?"
+      },
+      {
+        "situation": "서로 바라보기 유도",
+        "en": "Look at him/her while you tell me that part."
+      },
+      {
+        "situation": "감정 포착 멘트",
+        "en": "That smile right there — that's the one I wanted."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "week": 1,
+    "day": 5,
+    "weekTitle": "라포 형성 & 첫 만남",
+    "topicKo": "Week 1 복습 롤플레이",
+    "topicEn": "Week 1 Review Roleplay",
+    "emoji": "🔁",
+    "filename": "0005-week-1-review-roleplay.html",
+    "review": true,
+    "expressions": [
+      {
+        "situation": "도착 환영 (Day1)",
+        "en": "You made it! You both look amazing already."
+      },
+      {
+        "situation": "스몰토크 (Day2)",
+        "en": "Where are you two headed for the honeymoon?"
+      },
+      {
+        "situation": "안심시키기 (Day3)",
+        "en": "You're doing great — this already looks so natural."
+      },
+      {
+        "situation": "관계 질문 (Day4)",
+        "en": "So how did you two actually meet?"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "week": 2,
+    "day": 6,
+    "weekTitle": "촬영 디렉팅 표현",
+    "topicKo": "기본 포즈 지시 (마주보기, 손잡기)",
+    "topicEn": "Basic Pose Direction",
+    "emoji": "🤝",
+    "filename": "0006-basic-pose-direction.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "마주보기 지시",
+        "en": "Turn and face each other, just like that."
+      },
+      {
+        "situation": "손잡기 지시",
+        "en": "Hold hands, and let your arms relax."
+      },
+      {
+        "situation": "거리 조정",
+        "en": "Come a little closer to each other."
+      },
+      {
+        "situation": "몸 방향 지시",
+        "en": "Angle your body slightly toward me."
+      },
+      {
+        "situation": "포즈 확정 멘트",
+        "en": "Hold right there — that's it, don't move."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "week": 2,
+    "day": 7,
+    "weekTitle": "촬영 디렉팅 표현",
+    "topicKo": "연속 동작 디렉팅 (걷기, 부케 만지기, 왔다갔다)",
+    "topicEn": "Directing Movement Sequences",
+    "emoji": "🚶",
+    "filename": "0007-directing-movement-sequences.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "걷기 지시",
+        "en": "Walk toward me slowly, nice and natural."
+      },
+      {
+        "situation": "반복 동작 요청",
+        "en": "Can you walk back and do that one more time?"
+      },
+      {
+        "situation": "소품 활용 지시",
+        "en": "Play with the bouquet a little, look down at it."
+      },
+      {
+        "situation": "속도 조절",
+        "en": "A bit slower this time, like you're not rushing."
+      },
+      {
+        "situation": "타이밍 안내",
+        "en": "On three, start walking — one, two, three."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "week": 2,
+    "day": 8,
+    "weekTitle": "촬영 디렉팅 표현",
+    "topicKo": "표정·시선 디렉팅",
+    "topicEn": "Directing Expressions & Eye Contact",
+    "emoji": "👀",
+    "filename": "0008-directing-expressions-eye-contact.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "시선 지시",
+        "en": "Look at him, not at the camera."
+      },
+      {
+        "situation": "표정 유도 - 웃음",
+        "en": "Think of something that makes you both laugh."
+      },
+      {
+        "situation": "눈맞춤 지시",
+        "en": "Just look into each other's eyes for a second."
+      },
+      {
+        "situation": "표정 톤 조정",
+        "en": "Soften your expression a little, more relaxed."
+      },
+      {
+        "situation": "순간 포착 멘트",
+        "en": "Right there, hold that look."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "week": 2,
+    "day": 9,
+    "weekTitle": "촬영 디렉팅 표현",
+    "topicKo": "미세 조정 디렉팅 (\"고개 살짝만\", \"조금만 더\")",
+    "topicEn": "Micro-adjustment Direction",
+    "emoji": "🎯",
+    "filename": "0009-micro-adjustment-direction.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "고개 각도 조정",
+        "en": "Tilt your chin down just a little."
+      },
+      {
+        "situation": "시선 미세 조정",
+        "en": "Look slightly to your left, just a touch."
+      },
+      {
+        "situation": "자세 미세 조정",
+        "en": "Shift your weight onto your back foot a bit."
+      },
+      {
+        "situation": "정도 표현",
+        "en": "A tiny bit more — perfect, right there."
+      },
+      {
+        "situation": "과함 방지",
+        "en": "Not too much — just a fraction."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "week": 2,
+    "day": 10,
+    "weekTitle": "촬영 디렉팅 표현",
+    "topicKo": "Week 2 복습 롤플레이",
+    "topicEn": "Week 2 Review Roleplay",
+    "emoji": "🔁",
+    "filename": "0010-week-2-review-roleplay.html",
+    "review": true,
+    "expressions": [
+      {
+        "situation": "기본 포즈 (Day6)",
+        "en": "Turn and face each other, hold hands."
+      },
+      {
+        "situation": "연속 동작 (Day7)",
+        "en": "Walk toward me slowly, nice and natural."
+      },
+      {
+        "situation": "표정·시선 (Day8)",
+        "en": "Look at him, not at the camera."
+      },
+      {
+        "situation": "미세 조정 (Day9)",
+        "en": "Tilt your chin down just a little."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "week": 3,
+    "day": 11,
+    "weekTitle": "칭찬·자신감 부여 & 상황 대처",
+    "topicKo": "구체적 칭찬 표현",
+    "topicEn": "Specific Compliments",
+    "emoji": "✨",
+    "filename": "0011-specific-compliments.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "구체적 포즈 칭찬",
+        "en": "That angle you just found is perfect for you."
+      },
+      {
+        "situation": "표정 칭찬",
+        "en": "Your smile just now was so genuine."
+      },
+      {
+        "situation": "스타일 칭찬",
+        "en": "The way you're holding the bouquet looks effortless."
+      },
+      {
+        "situation": "팀워크 칭찬",
+        "en": "You two work so well together in front of the camera."
+      },
+      {
+        "situation": "발전 인정",
+        "en": "You're getting so much more comfortable already."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "week": 3,
+    "day": 12,
+    "weekTitle": "칭찬·자신감 부여 & 상황 대처",
+    "topicKo": "돌발 상황 대처 — 날씨 변수, 시간 지연",
+    "topicEn": "Handling Unexpected Situations",
+    "emoji": "🌦️",
+    "filename": "0012-handling-unexpected-situations.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "날씨 변수 안내",
+        "en": "It looks like it might rain — let's move to plan B."
+      },
+      {
+        "situation": "대안 제시",
+        "en": "We can shift to the covered area and keep shooting."
+      },
+      {
+        "situation": "일정 지연 안내",
+        "en": "We're running a little behind — let's speed through the next few shots."
+      },
+      {
+        "situation": "침착함 유지 멘트",
+        "en": "No stress — we'll still get everything we need."
+      },
+      {
+        "situation": "우선순위 조정",
+        "en": "Let's prioritise the shots you care about most."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "week": 3,
+    "day": 13,
+    "weekTitle": "칭찬·자신감 부여 & 상황 대처",
+    "topicKo": "무거운 대화를 가볍게 전환하기",
+    "topicEn": "Redirecting Heavy Conversations",
+    "emoji": "🔄",
+    "filename": "0013-redirecting-heavy-conversations.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "공감 짧게 표현",
+        "en": "That sounds like a lot — I hear you."
+      },
+      {
+        "situation": "화제 전환 멘트",
+        "en": "Let's take a little break from that and focus on this moment."
+      },
+      {
+        "situation": "현재로 주의 돌리기",
+        "en": "Right now, it's just you two — let's enjoy this part."
+      },
+      {
+        "situation": "긍정적 재프레이밍",
+        "en": "Whatever happens later, today is about celebrating this."
+      },
+      {
+        "situation": "가벼운 화제 제안",
+        "en": "Let's talk about something fun — favourite song from today's playlist?"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "week": 3,
+    "day": 14,
+    "weekTitle": "칭찬·자신감 부여 & 상황 대처",
+    "topicKo": "실수 회복 전략 — 못 알아들었을 때, 다시 말할 때",
+    "topicEn": "Recovery Strategies",
+    "emoji": "🩹",
+    "filename": "0014-recovery-strategies.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "정중히 다시 묻기",
+        "en": "Sorry, could you say that one more time?"
+      },
+      {
+        "situation": "천천히 말해달라 요청",
+        "en": "Could you say that a little slower for me?"
+      },
+      {
+        "situation": "확인 질문",
+        "en": "Just to make sure — did you mean the garden or the beach?"
+      },
+      {
+        "situation": "내 말 정정",
+        "en": "Sorry, what I meant to say was..."
+      },
+      {
+        "situation": "이해했다고 확인",
+        "en": "Got it, that makes sense now — thank you."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "week": 3,
+    "day": 15,
+    "weekTitle": "칭찬·자신감 부여 & 상황 대처",
+    "topicKo": "Week 3 복습 롤플레이",
+    "topicEn": "Week 3 Review Roleplay",
+    "emoji": "🔁",
+    "filename": "0015-week-3-review-roleplay.html",
+    "review": true,
+    "expressions": [
+      {
+        "situation": "구체적 칭찬 (Day11)",
+        "en": "That angle you just found is perfect for you."
+      },
+      {
+        "situation": "돌발 상황 (Day12)",
+        "en": "It looks like it might rain — let's move to plan B."
+      },
+      {
+        "situation": "화제 전환 (Day13)",
+        "en": "Right now, it's just you two — let's enjoy this part."
+      },
+      {
+        "situation": "실수 회복 (Day14)",
+        "en": "Sorry, could you say that a little slower for me?"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "week": 4,
+    "day": 16,
+    "weekTitle": "마무리 & 종합 프리토킹",
+    "topicKo": "마무리 인사, 감사 표현",
+    "topicEn": "Wrap-up & Thank You",
+    "emoji": "🙏",
+    "filename": "0016-wrap-up-thank-you.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "촬영 종료 안내",
+        "en": "That's a wrap — you two did amazing today."
+      },
+      {
+        "situation": "구체적 소감 전달",
+        "en": "My favourite moment was when you both laughed by the fountain."
+      },
+      {
+        "situation": "다음 절차 안내",
+        "en": "I'll send a few previews within a couple of days."
+      },
+      {
+        "situation": "감사 표현",
+        "en": "Thank you for trusting me with your day."
+      },
+      {
+        "situation": "여운 남기는 인사",
+        "en": "I hope today felt as special as it looked."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "week": 4,
+    "day": 17,
+    "weekTitle": "마무리 & 종합 프리토킹",
+    "topicKo": "결과물 관련 대화 (후기 요청, 만족도 확인)",
+    "topicEn": "Following Up on Deliverables",
+    "emoji": "📸",
+    "filename": "0017-following-up-on-deliverables.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "결과물 전달 안내",
+        "en": "Your gallery is ready — I've linked it below."
+      },
+      {
+        "situation": "만족도 확인",
+        "en": "Let me know what you think once you've had a look."
+      },
+      {
+        "situation": "구체적 피드백 유도",
+        "en": "Do these capture the day the way you imagined?"
+      },
+      {
+        "situation": "후기 요청",
+        "en": "If you loved them, a short review would mean a lot to me."
+      },
+      {
+        "situation": "추가 요청 대응",
+        "en": "If there's anything you'd like adjusted, just let me know."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "week": 4,
+    "day": 18,
+    "weekTitle": "마무리 & 종합 프리토킹",
+    "topicKo": "다양한 국적/문화권 고객 응대 팁",
+    "topicEn": "Cross-cultural Client Communication",
+    "emoji": "🌍",
+    "filename": "0018-cross-cultural-client-communication.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "편안함 정도 확인",
+        "en": "Are you comfortable with closer poses, or would you prefer more space?"
+      },
+      {
+        "situation": "전통 존중 질문",
+        "en": "Is there a tradition from your culture you'd like us to capture?"
+      },
+      {
+        "situation": "호칭 확인",
+        "en": "How would you like me to refer to you both in photos — first names is fine?"
+      },
+      {
+        "situation": "배려 표현",
+        "en": "Just let me know if anything feels uncomfortable, and we'll adjust."
+      },
+      {
+        "situation": "공통점 찾기 멘트",
+        "en": "I love learning about different wedding traditions — tell me more."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "week": 4,
+    "day": 19,
+    "weekTitle": "마무리 & 종합 프리토킹",
+    "topicKo": "종합 자유주제 프리토킹",
+    "topicEn": "Comprehensive Freetalk",
+    "emoji": "🗣️",
+    "filename": "0019-comprehensive-freetalk.html",
+    "review": false,
+    "expressions": [
+      {
+        "situation": "도입 표현 예시",
+        "en": "You made it! How are you feeling today?"
+      },
+      {
+        "situation": "디렉팅 표현 예시",
+        "en": "Turn and face each other, hold right there."
+      },
+      {
+        "situation": "칭찬 표현 예시",
+        "en": "That was such a genuine smile."
+      },
+      {
+        "situation": "상황 대처 표현 예시",
+        "en": "No stress — we'll figure it out together."
+      },
+      {
+        "situation": "마무리 표현 예시",
+        "en": "Thank you for trusting me with your day."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "week": 4,
+    "day": 20,
+    "weekTitle": "마무리 & 종합 프리토킹",
+    "topicKo": "4주 종합 롤플레이 + 자가 평가",
+    "topicEn": "4-Week Comprehensive Roleplay & Self-Assessment",
+    "emoji": "🏁",
+    "filename": "0020-4-week-comprehensive-roleplay-self-asses.html",
+    "review": true,
+    "expressions": [
+      {
+        "situation": "Week1 대표 표현",
+        "en": "You made it! You both look amazing already."
+      },
+      {
+        "situation": "Week2 대표 표현",
+        "en": "Turn and face each other, hold right there."
+      },
+      {
+        "situation": "Week3 대표 표현",
+        "en": "That angle you just found is perfect for you."
+      },
+      {
+        "situation": "Week4 대표 표현",
+        "en": "Thank you for trusting me with your day."
+      }
+    ]
+  }
+]
