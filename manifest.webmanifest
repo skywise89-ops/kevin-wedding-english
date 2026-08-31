@@ -1,0 +1,53 @@
+{
+  "name": "Kevin's Wedding English",
+  "short_name": "Wedding English",
+  "description": "웨딩 촬영 현장 영어 — 4주 20레슨 학습 + 현장 표현 129개 즉시 검색",
+  "lang": "ko",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070f1b",
+  "theme_color": "#070f1b",
+  "categories": [
+    "education",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "현장 모드",
+      "short_name": "현장",
+      "url": "./field.html",
+      "description": "촬영 현장 표현 치트시트"
+    },
+    {
+      "name": "연습",
+      "short_name": "연습",
+      "url": "./practice.html",
+      "description": "플래시카드·퀴즈·섀도잉"
+    }
+  ]
+}

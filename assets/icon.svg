@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Kevin's Wedding English">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12294a"/><stop offset="1" stop-color="#070f1b"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fd0ff"/><stop offset="1" stop-color="#2f7fd0"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="72" y="150" width="368" height="248" rx="44" fill="#13253d" stroke="#27456c" stroke-width="8"/>
+  <path d="M188 150l26-42h84l26 42z" fill="#13253d" stroke="#27456c" stroke-width="8" stroke-linejoin="round"/>
+  <circle cx="256" cy="274" r="86" fill="url(#lens)"/>
+  <circle cx="256" cy="274" r="86" fill="none" stroke="#eaf1fb" stroke-width="12" opacity=".9"/>
+  <circle cx="228" cy="246" r="26" fill="#ffffff" opacity=".45"/>
+  <circle cx="378" cy="196" r="15" fill="#ffc06a"/>
+</svg>

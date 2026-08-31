@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="웨딩 영어 연습 — 플래시카드 간격반복, 전체 레슨 통합 퀴즈, 발음 섀도잉 채점">
+<meta name="theme-color" content="#070f1b">
+<title>연습 · Kevin's Wedding English</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">🎧 연습</div>
+  <div class="hdr-actions"></div>
+</header>
+
+<div class="wrap">
+  <div id="menu">
+    <div class="modes">
+      <button class="mode" type="button" data-mode="flash">
+        <b>🃏 플래시카드</b><span>한국어 → 영어. 간격반복으로 오늘 볼 카드만 골라줍니다.</span>
+      </button>
+      <button class="mode" type="button" data-mode="quiz">
+        <b>🧪 통합 퀴즈</b><span>20레슨 전체 문제 중 10문항 랜덤 출제.</span>
+      </button>
+      <button class="mode" type="button" data-mode="shadow">
+        <b>🎙️ 섀도잉</b><span>듣고 따라 말하면 단어 단위로 채점합니다.</span>
+      </button>
+      <button class="mode" type="button" data-mode="listen">
+        <b>🔊 듣기 연속재생</b><span>표현을 순서대로 읽어줍니다. 이동 중 듣기용.</span>
+      </button>
+    </div>
+    <div class="card tight" id="menu-stats"></div>
+  </div>
+
+  <div id="stage" hidden></div>
+</div>
+
+<script src="assets/core.js"></script>
+<script src="assets/practice.js"></script>
+</body>
+</html>

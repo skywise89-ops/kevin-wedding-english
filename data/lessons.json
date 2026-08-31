@@ -9,28 +9,134 @@
     "emoji": "🚗",
     "filename": "0001-arrival-greeting-car-exit.html",
     "review": false,
+    "goal": "차에서 내리는 첫 순간, 어색함 없이 따뜻하게 맞이한다.",
+    "why": "신랑신부가 차에서 내리는 순간이 촬영 전체의 첫 접점입니다. 여기서 어색한 침묵이 흐르면 이후 두 시간의 텐션이 계속 높게 유지됩니다. 첫마디를 준비해두면 바로 라포가 형성됩니다.",
     "expressions": [
       {
         "situation": "도착 환영",
-        "en": "You made it! You both look amazing already."
+        "en": "You made it! You both look amazing already.",
+        "nuance": "차 문 열어주며 자연스럽게",
+        "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
+        "cat": "arrival"
       },
       {
         "situation": "차량 하차 안내",
-        "en": "Watch your step — let me get that door for you."
+        "en": "Watch your step — let me get that door for you.",
+        "nuance": "드레스 밟지 않게 안내할 때",
+        "ko": "발밑 조심하세요 — 제가 문 잡아드릴게요.",
+        "cat": "arrival"
       },
       {
         "situation": "첫인상 칭찬",
-        "en": "I love the colour palette today."
+        "en": "I love the colour palette today.",
+        "nuance": "부케/전체 톤을 보고 바로",
+        "ko": "오늘 색감 조합이 정말 좋네요.",
+        "cat": "arrival"
       },
       {
         "situation": "컨디션 체크",
-        "en": "How are you both feeling — excited, nervous, a bit of both?"
+        "en": "How are you both feeling — excited, nervous, a bit of both?",
+        "nuance": "라포 형성 시작 질문",
+        "ko": "두 분 지금 기분 어떠세요 — 설레세요, 긴장되세요, 아니면 둘 다요?",
+        "cat": "arrival"
       },
       {
         "situation": "일정 예고",
-        "en": "We've got a beautiful couple of hours ahead — let's start easy."
+        "en": "We've got a beautiful couple of hours ahead — let's start easy.",
+        "nuance": "촬영 흐름을 미리 알려줄 때",
+        "ko": "앞으로 두어 시간 좋은 시간 보낼 거예요 — 편한 것부터 시작할게요.",
+        "cat": "arrival"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "rapport",
+        "def": "라포·유대감 — 촬영 초반에 만들어야 하는 신뢰 관계"
+      },
+      {
+        "term": "ease into it",
+        "def": "천천히 몸을 푼다 — 어려운 포즈부터 시작하지 않는다는 뜻"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신부가 차에서 내리다 드레스 자락이 문에 걸렸습니다. 침착하게 도와주며 안심시켜 보세요.",
+        "sample": "No rush at all — let me hold that for you. There we go."
+      },
+      {
+        "prompt": "신랑이 차가 늦게 도착해서 미안해합니다. 가볍게 넘겨주세요.",
+        "sample": "Don't worry about the time — we've got plenty of daylight left."
+      }
+    ],
+    "dialogue": {
+      "title": "차에서 내리는 신랑신부 맞이하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "You made it! You both look amazing already.",
+          "ko": "도착했네요! 두 분 다 벌써 멋져요."
+        },
+        {
+          "who": "Groom",
+          "en": "Ha, thanks — we're a little nervous.",
+          "ko": "하하 감사해요, 좀 긴장되네요."
+        },
+        {
+          "who": "You",
+          "en": "Totally normal. We'll ease into it — nothing hard first.",
+          "ko": "당연해요. 천천히 시작할게요, 어려운 것부터 안 해요."
+        },
+        {
+          "who": "Bride",
+          "en": "That helps, thank you.",
+          "ko": "그 말이 도움이 되네요, 감사해요."
+        }
+      ]
+    },
+    "freetalk": "오늘 아침 준비하면서 어땠는지 신랑신부에게 물어봤다고 상상하고, 그들의 대답을 듣는 상황에서 당신이 이어갈 반응을 3~4문장으로 말해보세요.",
+    "quiz": [
+      {
+        "q": "신랑신부가 차에서 내리며 긴장한 기색일 때 가장 적절한 첫마디는?",
+        "choices": [
+          {
+            "text": "You made it! You both look amazing already.",
+            "correct": true
+          },
+          {
+            "text": "Hurry up, we don't have much time.",
+            "correct": false
+          },
+          {
+            "text": "Why are you late?",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "드레스가 차 문에 걸렸을 때 침착하게 건넬 표현은?",
+        "choices": [
+          {
+            "text": "No rush at all — let me hold that for you.",
+            "correct": true
+          },
+          {
+            "text": "Oh no, you ruined it.",
+            "correct": false
+          },
+          {
+            "text": "That's your problem.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "도착 환영 인사를 자연스럽게 말할 수 있다",
+      "컨디션 체크 질문을 던질 수 있다",
+      "돌발 상황(드레스 걸림)에 침착하게 반응할 수 있다"
+    ],
+    "mission": "You made it! You both look amazing — how are you feeling, excited or nervous?",
+    "nextHint": "내일은 드레스 칭찬·신혼여행 질문 같은 스몰토크 소재를 다룹니다."
   },
   {
     "id": 2,
@@ -42,28 +148,134 @@
     "emoji": "💬",
     "filename": "0002-small-talk-dress-honeymoon.html",
     "review": false,
+    "goal": "촬영 사이 자연스러운 침묵을 스몰토크로 채운다.",
+    "why": "포즈를 바꾸는 사이 5~10초의 정적이 자주 생깁니다. 이 틈을 스몰토크로 채우면 표정이 훨씬 자연스러워지고, 신랑신부도 카메라를 덜 의식하게 됩니다.",
     "expressions": [
       {
         "situation": "드레스 디테일 칭찬",
-        "en": "That lace detail on the sleeve is beautiful."
+        "en": "That lace detail on the sleeve is beautiful.",
+        "nuance": "포즈 전환 사이 자연스럽게",
+        "ko": "소매 레이스 디테일이 정말 예뻐요.",
+        "cat": "rapport"
       },
       {
         "situation": "소재/스타일 질문",
-        "en": "Did you choose the fabric, or was it a designer's pick?"
+        "en": "Did you choose the fabric, or was it a designer's pick?",
+        "nuance": "가벼운 대화 이어가기",
+        "ko": "원단은 직접 고르신 거예요, 아니면 디자이너가 골라준 거예요?",
+        "cat": "rapport"
       },
       {
         "situation": "신혼여행지 질문",
-        "en": "Where are you two headed for the honeymoon?"
+        "en": "Where are you two headed for the honeymoon?",
+        "nuance": "긴장 풀기용 단골 질문",
+        "ko": "신혼여행은 어디로 가세요?",
+        "cat": "rapport"
       },
       {
         "situation": "기대감 리액션",
-        "en": "Oh, that's such a good choice — you'll love it."
+        "en": "Oh, that's such a good choice — you'll love it.",
+        "nuance": "대답에 대한 긍정적 반응",
+        "ko": "오, 진짜 잘 고르셨어요 — 분명 좋아하실 거예요.",
+        "cat": "rapport"
       },
       {
         "situation": "화제 전환",
-        "en": "Speaking of travel — let's get a shot with that breeze."
+        "en": "Speaking of travel — let's get a shot with that breeze.",
+        "nuance": "대화에서 포즈로 자연스럽게 전환",
+        "ko": "여행 얘기 나온 김에 — 저 바람 부는 데서 한 컷 갈게요.",
+        "cat": "rapport"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "small talk",
+        "def": "가벼운 잡담 — 정적을 채우는 목적의 대화"
+      },
+      {
+        "term": "breeze",
+        "def": "산들바람 — 야외 촬영에서 자주 활용하는 연출 요소"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신부가 대답을 짧게만 하고 다시 긴장한 표정으로 돌아갑니다. 자연스럽게 이어가 보세요.",
+        "sample": "No pressure at all — just relax your shoulders, that's it."
+      },
+      {
+        "prompt": "신랑신부가 신혼여행 이야기에 신나 보입니다. 그 텐션을 포즈로 자연스럽게 연결해 보세요.",
+        "sample": "That excitement is perfect — hold that feeling, look at each other."
+      }
+    ],
+    "dialogue": {
+      "title": "포즈 전환 사이 스몰토크",
+      "lines": [
+        {
+          "who": "You",
+          "en": "That lace detail on the sleeve is beautiful — did you choose the fabric?",
+          "ko": "소매 레이스 디테일 예쁘네요 — 원단은 직접 고르신 거예요?"
+        },
+        {
+          "who": "Bride",
+          "en": "Yes, we picked it together actually.",
+          "ko": "네, 사실 같이 골랐어요."
+        },
+        {
+          "who": "You",
+          "en": "I love that. Where are you two headed for the honeymoon?",
+          "ko": "좋네요. 신혼여행은 어디로 가세요?"
+        },
+        {
+          "who": "Groom",
+          "en": "Bali, in two weeks.",
+          "ko": "2주 후에 발리로 가요."
+        }
+      ]
+    },
+    "freetalk": "신랑신부와 스몰토크를 하다가 예상 못한 대답(예: 신혼여행을 아직 못 정했다)을 들었다고 가정하고, 자연스럽게 대화를 이어가는 3~4문장을 말해보세요.",
+    "quiz": [
+      {
+        "q": "포즈 전환 사이 정적을 채우기 가장 좋은 질문은?",
+        "choices": [
+          {
+            "text": "Where are you two headed for the honeymoon?",
+            "correct": true
+          },
+          {
+            "text": "Are we done yet?",
+            "correct": false
+          },
+          {
+            "text": "Why is this taking so long?",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "대화에서 다시 포즈로 자연스럽게 넘어갈 때 쓸 표현은?",
+        "choices": [
+          {
+            "text": "Speaking of travel — let's get a shot with that breeze.",
+            "correct": true
+          },
+          {
+            "text": "Stop talking now.",
+            "correct": false
+          },
+          {
+            "text": "That's enough chatting.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "드레스 디테일을 구체적으로 칭찬할 수 있다",
+      "신혼여행 질문으로 자연스레 대화를 열 수 있다",
+      "대화에서 포즈로 부드럽게 전환할 수 있다"
+    ],
+    "mission": "That lace detail is beautiful — where are you two headed for the honeymoon?",
+    "nextHint": "내일은 어색함을 푸는 컨디션 체크와 안심시키는 표현을 다룹니다."
   },
   {
     "id": 3,
@@ -75,28 +287,139 @@
     "emoji": "🌤️",
     "filename": "0003-breaking-the-ice-reassurance.html",
     "review": false,
+    "goal": "카메라 앞에서 굳어 있는 신랑신부를 말로 풀어준다.",
+    "why": "처음 카메라 앞에 서면 표정이 굳는 경우가 많습니다. '잘하고 있다'는 확인과 가벼운 유머가 없으면 사진이 뻣뻣하게 나옵니다. 안심시키는 말 한마디가 결과물 퀄리티를 바꿉니다.",
     "expressions": [
       {
         "situation": "표정 안심시키기",
-        "en": "You're doing great — this already looks so natural."
+        "en": "You're doing great — this already looks so natural.",
+        "nuance": "긴장한 표정 완화",
+        "ko": "정말 잘하고 계세요 — 벌써 아주 자연스러워요.",
+        "cat": "praise"
       },
       {
         "situation": "실수 괜찮다고 말하기",
-        "en": "There's no wrong way to do this, just relax."
+        "en": "There's no wrong way to do this, just relax.",
+        "nuance": "포즈 실수했을 때",
+        "ko": "여기엔 틀린 방법이 없어요, 편하게 하세요.",
+        "cat": "praise"
       },
       {
         "situation": "호흡 유도",
-        "en": "Take a breath, drop your shoulders — perfect."
+        "en": "Take a breath, drop your shoulders — perfect.",
+        "nuance": "몸이 굳어있을 때",
+        "ko": "숨 한 번 쉬고, 어깨 툭 내려주세요 — 완벽해요.",
+        "cat": "expression"
       },
       {
         "situation": "가벼운 농담",
-        "en": "You can stop smiling like it's a passport photo."
+        "en": "You can stop smiling like it's a passport photo.",
+        "nuance": "표정이 경직됐을 때 유머",
+        "ko": "여권 사진처럼 웃지 않으셔도 돼요.",
+        "cat": "expression"
       },
       {
         "situation": "재도전 격려",
-        "en": "Let's try that again, even better this time."
+        "en": "Let's try that again, even better this time.",
+        "nuance": "한 번 더 시도할 때",
+        "ko": "한 번만 더 가볼게요, 이번엔 더 좋게.",
+        "cat": "pose"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "stiff",
+        "def": "뻣뻣한, 경직된 — 포즈나 표정에 자주 쓰는 표현"
+      },
+      {
+        "term": "passport photo",
+        "def": "여권 사진 — 무표정을 가볍게 놀릴 때 쓰는 관용 비유"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신랑이 계속 어색한 미소를 짓습니다. 유머로 풀어주세요.",
+        "sample": "You can stop smiling like it's a passport photo."
+      },
+      {
+        "prompt": "신부가 포즈를 틀렸다고 미안해합니다. 안심시켜 주세요.",
+        "sample": "There's no wrong way to do this, just relax."
+      }
+    ],
+    "dialogue": {
+      "title": "굳어 있는 신랑 표정 풀어주기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "You can stop smiling like it's a passport photo.",
+          "ko": "여권 사진 찍듯이 웃지 않아도 돼요."
+        },
+        {
+          "who": "Groom",
+          "en": "Ha! Sorry, I always look stiff in photos.",
+          "ko": "하하! 죄송해요, 저는 사진에서 늘 뻣뻣해요."
+        },
+        {
+          "who": "You",
+          "en": "Totally normal — take a breath, drop your shoulders.",
+          "ko": "완전 정상이에요 — 숨 한번 쉬고, 어깨 힘 빼세요."
+        },
+        {
+          "who": "Groom",
+          "en": "Okay, better?",
+          "ko": "네, 이제 나은가요?"
+        },
+        {
+          "who": "You",
+          "en": "Perfect — that's the one.",
+          "ko": "완벽해요 — 바로 그거예요."
+        }
+      ]
+    },
+    "freetalk": "카메라 앞에서 눈에 띄게 긴장한 커플을 만났다고 가정하고, 그들을 편하게 만들기 위한 나만의 멘트를 3~4문장으로 만들어 말해보세요.",
+    "quiz": [
+      {
+        "q": "경직된 표정을 가볍게 풀어줄 유머 표현은?",
+        "choices": [
+          {
+            "text": "You can stop smiling like it's a passport photo.",
+            "correct": true
+          },
+          {
+            "text": "Why do you look so stiff?",
+            "correct": false
+          },
+          {
+            "text": "Your smile is wrong.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "포즈를 실수했다고 미안해하는 신부에게 할 말은?",
+        "choices": [
+          {
+            "text": "There's no wrong way to do this, just relax.",
+            "correct": true
+          },
+          {
+            "text": "That was wrong, try again.",
+            "correct": false
+          },
+          {
+            "text": "Don't worry, I'll fix it in editing.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "안심시키는 표현을 자연스럽게 쓸 수 있다",
+      "가벼운 유머로 긴장을 풀 수 있다",
+      "재도전을 격려하는 말을 할 수 있다"
+    ],
+    "mission": "Take a breath, drop your shoulders — you're doing great, this already looks natural.",
+    "nextHint": "내일은 '어떻게 만났어요?' 같은 관계 관찰형 프리토킹을 다룹니다."
   },
   {
     "id": 4,
@@ -108,28 +431,139 @@
     "emoji": "💞",
     "filename": "0004-getting-to-know-the-couple.html",
     "review": false,
+    "goal": "커플의 이야기를 이끌어내는 질문으로 진짜 표정을 끌어낸다.",
+    "why": "연출된 포즈보다 진짜 이야기를 하는 순간의 표정이 훨씬 자연스럽습니다. 관계에 대한 질문은 두 사람을 서로 바라보게 만들고, 그 반응이 가장 좋은 사진으로 이어집니다.",
     "expressions": [
       {
         "situation": "만남 질문",
-        "en": "So how did you two actually meet?"
+        "en": "So how did you two actually meet?",
+        "nuance": "스토리를 끌어내는 오프닝 질문",
+        "ko": "그런데 두 분은 어떻게 만나셨어요?",
+        "cat": "rapport"
       },
       {
         "situation": "리액션 유도",
-        "en": "That's such a good story — tell me more."
+        "en": "That's such a good story — tell me more.",
+        "nuance": "이야기를 더 끌어낼 때",
+        "ko": "이야기 진짜 좋은데요 — 더 들려주세요.",
+        "cat": "rapport"
       },
       {
         "situation": "첫인상 질문",
-        "en": "What was your first impression of each other?"
+        "en": "What was your first impression of each other?",
+        "nuance": "표정 변화 유도",
+        "ko": "서로 첫인상은 어땠어요?",
+        "cat": "rapport"
       },
       {
         "situation": "서로 바라보기 유도",
-        "en": "Look at him/her while you tell me that part."
+        "en": "Look at him/her while you tell me that part.",
+        "nuance": "이야기 중 자연스러운 포즈 연출",
+        "ko": "그 얘기 하실 때 서로 바라보면서 해주세요.",
+        "cat": "expression"
       },
       {
         "situation": "감정 포착 멘트",
-        "en": "That smile right there — that's the one I wanted."
+        "en": "That smile right there — that's the one I wanted.",
+        "nuance": "진짜 표정이 나왔을 때",
+        "ko": "방금 그 미소 — 제가 원하던 게 딱 그거예요.",
+        "cat": "praise"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "candid",
+        "def": "자연스러운, 연출되지 않은 — 이야기 중 나오는 진짜 표정"
+      },
+      {
+        "term": "prompt",
+        "def": "유도 질문 — 특정 반응을 끌어내기 위한 질문"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "커플이 만남 이야기를 짧게 끝내려 합니다. 더 이야기하도록 유도해 보세요.",
+        "sample": "That's such a good story — tell me more, what happened next?"
+      },
+      {
+        "prompt": "이야기 도중 신부가 카메라를 계속 봅니다. 서로를 보도록 자연스럽게 유도해 보세요.",
+        "sample": "Look at him while you tell me that part — perfect."
+      }
+    ],
+    "dialogue": {
+      "title": "어떻게 만났는지 물어보기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "So how did you two actually meet?",
+          "ko": "두 분은 실제로 어떻게 만나셨어요?"
+        },
+        {
+          "who": "Bride",
+          "en": "At a friend's birthday party, actually.",
+          "ko": "사실 친구 생일파티에서요."
+        },
+        {
+          "who": "You",
+          "en": "That's such a good story — look at him while you tell me the rest.",
+          "ko": "정말 좋은 이야기네요 — 나머지 이야기하면서 그를 봐주세요."
+        },
+        {
+          "who": "Bride",
+          "en": "(laughs) He spilled a drink on me.",
+          "ko": "(웃음) 그가 저한테 음료를 쏟았어요."
+        },
+        {
+          "who": "You",
+          "en": "That smile right there — that's the one I wanted.",
+          "ko": "지금 그 미소 — 제가 원했던 거예요."
+        }
+      ]
+    },
+    "freetalk": "신랑신부가 만난 이야기를 들려줬다고 가정하고, 그 이야기에 진심으로 반응하며 이어갈 질문을 3~4문장으로 말해보세요.",
+    "quiz": [
+      {
+        "q": "커플의 이야기를 끌어내는 가장 좋은 오프닝 질문은?",
+        "choices": [
+          {
+            "text": "So how did you two actually meet?",
+            "correct": true
+          },
+          {
+            "text": "Are you ready for photos now?",
+            "correct": false
+          },
+          {
+            "text": "Can we move on?",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "이야기 중 자연스러운 표정을 포착했을 때 할 말은?",
+        "choices": [
+          {
+            "text": "That smile right there — that's the one I wanted.",
+            "correct": true
+          },
+          {
+            "text": "Stop laughing, hold still.",
+            "correct": false
+          },
+          {
+            "text": "That's not a good angle.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "관계에 대한 오프닝 질문을 던질 수 있다",
+      "이야기를 더 끌어내는 리액션을 할 수 있다",
+      "진짜 표정을 포착했을 때 멘트할 수 있다"
+    ],
+    "mission": "So how did you two actually meet? Look at him while you tell me that part.",
+    "nextHint": "내일은 이번 주 표현을 모두 이어 말하는 복습 롤플레이입니다."
   },
   {
     "id": 5,
@@ -141,24 +575,107 @@
     "emoji": "🔁",
     "filename": "0005-week-1-review-roleplay.html",
     "review": true,
+    "goal": "이번 주 표현(도착 인사~관계 질문)을 하나의 흐름으로 이어 말한다.",
+    "why": "따로 배운 표현도 실제 촬영에서는 끊김 없이 이어져야 합니다. 도착부터 첫 대화까지 5분 롤플레이로 이어 말해보며 자연스러운 흐름을 만듭니다.",
     "expressions": [
       {
         "situation": "도착 환영 (Day1)",
-        "en": "You made it! You both look amazing already."
+        "en": "You made it! You both look amazing already.",
+        "nuance": "차에서 내릴 때",
+        "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
+        "cat": "arrival"
       },
       {
         "situation": "스몰토크 (Day2)",
-        "en": "Where are you two headed for the honeymoon?"
+        "en": "Where are you two headed for the honeymoon?",
+        "nuance": "포즈 전환 사이",
+        "ko": "신혼여행은 어디로 가세요?",
+        "cat": "rapport"
       },
       {
         "situation": "안심시키기 (Day3)",
-        "en": "You're doing great — this already looks so natural."
+        "en": "You're doing great — this already looks so natural.",
+        "nuance": "긴장 풀어줄 때",
+        "ko": "정말 잘하고 계세요 — 벌써 아주 자연스러워요.",
+        "cat": "praise"
       },
       {
         "situation": "관계 질문 (Day4)",
-        "en": "So how did you two actually meet?"
+        "en": "So how did you two actually meet?",
+        "nuance": "진짜 표정 끌어낼 때",
+        "ko": "그런데 두 분은 어떻게 만나셨어요?",
+        "cat": "rapport"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "flow",
+        "def": "흐름 — 표현들을 자연스럽게 이어가는 전체 리듬"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "차량 하차부터 첫 대화까지, 이번 주 표현 4개를 순서대로 이어서 30초간 말해보세요.",
+        "sample": "You made it! ... You're doing great ... So how did you two actually meet? ... Where are you headed for the honeymoon?"
+      }
+    ],
+    "dialogue": {
+      "title": "Week 1 전체 흐름 이어 말하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "You made it! You both look amazing already.",
+          "ko": "도착했네요! 두 분 다 벌써 멋져요."
+        },
+        {
+          "who": "Couple",
+          "en": "Thank you, we're a bit nervous!",
+          "ko": "감사해요, 조금 긴장돼요!"
+        },
+        {
+          "who": "You",
+          "en": "You're doing great — this already looks so natural. So, how did you two actually meet?",
+          "ko": "잘하고 계세요 — 벌써 자연스러워요. 그런데 두 분은 어떻게 만나셨어요?"
+        },
+        {
+          "who": "Couple",
+          "en": "At a friend's party, actually.",
+          "ko": "사실 친구 파티에서요."
+        },
+        {
+          "who": "You",
+          "en": "Love that. Where are you two headed for the honeymoon after all this?",
+          "ko": "좋네요. 오늘 촬영 끝나면 신혼여행은 어디로 가세요?"
+        }
+      ]
+    },
+    "freetalk": "이번 주 표현 중 가장 자주 쓸 것 같은 표현 하나를 골라, 실제 촬영 상황을 상상하며 3~4문장으로 확장해 말해보세요.",
+    "quiz": [
+      {
+        "q": "이번 주 표현을 순서대로 나열한 것은?",
+        "choices": [
+          {
+            "text": "도착 환영 → 스몰토크 → 안심시키기 → 관계 질문",
+            "correct": true
+          },
+          {
+            "text": "관계 질문 → 도착 환영 → 안심시키기 → 스몰토크",
+            "correct": false
+          },
+          {
+            "text": "안심시키기 → 관계 질문 → 도착 환영 → 스몰토크",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "Day1~4 표현을 안 보고 하나씩 말할 수 있다",
+      "표현들을 자연스러운 흐름으로 이어 말할 수 있다",
+      "막혔던 표현을 기록했다"
+    ],
+    "mission": "도착부터 관계 질문까지 이번 주 표현 4개를 끊김 없이 30초간 이어 말하기.",
+    "nextHint": "다음 주는 촬영 디렉팅 표현(포즈 지시)을 시작합니다."
   },
   {
     "id": 6,
@@ -170,28 +687,134 @@
     "emoji": "🤝",
     "filename": "0006-basic-pose-direction.html",
     "review": false,
+    "goal": "가장 자주 쓰는 기본 포즈 지시를 명확하고 따뜻하게 전달한다.",
+    "why": "포즈 지시가 불명확하면 신랑신부가 머뭇거리고, 그 머뭇거림이 사진에 그대로 나옵니다. 짧고 명확한 지시어를 준비해두면 촬영 템포가 빨라지고 결과물도 좋아집니다.",
     "expressions": [
       {
         "situation": "마주보기 지시",
-        "en": "Turn and face each other, just like that."
+        "en": "Turn and face each other, just like that.",
+        "nuance": "기본 마주보기 포즈",
+        "ko": "서로 마주 보세요, 딱 그렇게요.",
+        "cat": "pose"
       },
       {
         "situation": "손잡기 지시",
-        "en": "Hold hands, and let your arms relax."
+        "en": "Hold hands, and let your arms relax.",
+        "nuance": "손 포즈 연출",
+        "ko": "손 잡으시고, 팔에 힘 빼주세요.",
+        "cat": "pose"
       },
       {
         "situation": "거리 조정",
-        "en": "Come a little closer to each other."
+        "en": "Come a little closer to each other.",
+        "nuance": "간격이 멀 때",
+        "ko": "서로 조금만 더 가까이 와주세요.",
+        "cat": "pose"
       },
       {
         "situation": "몸 방향 지시",
-        "en": "Angle your body slightly toward me."
+        "en": "Angle your body slightly toward me.",
+        "nuance": "정면보다 자연스러운 각도",
+        "ko": "몸을 저 쪽으로 살짝만 틀어주세요.",
+        "cat": "pose"
       },
       {
         "situation": "포즈 확정 멘트",
-        "en": "Hold right there — that's it, don't move."
+        "en": "Hold right there — that's it, don't move.",
+        "nuance": "원하는 포즈가 나왔을 때",
+        "ko": "거기서 그대로 — 네 그거예요, 움직이지 마세요.",
+        "cat": "pose"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "angle",
+        "def": "각도 — 몸이나 얼굴을 트는 방향"
+      },
+      {
+        "term": "relax your arms",
+        "def": "팔에 힘을 빼라는 뜻 — 뻣뻣한 포즈를 풀어줄 때 자주 사용"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신랑신부가 서로 너무 멀리 떨어져 서 있습니다. 거리를 조정해 주세요.",
+        "sample": "Come a little closer to each other — that's better."
+      },
+      {
+        "prompt": "정면으로만 서 있어 사진이 밋밋합니다. 각도를 조정해 주세요.",
+        "sample": "Angle your body slightly toward me, just like this."
+      }
+    ],
+    "dialogue": {
+      "title": "기본 포즈 지시하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Turn and face each other, just like that.",
+          "ko": "서로 마주 보세요, 바로 그렇게요."
+        },
+        {
+          "who": "Groom",
+          "en": "Like this?",
+          "ko": "이렇게요?"
+        },
+        {
+          "who": "You",
+          "en": "Perfect. Now hold hands, and let your arms relax.",
+          "ko": "완벽해요. 이제 손을 잡고, 팔에 힘을 빼주세요."
+        },
+        {
+          "who": "You",
+          "en": "Hold right there — that's it, don't move.",
+          "ko": "거기서 잠깐만요 — 바로 그거예요, 움직이지 마세요."
+        }
+      ]
+    },
+    "freetalk": "신랑신부에게 마주보기와 손잡기 포즈를 순서대로 지시한다고 상상하고, 실제로 소리 내어 3~4문장의 지시 멘트를 이어 말해보세요.",
+    "quiz": [
+      {
+        "q": "신랑신부가 서로 멀리 떨어져 있을 때 쓸 표현은?",
+        "choices": [
+          {
+            "text": "Come a little closer to each other.",
+            "correct": true
+          },
+          {
+            "text": "You're standing wrong.",
+            "correct": false
+          },
+          {
+            "text": "Move back please.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "원하는 포즈가 나왔을 때 확정하는 멘트는?",
+        "choices": [
+          {
+            "text": "Hold right there — that's it, don't move.",
+            "correct": true
+          },
+          {
+            "text": "That's wrong, try again.",
+            "correct": false
+          },
+          {
+            "text": "Move faster.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "마주보기·손잡기 지시를 명확히 할 수 있다",
+      "거리·각도를 조정하는 표현을 쓸 수 있다",
+      "포즈 확정 멘트를 자연스럽게 쓸 수 있다"
+    ],
+    "mission": "Turn and face each other, hold hands, let your arms relax — hold right there, that's it.",
+    "nextHint": "내일은 걷기·부케 만지기 같은 연속 동작 디렉팅을 다룹니다."
   },
   {
     "id": 7,
@@ -203,28 +826,134 @@
     "emoji": "🚶",
     "filename": "0007-directing-movement-sequences.html",
     "review": false,
+    "goal": "정지 포즈보다 자연스러운 연속 동작을 지시한다.",
+    "why": "움직이는 순간의 사진이 훨씬 생동감 있습니다. 걷기, 부케 만지기 같은 반복 동작을 지시할 수 있으면 정적인 포즈에서 벗어난 다양한 컷을 만들 수 있습니다.",
     "expressions": [
       {
         "situation": "걷기 지시",
-        "en": "Walk toward me slowly, nice and natural."
+        "en": "Walk toward me slowly, nice and natural.",
+        "nuance": "걷는 장면 연출",
+        "ko": "저를 향해 천천히 걸어오세요, 자연스럽게요.",
+        "cat": "movement"
       },
       {
         "situation": "반복 동작 요청",
-        "en": "Can you walk back and do that one more time?"
+        "en": "Can you walk back and do that one more time?",
+        "nuance": "동작을 다시 요청할 때",
+        "ko": "다시 뒤로 가서 한 번만 더 해주실 수 있을까요?",
+        "cat": "movement"
       },
       {
         "situation": "소품 활용 지시",
-        "en": "Play with the bouquet a little, look down at it."
+        "en": "Play with the bouquet a little, look down at it.",
+        "nuance": "부케를 활용한 자연스러운 동작",
+        "ko": "부케를 살짝 만지작거리면서 내려다봐 주세요.",
+        "cat": "movement"
       },
       {
         "situation": "속도 조절",
-        "en": "A bit slower this time, like you're not rushing."
+        "en": "A bit slower this time, like you're not rushing.",
+        "nuance": "속도가 너무 빠를 때",
+        "ko": "이번엔 조금 더 천천히요, 서두르지 않는 느낌으로.",
+        "cat": "movement"
       },
       {
         "situation": "타이밍 안내",
-        "en": "On three, start walking — one, two, three."
+        "en": "On three, start walking — one, two, three.",
+        "nuance": "동작 시작 타이밍 안내",
+        "ko": "셋 하면 걸어오세요 — 하나, 둘, 셋.",
+        "cat": "movement"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "walk back",
+        "def": "다시 걸어서 원위치로 돌아가다 — 동작을 반복할 때 쓰는 표현"
+      },
+      {
+        "term": "on three",
+        "def": "셋을 세면 — 동작 타이밍을 맞출 때 쓰는 관용 표현"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "걷는 속도가 너무 빨라서 사진이 흔들립니다. 속도를 조절해 주세요.",
+        "sample": "A bit slower this time, like you're not rushing."
+      },
+      {
+        "prompt": "좋은 컷을 놓쳐서 같은 동작을 한 번 더 부탁해야 합니다.",
+        "sample": "That was great — can you walk back and do that one more time?"
+      }
+    ],
+    "dialogue": {
+      "title": "걷는 장면 디렉팅하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Walk toward me slowly, nice and natural.",
+          "ko": "저를 향해 천천히, 자연스럽게 걸어와 주세요."
+        },
+        {
+          "who": "Bride",
+          "en": "Like this pace?",
+          "ko": "이 속도로요?"
+        },
+        {
+          "who": "You",
+          "en": "A bit slower this time, like you're not rushing.",
+          "ko": "이번엔 조금 더 천천히, 서두르지 않는 것처럼요."
+        },
+        {
+          "who": "You",
+          "en": "Perfect — can you walk back and do that one more time?",
+          "ko": "완벽해요 — 다시 돌아가서 한 번 더 해주실래요?"
+        }
+      ]
+    },
+    "freetalk": "걷기와 부케 만지기 동작을 순서대로 지시하는 상황을 상상하고, 타이밍 안내까지 포함해 3~4문장으로 이어 말해보세요.",
+    "quiz": [
+      {
+        "q": "걷는 속도가 너무 빠를 때 조정하는 표현은?",
+        "choices": [
+          {
+            "text": "A bit slower this time, like you're not rushing.",
+            "correct": true
+          },
+          {
+            "text": "You're doing it wrong.",
+            "correct": false
+          },
+          {
+            "text": "Walk faster please.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "동작 시작 타이밍을 맞출 때 쓰는 표현은?",
+        "choices": [
+          {
+            "text": "On three, start walking — one, two, three.",
+            "correct": true
+          },
+          {
+            "text": "Just go whenever.",
+            "correct": false
+          },
+          {
+            "text": "Start now, hurry.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "걷기 동작을 자연스럽게 지시할 수 있다",
+      "속도·타이밍을 조절하는 표현을 쓸 수 있다",
+      "동작을 다시 요청할 수 있다"
+    ],
+    "mission": "Walk toward me slowly, nice and natural — on three, one, two, three.",
+    "nextHint": "내일은 표정과 시선을 디렉팅하는 표현을 다룹니다."
   },
   {
     "id": 8,
@@ -236,28 +965,134 @@
     "emoji": "👀",
     "filename": "0008-directing-expressions-eye-contact.html",
     "review": false,
+    "goal": "자연스러운 표정과 시선 방향을 구체적으로 지시한다.",
+    "why": "\"자연스럽게 웃어주세요\"라는 지시는 오히려 더 어색한 표정을 만듭니다. 시선 방향과 감정을 구체적으로 지시해야 진짜 표정이 나옵니다.",
     "expressions": [
       {
         "situation": "시선 지시",
-        "en": "Look at him, not at the camera."
+        "en": "Look at him, not at the camera.",
+        "nuance": "카메라를 의식할 때",
+        "ko": "카메라 말고 신랑분을 봐주세요.",
+        "cat": "expression"
       },
       {
         "situation": "표정 유도 - 웃음",
-        "en": "Think of something that makes you both laugh."
+        "en": "Think of something that makes you both laugh.",
+        "nuance": "억지 미소 대신 진짜 웃음 유도",
+        "ko": "두 분이 같이 웃었던 일 하나 떠올려 보세요.",
+        "cat": "expression"
       },
       {
         "situation": "눈맞춤 지시",
-        "en": "Just look into each other's eyes for a second."
+        "en": "Just look into each other's eyes for a second.",
+        "nuance": "감정 있는 컷 연출",
+        "ko": "잠깐만 서로 눈을 마주 봐주세요.",
+        "cat": "expression"
       },
       {
         "situation": "표정 톤 조정",
-        "en": "Soften your expression a little, more relaxed."
+        "en": "Soften your expression a little, more relaxed.",
+        "nuance": "표정이 너무 굳었을 때",
+        "ko": "표정 조금만 풀어주세요, 더 편하게요.",
+        "cat": "expression"
       },
       {
         "situation": "순간 포착 멘트",
-        "en": "Right there, hold that look."
+        "en": "Right there, hold that look.",
+        "nuance": "원하는 표정이 나왔을 때",
+        "ko": "바로 거기요, 그 표정 유지해주세요.",
+        "cat": "expression"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "soften",
+        "def": "부드럽게 하다 — 표정이나 자세의 긴장을 풀 때 사용"
+      },
+      {
+        "term": "hold that look",
+        "def": "그 표정을 유지하다 — 원하는 순간을 고정할 때 쓰는 표현"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신부가 계속 카메라를 쳐다봅니다. 자연스럽게 시선을 돌려주세요.",
+        "sample": "Look at him, not at the camera — that's it."
+      },
+      {
+        "prompt": "표정이 너무 굳어 있습니다. 부드럽게 풀어주세요.",
+        "sample": "Soften your expression a little, more relaxed."
+      }
+    ],
+    "dialogue": {
+      "title": "표정과 시선 디렉팅하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Look at him, not at the camera.",
+          "ko": "저 말고 신랑을 봐주세요."
+        },
+        {
+          "who": "Bride",
+          "en": "Okay, like this?",
+          "ko": "네, 이렇게요?"
+        },
+        {
+          "who": "You",
+          "en": "Think of something that makes you both laugh.",
+          "ko": "두 분 다 웃게 만드는 걸 떠올려 보세요."
+        },
+        {
+          "who": "You",
+          "en": "Right there — hold that look.",
+          "ko": "바로 거기요 — 그 표정 유지해 주세요."
+        }
+      ]
+    },
+    "freetalk": "표정과 시선을 순서대로 디렉팅하는 상황을 상상하고, 원하는 표정이 나왔을 때의 반응까지 포함해 3~4문장으로 말해보세요.",
+    "quiz": [
+      {
+        "q": "카메라를 의식하는 신부에게 쓸 표현은?",
+        "choices": [
+          {
+            "text": "Look at him, not at the camera.",
+            "correct": true
+          },
+          {
+            "text": "Don't look anywhere.",
+            "correct": false
+          },
+          {
+            "text": "Stop looking at me.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "원하는 표정이 나왔을 때 고정시키는 표현은?",
+        "choices": [
+          {
+            "text": "Right there, hold that look.",
+            "correct": true
+          },
+          {
+            "text": "That's wrong, change it.",
+            "correct": false
+          },
+          {
+            "text": "Look somewhere else now.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "시선 방향을 구체적으로 지시할 수 있다",
+      "진짜 웃음을 유도하는 표현을 쓸 수 있다",
+      "원하는 표정을 고정시키는 멘트를 할 수 있다"
+    ],
+    "mission": "Look at him, not at the camera — think of something that makes you both laugh. Hold that look.",
+    "nextHint": "내일은 '고개 살짝만' 같은 미세 조정 디렉팅을 다룹니다."
   },
   {
     "id": 9,
@@ -269,28 +1104,134 @@
     "emoji": "🎯",
     "filename": "0009-micro-adjustment-direction.html",
     "review": false,
+    "goal": "완성된 포즈를 아주 작은 단위로 조정하는 표현을 익힌다.",
+    "why": "큰 포즈 지시 이후 마지막 5%를 다듬는 미세 조정이 사진의 완성도를 결정합니다. \"조금\", \"살짝\"의 정도를 영어로 명확히 전달할 수 있어야 합니다.",
     "expressions": [
       {
         "situation": "고개 각도 조정",
-        "en": "Tilt your chin down just a little."
+        "en": "Tilt your chin down just a little.",
+        "nuance": "고개가 너무 들려 있을 때",
+        "ko": "턱만 아주 살짝 내려주세요.",
+        "cat": "micro"
       },
       {
         "situation": "시선 미세 조정",
-        "en": "Look slightly to your left, just a touch."
+        "en": "Look slightly to your left, just a touch.",
+        "nuance": "시선을 조금만 옮길 때",
+        "ko": "시선만 왼쪽으로 아주 조금요.",
+        "cat": "micro"
       },
       {
         "situation": "자세 미세 조정",
-        "en": "Shift your weight onto your back foot a bit."
+        "en": "Shift your weight onto your back foot a bit.",
+        "nuance": "포즈 균형 조정",
+        "ko": "무게 중심을 뒷발로 살짝 옮겨주세요.",
+        "cat": "micro"
       },
       {
         "situation": "정도 표현",
-        "en": "A tiny bit more — perfect, right there."
+        "en": "A tiny bit more — perfect, right there.",
+        "nuance": "미세 조정 확정할 때",
+        "ko": "아주 조금만 더 — 완벽해요, 거기요.",
+        "cat": "micro"
       },
       {
         "situation": "과함 방지",
-        "en": "Not too much — just a fraction."
+        "en": "Not too much — just a fraction.",
+        "nuance": "조정이 과했을 때 되돌릴 때",
+        "ko": "너무 많이는 말고 — 아주 살짝만요.",
+        "cat": "micro"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "a touch / a fraction",
+        "def": "아주 조금 — 미세한 정도를 표현할 때 쓰는 구어체 표현"
+      },
+      {
+        "term": "chin down",
+        "def": "턱을 아래로 — 얼굴 각도를 조정할 때 자주 쓰는 지시"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "포즈는 좋은데 고개가 너무 들려 있습니다. 미세하게 조정해 주세요.",
+        "sample": "Tilt your chin down just a little — that's better."
+      },
+      {
+        "prompt": "조정을 요청했는데 신랑이 너무 많이 움직였습니다. 되돌려 주세요.",
+        "sample": "Not too much — just a fraction, perfect."
+      }
+    ],
+    "dialogue": {
+      "title": "미세 조정 디렉팅하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Tilt your chin down just a little.",
+          "ko": "턱을 아주 살짝만 내려주세요."
+        },
+        {
+          "who": "Bride",
+          "en": "Like this?",
+          "ko": "이렇게요?"
+        },
+        {
+          "who": "You",
+          "en": "A tiny bit more — perfect, right there.",
+          "ko": "아주 조금만 더요 — 완벽해요, 바로 거기예요."
+        },
+        {
+          "who": "You",
+          "en": "Now look slightly to your left, just a touch.",
+          "ko": "이제 살짝 왼쪽을 봐주세요, 아주 조금만요."
+        }
+      ]
+    },
+    "freetalk": "큰 포즈를 잡은 후 고개, 시선, 무게중심을 순서대로 미세 조정하는 상황을 상상하며 3~4문장으로 이어 말해보세요.",
+    "quiz": [
+      {
+        "q": "고개가 너무 들려 있을 때 조정하는 표현은?",
+        "choices": [
+          {
+            "text": "Tilt your chin down just a little.",
+            "correct": true
+          },
+          {
+            "text": "Move your whole head.",
+            "correct": false
+          },
+          {
+            "text": "Look up more.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "조정이 과했을 때 되돌리는 표현은?",
+        "choices": [
+          {
+            "text": "Not too much — just a fraction.",
+            "correct": true
+          },
+          {
+            "text": "That's completely wrong.",
+            "correct": false
+          },
+          {
+            "text": "Do it again from the start.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "고개·시선 미세 조정을 지시할 수 있다",
+      "정도(조금, 살짝)를 영어로 표현할 수 있다",
+      "과한 조정을 되돌리는 표현을 쓸 수 있다"
+    ],
+    "mission": "Tilt your chin down just a little — a tiny bit more, perfect, right there.",
+    "nextHint": "내일은 이번 주 디렉팅 표현을 모두 이어 말하는 복습 롤플레이입니다."
   },
   {
     "id": 10,
@@ -302,24 +1243,102 @@
     "emoji": "🔁",
     "filename": "0010-week-2-review-roleplay.html",
     "review": true,
+    "goal": "기본 포즈부터 미세 조정까지 디렉팅 표현을 하나의 촬영 흐름으로 이어 말한다.",
+    "why": "실제 촬영에서는 큰 포즈 지시 → 동작 → 표정 → 미세 조정이 몇 초 안에 연속으로 일어납니다. 이번 주 표현을 끊김 없이 이어 말하는 연습이 실전 속도를 만듭니다.",
     "expressions": [
       {
         "situation": "기본 포즈 (Day6)",
-        "en": "Turn and face each other, hold hands."
+        "en": "Turn and face each other, hold hands.",
+        "nuance": "포즈 시작",
+        "ko": "서로 마주 보고, 손 잡아주세요.",
+        "cat": "pose"
       },
       {
         "situation": "연속 동작 (Day7)",
-        "en": "Walk toward me slowly, nice and natural."
+        "en": "Walk toward me slowly, nice and natural.",
+        "nuance": "동작 연출",
+        "ko": "저를 향해 천천히 걸어오세요, 자연스럽게요.",
+        "cat": "movement"
       },
       {
         "situation": "표정·시선 (Day8)",
-        "en": "Look at him, not at the camera."
+        "en": "Look at him, not at the camera.",
+        "nuance": "표정 연출",
+        "ko": "카메라 말고 신랑분을 봐주세요.",
+        "cat": "expression"
       },
       {
         "situation": "미세 조정 (Day9)",
-        "en": "Tilt your chin down just a little."
+        "en": "Tilt your chin down just a little.",
+        "nuance": "마무리 디테일",
+        "ko": "턱만 아주 살짝 내려주세요.",
+        "cat": "micro"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "sequence",
+        "def": "일련의 동작 순서 — 포즈부터 미세 조정까지 이어지는 흐름"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "정지 포즈 지시부터 미세 조정까지, 이번 주 표현 4개를 순서대로 이어서 30초간 말해보세요.",
+        "sample": "Turn and face each other ... walk toward me slowly ... look at him, not at the camera ... tilt your chin down just a little."
+      }
+    ],
+    "dialogue": {
+      "title": "Week 2 디렉팅 흐름 이어 말하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Turn and face each other, hold hands, let your arms relax.",
+          "ko": "서로 마주 보고, 손을 잡고, 팔에 힘을 빼주세요."
+        },
+        {
+          "who": "Couple",
+          "en": "Like this?",
+          "ko": "이렇게요?"
+        },
+        {
+          "who": "You",
+          "en": "Perfect — now walk toward me slowly, nice and natural.",
+          "ko": "완벽해요 — 이제 저를 향해 천천히, 자연스럽게 걸어오세요."
+        },
+        {
+          "who": "You",
+          "en": "Look at him, not at the camera... tilt your chin down just a little... right there.",
+          "ko": "저 말고 신랑을 보시고... 턱을 살짝만 내리시고... 바로 거기예요."
+        }
+      ]
+    },
+    "freetalk": "이번 주 디렉팅 표현 중 가장 자주 쓰게 될 것 같은 표현을 골라, 실제 촬영 컷을 상상하며 3~4문장으로 확장해 말해보세요.",
+    "quiz": [
+      {
+        "q": "디렉팅 흐름의 올바른 순서는?",
+        "choices": [
+          {
+            "text": "기본 포즈 → 연속 동작 → 표정·시선 → 미세 조정",
+            "correct": true
+          },
+          {
+            "text": "미세 조정 → 기본 포즈 → 표정·시선 → 연속 동작",
+            "correct": false
+          },
+          {
+            "text": "표정·시선 → 미세 조정 → 연속 동작 → 기본 포즈",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "Day6~9 표현을 안 보고 하나씩 말할 수 있다",
+      "포즈-동작-표정-미세조정 흐름을 이어 말할 수 있다",
+      "막혔던 표현을 기록했다"
+    ],
+    "mission": "포즈 지시부터 미세 조정까지 이번 주 표현 4개를 끊김 없이 30초간 이어 말하기.",
+    "nextHint": "다음 주는 칭찬·자신감 부여와 돌발 상황 대처를 다룹니다."
   },
   {
     "id": 11,
@@ -331,28 +1350,134 @@
     "emoji": "✨",
     "filename": "0011-specific-compliments.html",
     "review": false,
+    "goal": "막연한 칭찬 대신 구체적인 칭찬으로 자신감을 심어준다.",
+    "why": "\"좋아요\", \"예뻐요\" 같은 막연한 칭찬은 반복되면 효과가 사라집니다. 구체적인 부분을 짚어주는 칭찬이 신뢰감을 만들고 표정을 훨씬 자연스럽게 만듭니다.",
     "expressions": [
       {
         "situation": "구체적 포즈 칭찬",
-        "en": "That angle you just found is perfect for you."
+        "en": "That angle you just found is perfect for you.",
+        "nuance": "좋은 포즈가 나왔을 때",
+        "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
+        "cat": "praise"
       },
       {
         "situation": "표정 칭찬",
-        "en": "Your smile just now was so genuine."
+        "en": "Your smile just now was so genuine.",
+        "nuance": "진짜 미소가 나왔을 때",
+        "ko": "방금 그 미소 정말 진짜 같았어요.",
+        "cat": "praise"
       },
       {
         "situation": "스타일 칭찬",
-        "en": "The way you're holding the bouquet looks effortless."
+        "en": "The way you're holding the bouquet looks effortless.",
+        "nuance": "디테일한 부분 칭찬",
+        "ko": "부케 잡으신 모습이 아주 자연스러워요.",
+        "cat": "praise"
       },
       {
         "situation": "팀워크 칭찬",
-        "en": "You two work so well together in front of the camera."
+        "en": "You two work so well together in front of the camera.",
+        "nuance": "커플 전체를 칭찬할 때",
+        "ko": "두 분 카메라 앞에서 호흡이 정말 좋으세요.",
+        "cat": "praise"
       },
       {
         "situation": "발전 인정",
-        "en": "You're getting so much more comfortable already."
+        "en": "You're getting so much more comfortable already.",
+        "nuance": "긴장이 풀려가는 것을 짚어줄 때",
+        "ko": "벌써 훨씬 편해지셨어요.",
+        "cat": "praise"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "genuine",
+        "def": "진짜의, 꾸미지 않은 — 표정이나 감정을 칭찬할 때 자주 쓰는 단어"
+      },
+      {
+        "term": "effortless",
+        "def": "힘들이지 않은 듯한 — 자연스러움을 칭찬할 때 쓰는 단어"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신부가 자신의 포즈에 자신 없어 합니다. 구체적으로 칭찬해 안심시켜 주세요.",
+        "sample": "That angle you just found is perfect for you — trust it."
+      },
+      {
+        "prompt": "커플이 촬영 초반보다 훨씬 편안해졌습니다. 그 변화를 짚어주세요.",
+        "sample": "You two are getting so much more comfortable already."
+      }
+    ],
+    "dialogue": {
+      "title": "구체적으로 칭찬하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "That angle you just found is perfect for you.",
+          "ko": "방금 찾은 그 각도, 두 분한테 딱이에요."
+        },
+        {
+          "who": "Bride",
+          "en": "Really? I wasn't sure.",
+          "ko": "정말요? 확신이 없었는데."
+        },
+        {
+          "who": "You",
+          "en": "Your smile just now was so genuine — you're getting so much more comfortable already.",
+          "ko": "방금 그 미소 정말 진짜였어요 — 벌써 훨씬 편안해지셨네요."
+        },
+        {
+          "who": "Bride",
+          "en": "Thank you, that means a lot.",
+          "ko": "감사해요, 큰 힘이 되네요."
+        }
+      ]
+    },
+    "freetalk": "촬영 중 신랑신부가 자신 없어 하는 순간을 상상하고, 구체적인 칭찬으로 자신감을 심어주는 말을 3~4문장으로 이어 말해보세요.",
+    "quiz": [
+      {
+        "q": "막연한 칭찬보다 효과적인 구체적 칭찬의 예는?",
+        "choices": [
+          {
+            "text": "That angle you just found is perfect for you.",
+            "correct": true
+          },
+          {
+            "text": "You look nice.",
+            "correct": false
+          },
+          {
+            "text": "Good job.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "긴장이 풀려가는 변화를 짚어주는 표현은?",
+        "choices": [
+          {
+            "text": "You're getting so much more comfortable already.",
+            "correct": true
+          },
+          {
+            "text": "You were bad before.",
+            "correct": false
+          },
+          {
+            "text": "Finally, that's better.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "구체적인 포즈·표정 칭찬을 할 수 있다",
+      "팀워크를 칭찬하는 표현을 쓸 수 있다",
+      "긴장이 풀린 변화를 짚어줄 수 있다"
+    ],
+    "mission": "That angle you just found is perfect for you — your smile just now was so genuine.",
+    "nextHint": "내일은 날씨 변수, 시간 지연 같은 돌발 상황 대처를 다룹니다."
   },
   {
     "id": 12,
@@ -364,28 +1489,134 @@
     "emoji": "🌦️",
     "filename": "0012-handling-unexpected-situations.html",
     "review": false,
+    "goal": "날씨나 일정 변수가 생겨도 침착하고 프로페셔널하게 대응한다.",
+    "why": "야외 촬영은 날씨 변수가 잦고, 일정이 밀리는 일도 흔합니다. 당황한 티를 내지 않고 대안을 제시하는 표현을 준비해두면 신랑신부의 불안도 함께 줄어듭니다.",
     "expressions": [
       {
         "situation": "날씨 변수 안내",
-        "en": "It looks like it might rain — let's move to plan B."
+        "en": "It looks like it might rain — let's move to plan B.",
+        "nuance": "갑작스러운 날씨 변화",
+        "ko": "비가 올 것 같은데 — 플랜 B로 옮길게요.",
+        "cat": "trouble"
       },
       {
         "situation": "대안 제시",
-        "en": "We can shift to the covered area and keep shooting."
+        "en": "We can shift to the covered area and keep shooting.",
+        "nuance": "실내/그늘 대안 제시",
+        "ko": "지붕 있는 쪽으로 옮겨서 계속 찍으면 돼요.",
+        "cat": "trouble"
       },
       {
         "situation": "일정 지연 안내",
-        "en": "We're running a little behind — let's speed through the next few shots."
+        "en": "We're running a little behind — let's speed through the next few shots.",
+        "nuance": "시간이 지연될 때",
+        "ko": "일정이 조금 밀렸어요 — 다음 몇 컷은 빠르게 갈게요.",
+        "cat": "trouble"
       },
       {
         "situation": "침착함 유지 멘트",
-        "en": "No stress — we'll still get everything we need."
+        "en": "No stress — we'll still get everything we need.",
+        "nuance": "불안해하는 커플 안심",
+        "ko": "걱정 마세요 — 필요한 건 다 담을 수 있어요.",
+        "cat": "trouble"
       },
       {
         "situation": "우선순위 조정",
-        "en": "Let's prioritise the shots you care about most."
+        "en": "Let's prioritise the shots you care about most.",
+        "nuance": "시간이 부족할 때 선택과 집중",
+        "ko": "두 분이 제일 중요하게 생각하는 컷부터 갈게요.",
+        "cat": "trouble"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "plan B",
+        "def": "대안, 차선책 — 날씨나 상황 변화에 대비한 두 번째 계획"
+      },
+      {
+        "term": "run behind",
+        "def": "일정보다 늦어지다 — 시간 지연을 표현할 때 쓰는 관용구"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "갑자기 비가 내리기 시작합니다. 침착하게 대안을 제시해 주세요.",
+        "sample": "It looks like it might rain — let's move to plan B, we can shift to the covered area."
+      },
+      {
+        "prompt": "다음 장소로 이동이 늦어져 일정이 밀렸습니다. 남은 시간을 안내해 주세요.",
+        "sample": "We're running a little behind — let's prioritise the shots you care about most."
+      }
+    ],
+    "dialogue": {
+      "title": "갑자기 비가 올 때 대처하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "It looks like it might rain — let's move to plan B.",
+          "ko": "비가 올 것 같아요 — 플랜 B로 옮길게요."
+        },
+        {
+          "who": "Groom",
+          "en": "Oh no, is that a problem?",
+          "ko": "아, 문제 되나요?"
+        },
+        {
+          "who": "You",
+          "en": "Not at all — we can shift to the covered area and keep shooting.",
+          "ko": "전혀 아니에요 — 지붕 있는 곳으로 옮겨서 계속 찍을 수 있어요."
+        },
+        {
+          "who": "You",
+          "en": "No stress — we'll still get everything we need.",
+          "ko": "걱정 마세요 — 필요한 건 다 찍을 수 있어요."
+        }
+      ]
+    },
+    "freetalk": "촬영 도중 예상치 못한 변수(비, 지연, 장소 문제)가 생겼다고 가정하고, 침착하게 대응하는 멘트를 3~4문장으로 이어 말해보세요.",
+    "quiz": [
+      {
+        "q": "갑자기 비가 올 때 침착하게 쓸 표현은?",
+        "choices": [
+          {
+            "text": "It looks like it might rain — let's move to plan B.",
+            "correct": true
+          },
+          {
+            "text": "Oh no, everything is ruined.",
+            "correct": false
+          },
+          {
+            "text": "We have to stop now.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "일정이 밀렸을 때 우선순위를 조정하는 표현은?",
+        "choices": [
+          {
+            "text": "Let's prioritise the shots you care about most.",
+            "correct": true
+          },
+          {
+            "text": "We don't have time for anything now.",
+            "correct": false
+          },
+          {
+            "text": "This is your fault.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "날씨 변수에 침착하게 대안을 제시할 수 있다",
+      "일정 지연을 안내할 수 있다",
+      "불안해하는 커플을 안심시킬 수 있다"
+    ],
+    "mission": "It looks like it might rain — no stress, we'll still get everything we need.",
+    "nextHint": "내일은 무거운 대화를 가볍게 전환하는 표현을 다룹니다."
   },
   {
     "id": 13,
@@ -397,28 +1628,134 @@
     "emoji": "🔄",
     "filename": "0013-redirecting-heavy-conversations.html",
     "review": false,
+    "goal": "예민하거나 무거운 화제가 나올 때 자연스럽게 분위기를 바꾼다.",
+    "why": "가족 문제, 예산 스트레스 등 예민한 이야기가 촬영 중 나올 수 있습니다. 무시하지 않으면서도 자연스럽게 가벼운 쪽으로 전환하는 표현이 프로페셔널한 인상을 만듭니다.",
     "expressions": [
       {
         "situation": "공감 짧게 표현",
-        "en": "That sounds like a lot — I hear you."
+        "en": "That sounds like a lot — I hear you.",
+        "nuance": "무거운 이야기에 공감",
+        "ko": "많이 힘드셨겠어요 — 무슨 말씀인지 알아요.",
+        "cat": "recovery"
       },
       {
         "situation": "화제 전환 멘트",
-        "en": "Let's take a little break from that and focus on this moment."
+        "en": "Let's take a little break from that and focus on this moment.",
+        "nuance": "부드러운 전환",
+        "ko": "그 얘긴 잠깐 접어두고, 지금 이 순간에 집중해볼까요.",
+        "cat": "recovery"
       },
       {
         "situation": "현재로 주의 돌리기",
-        "en": "Right now, it's just you two — let's enjoy this part."
+        "en": "Right now, it's just you two — let's enjoy this part.",
+        "nuance": "현재 순간에 집중시키기",
+        "ko": "지금은 두 분뿐이에요 — 이 시간 그냥 즐기세요.",
+        "cat": "recovery"
       },
       {
         "situation": "긍정적 재프레이밍",
-        "en": "Whatever happens later, today is about celebrating this."
+        "en": "Whatever happens later, today is about celebrating this.",
+        "nuance": "긍정적 관점 제시",
+        "ko": "나중 일이 어떻든, 오늘은 이걸 축하하는 날이에요.",
+        "cat": "recovery"
       },
       {
         "situation": "가벼운 화제 제안",
-        "en": "Let's talk about something fun — favourite song from today's playlist?"
+        "en": "Let's talk about something fun — favourite song from today's playlist?",
+        "nuance": "가벼운 주제로 전환",
+        "ko": "재밌는 얘기 해봐요 — 오늘 플레이리스트 중에 제일 좋아하는 곡은요?",
+        "cat": "rapport"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "redirect",
+        "def": "방향을 바꾸다 — 대화 주제를 자연스럽게 전환하는 것"
+      },
+      {
+        "term": "reframe",
+        "def": "다르게 바라보게 하다 — 부정적 상황을 긍정적 관점으로 바꾸는 것"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신부가 가족 문제로 살짝 눈물을 보입니다. 공감 후 부드럽게 전환해 주세요.",
+        "sample": "That sounds like a lot — I hear you. Right now, it's just you two, let's enjoy this part."
+      },
+      {
+        "prompt": "커플이 예산 이야기로 스트레스를 받고 있습니다. 긍정적으로 재프레이밍해 주세요.",
+        "sample": "Whatever happens later, today is about celebrating this."
+      }
+    ],
+    "dialogue": {
+      "title": "예민한 화제를 가볍게 전환하기",
+      "lines": [
+        {
+          "who": "Bride",
+          "en": "Honestly, the wedding planning stress has been a lot.",
+          "ko": "솔직히 웨딩 준비 스트레스가 너무 컸어요."
+        },
+        {
+          "who": "You",
+          "en": "That sounds like a lot — I hear you.",
+          "ko": "정말 힘드셨겠어요 — 이해해요."
+        },
+        {
+          "who": "You",
+          "en": "Let's take a little break from that and focus on this moment. Right now, it's just you two.",
+          "ko": "잠깐 그 얘기는 접어두고 지금 이 순간에 집중해요. 지금은 두 분뿐이에요."
+        },
+        {
+          "who": "Bride",
+          "en": "You're right, thank you.",
+          "ko": "맞아요, 감사해요."
+        }
+      ]
+    },
+    "freetalk": "촬영 중 신랑신부가 예상치 못한 무거운 이야기를 꺼냈다고 가정하고, 공감과 전환을 함께 담은 3~4문장을 말해보세요.",
+    "quiz": [
+      {
+        "q": "무거운 이야기에 짧게 공감하는 표현은?",
+        "choices": [
+          {
+            "text": "That sounds like a lot — I hear you.",
+            "correct": true
+          },
+          {
+            "text": "That's not my problem.",
+            "correct": false
+          },
+          {
+            "text": "Let's not talk about that.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "현재 순간으로 주의를 돌리는 표현은?",
+        "choices": [
+          {
+            "text": "Right now, it's just you two — let's enjoy this part.",
+            "correct": true
+          },
+          {
+            "text": "Stop talking about that now.",
+            "correct": false
+          },
+          {
+            "text": "We don't have time for feelings.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "무거운 이야기에 짧게 공감할 수 있다",
+      "부드럽게 화제를 전환할 수 있다",
+      "긍정적으로 재프레이밍할 수 있다"
+    ],
+    "mission": "That sounds like a lot — I hear you. Right now, it's just you two, let's enjoy this part.",
+    "nextHint": "내일은 못 알아들었을 때, 실수를 회복하는 전략을 다룹니다."
   },
   {
     "id": 14,
@@ -430,28 +1767,134 @@
     "emoji": "🩹",
     "filename": "0014-recovery-strategies.html",
     "review": false,
+    "goal": "못 알아들었을 때 당황하지 않고 자연스럽게 다시 확인한다.",
+    "why": "영어 대화 중 못 알아듣는 순간은 반드시 생깁니다. 당황해서 얼버무리는 대신, 정중하게 다시 물어보는 표현을 준비해두면 오히려 더 프로페셔널하게 보입니다.",
     "expressions": [
       {
         "situation": "정중히 다시 묻기",
-        "en": "Sorry, could you say that one more time?"
+        "en": "Sorry, could you say that one more time?",
+        "nuance": "못 알아들었을 때",
+        "ko": "죄송해요, 한 번만 더 말씀해 주시겠어요?",
+        "cat": "recovery"
       },
       {
         "situation": "천천히 말해달라 요청",
-        "en": "Could you say that a little slower for me?"
+        "en": "Could you say that a little slower for me?",
+        "nuance": "속도가 빨라 놓쳤을 때",
+        "ko": "조금만 천천히 말씀해 주시겠어요?",
+        "cat": "recovery"
       },
       {
         "situation": "확인 질문",
-        "en": "Just to make sure — did you mean the garden or the beach?"
+        "en": "Just to make sure — did you mean the garden or the beach?",
+        "nuance": "일부만 들렸을 때 확인",
+        "ko": "확인차 여쭤볼게요 — 정원 말씀이세요, 해변 말씀이세요?",
+        "cat": "recovery"
       },
       {
         "situation": "내 말 정정",
-        "en": "Sorry, what I meant to say was..."
+        "en": "Sorry, what I meant to say was...",
+        "nuance": "내가 실수로 잘못 말했을 때",
+        "ko": "죄송해요, 제가 말하려던 건요…",
+        "cat": "recovery"
       },
       {
         "situation": "이해했다고 확인",
-        "en": "Got it, that makes sense now — thank you."
+        "en": "Got it, that makes sense now — thank you.",
+        "nuance": "다시 듣고 이해했을 때",
+        "ko": "아 이해했어요, 이제 알겠네요 — 감사합니다.",
+        "cat": "recovery"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "catch that",
+        "def": "알아듣다 — \"I didn't catch that\"처럼 못 들었을 때 쓰는 표현"
+      },
+      {
+        "term": "to make sure",
+        "def": "확실히 하기 위해 — 재확인 질문을 시작할 때 쓰는 표현"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신랑이 빠르게 말해서 절반만 알아들었습니다. 정중히 다시 요청해 보세요.",
+        "sample": "Sorry, could you say that a little slower for me?"
+      },
+      {
+        "prompt": "장소를 정확히 못 들어서 재확인이 필요합니다.",
+        "sample": "Just to make sure — did you mean the garden or the beach?"
+      }
+    ],
+    "dialogue": {
+      "title": "못 알아들었을 때 정중하게 다시 묻기",
+      "lines": [
+        {
+          "who": "Bride",
+          "en": "We'd love a few shots near the... (unclear).",
+          "ko": "저희는 ...쪽에서 몇 장 찍고 싶어요 (불명확)."
+        },
+        {
+          "who": "You",
+          "en": "Sorry, could you say that a little slower for me?",
+          "ko": "죄송해요, 조금만 더 천천히 말씀해 주시겠어요?"
+        },
+        {
+          "who": "Bride",
+          "en": "Near the fountain, in the garden.",
+          "ko": "정원에 있는 분수 근처요."
+        },
+        {
+          "who": "You",
+          "en": "Got it, that makes sense now — thank you.",
+          "ko": "알겠어요, 이제 이해했어요 — 감사합니다."
+        }
+      ]
+    },
+    "freetalk": "대화 중 중요한 부분을 놓쳤다고 가정하고, 당황하지 않고 정중하게 다시 확인하는 3~4문장의 대화를 말해보세요.",
+    "quiz": [
+      {
+        "q": "상대의 말을 못 알아들었을 때 가장 정중한 표현은?",
+        "choices": [
+          {
+            "text": "Sorry, could you say that one more time?",
+            "correct": true
+          },
+          {
+            "text": "What? I didn't hear anything.",
+            "correct": false
+          },
+          {
+            "text": "Never mind, forget it.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "일부만 들려서 재확인할 때 쓰는 표현은?",
+        "choices": [
+          {
+            "text": "Just to make sure — did you mean the garden or the beach?",
+            "correct": true
+          },
+          {
+            "text": "I think you said something.",
+            "correct": false
+          },
+          {
+            "text": "Whatever you said is fine.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "못 알아들었을 때 정중히 다시 물을 수 있다",
+      "천천히 말해달라고 요청할 수 있다",
+      "재확인 질문으로 정확히 이해할 수 있다"
+    ],
+    "mission": "Sorry, could you say that a little slower for me? Just to make sure — did you mean the garden or the beach?",
+    "nextHint": "내일은 이번 주 표현을 모두 이어 말하는 복습 롤플레이입니다."
   },
   {
     "id": 15,
@@ -463,24 +1906,107 @@
     "emoji": "🔁",
     "filename": "0015-week-3-review-roleplay.html",
     "review": true,
+    "goal": "칭찬, 돌발 상황 대처, 화제 전환, 실수 회복을 하나의 상황극으로 이어 말한다.",
+    "why": "칭찬과 위기 대응은 촬영 중 예고 없이 섞여서 나옵니다. 이번 주 네 가지 표현을 하나의 상황극으로 이어 말하면서, 순발력을 함께 키웁니다.",
     "expressions": [
       {
         "situation": "구체적 칭찬 (Day11)",
-        "en": "That angle you just found is perfect for you."
+        "en": "That angle you just found is perfect for you.",
+        "nuance": "자신감 부여",
+        "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
+        "cat": "praise"
       },
       {
         "situation": "돌발 상황 (Day12)",
-        "en": "It looks like it might rain — let's move to plan B."
+        "en": "It looks like it might rain — let's move to plan B.",
+        "nuance": "변수 대처",
+        "ko": "비가 올 것 같은데 — 플랜 B로 옮길게요.",
+        "cat": "trouble"
       },
       {
         "situation": "화제 전환 (Day13)",
-        "en": "Right now, it's just you two — let's enjoy this part."
+        "en": "Right now, it's just you two — let's enjoy this part.",
+        "nuance": "분위기 전환",
+        "ko": "지금은 두 분뿐이에요 — 이 시간 그냥 즐기세요.",
+        "cat": "recovery"
       },
       {
         "situation": "실수 회복 (Day14)",
-        "en": "Sorry, could you say that a little slower for me?"
+        "en": "Sorry, could you say that a little slower for me?",
+        "nuance": "재확인",
+        "ko": "죄송해요, 조금만 천천히 말씀해 주시겠어요?",
+        "cat": "recovery"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "on the spot",
+        "def": "즉석에서 — 예고 없이 바로 대응해야 하는 상황"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "칭찬 → 돌발 상황(비) → 무거운 이야기 전환까지, 이번 주 표현을 이어서 40초간 말해보세요.",
+        "sample": "That angle you just found is perfect ... it looks like it might rain, let's move to plan B ... that sounds like a lot, I hear you."
+      }
+    ],
+    "dialogue": {
+      "title": "Week 3 상황극 이어 말하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "That angle you just found is perfect for you.",
+          "ko": "방금 그 각도 두 분한테 딱이에요."
+        },
+        {
+          "who": "Groom",
+          "en": "Oh — it's starting to rain a bit.",
+          "ko": "어 — 비가 좀 오기 시작하네요."
+        },
+        {
+          "who": "You",
+          "en": "It looks like it might rain — let's move to plan B, we'll be fine.",
+          "ko": "비가 올 것 같네요 — 플랜 B로 갈게요, 괜찮을 거예요."
+        },
+        {
+          "who": "Bride",
+          "en": "Sorry, this whole week has been so stressful with planning.",
+          "ko": "죄송해요, 이번 주 내내 준비 때문에 너무 스트레스였어요."
+        },
+        {
+          "who": "You",
+          "en": "That sounds like a lot — I hear you. Right now, it's just you two.",
+          "ko": "정말 힘드셨겠어요 — 지금은 두 분뿐이에요."
+        }
+      ]
+    },
+    "freetalk": "이번 주 배운 네 가지 표현 중 실제 촬영에서 가장 자주 쓸 것 같은 상황을 골라 3~4문장으로 확장해 말해보세요.",
+    "quiz": [
+      {
+        "q": "이번 주 상황극에서 다뤄진 요소가 아닌 것은?",
+        "choices": [
+          {
+            "text": "포즈 미세 조정",
+            "correct": true
+          },
+          {
+            "text": "구체적 칭찬",
+            "correct": false
+          },
+          {
+            "text": "돌발 상황 대처",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "Day11~14 표현을 안 보고 하나씩 말할 수 있다",
+      "칭찬과 위기 대응을 자연스럽게 섞어 말할 수 있다",
+      "막혔던 표현을 기록했다"
+    ],
+    "mission": "칭찬-돌발상황-화제전환-실수회복 네 표현을 하나의 상황극으로 40초간 이어 말하기.",
+    "nextHint": "다음 주는 마무리 인사와 종합 프리토킹으로 4주 커리큘럼을 마무리합니다."
   },
   {
     "id": 16,
@@ -492,28 +2018,134 @@
     "emoji": "🙏",
     "filename": "0016-wrap-up-thank-you.html",
     "review": false,
+    "goal": "촬영을 마칠 때 따뜻하고 프로페셔널한 인상을 남긴다.",
+    "why": "마지막 인사는 신랑신부에게 남는 최종 인상입니다. 형식적인 인사보다 오늘 촬영에 대한 구체적인 소감을 담은 마무리가 재추천·후기로 이어집니다.",
     "expressions": [
       {
         "situation": "촬영 종료 안내",
-        "en": "That's a wrap — you two did amazing today."
+        "en": "That's a wrap — you two did amazing today.",
+        "nuance": "촬영 마무리 선언",
+        "ko": "오늘 촬영 끝났습니다 — 두 분 정말 잘해주셨어요.",
+        "cat": "wrap"
       },
       {
         "situation": "구체적 소감 전달",
-        "en": "My favourite moment was when you both laughed by the fountain."
+        "en": "My favourite moment was when you both laughed by the fountain.",
+        "nuance": "구체적인 하이라이트 언급",
+        "ko": "오늘 제일 좋았던 순간은 분수대 앞에서 두 분이 같이 웃던 때예요.",
+        "cat": "wrap"
       },
       {
         "situation": "다음 절차 안내",
-        "en": "I'll send a few previews within a couple of days."
+        "en": "I'll send a few previews within a couple of days.",
+        "nuance": "결과물 일정 안내",
+        "ko": "이삼 일 안에 미리보기 몇 장 보내드릴게요.",
+        "cat": "wrap"
       },
       {
         "situation": "감사 표현",
-        "en": "Thank you for trusting me with your day."
+        "en": "Thank you for trusting me with your day.",
+        "nuance": "진심 어린 감사 인사",
+        "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
+        "cat": "wrap"
       },
       {
         "situation": "여운 남기는 인사",
-        "en": "I hope today felt as special as it looked."
+        "en": "I hope today felt as special as it looked.",
+        "nuance": "마지막 인사",
+        "ko": "오늘이 보이는 만큼이나 특별하게 느껴지셨길 바라요.",
+        "cat": "wrap"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "that's a wrap",
+        "def": "촬영 끝, 종료 — 영화/촬영 현장에서 쓰는 관용 표현"
+      },
+      {
+        "term": "preview",
+        "def": "미리보기 — 전체 편집 전 미리 보내주는 일부 사진"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "촬영을 마치고 신랑신부에게 오늘 가장 좋았던 순간을 구체적으로 이야기해 보세요.",
+        "sample": "My favourite moment was when you both laughed by the fountain."
+      },
+      {
+        "prompt": "다음 결과물 전달 일정을 안내해 주세요.",
+        "sample": "I'll send a few previews within a couple of days."
+      }
+    ],
+    "dialogue": {
+      "title": "촬영 마무리 인사하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "That's a wrap — you two did amazing today.",
+          "ko": "오늘 촬영 끝났어요 — 두 분 정말 잘하셨어요."
+        },
+        {
+          "who": "Bride",
+          "en": "Thank you so much, it was so much fun.",
+          "ko": "정말 감사해요, 너무 즐거웠어요."
+        },
+        {
+          "who": "You",
+          "en": "My favourite moment was when you both laughed by the fountain. I'll send a few previews within a couple of days.",
+          "ko": "제가 제일 좋았던 순간은 분수 옆에서 두 분이 웃었던 순간이었어요. 며칠 안에 미리보기 몇 장 보내드릴게요."
+        },
+        {
+          "who": "You",
+          "en": "Thank you for trusting me with your day.",
+          "ko": "오늘을 저에게 맡겨주셔서 감사해요."
+        }
+      ]
+    },
+    "freetalk": "오늘 촬영을 마쳤다고 가정하고, 구체적인 하이라이트와 감사 인사를 담은 마무리 멘트를 3~4문장으로 말해보세요.",
+    "quiz": [
+      {
+        "q": "촬영 종료를 알리는 자연스러운 표현은?",
+        "choices": [
+          {
+            "text": "That's a wrap — you two did amazing today.",
+            "correct": true
+          },
+          {
+            "text": "We're done, you can go now.",
+            "correct": false
+          },
+          {
+            "text": "Finally finished.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "결과물 전달 일정을 안내하는 표현은?",
+        "choices": [
+          {
+            "text": "I'll send a few previews within a couple of days.",
+            "correct": true
+          },
+          {
+            "text": "You'll get it whenever.",
+            "correct": false
+          },
+          {
+            "text": "Don't ask me about the photos.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "촬영 종료를 자연스럽게 선언할 수 있다",
+      "구체적인 하이라이트를 언급할 수 있다",
+      "진심 어린 감사 인사를 할 수 있다"
+    ],
+    "mission": "That's a wrap — my favourite moment was when you both laughed by the fountain. Thank you for trusting me with your day.",
+    "nextHint": "내일은 결과물 후기 요청, 만족도 확인 대화를 다룹니다."
   },
   {
     "id": 17,
@@ -525,28 +2157,134 @@
     "emoji": "📸",
     "filename": "0017-following-up-on-deliverables.html",
     "review": false,
+    "goal": "결과물 전달 후 자연스럽게 만족도를 확인하고 후기를 요청한다.",
+    "why": "결과물 전달 후 대화는 재구매·추천으로 이어지는 중요한 접점입니다. 부담스럽지 않게 만족도를 확인하고 후기를 요청하는 표현이 비즈니스에 직접적으로 도움이 됩니다.",
     "expressions": [
       {
         "situation": "결과물 전달 안내",
-        "en": "Your gallery is ready — I've linked it below."
+        "en": "Your gallery is ready — I've linked it below.",
+        "nuance": "결과물 전달 멘트",
+        "ko": "갤러리 준비됐어요 — 아래 링크 넣어드렸습니다.",
+        "cat": "after"
       },
       {
         "situation": "만족도 확인",
-        "en": "Let me know what you think once you've had a look."
+        "en": "Let me know what you think once you've had a look.",
+        "nuance": "부담 없는 피드백 요청",
+        "ko": "보시고 어떠신지 알려주세요.",
+        "cat": "after"
       },
       {
         "situation": "구체적 피드백 유도",
-        "en": "Do these capture the day the way you imagined?"
+        "en": "Do these capture the day the way you imagined?",
+        "nuance": "구체적인 만족도 질문",
+        "ko": "생각하셨던 그날의 느낌이 잘 담겼나요?",
+        "cat": "after"
       },
       {
         "situation": "후기 요청",
-        "en": "If you loved them, a short review would mean a lot to me."
+        "en": "If you loved them, a short review would mean a lot to me.",
+        "nuance": "부담을 낮춘 후기 요청",
+        "ko": "마음에 드셨다면 짧은 후기 하나 남겨주시면 정말 큰 힘이 돼요.",
+        "cat": "after"
       },
       {
         "situation": "추가 요청 대응",
-        "en": "If there's anything you'd like adjusted, just let me know."
+        "en": "If there's anything you'd like adjusted, just let me know.",
+        "nuance": "수정 요청에 열려있음을 표현",
+        "ko": "수정하고 싶으신 부분 있으면 편하게 말씀해 주세요.",
+        "cat": "after"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "gallery",
+        "def": "온라인으로 전달하는 사진첩 — 결과물을 공유하는 링크"
+      },
+      {
+        "term": "mean a lot",
+        "def": "큰 의미가 있다 — 부탁을 정중하게 표현할 때 쓰는 관용구"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "결과물을 전달한 후 자연스럽게 만족도를 확인해 보세요.",
+        "sample": "Let me know what you think once you've had a look — do these capture the day the way you imagined?"
+      },
+      {
+        "prompt": "고객이 결과물에 매우 만족한다고 답했습니다. 부담 없이 후기를 요청해 보세요.",
+        "sample": "If you loved them, a short review would mean a lot to me."
+      }
+    ],
+    "dialogue": {
+      "title": "결과물 전달 후 대화하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Your gallery is ready — I've linked it below. Let me know what you think.",
+          "ko": "갤러리 준비됐어요 — 아래 링크 걸어드렸어요. 보시고 어떤지 알려주세요."
+        },
+        {
+          "who": "Bride",
+          "en": "Oh my gosh, these are beautiful!",
+          "ko": "세상에, 정말 아름다워요!"
+        },
+        {
+          "who": "You",
+          "en": "I'm so glad — do these capture the day the way you imagined?",
+          "ko": "정말 다행이에요 — 상상하셨던 그날의 느낌이 잘 담겼나요?"
+        },
+        {
+          "who": "You",
+          "en": "If you loved them, a short review would mean a lot to me.",
+          "ko": "마음에 드셨다면 짧은 후기 하나가 저에게 큰 힘이 될 것 같아요."
+        }
+      ]
+    },
+    "freetalk": "결과물을 전달한 뒤 고객이 아주 만족스러운 반응을 보였다고 가정하고, 감사와 후기 요청을 자연스럽게 이어가는 3~4문장을 말해보세요.",
+    "quiz": [
+      {
+        "q": "결과물을 전달하며 자연스럽게 만족도를 물을 때 쓰는 표현은?",
+        "choices": [
+          {
+            "text": "Let me know what you think once you've had a look.",
+            "correct": true
+          },
+          {
+            "text": "You better like them.",
+            "correct": false
+          },
+          {
+            "text": "Tell me if they're bad.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "부담을 낮춘 후기 요청 표현은?",
+        "choices": [
+          {
+            "text": "If you loved them, a short review would mean a lot to me.",
+            "correct": true
+          },
+          {
+            "text": "You have to leave a review now.",
+            "correct": false
+          },
+          {
+            "text": "Reviews are required.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "결과물 전달을 자연스럽게 안내할 수 있다",
+      "부담 없이 만족도를 확인할 수 있다",
+      "부담 없이 후기를 요청할 수 있다"
+    ],
+    "mission": "Your gallery is ready — let me know what you think, and if you loved them, a short review would mean a lot to me.",
+    "nextHint": "내일은 다양한 국적/문화권 고객 응대 팁을 다룹니다."
   },
   {
     "id": 18,
@@ -558,28 +2296,139 @@
     "emoji": "🌍",
     "filename": "0018-cross-cultural-client-communication.html",
     "review": false,
+    "goal": "문화적 배경이 다른 고객에게도 편안하고 존중받는 느낌을 준다.",
+    "why": "국제커플 촬영이 많은 만큼, 문화마다 다른 스킨십·감정 표현 정도를 존중하는 태도가 중요합니다. 직접 묻는 표현을 준비해두면 실수 없이 배려할 수 있습니다.",
     "expressions": [
       {
         "situation": "편안함 정도 확인",
-        "en": "Are you comfortable with closer poses, or would you prefer more space?"
+        "en": "Are you comfortable with closer poses, or would you prefer more space?",
+        "nuance": "스킨십 정도 확인",
+        "ko": "가까운 포즈도 괜찮으세요, 아니면 조금 떨어진 게 편하세요?",
+        "cat": "culture"
       },
       {
         "situation": "전통 존중 질문",
-        "en": "Is there a tradition from your culture you'd like us to capture?"
+        "en": "Is there a tradition from your culture you'd like us to capture?",
+        "nuance": "문화적 요소 반영",
+        "ko": "두 분 문화에서 꼭 담고 싶은 전통이 있을까요?",
+        "cat": "culture"
       },
       {
         "situation": "호칭 확인",
-        "en": "How would you like me to refer to you both in photos — first names is fine?"
+        "en": "How would you like me to refer to you both in photos — first names is fine?",
+        "nuance": "호칭 배려",
+        "ko": "사진에서 두 분을 어떻게 불러드리면 될까요 — 이름으로 불러도 괜찮을까요?",
+        "cat": "culture"
       },
       {
         "situation": "배려 표현",
-        "en": "Just let me know if anything feels uncomfortable, and we'll adjust."
+        "en": "Just let me know if anything feels uncomfortable, and we'll adjust.",
+        "nuance": "언제든 조정 가능함을 알림",
+        "ko": "불편한 게 있으면 언제든 말씀해 주세요, 바로 조정할게요.",
+        "cat": "culture"
       },
       {
         "situation": "공통점 찾기 멘트",
-        "en": "I love learning about different wedding traditions — tell me more."
+        "en": "I love learning about different wedding traditions — tell me more.",
+        "nuance": "호기심으로 친밀감 형성",
+        "ko": "다양한 결혼 문화 배우는 걸 좋아해요 — 더 얘기해 주세요.",
+        "cat": "culture"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "cultural sensitivity",
+        "def": "문화적 감수성 — 다른 문화적 배경을 존중하는 태도"
+      },
+      {
+        "term": "comfortable with",
+        "def": "~에 편안한 — 신체적 거리나 포즈에 대한 선호를 물을 때 쓰는 표현"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "처음 만나는 국제커플에게 스킨십 정도를 자연스럽게 확인해 보세요.",
+        "sample": "Are you comfortable with closer poses, or would you prefer more space?"
+      },
+      {
+        "prompt": "고객이 특별한 문화적 전통을 언급했습니다. 관심을 갖고 더 물어봐 주세요.",
+        "sample": "I love learning about different wedding traditions — tell me more."
+      }
+    ],
+    "dialogue": {
+      "title": "문화적 배경을 배려하며 대화하기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Are you comfortable with closer poses, or would you prefer more space?",
+          "ko": "가까운 포즈가 편하신가요, 아니면 좀 더 거리가 편하신가요?"
+        },
+        {
+          "who": "Groom",
+          "en": "Closer is totally fine for us.",
+          "ko": "저희는 가까운 것도 전혀 괜찮아요."
+        },
+        {
+          "who": "You",
+          "en": "Great — is there a tradition from your culture you'd like us to capture today?",
+          "ko": "좋아요 — 오늘 담고 싶은 문화적인 전통이 있나요?"
+        },
+        {
+          "who": "Bride",
+          "en": "Actually, yes — there's a tea ceremony moment.",
+          "ko": "사실 있어요 — 차 예식 순간이요."
+        },
+        {
+          "who": "You",
+          "en": "I love learning about different wedding traditions — tell me more.",
+          "ko": "다른 결혼 전통을 배우는 걸 정말 좋아해요 — 더 얘기해 주세요."
+        }
+      ]
+    },
+    "freetalk": "문화적 배경이 다른 커플을 촬영한다고 가정하고, 배려하는 태도로 대화를 여는 3~4문장을 말해보세요.",
+    "quiz": [
+      {
+        "q": "스킨십 정도를 존중하며 확인하는 표현은?",
+        "choices": [
+          {
+            "text": "Are you comfortable with closer poses, or would you prefer more space?",
+            "correct": true
+          },
+          {
+            "text": "Just get closer, it's fine.",
+            "correct": false
+          },
+          {
+            "text": "Why are you so far apart?",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "문화적 전통을 반영하고 싶을 때 물어볼 표현은?",
+        "choices": [
+          {
+            "text": "Is there a tradition from your culture you'd like us to capture?",
+            "correct": true
+          },
+          {
+            "text": "Do you have any weird customs?",
+            "correct": false
+          },
+          {
+            "text": "We don't do that kind of thing here.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "스킨십 정도를 존중하며 확인할 수 있다",
+      "문화적 전통에 대해 물어볼 수 있다",
+      "호기심 어린 태도로 친밀감을 형성할 수 있다"
+    ],
+    "mission": "Are you comfortable with closer poses, or would you prefer more space? Is there a tradition you'd like us to capture?",
+    "nextHint": "내일은 종합 자유주제 프리토킹으로 4주 표현을 자유롭게 활용합니다."
   },
   {
     "id": 19,
@@ -590,29 +2439,100 @@
     "topicEn": "Comprehensive Freetalk",
     "emoji": "🗣️",
     "filename": "0019-comprehensive-freetalk.html",
-    "review": false,
+    "review": true,
+    "goal": "4주간 배운 표현을 특정 주제 없이 자유롭게 조합해 말한다.",
+    "why": "실전에서는 정해진 순서 없이 상황이 섞여서 옵니다. 오늘은 정답 스크립트 없이, 지금까지 배운 표현을 자유롭게 조합해 순발력을 키우는 날입니다.",
     "expressions": [
       {
         "situation": "도입 표현 예시",
-        "en": "You made it! How are you feeling today?"
+        "en": "You made it! How are you feeling today?",
+        "nuance": "라포 형성 표현 재사용",
+        "ko": "오셨네요! 오늘 기분 어떠세요?",
+        "cat": "arrival"
       },
       {
         "situation": "디렉팅 표현 예시",
-        "en": "Turn and face each other, hold right there."
+        "en": "Turn and face each other, hold right there.",
+        "nuance": "디렉팅 표현 재사용",
+        "ko": "서로 마주 보시고, 거기서 그대로요.",
+        "cat": "pose"
       },
       {
         "situation": "칭찬 표현 예시",
-        "en": "That was such a genuine smile."
+        "en": "That was such a genuine smile.",
+        "nuance": "자신감 부여 표현 재사용",
+        "ko": "방금 그거 진짜 진심 어린 미소였어요.",
+        "cat": "praise"
       },
       {
         "situation": "상황 대처 표현 예시",
-        "en": "No stress — we'll figure it out together."
+        "en": "No stress — we'll figure it out together.",
+        "nuance": "돌발 상황 표현 재사용",
+        "ko": "걱정 마세요 — 같이 해결하면 돼요.",
+        "cat": "trouble"
       },
       {
         "situation": "마무리 표현 예시",
-        "en": "Thank you for trusting me with your day."
+        "en": "Thank you for trusting me with your day.",
+        "nuance": "마무리 표현 재사용",
+        "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
+        "cat": "wrap"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "freetalk",
+        "def": "자유 발화 — 정해진 스크립트 없이 즉흥적으로 말하는 연습"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "가상의 신랑신부를 만났다고 가정하고, 도착 인사 → 디렉팅 → 칭찬 → 돌발 상황 → 마무리까지 자유롭게 이어 말해보세요.",
+        "sample": "You made it! ... Turn and face each other ... that was such a genuine smile ... no stress, we'll figure it out ... thank you for trusting me with your day."
+      }
+    ],
+    "dialogue": {
+      "title": "자유 시나리오 (스크립트 없음)",
+      "lines": [
+        {
+          "who": "Narrator",
+          "en": "오늘은 정해진 대화 스크립트가 없습니다.",
+          "ko": "아래 프롬프트로 직접 상황을 만들어 말해보세요."
+        },
+        {
+          "who": "Prompt",
+          "en": "가상의 커플을 만나 도착 인사부터 마무리 인사까지 3분간 자유롭게 이어가 보세요.",
+          "ko": "4주 표현을 자유롭게 조합"
+        }
+      ]
+    },
+    "freetalk": "오늘은 특정 프롬프트 없이, 최근 촬영에서 실제로 겪었던 (또는 겪을 법한) 상황 하나를 골라 처음부터 끝까지 영어로 이야기해 보세요.",
+    "quiz": [
+      {
+        "q": "오늘 학습의 목표에 가장 가까운 것은?",
+        "choices": [
+          {
+            "text": "정해진 답 없이 배운 표현을 자유롭게 조합해 말하기",
+            "correct": true
+          },
+          {
+            "text": "새로운 표현 10개 암기하기",
+            "correct": false
+          },
+          {
+            "text": "문법 규칙 정리하기",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "4주 표현 중 3개 이상을 자유롭게 조합해 말할 수 있다",
+      "막힘 없이 3분 이상 이어 말할 수 있다",
+      "가장 자신 있는 주제와 약한 주제를 구분할 수 있다"
+    ],
+    "mission": "가상의 촬영 상황을 처음부터 끝까지 3분간 자유롭게 영어로 이어 말하기.",
+    "nextHint": "내일은 4주 전체를 종합하는 마지막 롤플레이와 자가 평가입니다."
   },
   {
     "id": 20,
@@ -624,23 +2544,101 @@
     "emoji": "🏁",
     "filename": "0020-4-week-comprehensive-roleplay-self-asses.html",
     "review": true,
+    "goal": "4주간 배운 전체 흐름을 처음부터 끝까지 롤플레이로 이어 말하고, 스스로 평가한다.",
+    "why": "한 사이클의 마지막 날입니다. 도착부터 마무리 인사까지 전체 촬영을 롤플레이로 재현하며, 다음 사이클에서 강화할 부분을 스스로 찾아냅니다.",
     "expressions": [
       {
         "situation": "Week1 대표 표현",
-        "en": "You made it! You both look amazing already."
+        "en": "You made it! You both look amazing already.",
+        "nuance": "도착·라포",
+        "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
+        "cat": "arrival"
       },
       {
         "situation": "Week2 대표 표현",
-        "en": "Turn and face each other, hold right there."
+        "en": "Turn and face each other, hold right there.",
+        "nuance": "디렉팅",
+        "ko": "서로 마주 보시고, 거기서 그대로요.",
+        "cat": "pose"
       },
       {
         "situation": "Week3 대표 표현",
-        "en": "That angle you just found is perfect for you."
+        "en": "That angle you just found is perfect for you.",
+        "nuance": "칭찬·상황대처",
+        "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
+        "cat": "praise"
       },
       {
         "situation": "Week4 대표 표현",
-        "en": "Thank you for trusting me with your day."
+        "en": "Thank you for trusting me with your day.",
+        "nuance": "마무리",
+        "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
+        "cat": "wrap"
       }
-    ]
+    ],
+    "glossary": [
+      {
+        "term": "cycle",
+        "def": "사이클 — 4주 커리큘럼 한 바퀴, 다음 사이클은 난이도가 한 단계 올라감"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "도착부터 마무리까지, 4주간 배운 대표 표현 4개를 순서대로 이어 90초간 말해보세요.",
+        "sample": "You made it! ... Turn and face each other, hold right there ... that angle you just found is perfect for you ... thank you for trusting me with your day."
+      }
+    ],
+    "dialogue": {
+      "title": "4주 전체 흐름 롤플레이",
+      "lines": [
+        {
+          "who": "You",
+          "en": "You made it! You both look amazing already.",
+          "ko": "도착했네요! 두 분 다 벌써 멋져요."
+        },
+        {
+          "who": "Couple",
+          "en": "Thank you, we're so excited.",
+          "ko": "감사해요, 너무 설레요."
+        },
+        {
+          "who": "You",
+          "en": "Turn and face each other, hold right there — that angle is perfect for you.",
+          "ko": "서로 마주 보시고, 거기서 멈춰주세요 — 그 각도 딱이에요."
+        },
+        {
+          "who": "You",
+          "en": "That's a wrap — thank you for trusting me with your day.",
+          "ko": "촬영 끝났어요 — 오늘을 저에게 맡겨주셔서 감사해요."
+        }
+      ]
+    },
+    "freetalk": "지난 4주를 돌아보며, 가장 자신 있어진 부분과 아직 막히는 부분을 각각 2문장씩 영어로 말해보세요.",
+    "quiz": [
+      {
+        "q": "다음 사이클(2회차)부터 달라지는 점은?",
+        "choices": [
+          {
+            "text": "예시 답 없이 바로 시나리오가 주어지고 즉흥성이 요구된다",
+            "correct": true
+          },
+          {
+            "text": "모든 표현이 새로 바뀐다",
+            "correct": false
+          },
+          {
+            "text": "난이도가 낮아진다",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "4주 대표 표현 4개를 안 보고 이어 말할 수 있다",
+      "가장 자신 있는 주제를 말할 수 있다",
+      "다음 사이클에서 강화할 부분을 기록했다"
+    ],
+    "mission": "도착부터 마무리까지, 4주 대표 표현을 90초 안에 끊김 없이 이어 말하기.",
+    "nextHint": "2사이클이 시작됩니다 — 같은 순서, 더 높은 즉흥성 요구 수준으로 진행됩니다."
   }
 ]

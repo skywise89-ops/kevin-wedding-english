@@ -1,0 +1,1543 @@
+{
+  "categories": [
+    {
+      "id": "arrival",
+      "label": "도착·첫인사",
+      "emoji": "🚗"
+    },
+    {
+      "id": "rapport",
+      "label": "스몰토크·라포",
+      "emoji": "💬"
+    },
+    {
+      "id": "pose",
+      "label": "포즈 디렉팅",
+      "emoji": "🧍"
+    },
+    {
+      "id": "movement",
+      "label": "동작·연출",
+      "emoji": "🚶"
+    },
+    {
+      "id": "expression",
+      "label": "표정·시선",
+      "emoji": "😊"
+    },
+    {
+      "id": "micro",
+      "label": "미세 조정",
+      "emoji": "🎚️"
+    },
+    {
+      "id": "praise",
+      "label": "칭찬·자신감",
+      "emoji": "👏"
+    },
+    {
+      "id": "group",
+      "label": "가족·단체",
+      "emoji": "👨‍👩‍👧"
+    },
+    {
+      "id": "trouble",
+      "label": "돌발 상황",
+      "emoji": "🌧️"
+    },
+    {
+      "id": "recovery",
+      "label": "못 알아들었을 때",
+      "emoji": "🔁"
+    },
+    {
+      "id": "logistics",
+      "label": "이동·시간 안내",
+      "emoji": "⏱️"
+    },
+    {
+      "id": "wrap",
+      "label": "마무리·감사",
+      "emoji": "🏁"
+    },
+    {
+      "id": "after",
+      "label": "결과물·후기",
+      "emoji": "📩"
+    },
+    {
+      "id": "culture",
+      "label": "문화·배려",
+      "emoji": "🌍"
+    }
+  ],
+  "phrases": [
+    {
+      "id": "you-made-it-you-both-look-amazing-already",
+      "en": "You made it! You both look amazing already.",
+      "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
+      "cat": "arrival",
+      "situation": "도착 환영",
+      "nuance": "차 문 열어주며 자연스럽게",
+      "lessons": [
+        1,
+        5,
+        20
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "watch-your-step-let-me-get-that-door-for-you",
+      "en": "Watch your step — let me get that door for you.",
+      "ko": "발밑 조심하세요 — 제가 문 잡아드릴게요.",
+      "cat": "arrival",
+      "situation": "차량 하차 안내",
+      "nuance": "드레스 밟지 않게 안내할 때",
+      "lessons": [
+        1
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "i-love-the-colour-palette-today",
+      "en": "I love the colour palette today.",
+      "ko": "오늘 색감 조합이 정말 좋네요.",
+      "cat": "arrival",
+      "situation": "첫인상 칭찬",
+      "nuance": "부케/전체 톤을 보고 바로",
+      "lessons": [
+        1
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "how-are-you-both-feeling-excited-nervous-a-bit-o",
+      "en": "How are you both feeling — excited, nervous, a bit of both?",
+      "ko": "두 분 지금 기분 어떠세요 — 설레세요, 긴장되세요, 아니면 둘 다요?",
+      "cat": "arrival",
+      "situation": "컨디션 체크",
+      "nuance": "라포 형성 시작 질문",
+      "lessons": [
+        1
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "we-ve-got-a-beautiful-couple-of-hours-ahead-let-",
+      "en": "We've got a beautiful couple of hours ahead — let's start easy.",
+      "ko": "앞으로 두어 시간 좋은 시간 보낼 거예요 — 편한 것부터 시작할게요.",
+      "cat": "arrival",
+      "situation": "일정 예고",
+      "nuance": "촬영 흐름을 미리 알려줄 때",
+      "lessons": [
+        1
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-made-it-how-are-you-feeling-today",
+      "en": "You made it! How are you feeling today?",
+      "ko": "오셨네요! 오늘 기분 어떠세요?",
+      "cat": "arrival",
+      "situation": "도입",
+      "nuance": "라포 형성 표현 재사용",
+      "lessons": [
+        19
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "hi-i-m-kevin-i-ll-be-your-photographer-today",
+      "en": "Hi! I'm Kevin — I'll be your photographer today.",
+      "ko": "안녕하세요, 오늘 촬영 맡은 케빈입니다.",
+      "cat": "arrival",
+      "situation": "자기소개",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "so-nice-to-finally-meet-you-in-person",
+      "en": "So nice to finally meet you in person.",
+      "ko": "이렇게 직접 뵙게 되어 반갑습니다.",
+      "cat": "arrival",
+      "situation": "첫 대면",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "take-your-time-we-re-not-in-a-rush-at-all",
+      "en": "Take your time — we're not in a rush at all.",
+      "ko": "천천히 하세요, 전혀 급하지 않아요.",
+      "cat": "arrival",
+      "situation": "여유 주기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "can-i-get-you-some-water-before-we-start",
+      "en": "Can I get you some water before we start?",
+      "ko": "시작하기 전에 물 좀 갖다 드릴까요?",
+      "cat": "arrival",
+      "situation": "배려",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "we-ll-start-right-here-then-move-to-the-garden",
+      "en": "We'll start right here, then move to the garden.",
+      "ko": "여기서 시작해서 정원으로 이동할게요.",
+      "cat": "arrival",
+      "situation": "동선 안내",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "that-lace-detail-on-the-sleeve-is-beautiful",
+      "en": "That lace detail on the sleeve is beautiful.",
+      "ko": "소매 레이스 디테일이 정말 예뻐요.",
+      "cat": "rapport",
+      "situation": "드레스 디테일 칭찬",
+      "nuance": "포즈 전환 사이 자연스럽게",
+      "lessons": [
+        2
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "did-you-choose-the-fabric-or-was-it-a-designer-s",
+      "en": "Did you choose the fabric, or was it a designer's pick?",
+      "ko": "원단은 직접 고르신 거예요, 아니면 디자이너가 골라준 거예요?",
+      "cat": "rapport",
+      "situation": "소재/스타일 질문",
+      "nuance": "가벼운 대화 이어가기",
+      "lessons": [
+        2
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "where-are-you-two-headed-for-the-honeymoon",
+      "en": "Where are you two headed for the honeymoon?",
+      "ko": "신혼여행은 어디로 가세요?",
+      "cat": "rapport",
+      "situation": "신혼여행지 질문",
+      "nuance": "긴장 풀기용 단골 질문",
+      "lessons": [
+        2,
+        5
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "oh-that-s-such-a-good-choice-you-ll-love-it",
+      "en": "Oh, that's such a good choice — you'll love it.",
+      "ko": "오, 진짜 잘 고르셨어요 — 분명 좋아하실 거예요.",
+      "cat": "rapport",
+      "situation": "기대감 리액션",
+      "nuance": "대답에 대한 긍정적 반응",
+      "lessons": [
+        2
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "speaking-of-travel-let-s-get-a-shot-with-that-br",
+      "en": "Speaking of travel — let's get a shot with that breeze.",
+      "ko": "여행 얘기 나온 김에 — 저 바람 부는 데서 한 컷 갈게요.",
+      "cat": "rapport",
+      "situation": "화제 전환",
+      "nuance": "대화에서 포즈로 자연스럽게 전환",
+      "lessons": [
+        2
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "so-how-did-you-two-actually-meet",
+      "en": "So how did you two actually meet?",
+      "ko": "그런데 두 분은 어떻게 만나셨어요?",
+      "cat": "rapport",
+      "situation": "만남 질문",
+      "nuance": "스토리를 끌어내는 오프닝 질문",
+      "lessons": [
+        4,
+        5
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-s-such-a-good-story-tell-me-more",
+      "en": "That's such a good story — tell me more.",
+      "ko": "이야기 진짜 좋은데요 — 더 들려주세요.",
+      "cat": "rapport",
+      "situation": "리액션 유도",
+      "nuance": "이야기를 더 끌어낼 때",
+      "lessons": [
+        4
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "what-was-your-first-impression-of-each-other",
+      "en": "What was your first impression of each other?",
+      "ko": "서로 첫인상은 어땠어요?",
+      "cat": "rapport",
+      "situation": "첫인상 질문",
+      "nuance": "표정 변화 유도",
+      "lessons": [
+        4
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-s-talk-about-something-fun-favourite-song-fr",
+      "en": "Let's talk about something fun — favourite song from today's playlist?",
+      "ko": "재밌는 얘기 해봐요 — 오늘 플레이리스트 중에 제일 좋아하는 곡은요?",
+      "cat": "rapport",
+      "situation": "가벼운 화제 제안",
+      "nuance": "가벼운 주제로 전환",
+      "lessons": [
+        13
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-s-try-that-again-even-better-this-time",
+      "en": "Let's try that again, even better this time.",
+      "ko": "한 번만 더 가볼게요, 이번엔 더 좋게.",
+      "cat": "pose",
+      "situation": "재도전 격려",
+      "nuance": "한 번 더 시도할 때",
+      "lessons": [
+        3
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "turn-and-face-each-other-just-like-that",
+      "en": "Turn and face each other, just like that.",
+      "ko": "서로 마주 보세요, 딱 그렇게요.",
+      "cat": "pose",
+      "situation": "마주보기 지시",
+      "nuance": "기본 마주보기 포즈",
+      "lessons": [
+        6
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "hold-hands-and-let-your-arms-relax",
+      "en": "Hold hands, and let your arms relax.",
+      "ko": "손 잡으시고, 팔에 힘 빼주세요.",
+      "cat": "pose",
+      "situation": "손잡기 지시",
+      "nuance": "손 포즈 연출",
+      "lessons": [
+        6
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "come-a-little-closer-to-each-other",
+      "en": "Come a little closer to each other.",
+      "ko": "서로 조금만 더 가까이 와주세요.",
+      "cat": "pose",
+      "situation": "거리 조정",
+      "nuance": "간격이 멀 때",
+      "lessons": [
+        6
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "angle-your-body-slightly-toward-me",
+      "en": "Angle your body slightly toward me.",
+      "ko": "몸을 저 쪽으로 살짝만 틀어주세요.",
+      "cat": "pose",
+      "situation": "몸 방향 지시",
+      "nuance": "정면보다 자연스러운 각도",
+      "lessons": [
+        6
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "hold-right-there-that-s-it-don-t-move",
+      "en": "Hold right there — that's it, don't move.",
+      "ko": "거기서 그대로 — 네 그거예요, 움직이지 마세요.",
+      "cat": "pose",
+      "situation": "포즈 확정 멘트",
+      "nuance": "원하는 포즈가 나왔을 때",
+      "lessons": [
+        6
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "turn-and-face-each-other-hold-hands",
+      "en": "Turn and face each other, hold hands.",
+      "ko": "서로 마주 보고, 손 잡아주세요.",
+      "cat": "pose",
+      "situation": "기본 포즈",
+      "nuance": "포즈 시작",
+      "lessons": [
+        10
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "turn-and-face-each-other-hold-right-there",
+      "en": "Turn and face each other, hold right there.",
+      "ko": "서로 마주 보시고, 거기서 그대로요.",
+      "cat": "pose",
+      "situation": "디렉팅",
+      "nuance": "디렉팅 표현 재사용",
+      "lessons": [
+        19,
+        20
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "is-it-okay-if-i-adjust-your-collar",
+      "en": "Is it okay if I adjust your collar?",
+      "ko": "깃 좀 정리해 드려도 될까요?",
+      "cat": "pose",
+      "situation": "접촉 동의",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "i-ll-just-fix-the-back-of-your-dress-is-that-alr",
+      "en": "I'll just fix the back of your dress — is that alright?",
+      "ko": "드레스 뒷자락만 정리할게요, 괜찮으실까요?",
+      "cat": "pose",
+      "situation": "드레스 정리",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "chin-up-a-touch-shoulders-back",
+      "en": "Chin up a touch, shoulders back.",
+      "ko": "턱 살짝 들고, 어깨 뒤로요.",
+      "cat": "pose",
+      "situation": "기본 자세",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "relax-your-hands-soft-fingers-don-t-grip",
+      "en": "Relax your hands — soft fingers, don't grip.",
+      "ko": "손에 힘 빼주세요 — 부드럽게, 꽉 쥐지 마시고요.",
+      "cat": "pose",
+      "situation": "손 힘 빼기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "step-in-with-your-left-foot",
+      "en": "Step in with your left foot.",
+      "ko": "왼발을 한 발짝 앞으로 내주세요.",
+      "cat": "pose",
+      "situation": "발 위치",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "big-breath-in-and-out-perfect",
+      "en": "Big breath in… and out. Perfect.",
+      "ko": "숨 크게 들이쉬고… 내쉬고. 좋아요.",
+      "cat": "pose",
+      "situation": "호흡",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "foreheads-together-close-your-eyes",
+      "en": "Foreheads together, close your eyes.",
+      "ko": "이마 맞대시고, 눈 감아주세요.",
+      "cat": "pose",
+      "situation": "이마 맞대기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "give-her-a-little-kiss-on-the-forehead",
+      "en": "Give her a little kiss on the forehead.",
+      "ko": "이마에 살짝 입맞춤해 주세요.",
+      "cat": "pose",
+      "situation": "이마 키스",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "walk-toward-me-slowly-nice-and-natural",
+      "en": "Walk toward me slowly, nice and natural.",
+      "ko": "저를 향해 천천히 걸어오세요, 자연스럽게요.",
+      "cat": "movement",
+      "situation": "걷기 지시",
+      "nuance": "걷는 장면 연출",
+      "lessons": [
+        7,
+        10
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "can-you-walk-back-and-do-that-one-more-time",
+      "en": "Can you walk back and do that one more time?",
+      "ko": "다시 뒤로 가서 한 번만 더 해주실 수 있을까요?",
+      "cat": "movement",
+      "situation": "반복 동작 요청",
+      "nuance": "동작을 다시 요청할 때",
+      "lessons": [
+        7
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "play-with-the-bouquet-a-little-look-down-at-it",
+      "en": "Play with the bouquet a little, look down at it.",
+      "ko": "부케를 살짝 만지작거리면서 내려다봐 주세요.",
+      "cat": "movement",
+      "situation": "소품 활용 지시",
+      "nuance": "부케를 활용한 자연스러운 동작",
+      "lessons": [
+        7
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "a-bit-slower-this-time-like-you-re-not-rushing",
+      "en": "A bit slower this time, like you're not rushing.",
+      "ko": "이번엔 조금 더 천천히요, 서두르지 않는 느낌으로.",
+      "cat": "movement",
+      "situation": "속도 조절",
+      "nuance": "속도가 너무 빠를 때",
+      "lessons": [
+        7
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "on-three-start-walking-one-two-three",
+      "en": "On three, start walking — one, two, three.",
+      "ko": "셋 하면 걸어오세요 — 하나, 둘, 셋.",
+      "cat": "movement",
+      "situation": "타이밍 안내",
+      "nuance": "동작 시작 타이밍 안내",
+      "lessons": [
+        7
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "whisper-something-only-she-can-hear",
+      "en": "Whisper something only she can hear.",
+      "ko": "신부분만 들리게 뭔가 속삭여 주세요.",
+      "cat": "movement",
+      "situation": "속삭이기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "walk-in-and-hug-her-like-you-haven-t-seen-her-al",
+      "en": "Walk in and hug her like you haven't seen her all day.",
+      "ko": "걸어가서, 하루 종일 못 본 사람처럼 안아주세요.",
+      "cat": "movement",
+      "situation": "포옹 연출",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "stay-there-i-m-just-moving-around-you",
+      "en": "Stay there, I'm just moving around you.",
+      "ko": "그대로 계세요, 제가 돌면서 찍을게요.",
+      "cat": "movement",
+      "situation": "제자리 유지",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "take-a-breath-drop-your-shoulders-perfect",
+      "en": "Take a breath, drop your shoulders — perfect.",
+      "ko": "숨 한 번 쉬고, 어깨 툭 내려주세요 — 완벽해요.",
+      "cat": "expression",
+      "situation": "호흡 유도",
+      "nuance": "몸이 굳어있을 때",
+      "lessons": [
+        3
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-can-stop-smiling-like-it-s-a-passport-photo",
+      "en": "You can stop smiling like it's a passport photo.",
+      "ko": "여권 사진처럼 웃지 않으셔도 돼요.",
+      "cat": "expression",
+      "situation": "가벼운 농담",
+      "nuance": "표정이 경직됐을 때 유머",
+      "lessons": [
+        3
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "look-at-him-her-while-you-tell-me-that-part",
+      "en": "Look at him/her while you tell me that part.",
+      "ko": "그 얘기 하실 때 서로 바라보면서 해주세요.",
+      "cat": "expression",
+      "situation": "서로 바라보기 유도",
+      "nuance": "이야기 중 자연스러운 포즈 연출",
+      "lessons": [
+        4
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "look-at-him-not-at-the-camera",
+      "en": "Look at him, not at the camera.",
+      "ko": "카메라 말고 신랑분을 봐주세요.",
+      "cat": "expression",
+      "situation": "시선 지시",
+      "nuance": "카메라를 의식할 때",
+      "lessons": [
+        8,
+        10
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "think-of-something-that-makes-you-both-laugh",
+      "en": "Think of something that makes you both laugh.",
+      "ko": "두 분이 같이 웃었던 일 하나 떠올려 보세요.",
+      "cat": "expression",
+      "situation": "표정 유도 - 웃음",
+      "nuance": "억지 미소 대신 진짜 웃음 유도",
+      "lessons": [
+        8
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "just-look-into-each-other-s-eyes-for-a-second",
+      "en": "Just look into each other's eyes for a second.",
+      "ko": "잠깐만 서로 눈을 마주 봐주세요.",
+      "cat": "expression",
+      "situation": "눈맞춤 지시",
+      "nuance": "감정 있는 컷 연출",
+      "lessons": [
+        8
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "soften-your-expression-a-little-more-relaxed",
+      "en": "Soften your expression a little, more relaxed.",
+      "ko": "표정 조금만 풀어주세요, 더 편하게요.",
+      "cat": "expression",
+      "situation": "표정 톤 조정",
+      "nuance": "표정이 너무 굳었을 때",
+      "lessons": [
+        8
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "right-there-hold-that-look",
+      "en": "Right there, hold that look.",
+      "ko": "바로 거기요, 그 표정 유지해주세요.",
+      "cat": "expression",
+      "situation": "순간 포착 멘트",
+      "nuance": "원하는 표정이 나왔을 때",
+      "lessons": [
+        8
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "laugh-at-how-awkward-this-is-that-s-allowed",
+      "en": "Laugh at how awkward this is — that's allowed.",
+      "ko": "어색한 게 웃기면 그냥 웃으셔도 돼요.",
+      "cat": "expression",
+      "situation": "웃음 유도",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "don-t-look-at-me-look-at-each-other",
+      "en": "Don't look at me — look at each other.",
+      "ko": "저 말고 서로를 봐주세요.",
+      "cat": "expression",
+      "situation": "시선 전환",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "eyes-to-me-now",
+      "en": "Eyes to me… now.",
+      "ko": "이제 저를 봐주세요… 지금이요.",
+      "cat": "expression",
+      "situation": "카메라 응시",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "tilt-your-chin-down-just-a-little",
+      "en": "Tilt your chin down just a little.",
+      "ko": "턱만 아주 살짝 내려주세요.",
+      "cat": "micro",
+      "situation": "고개 각도 조정",
+      "nuance": "고개가 너무 들려 있을 때",
+      "lessons": [
+        9,
+        10
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "look-slightly-to-your-left-just-a-touch",
+      "en": "Look slightly to your left, just a touch.",
+      "ko": "시선만 왼쪽으로 아주 조금요.",
+      "cat": "micro",
+      "situation": "시선 미세 조정",
+      "nuance": "시선을 조금만 옮길 때",
+      "lessons": [
+        9
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "shift-your-weight-onto-your-back-foot-a-bit",
+      "en": "Shift your weight onto your back foot a bit.",
+      "ko": "무게 중심을 뒷발로 살짝 옮겨주세요.",
+      "cat": "micro",
+      "situation": "자세 미세 조정",
+      "nuance": "포즈 균형 조정",
+      "lessons": [
+        9
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "a-tiny-bit-more-perfect-right-there",
+      "en": "A tiny bit more — perfect, right there.",
+      "ko": "아주 조금만 더 — 완벽해요, 거기요.",
+      "cat": "micro",
+      "situation": "정도 표현",
+      "nuance": "미세 조정 확정할 때",
+      "lessons": [
+        9
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "not-too-much-just-a-fraction",
+      "en": "Not too much — just a fraction.",
+      "ko": "너무 많이는 말고 — 아주 살짝만요.",
+      "cat": "micro",
+      "situation": "과함 방지",
+      "nuance": "조정이 과했을 때 되돌릴 때",
+      "lessons": [
+        9
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-re-doing-great-this-already-looks-so-natural",
+      "en": "You're doing great — this already looks so natural.",
+      "ko": "정말 잘하고 계세요 — 벌써 아주 자연스러워요.",
+      "cat": "praise",
+      "situation": "표정 안심시키기",
+      "nuance": "긴장한 표정 완화",
+      "lessons": [
+        3,
+        5
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "there-s-no-wrong-way-to-do-this-just-relax",
+      "en": "There's no wrong way to do this, just relax.",
+      "ko": "여기엔 틀린 방법이 없어요, 편하게 하세요.",
+      "cat": "praise",
+      "situation": "실수 괜찮다고 말하기",
+      "nuance": "포즈 실수했을 때",
+      "lessons": [
+        3
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-smile-right-there-that-s-the-one-i-wanted",
+      "en": "That smile right there — that's the one I wanted.",
+      "ko": "방금 그 미소 — 제가 원하던 게 딱 그거예요.",
+      "cat": "praise",
+      "situation": "감정 포착 멘트",
+      "nuance": "진짜 표정이 나왔을 때",
+      "lessons": [
+        4
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-angle-you-just-found-is-perfect-for-you",
+      "en": "That angle you just found is perfect for you.",
+      "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
+      "cat": "praise",
+      "situation": "구체적 포즈 칭찬",
+      "nuance": "좋은 포즈가 나왔을 때",
+      "lessons": [
+        11,
+        15,
+        20
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "your-smile-just-now-was-so-genuine",
+      "en": "Your smile just now was so genuine.",
+      "ko": "방금 그 미소 정말 진짜 같았어요.",
+      "cat": "praise",
+      "situation": "표정 칭찬",
+      "nuance": "진짜 미소가 나왔을 때",
+      "lessons": [
+        11
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "the-way-you-re-holding-the-bouquet-looks-effortl",
+      "en": "The way you're holding the bouquet looks effortless.",
+      "ko": "부케 잡으신 모습이 아주 자연스러워요.",
+      "cat": "praise",
+      "situation": "스타일 칭찬",
+      "nuance": "디테일한 부분 칭찬",
+      "lessons": [
+        11
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-two-work-so-well-together-in-front-of-the-ca",
+      "en": "You two work so well together in front of the camera.",
+      "ko": "두 분 카메라 앞에서 호흡이 정말 좋으세요.",
+      "cat": "praise",
+      "situation": "팀워크 칭찬",
+      "nuance": "커플 전체를 칭찬할 때",
+      "lessons": [
+        11
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-re-getting-so-much-more-comfortable-already",
+      "en": "You're getting so much more comfortable already.",
+      "ko": "벌써 훨씬 편해지셨어요.",
+      "cat": "praise",
+      "situation": "발전 인정",
+      "nuance": "긴장이 풀려가는 것을 짚어줄 때",
+      "lessons": [
+        11
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-was-such-a-genuine-smile",
+      "en": "That was such a genuine smile.",
+      "ko": "방금 그거 진짜 진심 어린 미소였어요.",
+      "cat": "praise",
+      "situation": "칭찬",
+      "nuance": "자신감 부여 표현 재사용",
+      "lessons": [
+        19
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-was-perfect-don-t-change-a-thing",
+      "en": "That was perfect — don't change a thing.",
+      "ko": "방금 완벽했어요 — 그대로 계세요.",
+      "cat": "praise",
+      "situation": "확정 칭찬",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "you-two-are-naturals-in-front-of-the-camera",
+      "en": "You two are naturals in front of the camera.",
+      "ko": "두 분 카메라 앞에서 타고나셨어요.",
+      "cat": "praise",
+      "situation": "전체 칭찬",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "could-we-get-the-immediate-family-for-the-next-o",
+      "en": "Could we get the immediate family for the next one?",
+      "ko": "다음 컷은 직계 가족분들 모셔도 될까요?",
+      "cat": "group",
+      "situation": "가족 호출",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "everyone-squeeze-in-closer-than-feels-normal",
+      "en": "Everyone squeeze in — closer than feels normal.",
+      "ko": "다들 조금씩 붙어주세요 — 생각보다 더 가까이요.",
+      "cat": "group",
+      "situation": "간격 좁히기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "back-row-one-step-to-your-left-please",
+      "en": "Back row, one step to your left please.",
+      "ko": "뒷줄, 왼쪽으로 한 걸음만 이동해 주세요.",
+      "cat": "group",
+      "situation": "줄 정리",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "everyone-look-at-my-hand-not-the-phones",
+      "en": "Everyone look at my hand, not the phones.",
+      "ko": "다들 휴대폰 말고 제 손을 봐주세요.",
+      "cat": "group",
+      "situation": "시선 통일",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "perfect-one-more-in-case-someone-blinked",
+      "en": "Perfect — one more, in case someone blinked.",
+      "ko": "좋습니다 — 눈 감으신 분 있을 수 있으니 한 장만 더요.",
+      "cat": "group",
+      "situation": "단체 마무리",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "who-else-do-we-need-a-photo-with-let-s-do-those-",
+      "en": "Who else do we need a photo with? Let's do those first.",
+      "ko": "같이 찍어야 할 분 더 계실까요? 그것부터 할게요.",
+      "cat": "group",
+      "situation": "리스트 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "it-looks-like-it-might-rain-let-s-move-to-plan-b",
+      "en": "It looks like it might rain — let's move to plan B.",
+      "ko": "비가 올 것 같은데 — 플랜 B로 옮길게요.",
+      "cat": "trouble",
+      "situation": "날씨 변수 안내",
+      "nuance": "갑작스러운 날씨 변화",
+      "lessons": [
+        12,
+        15
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "we-can-shift-to-the-covered-area-and-keep-shooti",
+      "en": "We can shift to the covered area and keep shooting.",
+      "ko": "지붕 있는 쪽으로 옮겨서 계속 찍으면 돼요.",
+      "cat": "trouble",
+      "situation": "대안 제시",
+      "nuance": "실내/그늘 대안 제시",
+      "lessons": [
+        12
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "we-re-running-a-little-behind-let-s-speed-throug",
+      "en": "We're running a little behind — let's speed through the next few shots.",
+      "ko": "일정이 조금 밀렸어요 — 다음 몇 컷은 빠르게 갈게요.",
+      "cat": "trouble",
+      "situation": "일정 지연 안내",
+      "nuance": "시간이 지연될 때",
+      "lessons": [
+        12
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "no-stress-we-ll-still-get-everything-we-need",
+      "en": "No stress — we'll still get everything we need.",
+      "ko": "걱정 마세요 — 필요한 건 다 담을 수 있어요.",
+      "cat": "trouble",
+      "situation": "침착함 유지 멘트",
+      "nuance": "불안해하는 커플 안심",
+      "lessons": [
+        12
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-s-prioritise-the-shots-you-care-about-most",
+      "en": "Let's prioritise the shots you care about most.",
+      "ko": "두 분이 제일 중요하게 생각하는 컷부터 갈게요.",
+      "cat": "trouble",
+      "situation": "우선순위 조정",
+      "nuance": "시간이 부족할 때 선택과 집중",
+      "lessons": [
+        12
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "no-stress-we-ll-figure-it-out-together",
+      "en": "No stress — we'll figure it out together.",
+      "ko": "걱정 마세요 — 같이 해결하면 돼요.",
+      "cat": "trouble",
+      "situation": "상황 대처",
+      "nuance": "돌발 상황 표현 재사용",
+      "lessons": [
+        19
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-s-give-it-five-minutes-and-see-if-the-rain-p",
+      "en": "Let's give it five minutes and see if the rain passes.",
+      "ko": "5분만 기다려 보고 비가 그치는지 볼게요.",
+      "cat": "trouble",
+      "situation": "비 대기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "the-light-s-going-fast-let-s-grab-the-two-shots-",
+      "en": "The light's going fast — let's grab the two shots that matter most.",
+      "ko": "해가 빨리 지고 있어요 — 제일 중요한 두 컷만 먼저 갈게요.",
+      "cat": "trouble",
+      "situation": "빛 부족",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "whenever-you-re-ready-no-rush-at-all",
+      "en": "Whenever you're ready, no rush at all.",
+      "ko": "준비되시면 말씀하세요, 전혀 급하지 않아요.",
+      "cat": "trouble",
+      "situation": "기다림",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "no-problem-at-all-that-happens-all-the-time",
+      "en": "No problem at all — that happens all the time.",
+      "ko": "전혀 문제없어요, 흔히 있는 일이에요.",
+      "cat": "trouble",
+      "situation": "문제 없음",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "that-sounds-like-a-lot-i-hear-you",
+      "en": "That sounds like a lot — I hear you.",
+      "ko": "많이 힘드셨겠어요 — 무슨 말씀인지 알아요.",
+      "cat": "recovery",
+      "situation": "공감 짧게 표현",
+      "nuance": "무거운 이야기에 공감",
+      "lessons": [
+        13
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-s-take-a-little-break-from-that-and-focus-on",
+      "en": "Let's take a little break from that and focus on this moment.",
+      "ko": "그 얘긴 잠깐 접어두고, 지금 이 순간에 집중해볼까요.",
+      "cat": "recovery",
+      "situation": "화제 전환 멘트",
+      "nuance": "부드러운 전환",
+      "lessons": [
+        13
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "right-now-it-s-just-you-two-let-s-enjoy-this-par",
+      "en": "Right now, it's just you two — let's enjoy this part.",
+      "ko": "지금은 두 분뿐이에요 — 이 시간 그냥 즐기세요.",
+      "cat": "recovery",
+      "situation": "현재로 주의 돌리기",
+      "nuance": "현재 순간에 집중시키기",
+      "lessons": [
+        13,
+        15
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "whatever-happens-later-today-is-about-celebratin",
+      "en": "Whatever happens later, today is about celebrating this.",
+      "ko": "나중 일이 어떻든, 오늘은 이걸 축하하는 날이에요.",
+      "cat": "recovery",
+      "situation": "긍정적 재프레이밍",
+      "nuance": "긍정적 관점 제시",
+      "lessons": [
+        13
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "sorry-could-you-say-that-one-more-time",
+      "en": "Sorry, could you say that one more time?",
+      "ko": "죄송해요, 한 번만 더 말씀해 주시겠어요?",
+      "cat": "recovery",
+      "situation": "정중히 다시 묻기",
+      "nuance": "못 알아들었을 때",
+      "lessons": [
+        14
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "could-you-say-that-a-little-slower-for-me",
+      "en": "Could you say that a little slower for me?",
+      "ko": "조금만 천천히 말씀해 주시겠어요?",
+      "cat": "recovery",
+      "situation": "천천히 말해달라 요청",
+      "nuance": "속도가 빨라 놓쳤을 때",
+      "lessons": [
+        14
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "just-to-make-sure-did-you-mean-the-garden-or-the",
+      "en": "Just to make sure — did you mean the garden or the beach?",
+      "ko": "확인차 여쭤볼게요 — 정원 말씀이세요, 해변 말씀이세요?",
+      "cat": "recovery",
+      "situation": "확인 질문",
+      "nuance": "일부만 들렸을 때 확인",
+      "lessons": [
+        14
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "sorry-what-i-meant-to-say-was",
+      "en": "Sorry, what I meant to say was...",
+      "ko": "죄송해요, 제가 말하려던 건요…",
+      "cat": "recovery",
+      "situation": "내 말 정정",
+      "nuance": "내가 실수로 잘못 말했을 때",
+      "lessons": [
+        14
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "got-it-that-makes-sense-now-thank-you",
+      "en": "Got it, that makes sense now — thank you.",
+      "ko": "아 이해했어요, 이제 알겠네요 — 감사합니다.",
+      "cat": "recovery",
+      "situation": "이해했다고 확인",
+      "nuance": "다시 듣고 이해했을 때",
+      "lessons": [
+        14
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "sorry-could-you-say-that-a-little-slower-for-me",
+      "en": "Sorry, could you say that a little slower for me?",
+      "ko": "죄송해요, 조금만 천천히 말씀해 주시겠어요?",
+      "cat": "recovery",
+      "situation": "실수 회복",
+      "nuance": "재확인",
+      "lessons": [
+        15
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "sorry-my-english-isn-t-perfect-could-you-say-tha",
+      "en": "Sorry, my English isn't perfect — could you say that differently?",
+      "ko": "제가 영어가 완벽하진 않아서요 — 다르게 한 번만 말씀해 주시겠어요?",
+      "cat": "recovery",
+      "situation": "영어 양해",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "do-you-mean-the-first-location-or-the-second-one",
+      "en": "Do you mean the first location or the second one?",
+      "ko": "첫 번째 장소 말씀이세요, 두 번째 말씀이세요?",
+      "cat": "recovery",
+      "situation": "의미 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "could-you-type-it-for-me-just-to-be-sure",
+      "en": "Could you type it for me? Just to be sure.",
+      "ko": "혹시 적어주실 수 있을까요? 확실히 하려고요.",
+      "cat": "recovery",
+      "situation": "적어달라 요청",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "let-me-make-sure-i-understood-you-d-like-more-fa",
+      "en": "Let me make sure I understood — you'd like more family photos, right?",
+      "ko": "제가 제대로 이해했는지 확인할게요 — 가족 사진을 더 원하신다는 거죠?",
+      "cat": "recovery",
+      "situation": "요약 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "we-have-about-thirty-minutes-left",
+      "en": "We have about thirty minutes left.",
+      "ko": "30분 정도 남았어요.",
+      "cat": "logistics",
+      "situation": "시간 안내",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "it-s-a-five-minute-walk-is-that-okay-in-those-sh",
+      "en": "It's a five-minute walk — is that okay in those shoes?",
+      "ko": "5분 정도 걸어야 하는데, 그 신발로 괜찮으세요?",
+      "cat": "logistics",
+      "situation": "이동 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "let-s-use-this-light-while-we-have-it",
+      "en": "Let's use this light while we have it.",
+      "ko": "빛 좋을 때 여기서 찍고 갈게요.",
+      "cat": "logistics",
+      "situation": "빛 활용",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "do-you-mind-if-we-do-one-more-spot-it-s-just-aro",
+      "en": "Do you mind if we do one more spot? It's just around the corner.",
+      "ko": "한 곳만 더 가도 될까요? 바로 근처예요.",
+      "cat": "logistics",
+      "situation": "추가 장소 제안",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "could-you-hold-this-for-a-second",
+      "en": "Could you hold this for a second?",
+      "ko": "이것 좀 잠깐 들어주시겠어요?",
+      "cat": "logistics",
+      "situation": "소품 부탁",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "can-someone-hold-the-bouquet-for-a-moment",
+      "en": "Can someone hold the bouquet for a moment?",
+      "ko": "혹시 부케 잠깐 들어주실 분 계실까요?",
+      "cat": "logistics",
+      "situation": "부케 맡기기",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "two-more-here-then-we-ll-head-inside",
+      "en": "Two more here, then we'll head inside.",
+      "ko": "여기서 두 컷만 더 찍고 안으로 들어갈게요.",
+      "cat": "logistics",
+      "situation": "순서 안내",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "that-s-a-wrap-you-two-did-amazing-today",
+      "en": "That's a wrap — you two did amazing today.",
+      "ko": "오늘 촬영 끝났습니다 — 두 분 정말 잘해주셨어요.",
+      "cat": "wrap",
+      "situation": "촬영 종료 안내",
+      "nuance": "촬영 마무리 선언",
+      "lessons": [
+        16
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "my-favourite-moment-was-when-you-both-laughed-by",
+      "en": "My favourite moment was when you both laughed by the fountain.",
+      "ko": "오늘 제일 좋았던 순간은 분수대 앞에서 두 분이 같이 웃던 때예요.",
+      "cat": "wrap",
+      "situation": "구체적 소감 전달",
+      "nuance": "구체적인 하이라이트 언급",
+      "lessons": [
+        16
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "i-ll-send-a-few-previews-within-a-couple-of-days",
+      "en": "I'll send a few previews within a couple of days.",
+      "ko": "이삼 일 안에 미리보기 몇 장 보내드릴게요.",
+      "cat": "wrap",
+      "situation": "다음 절차 안내",
+      "nuance": "결과물 일정 안내",
+      "lessons": [
+        16
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "thank-you-for-trusting-me-with-your-day",
+      "en": "Thank you for trusting me with your day.",
+      "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
+      "cat": "wrap",
+      "situation": "감사 표현",
+      "nuance": "진심 어린 감사 인사",
+      "lessons": [
+        16,
+        19,
+        20
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "i-hope-today-felt-as-special-as-it-looked",
+      "en": "I hope today felt as special as it looked.",
+      "ko": "오늘이 보이는 만큼이나 특별하게 느껴지셨길 바라요.",
+      "cat": "wrap",
+      "situation": "여운 남기는 인사",
+      "nuance": "마지막 인사",
+      "lessons": [
+        16
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "that-s-everything-on-my-list-anything-you-d-like",
+      "en": "That's everything on my list — anything you'd like before we finish?",
+      "ko": "제 리스트는 다 끝났어요 — 마치기 전에 더 원하시는 거 있을까요?",
+      "cat": "wrap",
+      "situation": "마지막 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "enjoy-the-rest-of-your-day-it-s-been-a-real-plea",
+      "en": "Enjoy the rest of your day — it's been a real pleasure.",
+      "ko": "남은 하루도 즐겁게 보내세요 — 정말 즐거웠습니다.",
+      "cat": "wrap",
+      "situation": "작별 인사",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "congratulations-again-seriously-you-two-were-gre",
+      "en": "Congratulations again — seriously, you two were great.",
+      "ko": "다시 한번 축하드려요 — 진심으로 두 분 정말 좋았어요.",
+      "cat": "wrap",
+      "situation": "축하 인사",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "your-gallery-is-ready-i-ve-linked-it-below",
+      "en": "Your gallery is ready — I've linked it below.",
+      "ko": "갤러리 준비됐어요 — 아래 링크 넣어드렸습니다.",
+      "cat": "after",
+      "situation": "결과물 전달 안내",
+      "nuance": "결과물 전달 멘트",
+      "lessons": [
+        17
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "let-me-know-what-you-think-once-you-ve-had-a-loo",
+      "en": "Let me know what you think once you've had a look.",
+      "ko": "보시고 어떠신지 알려주세요.",
+      "cat": "after",
+      "situation": "만족도 확인",
+      "nuance": "부담 없는 피드백 요청",
+      "lessons": [
+        17
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "do-these-capture-the-day-the-way-you-imagined",
+      "en": "Do these capture the day the way you imagined?",
+      "ko": "생각하셨던 그날의 느낌이 잘 담겼나요?",
+      "cat": "after",
+      "situation": "구체적 피드백 유도",
+      "nuance": "구체적인 만족도 질문",
+      "lessons": [
+        17
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "if-you-loved-them-a-short-review-would-mean-a-lo",
+      "en": "If you loved them, a short review would mean a lot to me.",
+      "ko": "마음에 드셨다면 짧은 후기 하나 남겨주시면 정말 큰 힘이 돼요.",
+      "cat": "after",
+      "situation": "후기 요청",
+      "nuance": "부담을 낮춘 후기 요청",
+      "lessons": [
+        17
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "if-there-s-anything-you-d-like-adjusted-just-let",
+      "en": "If there's anything you'd like adjusted, just let me know.",
+      "ko": "수정하고 싶으신 부분 있으면 편하게 말씀해 주세요.",
+      "cat": "after",
+      "situation": "추가 요청 대응",
+      "nuance": "수정 요청에 열려있음을 표현",
+      "lessons": [
+        17
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "you-ll-get-the-full-gallery-in-about-three-weeks",
+      "en": "You'll get the full gallery in about three weeks.",
+      "ko": "전체 갤러리는 3주쯤 뒤에 받아보실 거예요.",
+      "cat": "after",
+      "situation": "일정 안내",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "feel-free-to-share-them-a-tag-would-be-lovely",
+      "en": "Feel free to share them — a tag would be lovely.",
+      "ko": "마음껏 공유하셔도 돼요 — 태그해 주시면 더 좋고요.",
+      "cat": "after",
+      "situation": "공유 요청",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    },
+    {
+      "id": "are-you-comfortable-with-closer-poses-or-would-y",
+      "en": "Are you comfortable with closer poses, or would you prefer more space?",
+      "ko": "가까운 포즈도 괜찮으세요, 아니면 조금 떨어진 게 편하세요?",
+      "cat": "culture",
+      "situation": "편안함 정도 확인",
+      "nuance": "스킨십 정도 확인",
+      "lessons": [
+        18
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "is-there-a-tradition-from-your-culture-you-d-lik",
+      "en": "Is there a tradition from your culture you'd like us to capture?",
+      "ko": "두 분 문화에서 꼭 담고 싶은 전통이 있을까요?",
+      "cat": "culture",
+      "situation": "전통 존중 질문",
+      "nuance": "문화적 요소 반영",
+      "lessons": [
+        18
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "how-would-you-like-me-to-refer-to-you-both-in-ph",
+      "en": "How would you like me to refer to you both in photos — first names is fine?",
+      "ko": "사진에서 두 분을 어떻게 불러드리면 될까요 — 이름으로 불러도 괜찮을까요?",
+      "cat": "culture",
+      "situation": "호칭 확인",
+      "nuance": "호칭 배려",
+      "lessons": [
+        18
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "just-let-me-know-if-anything-feels-uncomfortable",
+      "en": "Just let me know if anything feels uncomfortable, and we'll adjust.",
+      "ko": "불편한 게 있으면 언제든 말씀해 주세요, 바로 조정할게요.",
+      "cat": "culture",
+      "situation": "배려 표현",
+      "nuance": "언제든 조정 가능함을 알림",
+      "lessons": [
+        18
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "i-love-learning-about-different-wedding-traditio",
+      "en": "I love learning about different wedding traditions — tell me more.",
+      "ko": "다양한 결혼 문화 배우는 걸 좋아해요 — 더 얘기해 주세요.",
+      "cat": "culture",
+      "situation": "공통점 찾기 멘트",
+      "nuance": "호기심으로 친밀감 형성",
+      "lessons": [
+        18
+      ],
+      "src": "lesson"
+    },
+    {
+      "id": "please-tell-me-if-there-s-anyone-i-must-not-miss",
+      "en": "Please tell me if there's anyone I must not miss in the photos.",
+      "ko": "사진에 꼭 들어가야 할 분이 있으면 미리 말씀해 주세요.",
+      "cat": "culture",
+      "situation": "필수 인물 확인",
+      "nuance": "",
+      "lessons": [],
+      "src": "field"
+    }
+  ]
+}
