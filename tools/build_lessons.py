@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 """data/lessons.json → lessons/*.html (정적 생성)"""
-import json, html, os
+import json, html, os, hashlib, unicodedata
 
 L = json.load(open('data/lessons.json', encoding='utf-8'))
 by_id = {l['id']: l for l in L}
 e = lambda s: html.escape(s or '', quote=True)
+normalize = lambda s: ' '.join(unicodedata.normalize('NFKC', s).replace('’', "'").casefold().split())
+phrases = json.load(open('data/phrases.json', encoding='utf-8'))['phrases']
+by_sentence = {normalize(p['en']): p for p in phrases}
+page_sentences = {}
+STAR = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9Z"/></svg>'
 
 def is_en(text):
     letters = [c for c in (text or '') if c.isalpha()]
@@ -14,7 +19,24 @@ def is_en(text):
 
 def say(text, label='<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4 6 8H3v8h3l5 4Z M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/></svg>'):
     if not is_en(text): return ''
-    return f'<button class="speak" type="button" data-say="{e(text)}" aria-label="발음 재생">{label}</button>'
+    return f'<button class="speak" type="button" data-say="{e(text)}" aria-label="발음 재생: {e(text)}">{label}</button>'
+
+def sentence_actions(text, lesson, ko='', situation='', section=''):
+    if not is_en(text): return ''
+    known = by_sentence.get(normalize(text))
+    if known:
+        p = {'id': known['id'], 'en': known['en']}
+    else:
+        digest = hashlib.sha256(normalize(text).encode('utf-8')).hexdigest()[:24]
+        p = {
+            'id': 'lesson-sentence-' + digest, 'en': text, 'ko': ko or '상황 힌트: ' + (situation or lesson['goal']),
+            'cat': lesson['expressions'][0]['cat'], 'situation': lesson['topicKo'] + ' · ' + section,
+            'note': f"Lesson {lesson['id']} · {section}." + (' 한국어는 번역이 아닌 상황 힌트입니다.' if not ko else ''),
+            'lessons': [lesson['id']], 'src': 'saved-lesson'
+        }
+    page_sentences[p['id']] = p
+    return ('<div class="sentence-actions">' + say(text) +
+            f'<button class="lesson-save" type="button" data-sentence-save="{e(p["id"])}" aria-pressed="false" aria-label="문장 저장: {e(text)}">{STAR}<span>저장</span></button></div>')
 
 TPL = """<!doctype html>
 <html lang="ko">
@@ -50,6 +72,7 @@ TPL = """<!doctype html>
   <div class="card">{why}</div>
 
   <h2 id="expressions">오늘의 핵심 표현 <span class="h2n">{nexp}개</span></h2>
+  <p class="saved-guide">별표로 모아두고 <a href="../field.html#scope=saved">현장 저장 목록</a>이나 <a href="../practice.html#saved">저장한 표현 연습</a>에서 다시 꺼내세요.</p>
   <div class="card">{expressions}</div>
 
   {glossary}
@@ -76,7 +99,7 @@ TPL = """<!doctype html>
 
   <h2>오늘의 미션</h2>
   <div class="mission">
-    소리 내어 30~45초 — <i>“{mission}”</i> {missionsay}
+    소리 내어 30~45초 — <i>“{mission}”</i> {missionactions}
   </div>
 
   <h2>학습 완료</h2>
@@ -99,6 +122,7 @@ TPL = """<!doctype html>
 </main><footer><p data-offline role="status">오프라인 준비 상태 확인 중</p></footer>
 <script src="../assets/model.js"></script>
 <script src="../assets/core.js"></script>
+<script type="application/json" id="lesson-sentences">{sentences}</script>
 <script src="../assets/lesson.js"></script>
 </body>
 </html>
@@ -106,16 +130,17 @@ TPL = """<!doctype html>
 
 os.makedirs('lessons', exist_ok=True)
 for i, l in enumerate(L):
+    page_sentences = {}
     prev_l = L[i-1] if i > 0 else None
     next_l = L[i+1] if i < len(L)-1 else None
 
     expressions = ''.join(
         f'<div class="exprow" data-phrase="{e(x["en"])}">'
         f'<div class="body"><div class="sit">{e(x["situation"])}</div>'
-        f'<div class="en">{e(x["en"])}</div>'
+        f'<div class="en" lang="en">{e(x["en"])}</div>'
         f'<div class="ko">{e(x.get("ko",""))}</div>'
         f'<div class="nu">{e(x["nuance"])}</div></div>'
-        f'<div class="acts">{say(x["en"])}</div></div>'
+        f'<div class="acts">{sentence_actions(x["en"], l, x.get("ko", ""), x["situation"], "핵심 표현")}</div></div>'
         for x in l['expressions'])
 
     glossary = ''
@@ -126,13 +151,13 @@ for i, l in enumerate(L):
 
     scenarios = ''.join(
         f'<div class="scn"><div class="prompt">{e(s["prompt"])}</div>'
-        + (f'<div class="sample">예시: <i>“{e(s["sample"])}”</i> {say(s["sample"])}</div>' if s['sample'] else '')
+        + (f'<div class="sample">예시: <i lang="en">“{e(s["sample"])}”</i>{sentence_actions(s["sample"], l, situation=s["prompt"], section="상황 예시")}</div>' if s['sample'] else '')
         + '</div>' for s in l['scenarios'])
 
     dialogue = ''.join(
         f'<div class="line"><div class="who">{e(d["who"])}</div>'
-        f'<div class="body"><div class="en" data-t="{e(d["en"])}">{e(d["en"])} {say(d["en"])}</div>'
-        f'<div class="ko">{e(d["ko"])}</div></div></div>'
+        f'<div class="body"><div class="en" lang="en" data-t="{e(d["en"])}">{e(d["en"])}</div>'
+        f'<div class="ko">{e(d["ko"])}</div>{sentence_actions(d["en"], l, d["ko"], section=d["who"] + "의 대화")}</div></div>'
         for d in l['dialogue']['lines'])
 
     quiz = ''
@@ -141,8 +166,9 @@ for i, l in enumerate(L):
             f'<label data-correct="{"true" if c["correct"] else "false"}">'
             f'<input type="radio" name="q{l["id"]}-{qi}"><span>{e(c["text"])}</span></label>'
             for c in q['choices'])
+        correct = next(c['text'] for c in q['choices'] if c['correct'])
         quiz += (f'<div class="quiz-q"><div class="q">Q{qi+1}. {e(q["q"])}</div>'
-                 f'<div class="quiz-choices">{choices}</div></div>')
+                 f'<div class="quiz-choices">{choices}</div><div class="quiz-save" hidden>{sentence_actions(correct, l, situation=q["q"], section="퀴즈 정답")}</div></div>')
     if not quiz:
         quiz = '<div class="small muted">이 레슨에는 퀴즈가 없습니다.</div>'
 
@@ -158,11 +184,12 @@ for i, l in enumerate(L):
         nexp=len(l['expressions']), expressions=expressions,
         glossary=glossary, scenarios=scenarios, dialogue=dialogue,
         freetalk=e(l['freetalk']), quiz=quiz, checklist=checklist,
-        mission=e(l['mission']), missionsay=say(l['mission']),
+        mission=e(l['mission']), missionactions=sentence_actions(l['mission'], l, situation=l['goal'], section='오늘의 미션'),
         nexthint=e(l['nextHint']),
         desc=e(f"{l['topicKo']} — {l['goal']}"),
         prev=(f'<a class="btn sm" href="{e(prev_l["filename"])}">← Lesson {prev_l["id"]:04d}</a>' if prev_l else '<a class="btn sm" href="../index.html">홈</a>'),
         next=(f'<a class="btn sm" href="{e(next_l["filename"])}">Lesson {next_l["id"]:04d} →</a>' if next_l else '<a class="btn sm" href="../index.html">처음으로</a>'),
+        sentences=json.dumps(page_sentences, ensure_ascii=False).replace('<', '\\u003c'),
     )
     open(os.path.join('lessons', l['filename']), 'w', encoding='utf-8').write(html_out)
 

@@ -153,6 +153,18 @@
     if (i < 0) s.pins.unshift(id); else s.pins.splice(i, 1);
     if (!save()) { s.pins = before; return null; } return i < 0;
   }
+  function toggleSentence(p) {
+    if (!p || p.src !== 'saved-lesson') return p && p.id ? togglePin(p.id) : null;
+    var sentence;
+    try { sentence = KWEModel.normalize({ lessons: {}, sentences: { [p.id]: p } }).sentences[p.id]; }
+    catch (e) { toast('이 문장을 저장하지 못했습니다. 다시 열어 주세요.'); return null; }
+    var s = load(), before = s.sentences[p.id];
+    if (!before && Object.keys(s.sentences).length >= 500) { toast('레슨 문장을 더 보관할 공간이 없습니다. 백업 후 정리해 주세요.'); return null; }
+    s.sentences[p.id] = sentence;
+    var result = togglePin(p.id);
+    if (result === null) { if (before) s.sentences[p.id] = before; else delete s.sentences[p.id]; }
+    return result;
+  }
   function toggleKit(id) {
     var s = load(), before = load().kit.slice(), i = s.kit.indexOf(id);
     if (i < 0) {
@@ -365,7 +377,13 @@
     return /\/lessons\//.test(location.pathname) ? '../' : '';
   }
   function lessonsJson() { return fetchJson(base() + 'data/lessons.json'); }
-  function phrasesJson() { return fetchJson(base() + 'data/phrases.json'); }
+  function phrasesJson() {
+    return fetchJson(base() + 'data/phrases.json').then(function (data) {
+      var s = load(), ids = new Set(data.phrases.map(function (p) { return p.id; }));
+      var saved = Object.values(s.sentences).filter(function (p) { return !ids.has(p.id) && (s.pins.includes(p.id) || s.kit.includes(p.id) || s.cards[p.id]); });
+      return Object.assign({}, data, { phrases: data.phrases.concat(saved) });
+    });
+  }
 
   function mountTabs(activeName) {
     if (document.querySelector('.tabbar')) return;
@@ -527,7 +545,7 @@
     load: load, save: save, day: day, streak: streak, stats: stats,
     completeLesson: completeLesson, resetLesson: resetLesson,
     dueLessons: dueLessons, nextLesson: nextLesson, schedule: schedule,
-    isPinned: isPinned, togglePin: togglePin, toggleKit: toggleKit, toggleOutdoor: toggleOutdoor,
+    isPinned: isPinned, togglePin: togglePin, toggleSentence: toggleSentence, toggleKit: toggleKit, toggleOutdoor: toggleOutdoor,
     get: get, set: set, applyTheme: applyTheme, cycleTheme: cycleTheme,
     speak: speak, stopSpeak: stopSpeak, playButton: playButton, ttsSupported: ttsSupported, enVoices: enVoices,
     listen: listen, srSupported: srSupported, scoreSpeech: scoreSpeech,

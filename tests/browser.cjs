@@ -221,12 +221,57 @@ async function updates(browser,base) {
  check('last good release survives failed updates offline',(await page.locator('.phrase .en').first().innerText()).includes('Release 2'));
  await context.close();revision=1;
 }
+async function lessonSaves(browser,label,base) {
+ const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' lesson saves: '+e.message));
+ const filename='lessons/0001-arrival-greeting-car-exit.html';
+ try {
+  await page.goto(base+filename);await ready(page);
+  const canonical='you-made-it-you-both-look-amazing-already';
+  const first=page.locator('.exprow [data-sentence-save]').first();await first.click();
+  check(label+' lesson core save updates every occurrence of the same sentence',await page.locator('[data-sentence-save="'+canonical+'"]').evaluateAll(buttons=>buttons.every(b=>b.getAttribute('aria-pressed')==='true')));
+  await page.reload();check(label+' lesson save persists after reload',await first.getAttribute('aria-pressed')==='true');
+  const sample=page.locator('.scn [data-sentence-save]').first(),sampleId=await sample.getAttribute('data-sentence-save');await sample.click();
+  check(label+' scenario stores a complete sentence snapshot',await page.evaluate(id=>KWE.load().sentences[id].en.includes('No rush at all')&&KWE.load().pins.includes(id),sampleId));
+  const response=page.locator('.dialogue [data-sentence-save]').nth(1),responseId=await response.getAttribute('data-sentence-save');await response.click();
+  check(label+' dialogue saves the existing Korean meaning',await page.evaluate(id=>KWE.load().sentences[id].ko.includes('긴장'),responseId));
+  await page.locator('.mission [data-sentence-save]').click();
+  await page.locator('.quiz-choices').first().locator('label[data-correct="true"]').click();
+  const answer=page.locator('.quiz-save [data-sentence-save]').first();check(label+' correct quiz sentence can be saved after answering',await answer.isVisible());
+  await answer.click();check(label+' saving a duplicate quiz sentence toggles the same bookmark',await first.getAttribute('aria-pressed')==='false');
+  await first.click();
+  check(label+' canonical bookmark is never duplicated',await page.evaluate(id=>KWE.load().pins.filter(p=>p===id).length===1,canonical));
+  await page.evaluate(()=>scrollTo(0,300));await page.waitForFunction(()=>!document.querySelector('.toast.show')&&getComputedStyle(document.querySelector('.toast')).opacity==='0');
+  await page.screenshot({path:path.join(artifacts,'lesson-saves-'+label+'.png')});
+  await page.goto(base+'field.html#scope=saved');await page.waitForSelector('.phrase');
+  check(label+' every lesson bookmark is usable in field saved results',await page.locator('.phrase').count()===4&&await page.locator('.phrase[data-id="'+sampleId+'"]').count()===1);
+  await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+  check(label+' supplemental lesson sentences enter saved practice',await page.evaluate(id=>KWE.load().session.ids.includes(id),sampleId));
+  await page.getByRole('button',{name:'설정',exact:true}).click();
+  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'백업 내보내기'}).click()]);
+  const backup=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
+  check(label+' exported backup includes supplemental sentence definitions',backup.sentences[sampleId].en.includes('No rush at all')&&backup.pins.includes(sampleId));
+  await page.locator('#import-file').setInputFiles({name:'lesson-backup.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backup))});
+  await page.getByRole('button',{name:'확인하고 복원'}).click();await page.getByRole('button',{name:'영어 확인'}).waitFor();
+  check(label+' restored backup keeps the lesson sentences and practice session',await page.evaluate(id=>KWE.load().sentences[id]&&KWE.load().session.ids.includes(id),sampleId));
+  await page.goto(base+'field.html#scope=saved');await page.waitForSelector('.phrase');
+  await page.locator('[data-star="'+sampleId+'"]').click();await page.goto(base+filename);
+  check(label+' field removal is reflected back in the lesson',await sample.getAttribute('aria-pressed')==='false');
+  const originPort=server.address().port;
+  if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
+  try {
+   await page.reload();await sample.click();await page.goto(base+'field.html#scope=saved');await page.waitForSelector('.phrase');
+   check(label+' lesson sentences can be saved and found offline',await page.locator('.phrase[data-id="'+sampleId+'"]').count()===1);
+  }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
+  await page.setViewportSize({width:320,height:844});await page.goto(base+filename);await layout(page,label+' lesson 320px');
+ }finally{await context.close();}
+}
 (async()=>{
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base=`http://127.0.0.1:${server.address().port}/wedding/`;
  try {
-  const chrome=await main(chromium,'chromium',base);try{await updates(chrome,base);}finally{await chrome.close();}
-  const safari=await main(webkit,'webkit',base);await safari.close();
+  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
+  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);}finally{await safari.close();}
   assert.deepEqual(errors,[],'normal flows have no JS errors or failed resources');
   for(const size of [180,192,512,1024]){const metadata=await sharp(path.join(root,`assets/icon-${size}-v3.png`)).metadata();check(`${size}px icon is opaque square`,metadata.width===size&&metadata.height===size&&!metadata.hasAlpha);}
   const images=['home-chromium.png','field-chromium.png','practice-chromium.png'];

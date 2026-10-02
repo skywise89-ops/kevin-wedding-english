@@ -4,6 +4,16 @@
   var E = KWE.esc, id = document.body.dataset.lesson;
   KWE.init('home');
   var state = KWE.load();
+  var sentences = JSON.parse(document.getElementById('lesson-sentences').textContent);
+  function syncSaved() {
+    document.querySelectorAll('[data-sentence-save]').forEach(function (button) {
+      var p = sentences[button.dataset.sentenceSave], saved = KWE.isPinned(p.id);
+      button.classList.toggle('on', saved); button.setAttribute('aria-pressed', saved);
+      button.setAttribute('aria-label', (saved ? '저장 해제: ' : '문장 저장: ') + p.en);
+      button.querySelector('span').textContent = saved ? '저장됨' : '저장';
+    });
+  }
+  syncSaved();
   if (!(state.lessons[id] || {}).done) { state.lastLesson = id; KWE.save(); }
   if (!location.hash && state.positions[id]) requestAnimationFrame(function () { window.scrollTo(0, state.positions[id]); });
   var positionTimer;
@@ -11,6 +21,12 @@
   window.addEventListener('scroll', function () { clearTimeout(positionTimer); positionTimer = setTimeout(savePosition, 200); }, { passive: true });
   window.addEventListener('pagehide', savePosition);
   document.addEventListener('click', function (event) {
+    var save = event.target.closest('[data-sentence-save]');
+    if (save) {
+      var added = KWE.toggleSentence(sentences[save.dataset.sentenceSave]);
+      if (added !== null) { syncSaved(); KWE.toast(added ? '저장한 표현에 추가했습니다 · 현장과 연습에서 꺼내보세요' : '저장한 표현에서 뺐습니다'); }
+      return;
+    }
     var button = event.target.closest('[data-say]'); if (button) KWE.playButton(button, button.dataset.say);
   });
   var dialogueButton = document.getElementById('play-dialogue'), playing = false, dialogueTimer, dialogueIndex = 0;
@@ -48,6 +64,7 @@
       labels[chosen].querySelector('input').checked = true;
       if (!correct) labels[chosen].classList.add('wrong');
       feedback.textContent = correct ? '맞아요. 이 표현을 소리 내어 말해보세요.' : '정답: ' + labels.find(function (label) { return label.dataset.correct === 'true'; }).querySelector('span').textContent;
+      var saveAnswer = group.parentElement.querySelector('.quiz-save'); if (saveAnswer) saveAnswer.hidden = false;
     }
     if (Number.isInteger(state.quizAnswers[id][index])) showAnswer(state.quizAnswers[id][index]);
     group.addEventListener('click', function (event) {

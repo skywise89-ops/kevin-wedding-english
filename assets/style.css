@@ -192,11 +192,16 @@
 .lesson-wrap>h2{font-size:18px;margin:32px 0 12px}
 .lesson-steps{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
 .lesson-steps a{font-size:13px;min-height:48px;display:flex;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:14px}
-.exprow{display:flex;align-items:flex-start;gap:12px;padding:20px 0;border-bottom:1px solid var(--border)}
+.exprow{padding:20px 0;border-bottom:1px solid var(--border)}
 .exprow:first-child{padding-top:0}
 .exprow:last-child{padding-bottom:0;border-bottom:0}
 .exprow .body{flex:1;min-width:0}
 .exprow .nu,.nu{font-size:13px;color:var(--muted);margin-top:10px}
+.sentence-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.lesson-save{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 14px;border:1px solid var(--border2);border-radius:16px;background:var(--card);color:var(--muted);font-size:14px;font-weight:650}
+.lesson-save.on{background:var(--card2);color:var(--accent);border-color:var(--accent)}
+.lesson-save.on .icon{fill:color-mix(in srgb,var(--accent) 12%,transparent)}
+.saved-guide{font-size:13px;color:var(--muted);margin:0 0 16px}.saved-guide a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .speak{width:48px;height:48px;min-width:48px;border:1px solid var(--border);border-radius:16px;display:inline-grid;place-items:center;background:var(--card2);vertical-align:middle;font-size:14px;color:var(--accent)}
 .speak svg{width:20px}
 .gloss{padding:12px 0;border-bottom:1px solid var(--border)}
