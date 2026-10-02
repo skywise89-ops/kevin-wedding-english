@@ -1,48 +1,14 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="촬영 현장에서 바로 꺼내 쓰는 웨딩 영어 표현 치트시트 — 상황별 검색·즐겨찾기·발음 재생, 오프라인 동작">
-<meta name="theme-color" content="#070f1b">
-<title>현장 모드 · Kevin's Wedding English</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<header class="top">
-  <div class="brand">⚡ 현장 모드</div>
-  <div class="hdr-actions">
-    <button class="iconbtn" type="button" id="ko-btn" aria-label="한국어 해석 표시 전환" title="한국어 해석 켜기/끄기">가</button>
-    <button class="iconbtn" type="button" id="size-btn" aria-label="글자 크기" title="글자 크기">🔠</button>
-    <button class="iconbtn" type="button" id="outdoor-btn" aria-label="야외 고대비 모드" title="야외 고대비 모드">🔆</button>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="fieldbar">
-    <label class="sr-only" for="q">표현 검색</label>
-    <input type="search" id="q" placeholder="⌕ 상황·한국어·영어로 검색 (예: 턱, rain, 단체)" autocomplete="off" enterkeyhint="search">
-    <div class="chips" id="cats"></div>
-  </div>
-
-  <div id="pinned-wrap" hidden>
-    <h2>📌 즐겨찾기 <span class="h2n" id="pin-count"></span></h2>
-    <div id="pinned"></div>
-  </div>
-
-  <div id="results" style="margin-top:14px"><div class="empty">불러오는 중…</div></div>
-
-  <footer>
-    카드를 누르면 발음이 재생됩니다 · ☆ 를 누르면 맨 위로 고정됩니다<br>
-    한 번 열어두면 인터넷 없이도 동작합니다 (홈 화면에 추가해두세요)
-  </footer>
-</div>
-
-<script src="assets/core.js"></script>
-<script src="assets/field.js"></script>
-</body>
-</html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="웨딩 포토그래퍼를 위한 현장 영어와 매일의 짧은 연습"><title>촬영 현장 · Wedding English</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/favicon-v3.ico"><link rel="apple-touch-icon" href="assets/icon-180-v3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding English"><link rel="stylesheet" href="assets/style.css"></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a><header class="top"><a class="brand" href="index.html"><img src="assets/icon-v3.svg" width="36" height="36" alt=""><span>Wedding English<small>FOR THE MOMENT</small></span></a><div class="hdr-actions"><button class="iconbtn" type="button" data-settings aria-label="설정" data-icon="settings"></button></div></header>
+<main id="main" class="wrap field-wrap"><div class="page-heading"><div><span class="eyebrow">ON LOCATION</span><h1>촬영 현장</h1></div><button class="btn outdoor-toggle" id="outdoor-btn" type="button" aria-pressed="false"><span data-icon="sun"></span>야외</button></div>
+<div class="fieldbar"><div class="search-wrap"><span data-icon="search"></span><label class="sr-only" for="q">상황·한국어·영어 검색</label><input type="search" id="q" placeholder="지금 어떤 말이 필요한가요?" autocomplete="off" enterkeyhint="search"><button id="clear-search" class="iconbtn" type="button" aria-label="검색 지우기" hidden data-icon="close"></button></div><div class="segmented" id="scopes" aria-label="표현 모음"><button data-scope="all" class="active" type="button" aria-pressed="true">전체</button><button data-scope="saved" type="button" aria-pressed="false">저장 <span id="saved-count">0</span></button><button data-scope="kit" type="button" aria-pressed="false">촬영 준비 <span id="kit-count">0</span></button></div></div>
+<div class="quick-search" id="quick-search"><span class="small muted">자주 찾는 말</span><div class="chips"><button class="chip" data-query="턱 내려" type="button">턱 내려</button><button class="chip" data-query="좀 가까이" type="button">좀 가까이</button><button class="chip" data-query="웃지 말고" type="button">웃지 말고</button><button class="chip" data-query="단체사진" type="button">단체사진</button></div></div>
+<details class="category-picker"><summary><span id="category-label">모든 상황</span><span class="small muted">상황 선택</span></summary><div class="chips" id="cats"></div></details>
+<div class="field-controls"><p id="result-count" role="status" aria-live="polite"></p><button class="text-button" id="ko-btn" type="button" aria-pressed="true">한국어 표시</button></div>
+<section id="kit-tools" hidden><label for="kit-name" class="small muted">촬영 준비 이름</label><div class="row"><input id="kit-name" maxlength="40" type="text"><a class="btn" href="practice.html#kit">모은 말 연습</a></div><p class="small muted">최대 24개 · 위아래 버튼으로 촬영 순서에 맞추세요.</p></section>
+<div id="results"><div class="empty">표현을 준비하고 있습니다.</div></div>
+<button class="btn block" id="show-all" type="button" hidden>모든 표현 보기</button>
+<p class="field-note small muted">짧게 말하고, 표정과 손짓으로 함께 안내하세요.</p>
+<dialog id="show-dialog" class="show-dialog" aria-label="상대에게 영어 문장 보여주기"><div class="show-top"><span class="eyebrow">PLEASE READ</span><button class="iconbtn" id="close-show" type="button" aria-label="큰 문장 닫기" data-icon="close"></button></div><div id="show-text" lang="en"></div><button id="show-speak" class="btn" type="button">발음 듣기</button></dialog>
+</main><footer><p data-offline role="status">오프라인 준비 상태 확인 중</p><span>표현은 현장에, 기록은 이 기기에.</span></footer><script src="assets/model.js"></script><script src="assets/core.js"></script><script src="assets/field.js"></script></body></html>

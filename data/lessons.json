@@ -307,15 +307,15 @@
       {
         "situation": "호흡 유도",
         "en": "Take a breath, drop your shoulders — perfect.",
-        "nuance": "몸이 굳어있을 때",
+        "nuance": "몸을 직접 조정하기 전에 말과 시범으로 안내하세요.",
         "ko": "숨 한 번 쉬고, 어깨 툭 내려주세요 — 완벽해요.",
         "cat": "expression"
       },
       {
         "situation": "가벼운 농담",
-        "en": "You can stop smiling like it's a passport photo.",
-        "nuance": "표정이 경직됐을 때 유머",
-        "ko": "여권 사진처럼 웃지 않으셔도 돼요.",
+        "en": "You don’t have to smile. A relaxed expression is perfect.",
+        "nuance": "미소를 멈추게 할 때도 편안한 어조로 안내하세요.",
+        "ko": "웃지 않으셔도 괜찮아요. 편안한 표정이면 좋아요.",
         "cat": "expression"
       },
       {
@@ -339,7 +339,7 @@
     "scenarios": [
       {
         "prompt": "신랑이 계속 어색한 미소를 짓습니다. 유머로 풀어주세요.",
-        "sample": "You can stop smiling like it's a passport photo."
+        "sample": "You don’t have to smile. A relaxed expression is perfect."
       },
       {
         "prompt": "신부가 포즈를 틀렸다고 미안해합니다. 안심시켜 주세요.",
@@ -351,7 +351,7 @@
       "lines": [
         {
           "who": "You",
-          "en": "You can stop smiling like it's a passport photo.",
+          "en": "You don’t have to smile. A relaxed expression is perfect.",
           "ko": "여권 사진 찍듯이 웃지 않아도 돼요."
         },
         {
@@ -382,7 +382,7 @@
         "q": "경직된 표정을 가볍게 풀어줄 유머 표현은?",
         "choices": [
           {
-            "text": "You can stop smiling like it's a passport photo.",
+            "text": "You don’t have to smile. A relaxed expression is perfect.",
             "correct": true
           },
           {
@@ -457,7 +457,7 @@
       },
       {
         "situation": "서로 바라보기 유도",
-        "en": "Look at him/her while you tell me that part.",
+        "en": "Look at each other while you tell me that part.",
         "nuance": "이야기 중 자연스러운 포즈 연출",
         "ko": "그 얘기 하실 때 서로 바라보면서 해주세요.",
         "cat": "expression"
@@ -581,28 +581,28 @@
       {
         "situation": "도착 환영 (Day1)",
         "en": "You made it! You both look amazing already.",
-        "nuance": "차에서 내릴 때",
+        "nuance": "차 문 열어주며 자연스럽게",
         "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
         "cat": "arrival"
       },
       {
         "situation": "스몰토크 (Day2)",
         "en": "Where are you two headed for the honeymoon?",
-        "nuance": "포즈 전환 사이",
+        "nuance": "긴장 풀기용 단골 질문",
         "ko": "신혼여행은 어디로 가세요?",
         "cat": "rapport"
       },
       {
         "situation": "안심시키기 (Day3)",
         "en": "You're doing great — this already looks so natural.",
-        "nuance": "긴장 풀어줄 때",
+        "nuance": "긴장한 표정 완화",
         "ko": "정말 잘하고 계세요 — 벌써 아주 자연스러워요.",
         "cat": "praise"
       },
       {
         "situation": "관계 질문 (Day4)",
         "en": "So how did you two actually meet?",
-        "nuance": "진짜 표정 끌어낼 때",
+        "nuance": "스토리를 끌어내는 오프닝 질문",
         "ko": "그런데 두 분은 어떻게 만나셨어요?",
         "cat": "rapport"
       }
@@ -700,14 +700,14 @@
       {
         "situation": "손잡기 지시",
         "en": "Hold hands, and let your arms relax.",
-        "nuance": "손 포즈 연출",
+        "nuance": "짧은 지시 두 개를 천천히 나눠 말하세요.",
         "ko": "손 잡으시고, 팔에 힘 빼주세요.",
         "cat": "pose"
       },
       {
         "situation": "거리 조정",
         "en": "Come a little closer to each other.",
-        "nuance": "간격이 멀 때",
+        "nuance": "두 사람 사이의 거리를 줄일 때. 불편해하면 조금 더 공간을 주세요.",
         "ko": "서로 조금만 더 가까이 와주세요.",
         "cat": "pose"
       },
@@ -970,9 +970,9 @@
     "expressions": [
       {
         "situation": "시선 지시",
-        "en": "Look at him, not at the camera.",
+        "en": "Look at your partner, not at the camera.",
         "nuance": "카메라를 의식할 때",
-        "ko": "카메라 말고 신랑분을 봐주세요.",
+        "ko": "카메라 말고 상대방을 봐주세요.",
         "cat": "expression"
       },
       {
@@ -1029,7 +1029,7 @@
       "lines": [
         {
           "who": "You",
-          "en": "Look at him, not at the camera.",
+          "en": "Look at your partner, not at the camera.",
           "ko": "저 말고 신랑을 봐주세요."
         },
         {
@@ -1055,7 +1055,7 @@
         "q": "카메라를 의식하는 신부에게 쓸 표현은?",
         "choices": [
           {
-            "text": "Look at him, not at the camera.",
+            "text": "Look at your partner, not at the camera.",
             "correct": true
           },
           {
@@ -1110,14 +1110,14 @@
       {
         "situation": "고개 각도 조정",
         "en": "Tilt your chin down just a little.",
-        "nuance": "고개가 너무 들려 있을 때",
+        "nuance": "고개 전체를 숙이기보다 턱만 살짝 내리도록 손짓으로 보여주세요.",
         "ko": "턱만 아주 살짝 내려주세요.",
         "cat": "micro"
       },
       {
         "situation": "시선 미세 조정",
         "en": "Look slightly to your left, just a touch.",
-        "nuance": "시선을 조금만 옮길 때",
+        "nuance": "your left는 피사체 본인의 왼쪽입니다. 촬영자 기준이면 to my left라고 말하고 손짓을 함께 하세요.",
         "ko": "시선만 왼쪽으로 아주 조금요.",
         "cat": "micro"
       },
@@ -1256,21 +1256,21 @@
       {
         "situation": "연속 동작 (Day7)",
         "en": "Walk toward me slowly, nice and natural.",
-        "nuance": "동작 연출",
+        "nuance": "걷는 장면 연출",
         "ko": "저를 향해 천천히 걸어오세요, 자연스럽게요.",
         "cat": "movement"
       },
       {
         "situation": "표정·시선 (Day8)",
-        "en": "Look at him, not at the camera.",
-        "nuance": "표정 연출",
-        "ko": "카메라 말고 신랑분을 봐주세요.",
+        "en": "Look at your partner, not at the camera.",
+        "nuance": "카메라를 의식할 때",
+        "ko": "카메라 말고 상대방을 봐주세요.",
         "cat": "expression"
       },
       {
         "situation": "미세 조정 (Day9)",
         "en": "Tilt your chin down just a little.",
-        "nuance": "마무리 디테일",
+        "nuance": "고개 전체를 숙이기보다 턱만 살짝 내리도록 손짓으로 보여주세요.",
         "ko": "턱만 아주 살짝 내려주세요.",
         "cat": "micro"
       }
@@ -1912,21 +1912,21 @@
       {
         "situation": "구체적 칭찬 (Day11)",
         "en": "That angle you just found is perfect for you.",
-        "nuance": "자신감 부여",
+        "nuance": "좋은 포즈가 나왔을 때",
         "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
         "cat": "praise"
       },
       {
         "situation": "돌발 상황 (Day12)",
         "en": "It looks like it might rain — let's move to plan B.",
-        "nuance": "변수 대처",
+        "nuance": "갑작스러운 날씨 변화",
         "ko": "비가 올 것 같은데 — 플랜 B로 옮길게요.",
         "cat": "trouble"
       },
       {
         "situation": "화제 전환 (Day13)",
         "en": "Right now, it's just you two — let's enjoy this part.",
-        "nuance": "분위기 전환",
+        "nuance": "현재 순간에 집중시키기",
         "ko": "지금은 두 분뿐이에요 — 이 시간 그냥 즐기세요.",
         "cat": "recovery"
       },
@@ -2038,7 +2038,7 @@
       {
         "situation": "다음 절차 안내",
         "en": "I'll send a few previews within a couple of days.",
-        "nuance": "결과물 일정 안내",
+        "nuance": "납품 기간은 예시입니다. 실제로 약속한 미리보기·갤러리 전달 기간으로 바꿔 말하세요.",
         "ko": "이삼 일 안에 미리보기 몇 장 보내드릴게요.",
         "cat": "wrap"
       },
@@ -2302,7 +2302,7 @@
       {
         "situation": "편안함 정도 확인",
         "en": "Are you comfortable with closer poses, or would you prefer more space?",
-        "nuance": "스킨십 정도 확인",
+        "nuance": "문화나 관계를 추측하기보다 선호를 직접 묻고 대답에 맞춰 조정하세요.",
         "ko": "가까운 포즈도 괜찮으세요, 아니면 조금 떨어진 게 편하세요?",
         "cat": "culture"
       },
@@ -2315,9 +2315,9 @@
       },
       {
         "situation": "호칭 확인",
-        "en": "How would you like me to refer to you both in photos — first names is fine?",
-        "nuance": "호칭 배려",
-        "ko": "사진에서 두 분을 어떻게 불러드리면 될까요 — 이름으로 불러도 괜찮을까요?",
+        "en": "What names would you like me to use?",
+        "nuance": "신랑·신부 등 호칭을 추측하지 말고 원하는 이름을 물어보세요.",
+        "ko": "두 분을 어떤 이름으로 불러드리면 될까요?",
         "cat": "culture"
       },
       {
@@ -2474,7 +2474,7 @@
       {
         "situation": "마무리 표현 예시",
         "en": "Thank you for trusting me with your day.",
-        "nuance": "마무리 표현 재사용",
+        "nuance": "진심 어린 감사 인사",
         "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
         "cat": "wrap"
       }
@@ -2550,28 +2550,28 @@
       {
         "situation": "Week1 대표 표현",
         "en": "You made it! You both look amazing already.",
-        "nuance": "도착·라포",
+        "nuance": "차 문 열어주며 자연스럽게",
         "ko": "오셨네요! 두 분 다 벌써 너무 멋져요.",
         "cat": "arrival"
       },
       {
         "situation": "Week2 대표 표현",
         "en": "Turn and face each other, hold right there.",
-        "nuance": "디렉팅",
+        "nuance": "디렉팅 표현 재사용",
         "ko": "서로 마주 보시고, 거기서 그대로요.",
         "cat": "pose"
       },
       {
         "situation": "Week3 대표 표현",
         "en": "That angle you just found is perfect for you.",
-        "nuance": "칭찬·상황대처",
+        "nuance": "좋은 포즈가 나왔을 때",
         "ko": "방금 나온 그 각도가 두 분한테 딱이에요.",
         "cat": "praise"
       },
       {
         "situation": "Week4 대표 표현",
         "en": "Thank you for trusting me with your day.",
-        "nuance": "마무리",
+        "nuance": "진심 어린 감사 인사",
         "ko": "오늘 하루를 저에게 맡겨주셔서 감사합니다.",
         "cat": "wrap"
       }

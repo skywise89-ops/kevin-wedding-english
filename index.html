@@ -1,116 +1,12 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="웨딩 포토그래퍼를 위한 촬영 현장 영어 — 4주 20레슨 학습 + 현장 표현 129개 즉시 검색">
-<meta name="theme-color" content="#070f1b">
-<title>Kevin's Wedding English</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Wedding English">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-<header class="top">
-  <div class="brand">📸 <a href="index.html">Kevin's Wedding English</a></div>
-  <div class="hdr-actions">
-    <button class="iconbtn" type="button" id="settings-btn" aria-label="설정" title="설정">⚙️</button>
-  </div>
-</header>
-
-<div class="wrap">
-
-  <section class="hero" id="today-lesson" aria-live="polite">
-    <div class="tag">LOADING…</div>
-    <h1>오늘의 레슨을 불러오는 중…</h1>
-  </section>
-
-  <div class="statgrid" id="statgrid"></div>
-
-  <h2>🔁 오늘의 복습 <span class="h2n" id="due-count"></span></h2>
-  <div class="card tight" id="review-card">
-    <div class="empty">불러오는 중…</div>
-  </div>
-
-  <h2>⏱️ 하루 12분 활주로</h2>
-  <div class="card">
-    <div class="small"><b>1분</b> 어제 문장 회상 — 안 보고 한 문장 말하기</div>
-    <div class="small"><b>8분</b> 오늘 레슨 — 핵심 표현 3~5개에 집중</div>
-    <div class="small"><b>3분</b> 소리 내어 출력 — 미션 문장 3번 말하기</div>
-    <div class="progressbar"><div id="progress-bar-fill" style="width:0%"></div></div>
-    <div class="spread tiny muted">
-      <span>전체 진도 <b id="progress-counter">0 / 0</b></span>
-      <span id="week-summary"></span>
-    </div>
-    <div class="weekbars" id="weekbars"></div>
-  </div>
-
-  <h2>📅 최근 8주 학습 기록</h2>
-  <div class="card">
-    <div class="heat" id="heat" aria-label="최근 8주 학습 기록"></div>
-    <div class="tiny muted" style="margin-top:8px" id="heat-note"></div>
-  </div>
-
-  <h2 id="lesson-library">📚 레슨 라이브러리</h2>
-  <div class="card">
-    <label class="sr-only" for="lesson-search">레슨 검색</label>
-    <input type="search" id="lesson-search" placeholder="⌕ 표현·주제·한국어로 검색…" autocomplete="off">
-    <div class="chips" id="week-filters">
-      <button class="chip active" type="button" data-week="all">전체</button>
-      <button class="chip" type="button" data-week="1">1주 라포</button>
-      <button class="chip" type="button" data-week="2">2주 디렉팅</button>
-      <button class="chip" type="button" data-week="3">3주 칭찬·대처</button>
-      <button class="chip" type="button" data-week="4">4주 마무리</button>
-      <button class="chip" type="button" data-week="todo">미완료</button>
-    </div>
-    <ul class="lesson-list" id="lesson-list"><li class="empty">불러오는 중…</li></ul>
-  </div>
-
-  <footer>
-    Kevin's Wedding English · 4주 20레슨 · 현장 표현 <span id="phrase-total">129</span>개<br>
-    진도와 설정은 이 브라우저에만 저장됩니다. 기기를 옮길 땐 설정 ⚙️에서 백업하세요.
-  </footer>
-</div>
-
-<dialog id="settings-dlg">
-  <h2 style="margin-top:0">⚙️ 설정</h2>
-
-  <div class="card tight">
-    <div class="spread"><b class="small">🔊 발음 재생 음성</b></div>
-    <select id="voice-sel" style="margin-top:8px"><option>불러오는 중…</option></select>
-    <div class="spread" style="margin-top:10px">
-      <span class="small">속도 <b id="rate-val">0.9</b>×</span>
-      <input type="range" id="rate-range" min="0.6" max="1.2" step="0.05" style="width:58%">
-    </div>
-    <button class="btn sm" type="button" id="voice-test" style="margin-top:10px">▶ 테스트 재생</button>
-  </div>
-
-  <div class="card tight">
-    <b class="small">💾 진도 백업 · 복원</b>
-    <div class="tiny muted" style="margin:6px 0 10px">다른 기기로 옮기거나 브라우저 데이터를 지우기 전에 내보내세요.</div>
-    <div class="row">
-      <button class="btn sm" type="button" id="export-btn">↓ 내보내기</button>
-      <button class="btn sm" type="button" id="import-btn">↑ 불러오기</button>
-      <input type="file" id="import-file" accept="application/json" hidden>
-    </div>
-  </div>
-
-  <div class="card tight">
-    <b class="small">♻️ 초기화</b>
-    <div class="tiny muted" style="margin:6px 0 10px">모든 진도·복습 일정·즐겨찾기가 삭제됩니다.</div>
-    <button class="btn sm" type="button" id="reset-btn">전체 초기화</button>
-  </div>
-
-  <div class="navrow">
-    <span class="tiny muted" id="build-info"></span>
-    <button class="btn primary sm" type="button" id="close-dlg">닫기</button>
-  </div>
-</dialog>
-
-<script src="assets/core.js"></script>
-<script src="assets/home.js"></script>
-</body>
-</html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="웨딩 포토그래퍼를 위한 현장 영어와 매일의 짧은 연습"><title>홈 · Wedding English</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/favicon-v3.ico"><link rel="apple-touch-icon" href="assets/icon-180-v3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding English"><link rel="stylesheet" href="assets/style.css"></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a><header class="top"><a class="brand" href="index.html"><img src="assets/icon-v3.svg" width="36" height="36" alt=""><span>Wedding English<small>FOR THE MOMENT</small></span></a><div class="hdr-actions"><button class="iconbtn" type="button" data-settings aria-label="설정" data-icon="settings"></button></div></header>
+<main id="main" class="wrap home-wrap">
+<section class="field-entry"><div class="eyebrow">ON LOCATION</div><h1>지금 필요한 말,<br>바로 꺼내세요.</h1><p>포즈부터 뜻밖의 순간까지.<br>촬영의 흐름을 끊지 않는 영어.</p><a class="btn primary block" href="field.html"><span data-icon="camera"></span>촬영 현장 열기<span data-icon="arrow"></span></a><div class="quick-links"><a href="field.html#q=턱%20내려">턱 내려</a><a href="field.html#q=좀%20가까이">좀 가까이</a><a href="field.html#q=단체사진">단체사진</a></div></section>
+<div class="section-head"><h2>다음 촬영을 위한 한 걸음</h2><span class="eyebrow">DAILY PRACTICE</span></div>
+<section id="today-lesson" class="learning-card" aria-live="polite"><p>레슨을 준비하고 있습니다.</p></section>
+<a class="review-entry" href="practice.html#quick"><div class="tile-icon" data-icon="cards"></div><div><h3>3분만, 입 밖으로</h3><p id="quick-sub">상황을 보고 5개 표현 떠올리기</p></div><span data-icon="arrow"></span></a>
+<a class="kit-entry" href="field.html#scope=kit"><span data-icon="kit"></span><div><h3 id="kit-title">이번 촬영 준비</h3><p id="kit-sub">쓸 표현을 미리 모아두세요.</p></div><span data-icon="arrow"></span></a>
+<details class="library" id="lesson-library"><summary><span>20레슨 둘러보기</span><span id="progress-counter">0 / 20</span></summary><div class="library-body"><label class="sr-only" for="lesson-search">레슨 검색</label><input id="lesson-search" type="search" placeholder="레슨·상황·표현 검색" autocomplete="off"><div class="chips" id="week-filters"><button class="chip active" data-week="all" type="button">전체</button><button class="chip" data-week="1" type="button">라포</button><button class="chip" data-week="2" type="button">디렉팅</button><button class="chip" data-week="3" type="button">대처</button><button class="chip" data-week="4" type="button">마무리</button><button class="chip" data-week="todo" type="button">미완료</button></div><ul class="lesson-list" id="lesson-list"></ul></div></details>
+<details class="library"><summary>내 학습 기록</summary><div class="library-body"><div id="statgrid" class="statgrid"></div><h3>레슨 복습</h3><div id="review-card"></div><div class="heat" id="heat" aria-label="최근 8주 학습 기록"></div><p id="heat-note" class="small muted"></p></div></details>
+</main><footer><p data-offline role="status">오프라인 준비 상태 확인 중</p><span>표현은 현장에, 기록은 이 기기에.</span></footer><script src="assets/model.js"></script><script src="assets/core.js"></script><script src="assets/home.js"></script></body></html>

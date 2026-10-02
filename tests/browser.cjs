@@ -1,0 +1,237 @@
+/* Run against real Chromium and WebKit. Device tests still need an iPhone. */
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const http = require('node:http');
+const crypto = require('node:crypto');
+const { chromium, webkit } = require('playwright');
+const sharp = require('sharp');
+const root = path.resolve(__dirname,'..');
+const artifacts = path.join(root,'artifacts');fs.mkdirSync(artifacts,{recursive:true});
+const originalSW = fs.readFileSync(path.join(root,'sw.js'),'utf8');
+const assets = JSON.parse(originalSW.match(/const ASSETS = (\[[\s\S]*?\]);/)[1]);
+const mime = {'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webmanifest':'application/manifest+json'};
+let revision = 1, failCSS = false, mismatch = false;
+function bytes(file, rev=revision) {
+ let b = fs.readFileSync(path.join(root,file));
+ if(file==='data/phrases.json' && rev>1) {
+  const data = JSON.parse(b);data.phrases.find(p=>p.id==='tilt-your-chin-down-just-a-little').en = 'Chin down a little. Release '+rev+'.';b=Buffer.from(JSON.stringify(data));
+ }
+ return b;
+}
+function worker() {
+ const hashes = Object.fromEntries(assets.map(f=>[f,crypto.createHash('sha256').update(bytes(f==='./'?'index.html':f)).digest('hex')]));
+ return originalSW.replace(/const VERSION = '[^']+';/,"const VERSION = 'browser-test-"+revision+"';").replace(/const HASHES = {[\s\S]*?};/,'const HASHES = '+JSON.stringify(hashes)+';');
+}
+const server = http.createServer((request,response)=> {
+ const url = new URL(request.url,'http://localhost'), file=decodeURIComponent(url.pathname.replace(/^\/wedding\//,'')) || 'index.html';
+ if(!url.pathname.startsWith('/wedding/') || file.includes('..')){response.writeHead(404).end();return;}
+ if(failCSS && file==='assets/style.css'){response.writeHead(503).end('test failed release');return;}
+ try {
+  response.setHeader('Content-Type',mime[path.extname(file)]||'application/octet-stream');response.setHeader('Cache-Control','no-store');
+  response.end(file==='sw.js'?worker():mismatch && file==='data/phrases.json'?bytes(file,revision+1):bytes(file));
+ }catch{response.writeHead(404).end('not found');}
+});
+const passed=[], errors=[];
+const check=(name,condition)=>{assert.ok(condition,name);passed.push(name);};
+async function ready(page) {
+ await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
+ await page.waitForFunction(()=>document.querySelector('footer [data-offline]')?.textContent.includes('완료'));
+}
+async function offlineStatus(page) {
+ return page.evaluate(async()=>{
+  const registration=await navigator.serviceWorker.getRegistration();
+  return new Promise(resolve=>{const channel=new MessageChannel();channel.port1.onmessage=e=>resolve(e.data);registration.active.postMessage({type:'STATUS'},[channel.port2]);});
+ });
+}
+async function layout(page,name) {
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
+ check(name+' has no horizontal overflow',!overflow);
+ const targets=await page.locator('button:visible').evaluateAll(elements=>elements.filter(e=>!e.disabled).map(e=>({name:e.getAttribute('aria-label')||e.textContent,width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height})));
+ check(name+' buttons meet 48px targets',targets.every(t=>t.width>=47.9&&t.height>=47.9));
+ check(name+' icon buttons have names',await page.locator('button.iconbtn:visible').evaluateAll(elements=>elements.every(e=>!!e.getAttribute('aria-label'))));
+}
+async function main(engine,label,base) {
+ const launch=engine===chromium?{headless:true,...(process.env.KWE_CHROME_PATH?{executablePath:process.env.KWE_CHROME_PATH}:{})}:{headless:true};
+ const browser=await engine.launch(launch);
+ try {
+ const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,colorScheme:'light'});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+': '+e.message));page.on('response',r=>{if(r.status()>=400)errors.push(label+': HTTP '+r.status()+' '+r.url());});
+ await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await ready(page);
+ check(label+' first install has no update banner',await page.locator('#update-banner').count()===0);
+ await layout(page,label+' home');
+ await page.screenshot({path:path.join(artifacts,'home-'+label+'.png')});
+ await page.getByRole('link',{name:'촬영 현장 열기'}).click();await page.waitForSelector('.phrase');
+ await layout(page,label+' field');
+ await page.getByRole('button',{name:'모든 표현 보기'}).click();await page.evaluate(()=>scrollTo(0,1800));
+ await page.locator('.tabbar a').filter({hasText:'홈'}).click();await page.waitForSelector('#today-lesson .btn');
+ await page.locator('.tabbar a').filter({hasText:'현장'}).click();await page.waitForSelector('.phrase');
+ await page.waitForFunction(()=>scrollY>1700);
+ check(label+' expanded field list and scroll survive navigation',await page.locator('.phrase').count()===129);
+ await page.evaluate(()=>scrollTo(0,0));
+ await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('턱 내려');
+ await page.waitForFunction(()=>document.querySelector('.phrase')?.dataset.id==='tilt-your-chin-down-just-a-little'&&!document.querySelector('#clear-search').hidden);
+ check(label+' search and clear controls stay separated',await page.evaluate(()=>{const icon=document.querySelector('.search-wrap>span[data-icon]').getBoundingClientRect(),clear=document.querySelector('#clear-search').getBoundingClientRect(),input=document.querySelector('#q').getBoundingClientRect();return icon.right<clear.left&&clear.right<=input.right;}));
+ check(label+' chin query finds actual directing phrase',(await page.locator('.phrase .en').first().innerText()).includes('chin'));
+ await page.locator('[data-star]').first().click();
+ check(label+' saving never duplicates a result',await page.locator('.phrase[data-id="tilt-your-chin-down-just-a-little"]').count()===1);
+ await page.locator('[data-kit]').first().click();
+ await page.locator('[data-show]').first().click();
+ check(label+' English presentation opens',await page.locator('#show-dialog').evaluate(e=>e.open));
+ check(label+' presentation sentence matches card',(await page.locator('#show-text').innerText()).includes('chin'));
+ await page.screenshot({path:path.join(artifacts,'show-'+label+'.png')});
+ await page.getByRole('button',{name:'큰 문장 닫기'}).click();
+ await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));await page.screenshot({path:path.join(artifacts,'field-'+label+'.png')});
+ await page.evaluate(()=>{
+  window._originalSpeak=speechSynthesis.speak.bind(speechSynthesis);window._originalCancel=speechSynthesis.cancel.bind(speechSynthesis);
+  speechSynthesis.speak=function(utterance){window._testUtterance=utterance;utterance.onstart&&utterance.onstart();};speechSynthesis.cancel=function(){};
+ });
+ await page.locator('[data-play]').first().click();
+ check(label+' playback exposes a stop state',await page.locator('[data-play]').first().getAttribute('aria-pressed')==='true');
+ await page.locator('[data-play]').first().click();
+ check(label+' playback stops and clears its state',await page.locator('[data-play]').first().getAttribute('aria-pressed')==='false');
+ await page.locator('[data-play]').first().click();await page.evaluate(()=>window._testUtterance.onerror({error:'synthesis-failed'}));
+ check(label+' playback failure resets the control',await page.locator('[data-play]').first().getAttribute('aria-pressed')==='false');
+ await page.evaluate(()=>{speechSynthesis.speak=window._originalSpeak;speechSynthesis.cancel=window._originalCancel;});
+ await page.evaluate(()=>{KWE.set('theme','dark');KWE.set('size',26);});
+ await page.getByRole('button',{name:'야외',exact:true}).click();
+ check(label+' outdoor readable',await page.evaluate(()=>KWE.get('outdoor')&&KWE.get('theme')==='light'&&KWE.get('size')>=22));
+ await page.screenshot({path:path.join(artifacts,'outdoor-'+label+'.png')});
+ await page.getByRole('button',{name:'야외',exact:true}).click();
+ check(label+' outdoor restores personal settings',await page.evaluate(()=>KWE.get('theme')==='dark'&&KWE.get('size')===26));
+ check(label+' browser chrome color follows the screen theme',await page.evaluate(()=>document.querySelector('meta[name="theme-color"]').content===getComputedStyle(document.body).getPropertyValue('--bg').trim()));
+ await page.screenshot({path:path.join(artifacts,'dark-'+label+'.png')});
+ await page.evaluate(()=>{KWE.set('theme','light');KWE.set('size',18);});
+ await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('없는표현xyz');await page.getByText('맞는 표현을 찾지 못했어요').waitFor();
+ await page.getByRole('button',{name:'전체 표현으로'}).click();
+ await page.locator('[data-scope="kit"]').click();
+ check(label+' shooting kit contains the chosen phrase',await page.locator('.phrase').count()===1);
+ await page.locator('#kit-name').fill('토요일 야외 촬영');
+ await page.locator('[data-scope="all"]').click();await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('좀 가까이');
+ await page.waitForFunction(()=>document.querySelector('.phrase')?.dataset.id==='come-a-little-closer-to-each-other');
+ await page.locator('[data-kit]').first().click();await page.locator('[data-scope="kit"]').click();await page.getByRole('button',{name:'검색 지우기'}).click();
+ const originalOrder=await page.evaluate(()=>KWE.load().kit.slice());
+ await page.locator('[data-direction="-1"]:not(:disabled)').first().click();
+ check(label+' kit order saved',await page.evaluate(first=>KWE.load().kit[0]!==first,originalOrder[0]));
+ await page.locator('.tabbar a').filter({hasText:'홈'}).click();await page.getByRole('link',{name:/토요일 야외 촬영/}).waitFor();
+ await page.locator('.tabbar a').filter({hasText:'현장'}).click();await page.waitForSelector('.phrase');
+ check(label+' navigation preserves search and filter',await page.locator('[data-scope="kit"]').getAttribute('aria-pressed')==='true');
+ await page.goto(base+'practice.html#quick');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+ await page.screenshot({path:path.join(artifacts,'practice-'+label+'.png')});
+ await page.getByRole('button',{name:'영어 확인'}).click();await page.locator('[data-grade="1"]').click();
+ const session=await page.evaluate(()=>JSON.parse(JSON.stringify(KWE.load().session)));
+ check(label+' again rating does not extend the short set',session.ids.length===5&&session.index===1);
+ await page.goto(base+'index.html');await page.getByRole('link',{name:/이전 연습/}).click();await page.getByRole('button',{name:'영어 확인'}).waitFor();
+ check(label+' incomplete recall resumes',await page.evaluate(()=>KWE.load().session.index===1));
+ for(let i=1;i<5;i++){await page.getByRole('button',{name:'영어 확인'}).click();await page.locator('[data-grade="4"]').click();}
+ await page.getByRole('heading',{name:'오늘의 한 걸음, 완료'}).waitFor();
+ check(label+' five-card set completes and clears session',await page.evaluate(()=>KWE.load().session===null));
+ const originPort=server.address().port;
+ if(label==='webkit') await new Promise(resolve=>server.close(resolve));
+ else await context.setOffline(true);
+ await page.goto(base+'field.html#scope=kit');await page.waitForSelector('.phrase');
+ check(label+' kit stays usable offline',await page.locator('.phrase').count()===2);
+ await page.locator('[data-scope="all"]').click();await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('턱내려');
+ await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===1&&document.querySelector('.phrase')?.dataset.id==='tilt-your-chin-down-just-a-little');
+ check(label+' Korean alias search works offline',(await page.locator('.phrase .en').innerText()).includes('chin'));
+ await page.locator('[data-scope="saved"]').click();
+ check(label+' saved expressions stay searchable offline',await page.locator('.phrase').count()===1);
+ await page.goto(base+'practice.html#kit');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+ await page.getByRole('button',{name:'영어 확인'}).click();await page.locator('[data-grade="3"]').click();
+ check(label+' offline recall persists',await page.evaluate(()=>KWE.load().session.index===1));
+ await page.goto(base+'lessons/0009-micro-adjustment-direction.html');await page.locator('.lesson-wrap>h1').waitFor();
+ check(label+' offline lesson renders',await page.locator('.exprow').count()>0);
+ const checkbox=page.locator('#checklist input').first();await checkbox.check();
+ await page.evaluate(()=>scrollTo(0,650));await page.waitForFunction(()=>scrollY>=640&&scrollY<=660);await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');
+ await page.getByRole('link',{name:'이어서 학습'}).click();await page.waitForSelector('#checklist input');
+ await page.waitForFunction(()=>scrollY>500&&document.querySelector('#checklist input')?.checked);
+ check(label+' lesson checklist and position resume',await checkbox.isChecked()&&await page.evaluate(()=>scrollY)>500);
+ if(label==='webkit') await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));
+ else await context.setOffline(false);
+ await page.goto(base+'practice.html#shadow');await page.getByRole('button',{name:'따라 말했어요 · 다음'}).waitFor();
+ check(label+' shadowing offers manual progression',await page.locator('#stage').innerText().then(t=>t.includes('발음 평가가 아닙니다')));
+ await page.getByRole('button',{name:'따라 말했어요 · 다음'}).click();
+ await page.goto(base+'practice.html#quiz');await page.locator('[data-choice]').first().click();
+ check(label+' quiz gives text feedback',(await page.locator('#feedback').innerText()).length>0);await page.getByRole('button',{name:'다음 문제'}).click();
+ await page.goto(base+'index.html');await page.getByRole('button',{name:'설정',exact:true}).click();
+ const stateBefore=await page.evaluate(()=>localStorage.getItem('kwe_state_v2'));
+ await page.locator('#import-file').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"version":3,"lessons":{},"pins":7}')});
+ await page.locator('#import-preview').filter({hasText:'올바르지 않습니다'}).waitFor();
+ check(label+' invalid backup preserves original',await page.evaluate(()=>localStorage.getItem('kwe_state_v2'))===stateBefore);
+ const backup=JSON.parse(stateBefore);backup.kitName='검증 백업';
+ await page.locator('#import-file').setInputFiles({name:'large.json',mimeType:'application/json',buffer:Buffer.alloc(1048577,32)});
+ await page.locator('#import-preview').filter({hasText:'1MB'}).waitFor();
+ check(label+' oversized backup preserves original',await page.evaluate(()=>localStorage.getItem('kwe_state_v2'))===stateBefore);
+ await page.locator('#import-file').setInputFiles({name:'valid.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(backup))});
+ await page.getByRole('button',{name:'확인하고 복원'}).waitFor();
+ check(label+' backup preview precedes replacement',await page.evaluate(()=>localStorage.getItem('kwe_state_v2'))===stateBefore);
+ await page.getByRole('button',{name:'확인하고 복원'}).click();await page.waitForSelector('#today-lesson .btn');
+ check(label+' backup restores and retains recovery copy',await page.evaluate(before=>KWE.load().kitName==='검증 백업'&&localStorage.getItem('kwe_state_v2:recovery')===before,stateBefore));
+ await page.getByRole('button',{name:'설정',exact:true}).click();
+ const [recoveryDownload]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'변경 전 데이터 내려받기'}).click()]);
+ const recoveryPath=await recoveryDownload.path();
+ check(label+' recovery export contains the exact pre-change data',fs.readFileSync(recoveryPath,'utf8')===stateBefore);
+ await page.locator('#import-file').setInputFiles(recoveryPath);await page.getByRole('button',{name:'확인하고 복원'}).click();await page.waitForSelector('#today-lesson .btn');
+ check(label+' recovery backup can restore the previous user state',await page.evaluate(name=>KWE.load().kitName===name,JSON.parse(stateBefore).kitName));
+ for(const width of [320,375,430]){
+  await page.setViewportSize({width,height:844});await page.goto(base+'field.html#q=턱%20내려');await page.waitForSelector('.phrase');await layout(page,label+' '+width+'px');
+  if(width===320)await page.screenshot({path:path.join(artifacts,'small-'+label+'.png')});
+ }
+ await page.locator('.category-picker summary').click();await page.locator('[data-cat="micro"]').click();
+ check(label+' category selection keeps results and keyboard focus',await page.locator('.phrase').count()===1&&await page.evaluate(()=>document.activeElement===document.querySelector('.category-picker summary')));
+ await page.setViewportSize({width:844,height:390});await page.locator('[data-show]').first().click();
+ check(label+' landscape presentation close stays available',await page.locator('#close-show').isVisible());await page.getByRole('button',{name:'큰 문장 닫기'}).click();
+ await page.setViewportSize({width:1200,height:900});await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await layout(page,label+' desktop');
+ await page.goto(base+'docs/icon-comparison.html');await page.screenshot({path:path.join(artifacts,'icons-'+label+'.png'),fullPage:true});
+ check(label+' icon comparison has all three originals',await page.locator('section.option').count()===3);
+ await context.close();
+ const migrated=await browser.newContext({viewport:{width:390,height:844}});
+ const phraseId='tilt-your-chin-down-just-a-little';
+ const v2={version:2,lessons:{'1':{done:true,first:'2026-09-01',last:'2026-09-01',due:'2026-09-02',reps:1,ease:2.5,interval:1,lapses:0}},cards:{},pins:[phraseId],days:{},settings:{theme:'dark',rate:.85,voice:'Samantha',size:20,outdoor:false,showKo:true},checks:{'1':[true]}};
+ await migrated.addInitScript(data=>{if(!localStorage.getItem('kwe_state_v2'))localStorage.setItem('kwe_state_v2',JSON.stringify(data));},v2);
+ const mp=await migrated.newPage();await mp.goto(base+'field.html');await mp.waitForSelector('.phrase');
+ check(label+' real browser migrates v2 without losing progress',await mp.evaluate(id=>KWE.load().lessons['1'].done&&KWE.load().pins.includes(id)&&KWE.get('voice')==='Samantha'&&KWE.get('rate')===.85&&KWE.get('size')===20,phraseId));await migrated.close();
+ return browser;
+ }catch(error){await browser.close();throw error;}
+}
+async function updates(browser,base) {
+ const context=await browser.newContext();const page=await context.newPage();
+ await page.goto(base+'field.html#q=턱%20내려');await page.waitForSelector('.phrase');await ready(page);
+ const first=(await page.locator('.phrase .en').first().innerText());
+ await page.evaluate(async()=>{await (await caches.open('unrelated-app')).put('/unrelated',new Response('keep'));});
+ revision=2;
+ await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});
+ await page.getByRole('button',{name:'업데이트 적용'}).waitFor();
+ await page.reload();await page.waitForSelector('.phrase');
+ check('pending update keeps old code and content coherent',await page.locator('.phrase .en').first().innerText()===first);
+ await page.getByRole('button',{name:'업데이트 적용'}).click();await page.waitForFunction(()=>document.querySelector('.phrase .en')?.textContent.includes('Release 2'));
+ check('user activation switches the entire release',(await offlineStatus(page)).version==='browser-test-2');
+ check('activation keeps unrelated app caches',await page.evaluate(async()=>await caches.has('unrelated-app')));
+ revision=3;failCSS=true;
+ await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});
+ await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return !r.installing&&!r.waiting;});
+ check('failed install leaves active release intact',(await offlineStatus(page)).version==='browser-test-2'&&(await offlineStatus(page)).ready);
+ check('failed cache is discarded',await page.evaluate(async()=>!(await caches.keys()).some(k=>k.endsWith('browser-test-3'))));
+ failCSS=false;revision=4;mismatch=true;
+ await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});
+ await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return !r.installing&&!r.waiting;});
+ check('hash mismatch never activates a mixed release',(await offlineStatus(page)).version==='browser-test-2');
+ mismatch=false;revision=2;
+ await context.setOffline(true);await page.reload();await page.waitForSelector('.phrase');
+ check('last good release survives failed updates offline',(await page.locator('.phrase .en').first().innerText()).includes('Release 2'));
+ await context.close();revision=1;
+}
+(async()=>{
+ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const base=`http://127.0.0.1:${server.address().port}/wedding/`;
+ try {
+  const chrome=await main(chromium,'chromium',base);try{await updates(chrome,base);}finally{await chrome.close();}
+  const safari=await main(webkit,'webkit',base);await safari.close();
+  assert.deepEqual(errors,[],'normal flows have no JS errors or failed resources');
+  for(const size of [180,192,512,1024]){const metadata=await sharp(path.join(root,`assets/icon-${size}-v3.png`)).metadata();check(`${size}px icon is opaque square`,metadata.width===size&&metadata.height===size&&!metadata.hasAlpha);}
+  const images=['home-chromium.png','field-chromium.png','practice-chromium.png'];
+  await sharp({create:{width:1170,height:844,channels:3,background:'#f6f5f0'}}).composite(await Promise.all(images.map(async(file,index)=>({input:await sharp(path.join(artifacts,file)).resize(390,844).toBuffer(),left:index*390,top:0})))).png().toFile(path.join(artifacts,'screens-overview.png'));
+  fs.writeFileSync(path.join(artifacts,'browser-results.json'),JSON.stringify({passed,errors,engines:['Chromium desktop Chrome with mobile viewport','WebKit 26.5 desktop with mobile viewport'],offlineMethods:{Chromium:'browserContext.setOffline(true)',WebKit:'origin HTTP server stopped; setOffline has known engine bug #42775'},realIPhone:false,voiceOver:false},null,2));
+  console.log(`PASS ${passed.length} browser assertions across Chromium and WebKit. Real iPhone and VoiceOver not tested.`);
+ }finally{if(server.listening)server.close();}
+})().catch(error=>{console.error(error);process.exitCode=1;});

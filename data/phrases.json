@@ -96,7 +96,14 @@
       "lessons": [
         1
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "발 조심",
+        "넘어져",
+        "계단",
+        "발밑"
+      ],
+      "priority": 65
     },
     {
       "id": "i-love-the-colour-palette-today",
@@ -154,7 +161,12 @@
       "situation": "자기소개",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "자기소개",
+        "첫 인사",
+        "소개"
+      ]
     },
     {
       "id": "so-nice-to-finally-meet-you-in-person",
@@ -340,7 +352,14 @@
       "lessons": [
         6
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "손 잡아",
+        "팔 힘 빼",
+        "손잡기"
+      ],
+      "priority": 86,
+      "note": "짧은 지시 두 개를 천천히 나눠 말하세요."
     },
     {
       "id": "come-a-little-closer-to-each-other",
@@ -352,7 +371,18 @@
       "lessons": [
         6
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "좀 가까이",
+        "가까이 붙어",
+        "둘이 붙어",
+        "붙어주세요",
+        "거리 좁혀"
+      ],
+      "priority": 95,
+      "note": "두 사람 사이의 거리를 줄일 때. 불편해하면 조금 더 공간을 주세요.",
+      "shortEn": "A little closer.",
+      "politeEn": "Could you come a little closer to each other?"
     },
     {
       "id": "angle-your-body-slightly-toward-me",
@@ -411,17 +441,33 @@
       "situation": "접촉 동의",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "옷 정리",
+        "깃 정리",
+        "만져도",
+        "접촉 동의",
+        "허락"
+      ],
+      "priority": 78,
+      "note": "먼저 묻고 동의한 뒤 손을 대세요. 대답을 기다리며 무엇을 조정할지 보여주세요."
     },
     {
       "id": "i-ll-just-fix-the-back-of-your-dress-is-that-alr",
-      "en": "I'll just fix the back of your dress — is that alright?",
-      "ko": "드레스 뒷자락만 정리할게요, 괜찮으실까요?",
+      "en": "May I adjust the back of your dress?",
+      "ko": "드레스 뒷자락을 정리해 드려도 될까요?",
       "cat": "pose",
       "situation": "드레스 정리",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "드레스 정리",
+        "드레스 만져",
+        "드레스 동의"
+      ],
+      "priority": 70,
+      "note": "드레스를 만지기 전에 동의를 구하세요."
     },
     {
       "id": "chin-up-a-touch-shoulders-back",
@@ -441,7 +487,12 @@
       "situation": "손 힘 빼기",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "손 힘 빼",
+        "손 긴장",
+        "손 편하게"
+      ]
     },
     {
       "id": "step-in-with-your-left-foot",
@@ -475,13 +526,14 @@
     },
     {
       "id": "give-her-a-little-kiss-on-the-forehead",
-      "en": "Give her a little kiss on the forehead.",
-      "ko": "이마에 살짝 입맞춤해 주세요.",
+      "en": "If you’re comfortable, give your partner a little kiss on the forehead.",
+      "ko": "괜찮으시면 상대방 이마에 살짝 입맞춤해 주세요.",
       "cat": "pose",
       "situation": "이마 키스",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "note": "두 사람의 선호를 먼저 확인하고, 불편하면 다른 연출을 제안하세요."
     },
     {
       "id": "walk-toward-me-slowly-nice-and-natural",
@@ -494,7 +546,13 @@
         7,
         10
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "천천히 걸어",
+        "걸어와",
+        "걸어 와",
+        "걷기"
+      ]
     },
     {
       "id": "can-you-walk-back-and-do-that-one-more-time",
@@ -546,23 +604,25 @@
     },
     {
       "id": "whisper-something-only-she-can-hear",
-      "en": "Whisper something only she can hear.",
-      "ko": "신부분만 들리게 뭔가 속삭여 주세요.",
+      "en": "Whisper something only your partner can hear.",
+      "ko": "상대방만 들리게 뭔가 속삭여 주세요.",
       "cat": "movement",
       "situation": "속삭이기",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "note": "두 사람의 선호를 먼저 확인하고, 불편하면 다른 연출을 제안하세요."
     },
     {
       "id": "walk-in-and-hug-her-like-you-haven-t-seen-her-al",
-      "en": "Walk in and hug her like you haven't seen her all day.",
-      "ko": "걸어가서, 하루 종일 못 본 사람처럼 안아주세요.",
+      "en": "Walk up and hug your partner, if you’re comfortable.",
+      "ko": "괜찮으시면 다가가서 상대방을 안아주세요.",
       "cat": "movement",
       "situation": "포옹 연출",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "note": "두 사람의 선호를 먼저 확인하고, 불편하면 다른 연출을 제안하세요."
     },
     {
       "id": "stay-there-i-m-just-moving-around-you",
@@ -584,23 +644,42 @@
       "lessons": [
         3
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "어깨 내려",
+        "어깨 힘 빼",
+        "긴장 풀어"
+      ],
+      "priority": 82,
+      "note": "몸을 직접 조정하기 전에 말과 시범으로 안내하세요."
     },
     {
       "id": "you-can-stop-smiling-like-it-s-a-passport-photo",
-      "en": "You can stop smiling like it's a passport photo.",
-      "ko": "여권 사진처럼 웃지 않으셔도 돼요.",
+      "en": "You don’t have to smile. A relaxed expression is perfect.",
+      "ko": "웃지 않으셔도 괜찮아요. 편안한 표정이면 좋아요.",
       "cat": "expression",
-      "situation": "가벼운 농담",
+      "situation": "미소 없이 편안한 표정",
       "nuance": "표정이 경직됐을 때 유머",
       "lessons": [
         3
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "웃지 말고",
+        "웃지 마",
+        "무표정",
+        "미소 없이",
+        "안 웃고",
+        "자연스러운 표정"
+      ],
+      "priority": 90,
+      "note": "미소를 멈추게 할 때도 편안한 어조로 안내하세요.",
+      "shortEn": "No smile needed. Just relax.",
+      "politeEn": "You don’t have to smile. A relaxed expression is perfect."
     },
     {
       "id": "look-at-him-her-while-you-tell-me-that-part",
-      "en": "Look at him/her while you tell me that part.",
+      "en": "Look at each other while you tell me that part.",
       "ko": "그 얘기 하실 때 서로 바라보면서 해주세요.",
       "cat": "expression",
       "situation": "서로 바라보기 유도",
@@ -612,8 +691,8 @@
     },
     {
       "id": "look-at-him-not-at-the-camera",
-      "en": "Look at him, not at the camera.",
-      "ko": "카메라 말고 신랑분을 봐주세요.",
+      "en": "Look at your partner, not at the camera.",
+      "ko": "카메라 말고 상대방을 봐주세요.",
       "cat": "expression",
       "situation": "시선 지시",
       "nuance": "카메라를 의식할 때",
@@ -633,7 +712,13 @@
       "lessons": [
         8
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "웃어",
+        "웃어주세요",
+        "자연스럽게 웃어",
+        "웃는 표정"
+      ]
     },
     {
       "id": "just-look-into-each-other-s-eyes-for-a-second",
@@ -689,7 +774,13 @@
       "situation": "시선 전환",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "서로 봐",
+        "마주 봐",
+        "서로 눈 봐"
+      ],
+      "priority": 81
     },
     {
       "id": "eyes-to-me-now",
@@ -699,7 +790,15 @@
       "situation": "카메라 응시",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "카메라 봐",
+        "렌즈 봐",
+        "여기 봐",
+        "정면 봐"
+      ],
+      "priority": 84,
+      "note": "준비된 뒤 눈을 맞추고 촬영하세요."
     },
     {
       "id": "tilt-your-chin-down-just-a-little",
@@ -712,7 +811,18 @@
         9,
         10
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "턱 내려",
+        "턱 낮춰",
+        "턱 숙여",
+        "고개 내려",
+        "턱내려"
+      ],
+      "priority": 100,
+      "note": "고개 전체를 숙이기보다 턱만 살짝 내리도록 손짓으로 보여주세요.",
+      "shortEn": "Chin down a little.",
+      "politeEn": "Could you lower your chin a little?"
     },
     {
       "id": "look-slightly-to-your-left-just-a-touch",
@@ -724,7 +834,17 @@
       "lessons": [
         9
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "왼쪽 봐",
+        "시선 왼쪽",
+        "왼쪽으로",
+        "좌측"
+      ],
+      "priority": 80,
+      "note": "your left는 피사체 본인의 왼쪽입니다. 촬영자 기준이면 to my left라고 말하고 손짓을 함께 하세요.",
+      "shortEn": "Look a little to your left.",
+      "politeEn": "Could you look slightly to your left?"
     },
     {
       "id": "shift-your-weight-onto-your-back-foot-a-bit",
@@ -911,7 +1031,18 @@
       "situation": "간격 좁히기",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "단체사진",
+        "가족사진",
+        "단체 모여",
+        "다 같이 붙어",
+        "단체 촬영"
+      ],
+      "priority": 88,
+      "note": "관계를 임의로 추측하지 말고 이름이나 앞줄·뒷줄로 안내하세요.",
+      "shortEn": "Everyone, a little closer.",
+      "politeEn": "Could everyone move a little closer together?"
     },
     {
       "id": "back-row-one-step-to-your-left-please",
@@ -921,7 +1052,14 @@
       "situation": "줄 정리",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "뒷줄 왼쪽",
+        "단체 정렬",
+        "줄 맞춰"
+      ],
+      "priority": 75,
+      "note": "왼쪽은 피사체 기준. 촬영자 기준으로 안내할 때는 to my left로 구분하세요."
     },
     {
       "id": "everyone-look-at-my-hand-not-the-phones",
@@ -964,7 +1102,14 @@
         12,
         15
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "비 와",
+        "비 오면",
+        "비가 와",
+        "비 올 때",
+        "우천"
+      ]
     },
     {
       "id": "we-can-shift-to-the-covered-area-and-keep-shooti",
@@ -1034,7 +1179,11 @@
       "situation": "비 대기",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "비 기다려",
+        "비 그칠 때"
+      ]
     },
     {
       "id": "the-light-s-going-fast-let-s-grab-the-two-shots-",
@@ -1125,7 +1274,14 @@
       "lessons": [
         14
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "다시 말해",
+        "다시 말해주세요",
+        "못 알아들었어",
+        "못 알아들",
+        "안 들려"
+      ]
     },
     {
       "id": "could-you-say-that-a-little-slower-for-me",
@@ -1137,7 +1293,12 @@
       "lessons": [
         14
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "천천히 말해",
+        "영어 천천히",
+        "천천히 말씀"
+      ]
     },
     {
       "id": "just-to-make-sure-did-you-mean-the-garden-or-the",
@@ -1235,7 +1396,12 @@
       "situation": "시간 안내",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "keywords": [
+        "남은 시간",
+        "시간 얼마",
+        "시간 안내"
+      ]
     },
     {
       "id": "it-s-a-five-minute-walk-is-that-okay-in-those-sh",
@@ -1307,7 +1473,12 @@
       "lessons": [
         16
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "촬영 끝",
+        "끝났어요",
+        "마무리"
+      ]
     },
     {
       "id": "my-favourite-moment-was-when-you-both-laughed-by",
@@ -1331,7 +1502,8 @@
       "lessons": [
         16
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "note": "납품 기간은 예시입니다. 실제로 약속한 미리보기·갤러리 전달 기간으로 바꿔 말하세요."
     },
     {
       "id": "thank-you-for-trusting-me-with-your-day",
@@ -1457,7 +1629,8 @@
       "situation": "일정 안내",
       "nuance": "",
       "lessons": [],
-      "src": "field"
+      "src": "field",
+      "note": "납품 기간은 예시입니다. 실제로 약속한 미리보기·갤러리 전달 기간으로 바꿔 말하세요."
     },
     {
       "id": "feel-free-to-share-them-a-tag-would-be-lovely",
@@ -1479,7 +1652,15 @@
       "lessons": [
         18
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "keywords": [
+        "문화 배려",
+        "포즈 동의",
+        "거리 동의",
+        "불편해"
+      ],
+      "priority": 70,
+      "note": "문화나 관계를 추측하기보다 선호를 직접 묻고 대답에 맞춰 조정하세요."
     },
     {
       "id": "is-there-a-tradition-from-your-culture-you-d-lik",
@@ -1495,15 +1676,16 @@
     },
     {
       "id": "how-would-you-like-me-to-refer-to-you-both-in-ph",
-      "en": "How would you like me to refer to you both in photos — first names is fine?",
-      "ko": "사진에서 두 분을 어떻게 불러드리면 될까요 — 이름으로 불러도 괜찮을까요?",
+      "en": "What names would you like me to use?",
+      "ko": "두 분을 어떤 이름으로 불러드리면 될까요?",
       "cat": "culture",
       "situation": "호칭 확인",
       "nuance": "호칭 배려",
       "lessons": [
         18
       ],
-      "src": "lesson"
+      "src": "lesson",
+      "note": "신랑·신부 등 호칭을 추측하지 말고 원하는 이름을 물어보세요."
     },
     {
       "id": "just-let-me-know-if-anything-feels-uncomfortable",

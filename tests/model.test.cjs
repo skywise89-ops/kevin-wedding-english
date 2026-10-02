@@ -1,0 +1,29 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+const path = require('node:path');
+const M = require('../assets/model.js');
+const root = path.resolve(__dirname,'..');
+const phrases = JSON.parse(fs.readFileSync(path.join(root,'data/phrases.json'))).phrases;
+const id = 'tilt-your-chin-down-just-a-little';
+function oldState() { return {version:2,lessons:{'1':{done:true,first:'2026-09-01',last:'2026-09-02',due:'2026-09-05',reps:2,ease:2.5,interval:3,lapses:0}},cards:{[id]:{reps:1,ease:2.3,interval:1,due:'2026-09-05',last:'2026-09-04'}},pins:[id],days:{'2026-09-02':{lessons:[1],cards:1,quiz:[1,2]}},checks:{'1':[true,false]},settings:{theme:'dark',size:20,voice:'Samantha',rate:.85,outdoor:false,showKo:false}}; }
+function browserCore(raw, legacy) {
+ const storage = new Map(); if(raw!==undefined)storage.set('kwe_state_v2',JSON.stringify(raw));if(legacy)storage.set('kwe_progress_v1',JSON.stringify(legacy));
+ const context = {KWEModel:M,localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},setTimeout:()=>0,clearTimeout(){},console,document:{documentElement:{setAttribute(){},removeAttribute(){}},body:{classList:{toggle(){}},style:{setProperty(){}},appendChild(){}},getElementById:()=>null,createElement:()=>({setAttribute(){},classList:{add(){},remove(){}},textContent:''})},navigator:{},Date,URL};context.window=context;
+ vm.runInNewContext(fs.readFileSync(path.join(root,'assets/core.js'),'utf8'),context);
+ return {api:context.KWE,storage};
+}
+test('v2 migration keeps IDs, schedules, settings and checks intact',()=>{const raw=oldState(),n=M.normalize(raw);assert.equal(n.version,3);for(const k of ['lessons','cards','pins','days','checks'])assert.deepEqual(n[k],raw[k]);for(const k of Object.keys(raw.settings))assert.equal(n.settings[k],raw.settings[k]);assert.deepEqual(n.kit,[]);});
+for(const [query,wanted] of [['턱 내려',id],['턱내려',id],['좀 가까이','come-a-little-closer-to-each-other'],['웃지 말고','you-can-stop-smiling-like-it-s-a-passport-photo'],['단체사진','everyone-squeeze-in-closer-than-feels-normal'],['CHIN DOWN',id],['비 와','it-looks-like-it-might-rain-let-s-move-to-plan-b'],['못 알아들었어','sorry-could-you-say-that-one-more-time']])test('useful first result: '+query,()=>assert.equal(M.search(phrases,query,'all')[0].id,wanted));
+test('category filtering and empty results are explicit',()=>{assert.equal(M.search(phrases,'턱 내려','arrival').length,0);assert.equal(M.search(phrases,'없는말xyz','all').length,0);});
+test('pending review precedes unseen expressions; short sets are bounded',()=>{const s=M.normalize(oldState());assert.equal(M.deck(phrases,s,'quick','2026-10-02')[0],id);assert.equal(M.deck(phrases,s,'quick','2026-10-02').length,5);assert.equal(M.deck(phrases,s,'flash','2026-10-02').length,10);assert.deepEqual(M.deck(phrases,s,'saved','2026-10-02'),[id]);});
+test('hard and shooting kit sources obey actual user choices',()=>{const s=M.normalize(oldState());s.cards[id].lastGrade=3;s.kit=[phrases[1].id,id];assert.deepEqual(M.deck(phrases,s,'hard','2026-10-02'),[id]);assert.deepEqual(M.deck(phrases,s,'kit','2026-10-02'),s.kit);});
+test('invalid and future backups fail before replacing state',()=>{for(const change of [{version:99},{pins:'bad'},{settings:{rate:Infinity}},{cards:{a:{due:'2026-02-30'}}},{cards:{a:{reps:5}}},{days:{'2026-10-02':{lessons:[],cards:1,quiz:[5,2]}}},{session:{mode:'quick',date:'2026-10-02',ids:[id],index:3,revealed:false,right:0}}])assert.throws(()=>M.normalize({...oldState(),...change}));assert.throws(()=>M.normalize(JSON.parse('{"lessons":{},"__proto__":{}}')));});
+test('outdoor mode restores prior theme and font size',()=>{const {api}=browserCore(oldState());api.load();api.toggleOutdoor();assert.equal(api.get('theme'),'light');assert.equal(api.get('size'),22);api.toggleOutdoor();assert.equal(api.get('theme'),'dark');assert.equal(api.get('size'),20);});
+test('future local data is never overwritten by a save action',()=>{const raw={...oldState(),version:9},{api,storage}=browserCore(raw);api.load();assert.equal(api.save(),false);assert.deepEqual(JSON.parse(storage.get('kwe_state_v2')),raw);});
+test('legacy v1 progress remains available after upgrade',()=>{const {api}=browserCore(undefined,{'1':{completed:true,date:'2026-09-10'}});assert.equal(api.load().lessons['1'].done,true);assert.equal(api.load().lessons['1'].first,'2026-09-10');assert.equal(api.load().version,3);});
+test('all original expression IDs and all lesson URLs survive',()=>{const original=JSON.parse(fs.readFileSync(path.join(__dirname,'fixtures/original-ids.json')));for(const id of original)assert.ok(phrases.some(p=>p.id===id));const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));assert.equal(lessons.length,20);for(const l of lessons)assert.ok(fs.existsSync(path.join(root,'lessons',l.filename)));});
+test('generated service worker contains hashes for every release asset',()=>{const source=fs.readFileSync(path.join(root,'sw.js'),'utf8');const assets=JSON.parse(source.match(/const ASSETS = (\[[\s\S]*?\]);/)[1]);const hashes=JSON.parse(source.match(/const HASHES = ({[\s\S]*?});/)[1]);for(const f of assets){assert.match(hashes[f],/^[a-f0-9]{64}$/);if(f!=='./')assert.ok(fs.existsSync(path.join(root,f)));}assert.ok(source.includes("key.startsWith(PREFIX)"));assert.ok(!source.includes('.catch(() => self.skipWaiting())'));});
+
+test('large saved collections rotate to expressions not yet rehearsed',()=>{const s=M.normalize(oldState());s.pins=phrases.slice(0,24).map(p=>p.id);s.kit=s.pins.slice();for(const mode of ['saved','kit']){const first=M.deck(phrases,s,mode,'2026-10-02');for(const id of first)s.cards[id]={reps:1,ease:2.5,interval:1,due:'2026-10-03',last:'2026-10-02'};const next=M.deck(phrases,s,mode,'2026-10-02');assert.equal(next.length,10);assert.ok(next.some(id=>!first.includes(id)));}});

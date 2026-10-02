@@ -1,119 +1,79 @@
-/* 레슨 페이지 동작 */
+/* Lesson continuity and small, explicit learning actions. */
 (function () {
   'use strict';
-  var E = KWE.esc;
-  var id = document.body.dataset.lesson;
-
+  var E = KWE.esc, id = document.body.dataset.lesson;
   KWE.init('home');
-
-  /* TTS 버튼 */
-  document.addEventListener('click', function (ev) {
-    var b = ev.target.closest('[data-say]');
-    if (!b) return;
-    if (!KWE.ttsSupported) { KWE.toast('이 브라우저는 발음 재생을 지원하지 않습니다'); return; }
-    KWE.speak(b.dataset.say);
+  var state = KWE.load();
+  if (!(state.lessons[id] || {}).done) { state.lastLesson = id; KWE.save(); }
+  if (!location.hash && state.positions[id]) requestAnimationFrame(function () { window.scrollTo(0, state.positions[id]); });
+  var positionTimer;
+  function savePosition() { state.positions[id] = window.scrollY; KWE.save(); }
+  window.addEventListener('scroll', function () { clearTimeout(positionTimer); positionTimer = setTimeout(savePosition, 200); }, { passive: true });
+  window.addEventListener('pagehide', savePosition);
+  document.addEventListener('click', function (event) {
+    var button = event.target.closest('[data-say]'); if (button) KWE.playButton(button, button.dataset.say);
   });
-  if (!KWE.ttsSupported) {
-    document.querySelectorAll('[data-say],#play-dialogue').forEach(function (b) { b.style.display = 'none'; });
+  var dialogueButton = document.getElementById('play-dialogue'), playing = false, dialogueTimer, dialogueIndex = 0;
+  var lines = Array.from(document.querySelectorAll('#dialogue .line .en'));
+  function stopDialogue() {
+    playing = false; clearTimeout(dialogueTimer);
+    if (dialogueButton) dialogueButton.textContent = '전체 듣기';
+    lines.forEach(function (line) { line.closest('.line').style.opacity = ''; });
   }
-
-  /* 대화 전체 듣기 */
-  var dlgBtn = document.getElementById('play-dialogue');
-  if (dlgBtn) {
-    var playing = false;
-    dlgBtn.addEventListener('click', function () {
-      var lines = Array.prototype.map.call(
-        document.querySelectorAll('#dialogue .line .en'),
-        function (el) { return { text: el.dataset.t || el.textContent.trim(), el: el.closest('.line') }; });
-      if (playing) { playing = false; KWE.stopSpeak(); dlgBtn.textContent = '▶ 전체 듣기'; return; }
-      playing = true; dlgBtn.textContent = '⏸ 정지';
-      var i = 0;
-      (function next() {
-        if (!playing || i >= lines.length) {
-          playing = false; dlgBtn.textContent = '▶ 전체 듣기';
-          lines.forEach(function (l) { l.el.style.opacity = ''; });
-          return;
-        }
-        lines.forEach(function (l, n) { l.el.style.opacity = n === i ? '1' : '.45'; });
-        KWE.speak(lines[i].text, { onend: function () { i++; setTimeout(next, 450); } });
-      })();
-    });
-  }
-
-  /* 퀴즈 */
-  document.querySelectorAll('.quiz-choices').forEach(function (group) {
-    group.addEventListener('click', function (ev) {
-      var lab = ev.target.closest('label'); if (!lab) return;
-      if (group.dataset.done) return;
-      group.dataset.done = '1';
-      var ok = lab.dataset.correct === 'true';
-      group.querySelectorAll('label').forEach(function (l) {
-        if (l.dataset.correct === 'true') l.classList.add('correct');
+  if (dialogueButton) dialogueButton.onclick = function () {
+    if (playing) { stopDialogue(); KWE.stopSpeak(); return; }
+    playing = true; dialogueIndex = 0; dialogueButton.textContent = '듣기 중지';
+    function next() {
+      if (!playing || dialogueIndex >= lines.length) { stopDialogue(); return; }
+      lines.forEach(function (line, n) { line.closest('.line').style.opacity = n === dialogueIndex ? '1' : '.6'; });
+      KWE.speak(lines[dialogueIndex].dataset.t, {
+        onend: function () { if (!playing) return; dialogueIndex++; dialogueTimer = setTimeout(next, 450); },
+        onstop: stopDialogue, onerror: stopDialogue
       });
-      if (!ok) lab.classList.add('wrong');
-      var d = KWE.day();
-      d.quiz = [(d.quiz[0] || 0) + (ok ? 1 : 0), (d.quiz[1] || 0) + 1];
-      KWE.save();
-    });
-  });
-
-  /* 자기 평가 체크박스 저장 */
-  var s = KWE.load();
-  s.checks = s.checks || {};
-  var saved = s.checks[id] || [];
-  document.querySelectorAll('#checklist input[type=checkbox]').forEach(function (cb, i) {
-    cb.checked = !!saved[i];
-    cb.addEventListener('change', function () {
-      var st = KWE.load(); st.checks = st.checks || {};
-      var arr = st.checks[id] || [];
-      arr[i] = cb.checked; st.checks[id] = arr; KWE.save();
-    });
-  });
-
-  /* 스피킹 타이머 */
-  var tb = document.getElementById('timer-btn'), tv = document.getElementById('timer-view'), tid = null;
-  if (tb) {
-    tb.addEventListener('click', function () {
-      if (tid) { clearInterval(tid); tid = null; tb.textContent = '⏱️ 60초 스피킹 타이머'; tv.textContent = ''; return; }
-      var left = 60;
-      tb.textContent = '⏹ 중지';
-      tv.textContent = left + '초 남음 — 지금 소리 내어 말하세요';
-      tid = setInterval(function () {
-        left--;
-        if (left <= 0) {
-          clearInterval(tid); tid = null;
-          tb.textContent = '⏱️ 60초 스피킹 타이머';
-          tv.textContent = '완료! 👏';
-          KWE.toast('60초 스피킹 완료');
-          return;
-        }
-        tv.textContent = left + '초 남음';
-      }, 1000);
-    });
-  }
-
-  /* 완료 + 난이도 평가 */
-  function renderState() {
-    var rec = KWE.load().lessons[id];
-    var el = document.getElementById('complete-state');
-    if (!el) return;
-    if (rec && rec.done) {
-      var t = KWE.today();
-      var d = KWE.diffDays(t, rec.due);
-      el.innerHTML = '✅ <b>완료</b> · 마지막 학습 ' + E(rec.last || rec.first) +
-        ' · 다음 복습 <b>' + E(rec.due) + '</b>' +
-        (d > 0 ? ' (' + d + '일 뒤)' : d === 0 ? ' (오늘)' : ' (' + (-d) + '일 지남)') +
-        ' · 누적 ' + (rec.reps || 0) + '회';
-    } else {
-      el.innerHTML = '오늘 레슨을 마쳤다면 체감 난이도를 눌러주세요. 난이도에 맞춰 다음 복습 날짜가 정해집니다.';
     }
-  }
-  document.querySelectorAll('#gradebar button').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var rec = KWE.completeLesson(id, +b.dataset.g);
-      renderState();
-      KWE.toast('저장했습니다 — 다음 복습 ' + rec.due);
+    next();
+  };
+  function leave() { stopDialogue(); KWE.stopSpeak(); }
+  window.addEventListener('pagehide', leave);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) leave(); });
+  state.quizAnswers[id] = state.quizAnswers[id] || [];
+  document.querySelectorAll('.quiz-choices').forEach(function (group, index) {
+    var labels = Array.from(group.querySelectorAll('label'));
+    var feedback = document.createElement('p'); feedback.className = 'small'; feedback.setAttribute('role', 'status'); group.after(feedback);
+    function showAnswer(chosen) {
+      if (!labels[chosen]) return;
+      group.dataset.done = '1';
+      var correct = labels[chosen].dataset.correct === 'true';
+      labels.forEach(function (label) { if (label.dataset.correct === 'true') label.classList.add('correct'); label.querySelector('input').disabled = true; });
+      labels[chosen].querySelector('input').checked = true;
+      if (!correct) labels[chosen].classList.add('wrong');
+      feedback.textContent = correct ? '맞아요. 이 표현을 소리 내어 말해보세요.' : '정답: ' + labels.find(function (label) { return label.dataset.correct === 'true'; }).querySelector('span').textContent;
+    }
+    if (Number.isInteger(state.quizAnswers[id][index])) showAnswer(state.quizAnswers[id][index]);
+    group.addEventListener('click', function (event) {
+      var label = event.target.closest('label'); if (!label || group.dataset.done) return;
+      var chosen = labels.indexOf(label); state.quizAnswers[id][index] = chosen; showAnswer(chosen);
+      var d = KWE.day(); d.quiz[0] += label.dataset.correct === 'true' ? 1 : 0; d.quiz[1]++; KWE.save();
     });
   });
+  state.checks[id] = state.checks[id] || [];
+  document.querySelectorAll('#checklist input').forEach(function (checkbox, index) {
+    checkbox.checked = !!state.checks[id][index];
+    checkbox.onchange = function () { state.checks[id][index] = checkbox.checked; KWE.save(); };
+  });
+  var timerButton = document.getElementById('timer-btn'), timerView = document.getElementById('timer-view'), timer;
+  function stopTimer() { clearInterval(timer); timer = null; if (timerButton) timerButton.textContent = '60초 소리 내기'; }
+  if (timerButton) timerButton.onclick = function () {
+    if (timer) { stopTimer(); timerView.textContent = ''; return; }
+    var end = Date.now() + 60000;
+    timerButton.textContent = '타이머 중지'; timerView.textContent = '60초 · 지금 소리 내어 말해보세요';
+    timer = setInterval(function () { var left = Math.max(0, Math.ceil((end - Date.now()) / 1000)); if (!left) { stopTimer(); timerView.textContent = '60초 완료'; } else timerView.textContent = left + '초 남음'; }, 250);
+  };
+  window.addEventListener('pagehide', stopTimer);
+  function renderState() {
+    var record = state.lessons[id], target = document.getElementById('complete-state');
+    target.innerHTML = record && record.done ? '<b>완료</b> · 마지막 학습 ' + E(record.last || record.first) + ' · 다음 복습 <b>' + E(record.due) + '</b>' : '오늘 레슨을 마쳤다면 직접 느낀 난이도를 골라주세요. 다음 복습일이 저장됩니다.';
+  }
+  document.querySelectorAll('#gradebar button').forEach(function (button) { button.onclick = function () { var record = KWE.completeLesson(id, +button.dataset.g); renderState(); KWE.toast('학습 저장 · 다음 복습 ' + record.due); }; });
   renderState();
 })();
