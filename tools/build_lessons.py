@@ -61,7 +61,7 @@ TPL = """<!doctype html>
 </header>
 <main class="wrap lesson-wrap" id="main">
   <div>
-    <span class="badge">Week {week} · Day {day}</span>
+    <span class="badge">{lessonlabel}</span>
     <span class="badge">{weektitle}</span>
     {reviewbadge}
   </div>
@@ -151,7 +151,7 @@ for i, l in enumerate(L):
 
     scenarios = ''.join(
         f'<div class="scn"><div class="prompt">{e(s["prompt"])}</div>'
-        + (f'<div class="sample">예시: <i lang="en">“{e(s["sample"])}”</i>{sentence_actions(s["sample"], l, situation=s["prompt"], section="상황 예시")}</div>' if s['sample'] else '')
+        + (f'<div class="sample">예시: <i lang="en">“{e(s["sample"])}”</i>{sentence_actions(s["sample"], l, ko=s.get("sampleKo", ""), situation=s["prompt"], section="상황 예시")}</div>' if s['sample'] else '')
         + '</div>' for s in l['scenarios'])
 
     dialogue = ''.join(
@@ -178,7 +178,7 @@ for i, l in enumerate(L):
 
     html_out = TPL.format(
         id=l['id'], pid=f"{l['id']:04d}", topic=e(l['topicKo']), emoji=e(l['emoji']),
-        week=l['week'], day=l['day'], weektitle=e(l['weekTitle']),
+        lessonlabel='실전 보충 레슨' if l.get('extra') else f'Week {l["week"]} · Day {l["day"]}', weektitle=e(l['weekTitle']),
         reviewbadge='<span class="badge">복습</span>' if l['review'] else '',
         goal=e(l['goal']), why=e(l['why']),
         nexp=len(l['expressions']), expressions=expressions,

@@ -58,7 +58,7 @@
         if (typeof p.en !== 'string' || !p.en.trim() || p.en.length > 2000 || typeof p.situation !== 'string' || !p.situation.trim() || p.situation.length > 2000) fail();
         if (typeof p.cat !== 'string' || !/^[a-z0-9-]{1,50}$/.test(p.cat)) fail();
         ['ko', 'note'].forEach(function (key) { if (typeof p[key] !== 'string' || p[key].length > 2000) fail(); });
-        if (!Array.isArray(p.lessons) || !p.lessons.length || p.lessons.length > 20 || p.lessons.some(function (n) { return !Number.isInteger(n) || n < 1 || n > 20; })) fail();
+        if (!Array.isArray(p.lessons) || !p.lessons.length || p.lessons.length > 20 || p.lessons.some(function (n) { return !Number.isInteger(n) || n < 1 || n > 1000; })) fail();
         if (Object.keys(p).some(function (key) { return !['id', 'en', 'ko', 'cat', 'situation', 'note', 'lessons', 'src'].includes(key); })) fail();
       }); d.sentences = raw.sentences;
     }

@@ -2640,5 +2640,215 @@
     ],
     "mission": "도착부터 마무리까지, 4주 대표 표현을 90초 안에 끊김 없이 이어 말하기.",
     "nextHint": "2사이클이 시작됩니다 — 같은 순서, 더 높은 즉흥성 요구 수준으로 진행됩니다."
+  },
+  {
+    "id": 21,
+    "week": 0,
+    "day": 1,
+    "weekTitle": "가족·단체 촬영",
+    "topicKo": "가족·단체 촬영: 모으기부터 마지막 한 컷까지",
+    "topicEn": "Family & Group Photos",
+    "emoji": "",
+    "filename": "0021-family-group-photos.html",
+    "review": false,
+    "extra": true,
+    "goal": "가족을 모으고, 촬영 명단을 확인하고, 줄·간격·시선을 정리한 뒤 한 장 더 촬영한다.",
+    "why": "단체 촬영에서는 여러 사람이 동시에 움직이고 다른 카메라를 보기도 합니다. 사람을 모으기, 촬영할 조합 확인하기, 줄과 간격 맞추기, 시선 모으기, 마지막 한 장의 순서로 짧게 안내하면 촬영 흐름을 유지할 수 있습니다. 가족 관계나 가까운 포즈가 편할 것이라고 추측하지 말고 명단과 선호를 확인하세요.",
+    "expressions": [
+      {
+        "situation": "가족 호출",
+        "en": "Could we get the immediate family for the next one?",
+        "ko": "다음 컷은 직계 가족분들 모셔도 될까요?",
+        "nuance": "immediate family는 보통 가까운 가족을 뜻하지만 범위를 단정하지 마세요. 촬영 명단과 원하는 호칭을 먼저 확인하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "리스트 확인",
+        "en": "Who else do we need a photo with? Let's do those first.",
+        "ko": "같이 찍어야 할 분 더 계실까요? 그것부터 할게요.",
+        "nuance": "가족 관계를 추측하지 말고 이름이나 미리 받은 촬영 명단으로 누락을 확인하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "간격 좁히기",
+        "en": "Everyone squeeze in — closer than feels normal.",
+        "ko": "다들 조금씩 붙어주세요 — 생각보다 더 가까이요.",
+        "nuance": "가볍고 편안한 어조로 말하세요. 가까이 서기 불편한 분에게는 공간을 주세요. 더 짧게는 Everyone, a little closer.",
+        "cat": "group"
+      },
+      {
+        "situation": "줄 정리",
+        "en": "Back row, one step to your left please.",
+        "ko": "뒷줄, 왼쪽으로 한 걸음만 이동해 주세요.",
+        "nuance": "your left는 피사체 본인의 왼쪽입니다. 촬영자 기준이면 to my left라고 말하고 손짓으로 방향을 보여주세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "시선 통일",
+        "en": "Everyone look at my hand, not the phones.",
+        "ko": "다들 휴대폰 말고 제 손을 봐주세요.",
+        "nuance": "주변 사람이 휴대폰으로 함께 촬영할 때 시선을 모으는 말입니다. 렌즈 가까이에 손을 들고 안내하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "단체 마무리",
+        "en": "Perfect — one more, in case someone blinked.",
+        "ko": "좋습니다 — 눈 감으신 분 있을 수 있으니 한 장만 더요.",
+        "nuance": "누가 눈을 감았는지 탓하지 않고 한 장 더 촬영합니다. 이동 전에 촬영 명단과 누락된 조합을 확인하세요.",
+        "cat": "group"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "immediate family",
+        "def": "보통 부모·형제자매 등 가까운 가족. 원하는 촬영 범위는 커플의 명단으로 확인하세요."
+      },
+      {
+        "term": "back row / front row",
+        "def": "뒷줄 / 앞줄. 이름을 모르는 여러 사람에게 줄을 기준으로 안내할 때 씁니다."
+      },
+      {
+        "term": "your left / my left",
+        "def": "피사체 본인의 왼쪽 / 촬영자의 왼쪽. 손짓을 함께 보여주면 방향 혼동을 줄일 수 있습니다."
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "다음 컷에 필요한 가족을 모으고, 아직 함께 찍지 않은 분이 있는지 확인하세요.",
+        "sample": "Could we get the immediate family for the next one? Who else do we need a photo with?",
+        "sampleKo": "다음 컷은 직계 가족분들 모셔도 될까요? 같이 찍어야 할 분 더 계실까요?"
+      },
+      {
+        "prompt": "뒷줄을 피사체 기준 왼쪽으로 한 걸음 옮긴 뒤 전체 간격을 좁혀 보세요.",
+        "sample": "Back row, one step to your left please. Everyone, a little closer.",
+        "sampleKo": "뒷줄, 본인 기준 왼쪽으로 한 걸음만 이동해 주세요. 다들 조금만 더 가까이요."
+      },
+      {
+        "prompt": "휴대폰을 보느라 시선이 흩어져 있습니다. 시선을 모으고 눈 감은 사람이 있을 때 한 컷 더 안내하세요.",
+        "sample": "Everyone look at my hand, not the phones. Perfect — one more, in case someone blinked.",
+        "sampleKo": "다들 휴대폰 말고 제 손을 봐주세요. 좋습니다 — 눈 감으신 분 있을 수 있으니 한 장만 더요."
+      }
+    ],
+    "dialogue": {
+      "title": "가족 사진 한 조합을 촬영하는 흐름",
+      "lines": [
+        {
+          "who": "You",
+          "en": "Could we get the immediate family for the next one?",
+          "ko": "다음 컷은 직계 가족분들 모셔도 될까요?"
+        },
+        {
+          "who": "Couple",
+          "en": "Yes — we'd like a photo with our parents first.",
+          "ko": "네, 먼저 부모님과 함께 찍고 싶어요."
+        },
+        {
+          "who": "You",
+          "en": "Who else do we need a photo with? Let's do those first.",
+          "ko": "같이 찍어야 할 분 더 계실까요? 그것부터 할게요."
+        },
+        {
+          "who": "Couple",
+          "en": "Our siblings too, please.",
+          "ko": "형제자매도 함께 부탁드려요."
+        },
+        {
+          "who": "You",
+          "en": "Everyone squeeze in — closer than feels normal.",
+          "ko": "다들 조금씩 붙어주세요 — 생각보다 더 가까이요."
+        },
+        {
+          "who": "You",
+          "en": "Back row, one step to your left please.",
+          "ko": "뒷줄, 왼쪽으로 한 걸음만 이동해 주세요."
+        },
+        {
+          "who": "You",
+          "en": "Everyone look at my hand, not the phones.",
+          "ko": "다들 휴대폰 말고 제 손을 봐주세요."
+        },
+        {
+          "who": "You",
+          "en": "Perfect — one more, in case someone blinked.",
+          "ko": "좋습니다 — 눈 감으신 분 있을 수 있으니 한 장만 더요."
+        },
+        {
+          "who": "You",
+          "en": "Thank you, everyone. We have that one.",
+          "ko": "다들 감사합니다. 이 조합 촬영했어요."
+        }
+      ]
+    },
+    "freetalk": "10명이 모여 있고, 뒷줄 간격이 넓으며 시선이 휴대폰으로 흩어진 상황입니다. 60초 동안 가족 호출, 명단 확인, 간격·줄·시선 안내, 마지막 한 장을 순서대로 말해보세요. 방향을 말할 때는 피사체 기준인지 손짓으로 보여주세요.",
+    "quiz": [
+      {
+        "q": "다음 컷에 가까운 가족을 모으는 부드러운 요청은?",
+        "choices": [
+          {
+            "text": "Could we get the immediate family for the next one?",
+            "correct": true
+          },
+          {
+            "text": "Turn and face each other, hold right there.",
+            "correct": false
+          },
+          {
+            "text": "That's a wrap — thank you for trusting me with your day.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "뒷줄을 피사체 본인의 왼쪽으로 이동시키는 말은?",
+        "choices": [
+          {
+            "text": "Back row, one step to my left please.",
+            "correct": false
+          },
+          {
+            "text": "Back row, one step to your left please.",
+            "correct": true
+          },
+          {
+            "text": "Everyone look at my hand, not the phones.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "눈 감은 사람이 있을 수 있어 한 장 더 찍을 때는?",
+        "choices": [
+          {
+            "text": "Who else do we need a photo with?",
+            "correct": false
+          },
+          {
+            "text": "Perfect — one more, in case someone blinked.",
+            "correct": true
+          },
+          {
+            "text": "Could we get the immediate family for the next one?",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "가족 관계를 추측하지 않고 명단으로 촬영할 조합을 확인할 수 있다",
+      "가족 호출과 간격 좁히기 표현을 안 보고 말할 수 있다",
+      "your left와 my left의 차이를 손짓과 함께 안내할 수 있다",
+      "여러 카메라로 흩어진 시선을 모을 수 있다",
+      "눈 감은 사람을 탓하지 않고 한 컷 더 안내할 수 있다"
+    ],
+    "mission": "Could we get the immediate family for the next one? Everyone, a little closer. Everyone look at my hand, not the phones. Perfect — one more, in case someone blinked.",
+    "nextHint": "촬영 전 필요한 세 문장을 저장하고 현장 저장 목록 또는 저장한 표현 연습에서 다시 꺼내보세요.",
+    "keywords": [
+      "그룹 촬영",
+      "그룹촬영",
+      "단체사진",
+      "단체 사진",
+      "가족사진",
+      "가족 사진"
+    ]
   }
 ]

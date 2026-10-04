@@ -7,7 +7,7 @@
     lessons = data; var state = KWE.load(), stats = KWE.stats(lessons);
     var last = lessons.find(function (l) { return String(l.id) === state.lastLesson && !(state.lessons[l.id] || {}).done; });
     var l = last || KWE.nextLesson(lessons);
-    document.getElementById('today-lesson').innerHTML = '<span class="eyebrow">12 MINUTES · DAY ' + l.day + '</span><h2>' + E(l.topicKo) + '</h2><p>' + E(l.goal || l.topicEn) + '</p><a class="btn" href="lessons/' + E(l.filename) + '">' + (last ? '이어서 학습' : '12분 학습 시작') + I('arrow') + '</a>';
+    document.getElementById('today-lesson').innerHTML = '<span class="eyebrow">' + (l.extra ? '12 MINUTES · 실전 보충' : '12 MINUTES · DAY ' + l.day) + '</span><h2>' + E(l.topicKo) + '</h2><p>' + E(l.goal || l.topicEn) + '</p><a class="btn" href="lessons/' + E(l.filename) + '">' + (last ? '이어서 학습' : '12분 학습 시작') + I('arrow') + '</a>';
     document.getElementById('progress-counter').textContent = stats.done + ' / ' + stats.total + ' 완료';
     document.getElementById('statgrid').innerHTML = [[stats.done + '/' + stats.total, '완료 레슨'], [stats.activeDays, '학습한 날'], [stats.streak, '연속 학습일'], [state.pins.length, '저장한 표현']].map(function (x) { return '<div class="stat"><b>' + x[0] + '</b><span>' + x[1] + '</span></div>'; }).join('');
     var due = KWE.dueLessons(lessons);
@@ -24,8 +24,8 @@
   if (state.session && state.session.index < state.session.ids.length) { document.querySelector('.review-entry').href = 'practice.html#' + state.session.mode; document.getElementById('quick-sub').textContent = '이전 연습 ' + state.session.index + ' / ' + state.session.ids.length + '개 완료 · 이어서 연습'; }
   function renderLibrary() {
     var query = document.getElementById('lesson-search').value.trim().toLowerCase(), s = KWE.load();
-    var rows = lessons.filter(function (l) { return (filter === 'all' || (filter === 'todo' ? !(s.lessons[l.id] || {}).done : String(l.week) === filter)) && (!query || [l.topicKo, l.topicEn, l.goal].concat(l.expressions.map(function (x) { return x.ko + ' ' + x.en + ' ' + x.situation; })).join(' ').toLowerCase().includes(query)); });
-    document.getElementById('lesson-list').innerHTML = rows.length ? rows.map(function (l) { var done = (s.lessons[l.id] || {}).done; return '<li><a class="lesson-item" href="lessons/' + E(l.filename) + '"><span class="lesson-number">' + String(l.day).padStart(2, '0') + '</span><div><b>' + E(l.topicKo) + '</b><small>Week ' + l.week + ' · ' + E(l.weekTitle) + (done ? ' · 완료' : '') + '</small></div>' + I(done ? 'check' : 'arrow') + '</a></li>'; }).join('') : '<li class="empty">다른 검색어나 주차를 선택해 보세요.</li>';
+    var rows = lessons.filter(function (l) { return (filter === 'all' || (filter === 'todo' ? !(s.lessons[l.id] || {}).done : filter === 'extra' ? l.extra : String(l.week) === filter)) && (!query || [l.topicKo, l.topicEn, l.goal].concat(l.keywords || []).concat(l.expressions.map(function (x) { return x.ko + ' ' + x.en + ' ' + x.situation; })).join(' ').toLowerCase().includes(query)); });
+    document.getElementById('lesson-list').innerHTML = rows.length ? rows.map(function (l) { var done = (s.lessons[l.id] || {}).done; return '<li><a class="lesson-item" href="lessons/' + E(l.filename) + '"><span class="lesson-number">' + (l.extra ? '+' : String(l.day).padStart(2, '0')) + '</span><div><b>' + E(l.topicKo) + '</b><small>' + (l.extra ? '실전 보충' : 'Week ' + l.week) + ' · ' + E(l.weekTitle) + (done ? ' · 완료' : '') + '</small></div>' + I(done ? 'check' : 'arrow') + '</a></li>'; }).join('') : '<li class="empty">다른 검색어나 주차를 선택해 보세요.</li>';
   }
   document.getElementById('lesson-search').oninput = renderLibrary;
   document.querySelectorAll('[data-week]').forEach(function (b) { b.onclick = function () { filter = b.dataset.week; document.querySelectorAll('[data-week]').forEach(function (x) { x.classList.toggle('active', x === b); x.setAttribute('aria-pressed', x === b); }); renderLibrary(); }; });

@@ -221,6 +221,46 @@ async function updates(browser,base) {
  check('last good release survives failed updates offline',(await page.locator('.phrase .en').first().innerText()).includes('Release 2'));
  await context.close();revision=1;
 }
+async function groupLesson(browser,label,base) {
+ const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,colorScheme:'light'});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' group lesson: '+e.message));
+ const filename='lessons/0021-family-group-photos.html',family='could-we-get-the-immediate-family-for-the-next-o';
+ try {
+  await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await ready(page);
+  check(label+' group lesson shortcut is outside the collapsed library',await page.locator('#group-lesson').isVisible());
+  await page.locator('#lesson-library summary').click();await page.getByRole('button',{name:'실전 보충',exact:true}).click();
+  check(label+' supplemental filter exposes the group lesson',await page.locator('.lesson-item').count()===1&&(await page.locator('.lesson-item').getAttribute('href'))===filename);
+  await page.getByRole('button',{name:'전체',exact:true}).click();await page.getByRole('searchbox',{name:'레슨 검색'}).fill('그룹 촬영');
+  check(label+' Korean group search finds the new lesson',await page.locator('.lesson-item').count()===1);
+  await page.locator('#group-lesson').click();await page.locator('.exprow').first().waitFor();
+  check(label+' group lesson teaches all six canonical field phrases',await page.locator('.exprow').count()===6);
+  check(label+' supplemental lesson uses a meaningful label instead of Week 0',!(await page.locator('.lesson-wrap').innerText()).includes('Week 0'));
+  await layout(page,label+' group lesson');
+  await page.screenshot({path:path.join(artifacts,'group-lesson-'+label+'.png')});
+  const first=page.locator('.exprow [data-sentence-save]').first();await first.click();
+  check(label+' group lesson shares existing field bookmark IDs',await page.evaluate(id=>KWE.load().pins.includes(id),family));
+  const sample=page.locator('.scn [data-sentence-save]').first(),sampleId=await sample.getAttribute('data-sentence-save');await sample.click();
+  check(label+' supplemental scenario saves its translation and lesson 21 source',await page.evaluate(id=>KWE.load().sentences[id].lessons[0]===21&&KWE.load().sentences[id].ko.includes('직계 가족'),sampleId));
+  await page.locator('#checklist input').first().check();await page.locator('.quiz-choices').nth(1).locator('label[data-correct="true"]').click();
+  await page.locator('[data-g="4"]').click();await page.reload();
+  check(label+' group lesson completion, checklist and quiz persist',await page.evaluate(()=>KWE.load().lessons['21'].done&&KWE.load().checks['21'][0]&&KWE.load().quizAnswers['21'][1]===1));
+  await page.getByRole('button',{name:'설정',exact:true}).click();
+  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'백업 내보내기'}).click()]);
+  const backupPath=await download.path();await page.locator('#import-file').setInputFiles(backupPath);
+  await page.getByRole('button',{name:'확인하고 복원'}).click();await page.locator('.exprow').first().waitFor();
+  check(label+' backup restore retains supplemental progress and sentences',await page.evaluate(id=>KWE.load().lessons['21'].done&&KWE.load().sentences[id].lessons[0]===21,sampleId));
+  const originPort=server.address().port;
+  if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
+  try {
+   await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await page.locator('#group-lesson').click();await page.locator('.exprow').first().waitFor();
+   check(label+' new group lesson is fully available offline',await page.locator('.exprow').count()===6&&await first.getAttribute('aria-pressed')==='true');
+   await page.goto(base+'field.html#scope=saved');await page.waitForSelector('.phrase');
+   check(label+' group core and supplemental scenario remain usable in field offline',await page.locator('.phrase[data-id="'+family+'"]').count()===1&&await page.locator('.phrase[data-id="'+sampleId+'"]').count()===1);
+  }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
+  await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+  check(label+' saved group lesson expressions enter recall practice',await page.evaluate(id=>KWE.load().session.ids.includes(id),sampleId));
+ }finally{await context.close();}
+}
 async function lessonSaves(browser,label,base) {
  const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
  const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' lesson saves: '+e.message));
@@ -270,8 +310,8 @@ async function lessonSaves(browser,label,base) {
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base=`http://127.0.0.1:${server.address().port}/wedding/`;
  try {
-  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
-  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);}finally{await safari.close();}
+  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await groupLesson(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
+  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);await groupLesson(safari,'webkit',base);}finally{await safari.close();}
   assert.deepEqual(errors,[],'normal flows have no JS errors or failed resources');
   for(const size of [180,192,512,1024]){const metadata=await sharp(path.join(root,`assets/icon-${size}-v3.png`)).metadata();check(`${size}px icon is opaque square`,metadata.width===size&&metadata.height===size&&!metadata.hasAlpha);}
   const images=['home-chromium.png','field-chromium.png','practice-chromium.png'];
