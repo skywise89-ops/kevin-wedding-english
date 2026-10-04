@@ -9,6 +9,8 @@ const sharp = require('sharp');
 const root = path.resolve(__dirname,'..');
 const artifacts = path.join(root,'artifacts');fs.mkdirSync(artifacts,{recursive:true});
 const originalSW = fs.readFileSync(path.join(root,'sw.js'),'utf8');
+const phraseCount = JSON.parse(fs.readFileSync(path.join(root,'data/phrases.json'))).phrases.length;
+const supplementalLessons = JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json'))).filter(l=>l.extra);
 const assets = JSON.parse(originalSW.match(/const ASSETS = (\[[\s\S]*?\]);/)[1]);
 const mime = {'.html':'text/html','.js':'application/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webmanifest':'application/manifest+json'};
 let revision = 1, failCSS = false, mismatch = false;
@@ -67,7 +69,7 @@ async function main(engine,label,base) {
  await page.locator('.tabbar a').filter({hasText:'홈'}).click();await page.waitForSelector('#today-lesson .btn');
  await page.locator('.tabbar a').filter({hasText:'현장'}).click();await page.waitForSelector('.phrase');
  await page.waitForFunction(()=>scrollY>1700);
- check(label+' expanded field list and scroll survive navigation',await page.locator('.phrase').count()===129);
+ check(label+' expanded field list and scroll survive navigation',await page.locator('.phrase').count()===phraseCount);
  await page.evaluate(()=>scrollTo(0,0));
  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('턱 내려');
  await page.waitForFunction(()=>document.querySelector('.phrase')?.dataset.id==='tilt-your-chin-down-just-a-little'&&!document.querySelector('#clear-search').hidden);
@@ -229,9 +231,9 @@ async function groupLesson(browser,label,base) {
   await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await ready(page);
   check(label+' group lesson shortcut is outside the collapsed library',await page.locator('#group-lesson').isVisible());
   await page.locator('#lesson-library summary').click();await page.getByRole('button',{name:'실전 보충',exact:true}).click();
-  check(label+' supplemental filter exposes the group lesson',await page.locator('.lesson-item').count()===1&&(await page.locator('.lesson-item').getAttribute('href'))===filename);
+  check(label+' supplemental filter exposes the group lesson',await page.locator('.lesson-item').count()===supplementalLessons.length&&await page.locator('.lesson-item[href="'+filename+'"]').count()===1);
   await page.getByRole('button',{name:'전체',exact:true}).click();await page.getByRole('searchbox',{name:'레슨 검색'}).fill('그룹 촬영');
-  check(label+' Korean group search finds the new lesson',await page.locator('.lesson-item').count()===1);
+  check(label+' Korean group search finds the family and friends lessons',await page.locator('.lesson-item[href="'+filename+'"]').count()===1&&await page.locator('.lesson-item[href="lessons/0022-friends-group-photos.html"]').count()===1);
   await page.locator('#group-lesson').click();await page.locator('.exprow').first().waitFor();
   check(label+' group lesson teaches all six canonical field phrases',await page.locator('.exprow').count()===6);
   check(label+' supplemental lesson uses a meaningful label instead of Week 0',!(await page.locator('.lesson-wrap').innerText()).includes('Week 0'));
@@ -259,6 +261,57 @@ async function groupLesson(browser,label,base) {
   }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
   await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
   check(label+' saved group lesson expressions enter recall practice',await page.evaluate(id=>KWE.load().session.ids.includes(id),sampleId));
+ }finally{await context.close();}
+}
+async function friendsLesson(browser,label,base) {
+ const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,colorScheme:'light'});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' friends lesson: '+e.message));
+ const filename='lessons/0022-friends-group-photos.html',joke='friends-relax-this-isn-t-a-passport-photo',fallback='friends-no-pose-needed-just-enjoy-being-together',family='could-we-get-the-immediate-family-for-the-next-o';
+ try {
+  await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await ready(page);
+  check(label+' friends lesson is directly visible on home',await page.locator('#friends-lesson').isVisible());
+  await page.evaluate(id=>{const state=KWE.load();state.pins=[id];state.lessons['21']={done:true,first:'2026-10-04',last:'2026-10-04',due:'2026-10-08',reps:1,ease:2.5,interval:4,lapses:0};state.settings.rate=.85;KWE.save();},family);
+  await page.locator('#lesson-library summary').click();await page.getByRole('searchbox',{name:'레슨 검색'}).fill('친구 농담');
+  check(label+' friends joke search finds its lesson',await page.locator('.lesson-item[href="'+filename+'"]').count()===1);
+  await page.locator('#friends-lesson').click();await page.locator('.exprow').first().waitFor();
+  await layout(page,label+' friends lesson');
+  await page.locator('.exprow [data-sentence-save="'+joke+'"]').click();
+  check(label+' joke saves to its field ID and every occurrence',await page.locator('[data-sentence-save="'+joke+'"]').evaluateAll(buttons=>buttons.every(b=>b.getAttribute('aria-pressed')==='true')));
+  await page.locator('.quiz-choices').nth(2).locator('label[data-correct="true"]').click();
+  await page.locator('.quiz-save [data-sentence-save="'+fallback+'"]').click();
+  check(label+' quiet fallback quiz answer is saved to its field ID',await page.evaluate(id=>KWE.load().pins.includes(id),fallback));
+  await page.locator('#checklist input').first().check();await page.locator('[data-g="4"]').click();await page.reload();
+  check(label+' friends completion and quiz persist alongside prior family progress',await page.evaluate(()=>KWE.load().lessons['22'].done&&KWE.load().checks['22'][0]&&KWE.load().quizAnswers['22'][2]===2&&KWE.load().lessons['21'].due==='2026-10-08'&&KWE.get('rate')===.85));
+  await page.locator('#expressions').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(artifacts,'friends-lesson-'+label+'.png')});
+  await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
+  check(label+' friends photo search exposes all eight new expressions',await page.locator('.phrase').count()===8);
+  await page.locator('.phrase[data-id="'+joke+'"] [data-kit]').click();
+  check(label+' saved joke can be added to a shooting kit',await page.evaluate(id=>KWE.load().kit.includes(id),joke));
+  for(const [query,wanted] of [['그룹 농담',joke],['환호','friends-on-three-cheer-for-these-two'],['앨범 커버','friends-give-me-your-best-album-cover-pose'],['농담 반응 없음',fallback]]){
+   await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill(query);
+   await page.waitForFunction(id=>document.querySelector('.phrase')?.dataset.id===id,wanted);
+   check(label+' field search finds friends prompt: '+query,await page.locator('.phrase').first().getAttribute('data-id')===wanted);
+  }
+  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('친구사진');await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===8);
+  await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
+  await page.screenshot({path:path.join(artifacts,'friends-field-'+label+'.png')});
+  await page.getByRole('button',{name:'설정',exact:true}).click();
+  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'백업 내보내기'}).click()]);
+  await page.locator('#import-file').setInputFiles(await download.path());await page.getByRole('button',{name:'확인하고 복원'}).click();await page.waitForSelector('.phrase');
+  check(label+' friends backup restore preserves new and existing pins, kit and lessons',await page.evaluate(({joke,fallback,family})=>{const s=KWE.load();return [joke,fallback,family].every(id=>s.pins.includes(id))&&s.kit.includes(joke)&&s.lessons['22'].done&&s.lessons['21'].due==='2026-10-08'&&s.settings.rate===.85;},{joke,fallback,family}));
+  const originPort=server.address().port;
+  if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
+  try {
+   await page.goto(base+filename);await page.locator('.exprow').first().waitFor();
+   check(label+' friends lesson and saved joke work offline',await page.locator('.exprow').count()===6&&await page.locator('.exprow [data-sentence-save="'+joke+'"]').getAttribute('aria-pressed')==='true');
+   await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
+   check(label+' all friends expressions remain searchable offline',await page.locator('.phrase').count()===8);
+   await page.goto(base+'field.html#scope=kit');await page.waitForSelector('.phrase');
+   check(label+' friends shooting kit remains available offline',await page.locator('.phrase[data-id="'+joke+'"]').count()===1);
+   await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+   check(label+' friends jokes and fallback enter offline recall',await page.evaluate(({joke,fallback})=>KWE.load().session.ids.includes(joke)&&KWE.load().session.ids.includes(fallback),{joke,fallback}));
+  }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
+  await page.setViewportSize({width:320,height:844});await page.goto(base+filename);await layout(page,label+' friends lesson 320px');
  }finally{await context.close();}
 }
 async function lessonSaves(browser,label,base) {
@@ -310,8 +363,8 @@ async function lessonSaves(browser,label,base) {
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base=`http://127.0.0.1:${server.address().port}/wedding/`;
  try {
-  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await groupLesson(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
-  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);await groupLesson(safari,'webkit',base);}finally{await safari.close();}
+  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await groupLesson(chrome,'chromium',base);await friendsLesson(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
+  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);await groupLesson(safari,'webkit',base);await friendsLesson(safari,'webkit',base);}finally{await safari.close();}
   assert.deepEqual(errors,[],'normal flows have no JS errors or failed resources');
   for(const size of [180,192,512,1024]){const metadata=await sharp(path.join(root,`assets/icon-${size}-v3.png`)).metadata();check(`${size}px icon is opaque square`,metadata.width===size&&metadata.height===size&&!metadata.hasAlpha);}
   const images=['home-chromium.png','field-chromium.png','practice-chromium.png'];

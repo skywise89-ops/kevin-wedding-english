@@ -1732,6 +1732,226 @@
       "nuance": "",
       "lessons": [],
       "src": "field"
+    },
+    {
+      "id": "friends-a-little-closer-you-re-friends-after-all",
+      "en": "A little closer — you're friends, after all!",
+      "ko": "조금만 더 가까이요 — 친구 사이잖아요!",
+      "situation": "친구들 간격 좁히기",
+      "priority": 78,
+      "keywords": [
+        "친구사진",
+        "친구 단체사진",
+        "친구들 붙어",
+        "친구 가까이",
+        "친구 그룹 촬영",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구"
+      ],
+      "note": "이미 친구들인 그룹에 웃으며 하는 가벼운 말입니다. 간격만 안내하고 팔을 두르거나 몸을 붙이도록 강요하지 마세요.",
+      "shortEn": "A little closer, everyone.",
+      "politeEn": "Could everyone move a little closer?",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-relax-this-isn-t-a-passport-photo",
+      "en": "Relax — this isn't a passport photo.",
+      "ko": "편하게 계세요 — 여권 사진 아니잖아요.",
+      "situation": "굳은 표정 풀기 · 여권 사진 농담",
+      "priority": 77,
+      "keywords": [
+        "그룹 농담",
+        "단체 농담",
+        "여권사진",
+        "여권 사진",
+        "친구 농담",
+        "분위기 풀기",
+        "긴장 풀기",
+        "친구 웃음 유도",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진"
+      ],
+      "note": "표정이 굳어 있을 때 촬영 상황을 소재로 한 가벼운 농담입니다. 따뜻한 어조로 한 번만 말하고 이어지는 반응을 촬영하세요. 반응이 없으면 편한 안내로 바꾸세요.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-one-serious-photo-try-not-to-laugh",
+      "en": "One serious photo. Try not to laugh.",
+      "ko": "한 장은 진지하게요. 웃음 참아보세요.",
+      "situation": "진지한 척하다 웃음 터뜨리기",
+      "priority": 75,
+      "keywords": [
+        "친구 웃음",
+        "웃음 참기",
+        "진지한 척",
+        "웃긴 단체사진",
+        "단체 유머",
+        "자연스럽게 웃기",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진",
+        "그룹 농담",
+        "친구 농담"
+      ],
+      "note": "장난을 즐기는 친구들에게 웃음 참기 놀이처럼 말하세요. 진지한 표정에서 웃음이 터지는 순간까지 촬영합니다. 웃어야 한다는 압박을 주지는 마세요.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-give-me-your-best-album-cover-pose",
+      "en": "Give me your best album cover pose.",
+      "ko": "앨범 커버 찍는다고 생각하고 멋진 포즈 해볼까요?",
+      "situation": "친구들과 앨범 커버 포즈",
+      "priority": 70,
+      "keywords": [
+        "앨범커버",
+        "앨범 커버",
+        "친구 포즈",
+        "멋진 단체사진",
+        "재밌는 포즈",
+        "재미있는 포즈",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진"
+      ],
+      "note": "친구들이 각자 멋있는 척할 때 쓰는 짧은 디렉팅입니다. 의미가 안 통하면 Just stand however you like.로 풀어 말하세요. 한 번에 한 동작만 안내합니다.",
+      "politeEn": "Would you like to try an album cover pose?",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-on-three-cheer-for-these-two",
+      "en": "On three, cheer for these two. One, two, three!",
+      "ko": "셋에 두 분을 위해 환호해 주세요. 하나, 둘, 셋!",
+      "situation": "친구들이 신랑신부 응원하기",
+      "priority": 74,
+      "keywords": [
+        "환호",
+        "친구 응원",
+        "신랑신부 응원",
+        "다 같이 환호",
+        "단체 함성",
+        "즐거운 그룹 사진",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진"
+      ],
+      "note": "손짓으로 커플을 가리킨 뒤 카운트하세요. 셋에 맞춰 짧게 연속 촬영하고 직후 웃음도 담습니다. 식 진행 중이나 조용한 공간에서는 환호 대신 웃는 표정만 부탁하세요.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-one-more-photographers-always-say-that",
+      "en": "One more — I know, photographers always say that.",
+      "ko": "한 장만 더요 — 알아요, 사진가는 늘 그 말 하죠.",
+      "situation": "마지막 한 컷 · 사진가의 가벼운 농담",
+      "priority": 68,
+      "keywords": [
+        "한 장 더 농담",
+        "한장만 더",
+        "사진가 농담",
+        "마지막 컷 농담",
+        "단체 마무리 농담",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진",
+        "그룹 농담",
+        "친구 농담"
+      ],
+      "note": "피사체가 아닌 사진가 자신을 소재로 한 농담입니다. 긴 대기 중에는 반복하지 말고 약속한 추가 컷 뒤 촬영을 마무리하세요.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-look-at-each-other-keep-that-laugh-going",
+      "en": "Look at each other, not me. Keep that laugh going!",
+      "ko": "저 말고 서로 봐주세요. 지금처럼 웃으시면 돼요!",
+      "situation": "웃음이 나온 뒤 서로 바라보기",
+      "priority": 72,
+      "keywords": [
+        "친구 서로 봐",
+        "자연스러운 웃음",
+        "웃음 이어가기",
+        "웃는 순간",
+        "친구들 시선",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진"
+      ],
+      "note": "이미 웃음이 나왔을 때 이어서 쓰세요. 아무도 웃지 않는 상황에서 웃음을 강요하는 말로 쓰지 않습니다. 서로 보는 컷 뒤에는 카메라 보는 컷도 한 장 확보하세요.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
+    },
+    {
+      "id": "friends-no-pose-needed-just-enjoy-being-together",
+      "en": "No pose needed. Just enjoy being together.",
+      "ko": "포즈 안 잡으셔도 돼요. 함께 있는 순간을 즐겨주세요.",
+      "situation": "농담 반응이 없을 때 편하게 촬영",
+      "priority": 65,
+      "keywords": [
+        "농담 반응 없음",
+        "장난 부담",
+        "편한 단체사진",
+        "친구 자연스럽게",
+        "조용한 친구",
+        "포즈 없이",
+        "친구 단체 촬영",
+        "친구 그룹사진",
+        "신랑신부 친구",
+        "친구사진",
+        "친구 단체사진"
+      ],
+      "note": "농담이나 큰 리액션이 부담스러운 그룹에 쓰는 대안입니다. 편히 서거나 앉은 상태에서 짧게 대화하게 하세요. 이동이나 점프 없이도 자연스러운 컷을 만들 수 있습니다.",
+      "cat": "group",
+      "nuance": "",
+      "lessons": [
+        22
+      ],
+      "src": "field"
     }
   ]
 }

@@ -2850,5 +2850,235 @@
       "가족사진",
       "가족 사진"
     ]
+  },
+  {
+    "id": 22,
+    "week": 0,
+    "day": 2,
+    "weekTitle": "친구들과 즐거운 그룹 사진",
+    "topicKo": "친구들과 그룹 사진: 웃음과 즐거운 분위기 만들기",
+    "topicEn": "Fun Group Photos with Friends",
+    "emoji": "",
+    "filename": "0022-friends-group-photos.html",
+    "review": false,
+    "extra": true,
+    "goal": "친구들 간격을 정리하고, 가벼운 농담 하나와 동작 하나로 자연스러운 표정·환호를 이끌어낸다.",
+    "why": "카메라를 보는 기본 컷을 먼저 확보한 뒤, 농담 하나와 동작 하나를 골라 장난스러운 컷으로 이어가세요. 웃음이 터지는 순간과 직후의 반응을 담는 것이 목표입니다. 농담은 촬영 상황이나 사진가 자신을 소재로 하세요. 반응이 없으면 농담을 반복하지 말고 편한 촬영으로 바꾸세요.",
+    "expressions": [
+      {
+        "situation": "친구들 간격 좁히기",
+        "en": "A little closer — you're friends, after all!",
+        "ko": "조금만 더 가까이요 — 친구 사이잖아요!",
+        "nuance": "이미 친구들인 그룹에 웃으며 하는 가벼운 말입니다. 간격만 안내하고 팔을 두르거나 몸을 붙이도록 강요하지 마세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "굳은 표정 풀기 · 여권 사진 농담",
+        "en": "Relax — this isn't a passport photo.",
+        "ko": "편하게 계세요 — 여권 사진 아니잖아요.",
+        "nuance": "표정이 굳어 있을 때 촬영 상황을 소재로 한 가벼운 농담입니다. 따뜻한 어조로 한 번만 말하고 이어지는 반응을 촬영하세요. 반응이 없으면 편한 안내로 바꾸세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "진지한 척하다 웃음 터뜨리기",
+        "en": "One serious photo. Try not to laugh.",
+        "ko": "한 장은 진지하게요. 웃음 참아보세요.",
+        "nuance": "장난을 즐기는 친구들에게 웃음 참기 놀이처럼 말하세요. 진지한 표정에서 웃음이 터지는 순간까지 촬영합니다. 웃어야 한다는 압박을 주지는 마세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들과 앨범 커버 포즈",
+        "en": "Give me your best album cover pose.",
+        "ko": "앨범 커버 찍는다고 생각하고 멋진 포즈 해볼까요?",
+        "nuance": "친구들이 각자 멋있는 척할 때 쓰는 짧은 디렉팅입니다. 의미가 안 통하면 Just stand however you like.로 풀어 말하세요. 한 번에 한 동작만 안내합니다.",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들이 신랑신부 응원하기",
+        "en": "On three, cheer for these two. One, two, three!",
+        "ko": "셋에 두 분을 위해 환호해 주세요. 하나, 둘, 셋!",
+        "nuance": "손짓으로 커플을 가리킨 뒤 카운트하세요. 셋에 맞춰 짧게 연속 촬영하고 직후 웃음도 담습니다. 식 진행 중이나 조용한 공간에서는 환호 대신 웃는 표정만 부탁하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "마지막 한 컷 · 사진가의 가벼운 농담",
+        "en": "One more — I know, photographers always say that.",
+        "ko": "한 장만 더요 — 알아요, 사진가는 늘 그 말 하죠.",
+        "nuance": "피사체가 아닌 사진가 자신을 소재로 한 농담입니다. 긴 대기 중에는 반복하지 말고 약속한 추가 컷 뒤 촬영을 마무리하세요.",
+        "cat": "group"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "after all",
+        "def": "여기서는 “친구 사이잖아요”처럼 이미 아는 사실을 부드럽게 덧붙입니다."
+      },
+      {
+        "term": "album cover pose",
+        "def": "밴드나 가수의 앨범 커버처럼 각자 멋있는 척하는 포즈. 의미가 안 통하면 편한 자세로 서 달라고 말하세요."
+      },
+      {
+        "term": "on three",
+        "def": "하나, 둘, 셋 중 셋에 행동하라는 뜻. 환호와 촬영 시점을 맞춥니다."
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "친구들이 간격을 두고 뻣뻣하게 서 있습니다. 간격을 좁히고 촬영 상황을 소재로 긴장을 풀어주세요.",
+        "sample": "A little closer — you're friends, after all! Relax — this isn't a passport photo.",
+        "sampleKo": "조금만 더 가까이요 — 친구 사이잖아요! 편하게 계세요 — 여권 사진 아니잖아요."
+      },
+      {
+        "prompt": "장난을 즐기는 그룹입니다. 웃음 참기 놀이로 시작하고, 웃음이 터지면 서로 바라보는 컷을 담으세요.",
+        "sample": "One serious photo. Try not to laugh. Look at each other, not me. Keep that laugh going!",
+        "sampleKo": "한 장은 진지하게요. 웃음 참아보세요. 저 말고 서로 봐주세요. 지금처럼 웃으시면 돼요!"
+      },
+      {
+        "prompt": "기본 단체 컷을 확보했습니다. 커플을 응원하는 환호 컷을 셋에 맞춰 촬영하세요.",
+        "sample": "On three, cheer for these two. One, two, three!",
+        "sampleKo": "셋에 두 분을 위해 환호해 주세요. 하나, 둘, 셋!"
+      },
+      {
+        "prompt": "농담에 반응이 없거나 큰 리액션이 부담스러워 보입니다. 편하게 함께 있는 모습을 촬영하도록 바꿔주세요.",
+        "sample": "No pose needed. Just enjoy being together.",
+        "sampleKo": "포즈 안 잡으셔도 돼요. 함께 있는 순간을 즐겨주세요."
+      }
+    ],
+    "dialogue": {
+      "title": "기본 컷 뒤 친구들과 자연스러운 웃음 컷 만들기",
+      "lines": [
+        {
+          "who": "You",
+          "en": "First, everyone look at the camera for one photo.",
+          "ko": "먼저 한 장은 다 같이 카메라 봐주세요."
+        },
+        {
+          "who": "You",
+          "en": "A little closer — you're friends, after all!",
+          "ko": "조금만 더 가까이요 — 친구 사이잖아요!"
+        },
+        {
+          "who": "You",
+          "en": "Relax — this isn't a passport photo.",
+          "ko": "편하게 계세요 — 여권 사진 아니잖아요."
+        },
+        {
+          "who": "Friend",
+          "en": "Okay, we'll try to relax!",
+          "ko": "네, 편하게 해볼게요!"
+        },
+        {
+          "who": "You",
+          "en": "One serious photo. Try not to laugh.",
+          "ko": "한 장은 진지하게요. 웃음 참아보세요."
+        },
+        {
+          "who": "Friend",
+          "en": "That's harder than it sounds!",
+          "ko": "말처럼 쉽지가 않네요!"
+        },
+        {
+          "who": "You",
+          "en": "Look at each other, not me. Keep that laugh going!",
+          "ko": "저 말고 서로 봐주세요. 지금처럼 웃으시면 돼요!"
+        },
+        {
+          "who": "You",
+          "en": "On three, cheer for these two. One, two, three!",
+          "ko": "셋에 두 분을 위해 환호해 주세요. 하나, 둘, 셋!"
+        },
+        {
+          "who": "You",
+          "en": "One more — I know, photographers always say that.",
+          "ko": "한 장만 더요 — 알아요, 사진가는 늘 그 말 하죠."
+        },
+        {
+          "who": "You",
+          "en": "That's it — thank you, everyone!",
+          "ko": "됐습니다 — 다들 감사합니다!"
+        }
+      ]
+    },
+    "freetalk": "신랑신부와 친구 6명이 기본 단체 컷을 찍었습니다. 60초 동안 간격 정리, 농담 하나, 동작 하나, 마무리를 안내하세요. 세 문장을 고른 뒤 안 보고 말해보세요. 농담에 반응이 없는 상황도 가정해 편한 촬영 안내로 바꿔 말해보세요.",
+    "quiz": [
+      {
+        "q": "친구들의 표정이 굳었을 때, 촬영 상황을 소재로 긴장을 풀어주는 말은?",
+        "choices": [
+          {
+            "text": "Relax — this isn't a passport photo.",
+            "correct": true
+          },
+          {
+            "text": "Back row, one step to your left please.",
+            "correct": false
+          },
+          {
+            "text": "Could we get the immediate family for the next one?",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "셋에 맞춰 친구들이 신랑신부를 응원하도록 안내하려면?",
+        "choices": [
+          {
+            "text": "Give me your best album cover pose.",
+            "correct": false
+          },
+          {
+            "text": "On three, cheer for these two. One, two, three!",
+            "correct": true
+          },
+          {
+            "text": "One more — I know, photographers always say that.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "농담과 큰 리액션이 부담스러운 그룹에 알맞은 대안은?",
+        "choices": [
+          {
+            "text": "Give me your best album cover pose.",
+            "correct": false
+          },
+          {
+            "text": "One serious photo. Try not to laugh.",
+            "correct": false
+          },
+          {
+            "text": "No pose needed. Just enjoy being together.",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "농담 하나와 동작 하나를 골라 짧게 안내할 수 있다",
+      "외모나 사생활 대신 촬영 상황을 소재로 긴장을 풀 수 있다",
+      "셋에 맞춰 환호를 안내하고 직후 웃음도 담을 수 있다",
+      "농담에 반응이 없으면 편한 촬영 안내로 바꿀 수 있다",
+      "카메라 보는 기본 컷을 확보하고 추가 컷 뒤 마무리할 수 있다"
+    ],
+    "mission": "A little closer — you're friends, after all! Relax — this isn't a passport photo. On three, cheer for these two. One, two, three!",
+    "nextHint": "다음 촬영에 쓸 농담 하나와 동작 하나를 저장하고 촬영 준비 모음에서 순서대로 연습하세요.",
+    "keywords": [
+      "친구사진",
+      "친구 사진",
+      "친구 단체사진",
+      "친구 그룹 촬영",
+      "그룹 촬영",
+      "그룹촬영",
+      "단체사진",
+      "단체 사진",
+      "그룹 농담",
+      "단체 농담",
+      "웃음 유도",
+      "즐거운 분위기",
+      "신랑신부 친구",
+      "환호",
+      "앨범 커버",
+      "친구 농담"
+    ]
   }
 ]
