@@ -1952,6 +1952,592 @@
         22
       ],
       "src": "field"
+    },
+    {
+      "id": "moment-couple-first-thought-1",
+      "en": "What was your first thought when you saw each other today?",
+      "ko": "오늘 서로 처음 봤을 때 무슨 생각이 들었어요?",
+      "cat": "rapport",
+      "situation": "신랑신부의 긴장 풀기 · 1",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "긴장 풀기",
+        "첫 느낌",
+        "처음 봤을 때",
+        "신랑신부 긴장",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 73,
+      "note": "상황의 1번째 말. 서로 대답하도록 기다리세요. 첫 반응을 담은 뒤 다음 말을 건네세요."
+    },
+    {
+      "id": "moment-couple-first-thought-2",
+      "en": "Tell each other. Keep looking at each other as you say it.",
+      "ko": "서로에게 말하면서 계속 바라봐 주세요.",
+      "cat": "rapport",
+      "situation": "신랑신부의 긴장 풀기 · 2",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "긴장 풀기",
+        "첫 느낌",
+        "처음 봤을 때",
+        "신랑신부 긴장",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 72,
+      "note": "상황의 2번째 말. 서로 대답하도록 기다리세요. 첫 반응을 담은 뒤 다음 말을 건네세요."
+    },
+    {
+      "id": "moment-couple-joke-around-1",
+      "en": "How do you two usually joke around? Show me!",
+      "ko": "평소 어떤 장난을 쳐요? 보여주세요!",
+      "cat": "expression",
+      "situation": "평소 장난치는 모습 끌어내기 · 1",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "평소 장난",
+        "신랑신부 장난",
+        "커플 장난",
+        "평소 모습",
+        "장난 보여줘",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 71,
+      "note": "상황의 1번째 말. 장난은 두 사람이 고르게 하세요. 반응이 나오면 질문을 더하기보다 그 순간을 찍으세요."
+    },
+    {
+      "id": "moment-couple-joke-around-2",
+      "en": "Forget the camera for a moment. Just be yourselves.",
+      "ko": "잠깐 카메라는 잊고 평소처럼 해보세요.",
+      "cat": "expression",
+      "situation": "평소 장난치는 모습 끌어내기 · 2",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "평소 장난",
+        "신랑신부 장난",
+        "커플 장난",
+        "평소 모습",
+        "장난 보여줘",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 70,
+      "note": "상황의 2번째 말. 장난은 두 사람이 고르게 하세요. 반응이 나오면 질문을 더하기보다 그 순간을 찍으세요."
+    },
+    {
+      "id": "moment-couple-joke-around-3",
+      "en": "That's it! Keep going.",
+      "ko": "좋아요! 계속하세요.",
+      "cat": "expression",
+      "situation": "평소 장난치는 모습 끌어내기 · 3",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "평소 장난",
+        "신랑신부 장난",
+        "커플 장난",
+        "평소 모습",
+        "장난 보여줘",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 69,
+      "note": "상황의 3번째 말. 장난은 두 사람이 고르게 하세요. 반응이 나오면 질문을 더하기보다 그 순간을 찍으세요."
+    },
+    {
+      "id": "moment-couple-whisper-1",
+      "en": "Whisper something that only the two of you will understand.",
+      "ko": "두 분만 알아들을 수 있는 말을 귓속말로 해주세요.",
+      "cat": "rapport",
+      "situation": "둘만 아는 말로 웃음 만들기 · 1",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "귓속말",
+        "둘만 아는 말",
+        "비밀 이야기",
+        "속삭여",
+        "커플 웃음",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 68,
+      "note": "상황의 1번째 말. 서로 다가가기 편한 때에 제안하세요. 내용을 듣기보다 두 사람의 표정에 집중하세요."
+    },
+    {
+      "id": "moment-couple-whisper-2",
+      "en": "I don't need to hear it — I just want to catch the reaction.",
+      "ko": "내용은 안 들려도 돼요. 반응을 담고 싶어요.",
+      "cat": "rapport",
+      "situation": "둘만 아는 말로 웃음 만들기 · 2",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "귓속말",
+        "둘만 아는 말",
+        "비밀 이야기",
+        "속삭여",
+        "커플 웃음",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 67,
+      "note": "상황의 2번째 말. 서로 다가가기 편한 때에 제안하세요. 내용을 듣기보다 두 사람의 표정에 집중하세요."
+    },
+    {
+      "id": "moment-couple-walk-1",
+      "en": "Walk slowly together. Tell each other where you'd go on your next date.",
+      "ko": "천천히 걸으면서 다음 데이트에 어디 갈지 얘기해 보세요.",
+      "cat": "movement",
+      "situation": "걸으면서 자연스럽게 대화하기 · 1",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "걸으며 대화",
+        "걸으면서",
+        "다음 데이트",
+        "산책 대화",
+        "자연스러운 걷기",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 66,
+      "note": "상황의 1번째 말. 걷기 편한 짧은 구간을 고르세요. 옷과 발밑을 확인한 뒤 천천히 걸어 달라고 하세요."
+    },
+    {
+      "id": "moment-couple-walk-2",
+      "en": "Keep talking — you don't need to look at me.",
+      "ko": "계속 대화하세요. 저를 볼 필요 없어요.",
+      "cat": "movement",
+      "situation": "걸으면서 자연스럽게 대화하기 · 2",
+      "nuance": "",
+      "lessons": [
+        23
+      ],
+      "src": "field",
+      "keywords": [
+        "걸으며 대화",
+        "걸으면서",
+        "다음 데이트",
+        "산책 대화",
+        "자연스러운 걷기",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 65,
+      "note": "상황의 2번째 말. 걷기 편한 짧은 구간을 고르세요. 옷과 발밑을 확인한 뒤 천천히 걸어 달라고 하세요."
+    },
+    {
+      "id": "moment-friends-make-laugh-1",
+      "en": "Friends, come gather around these two!",
+      "ko": "친구분들, 두 분 주변에 모여주세요!",
+      "cat": "group",
+      "situation": "친구들이 신랑신부를 웃겨주기 · 1",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "친구 장난",
+        "친구 웃기기",
+        "친구 모여",
+        "친구 이야기",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 64,
+      "note": "상황의 1번째 말. 한 질문씩 건네고 대답을 기다리세요. 곤란한 사생활보다 모두 즐거워할 기억을 떠올리게 하세요."
+    },
+    {
+      "id": "moment-friends-make-laugh-2",
+      "en": "What do they do that always makes you laugh? Tell them!",
+      "ko": "두 분의 어떤 모습이 항상 웃겨요? 두 분에게 얘기해 주세요!",
+      "cat": "group",
+      "situation": "친구들이 신랑신부를 웃겨주기 · 2",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "친구 장난",
+        "친구 웃기기",
+        "친구 모여",
+        "친구 이야기",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 63,
+      "note": "상황의 2번째 말. 한 질문씩 건네고 대답을 기다리세요. 곤란한 사생활보다 모두 즐거워할 기억을 떠올리게 하세요."
+    },
+    {
+      "id": "moment-friends-make-laugh-3",
+      "en": "Look at them while you say it.",
+      "ko": "두 분을 보면서 얘기해 주세요.",
+      "cat": "group",
+      "situation": "친구들이 신랑신부를 웃겨주기 · 3",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "친구 장난",
+        "친구 웃기기",
+        "친구 모여",
+        "친구 이야기",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 62,
+      "note": "상황의 3번째 말. 한 질문씩 건네고 대답을 기다리세요. 곤란한 사생활보다 모두 즐거워할 기억을 떠올리게 하세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-1",
+      "en": "Friends, you've got front-row seats to their wedding kiss!",
+      "ko": "친구분들은 키스 장면 특별석이에요!",
+      "cat": "group",
+      "situation": "친구들 앞에서 키스·환호 유도하기 · 1",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "키스 응원",
+        "친구 키스",
+        "키스 특별석",
+        "키스",
+        "환호",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 61,
+      "note": "상황의 1번째 말. 키스는 두 사람이 원할 때 진행하세요. 친구들이 두 사람의 얼굴을 가리지 않게 하고, 조용한 예식 진행 중에는 큰 환호를 피하세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-2",
+      "en": "You two, ready for a kiss?",
+      "ko": "두 분, 키스할 준비됐나요?",
+      "cat": "group",
+      "situation": "친구들 앞에서 키스·환호 유도하기 · 2",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "키스 응원",
+        "친구 키스",
+        "키스 특별석",
+        "키스",
+        "환호",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 60,
+      "note": "상황의 2번째 말. 키스는 두 사람이 원할 때 진행하세요. 친구들이 두 사람의 얼굴을 가리지 않게 하고, 조용한 예식 진행 중에는 큰 환호를 피하세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-3",
+      "en": "When they kiss, give them your biggest cheer!",
+      "ko": "키스할 때 크게 환호해주세요!",
+      "cat": "group",
+      "situation": "친구들 앞에서 키스·환호 유도하기 · 3",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "키스 응원",
+        "친구 키스",
+        "키스 특별석",
+        "키스",
+        "환호",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 59,
+      "note": "상황의 3번째 말. 키스는 두 사람이 원할 때 진행하세요. 친구들이 두 사람의 얼굴을 가리지 않게 하고, 조용한 예식 진행 중에는 큰 환호를 피하세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-4",
+      "en": "Keep cheering — I'm catching their reaction too!",
+      "ko": "계속 환호해주세요. 두 분의 반응도 담을게요!",
+      "cat": "group",
+      "situation": "친구들 앞에서 키스·환호 유도하기 · 4",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "키스 응원",
+        "친구 키스",
+        "키스 특별석",
+        "키스",
+        "환호",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 58,
+      "note": "상황의 4번째 말. 키스는 두 사람이 원할 때 진행하세요. 친구들이 두 사람의 얼굴을 가리지 않게 하고, 조용한 예식 진행 중에는 큰 환호를 피하세요."
+    },
+    {
+      "id": "moment-friends-album-cover-1",
+      "en": "You're a band for this photo. Show me your album cover pose!",
+      "ko": "이번 사진에서는 여러분이 밴드예요. 앨범 커버 포즈를 보여주세요!",
+      "cat": "group",
+      "situation": "친구들과 장난스러운 단체 포즈 만들기 · 1",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "앨범 커버",
+        "앨범커버",
+        "밴드 포즈",
+        "친구 포즈",
+        "진지한 표정",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 57,
+      "note": "상황의 1번째 말. 기본 단체 컷을 찍은 뒤 제안하세요. 밴드·앨범 커버 비유를 편하게 받아들이는 그룹에 어울립니다."
+    },
+    {
+      "id": "moment-friends-album-cover-2",
+      "en": "Hold that pose. Now try not to laugh.",
+      "ko": "그대로 웃음을 참아보세요.",
+      "cat": "group",
+      "situation": "친구들과 장난스러운 단체 포즈 만들기 · 2",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "앨범 커버",
+        "앨범커버",
+        "밴드 포즈",
+        "친구 포즈",
+        "진지한 표정",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 56,
+      "note": "상황의 2번째 말. 기본 단체 컷을 찍은 뒤 제안하세요. 밴드·앨범 커버 비유를 편하게 받아들이는 그룹에 어울립니다."
+    },
+    {
+      "id": "moment-friends-album-cover-3",
+      "en": "Okay, look at each other — who's still keeping a straight face?",
+      "ko": "서로 봐주세요. 아직 진지한 표정인 사람이 있나요?",
+      "cat": "group",
+      "situation": "친구들과 장난스러운 단체 포즈 만들기 · 3",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "앨범 커버",
+        "앨범커버",
+        "밴드 포즈",
+        "친구 포즈",
+        "진지한 표정",
+        "친구사진",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 55,
+      "note": "상황의 3번째 말. 기본 단체 컷을 찍은 뒤 제안하세요. 밴드·앨범 커버 비유를 편하게 받아들이는 그룹에 어울립니다."
+    },
+    {
+      "id": "moment-family-thankful-1",
+      "en": "Tell each other one thing you're thankful for today.",
+      "ko": "오늘 고마운 일 하나를 서로에게 말해주세요.",
+      "cat": "group",
+      "situation": "가족과 따뜻한 표정 만들기 · 1",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "가족 감사",
+        "가족 따뜻한 표정",
+        "고마운 일",
+        "감사 이야기",
+        "부모님 감사",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 54,
+      "note": "상황의 1번째 말. 가족 관계나 감정을 짐작해 정하지 마세요. 짧은 한마디도 충분하며, 감정을 강요하지 않고 기다리세요."
+    },
+    {
+      "id": "moment-family-thankful-2",
+      "en": "Look at each other while you say it. Take your time.",
+      "ko": "서로 바라보면서 천천히 얘기하시면 돼요.",
+      "cat": "group",
+      "situation": "가족과 따뜻한 표정 만들기 · 2",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "가족 감사",
+        "가족 따뜻한 표정",
+        "고마운 일",
+        "감사 이야기",
+        "부모님 감사",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 53,
+      "note": "상황의 2번째 말. 가족 관계나 감정을 짐작해 정하지 마세요. 짧은 한마디도 충분하며, 감정을 강요하지 않고 기다리세요."
+    },
+    {
+      "id": "moment-group-laugh-1",
+      "en": "Everyone, look at the person who makes you laugh the most.",
+      "ko": "여러분을 가장 많이 웃게 하는 사람을 봐주세요.",
+      "cat": "group",
+      "situation": "가족·친구 그룹의 자연스러운 웃음 끌어내기 · 1",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "가족 웃음",
+        "단체 웃음",
+        "웃음 참기",
+        "가족 친구 웃음",
+        "가장 웃긴 사람",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 52,
+      "note": "상황의 1번째 말. 가벼운 장난을 편하게 받아들이는 그룹에 쓰세요. 누군가를 놀리기보다 서로 즐거워하는 관계를 담으세요."
+    },
+    {
+      "id": "moment-group-laugh-2",
+      "en": "Keep looking at them. Now try not to laugh!",
+      "ko": "계속 보면서 웃음을 참아보세요!",
+      "cat": "group",
+      "situation": "가족·친구 그룹의 자연스러운 웃음 끌어내기 · 2",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "가족 웃음",
+        "단체 웃음",
+        "웃음 참기",
+        "가족 친구 웃음",
+        "가장 웃긴 사람",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 51,
+      "note": "상황의 2번째 말. 가벼운 장난을 편하게 받아들이는 그룹에 쓰세요. 누군가를 놀리기보다 서로 즐거워하는 관계를 담으세요."
+    },
+    {
+      "id": "moment-between-shots-1",
+      "en": "You can relax now. Stay together and keep chatting.",
+      "ko": "이제 편하게 계세요. 함께 서서 계속 얘기하시면 돼요.",
+      "cat": "movement",
+      "situation": "촬영 사이의 편안한 순간 담기 · 1",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "촬영 사이",
+        "틈새 순간",
+        "편안한 순간",
+        "계속 대화",
+        "자연스러운 순간",
+        "포즈 풀기",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 50,
+      "note": "상황의 1번째 말. 아직 촬영 중임을 알려주세요. 포즈를 풀고 대화하는 순간에도 카메라를 사용할 수 있게 준비하세요."
+    },
+    {
+      "id": "moment-between-shots-2",
+      "en": "That's it — I'm still taking photos.",
+      "ko": "좋아요, 지금도 찍고 있어요.",
+      "cat": "movement",
+      "situation": "촬영 사이의 편안한 순간 담기 · 2",
+      "nuance": "",
+      "lessons": [
+        25
+      ],
+      "src": "field",
+      "keywords": [
+        "촬영 사이",
+        "틈새 순간",
+        "편안한 순간",
+        "계속 대화",
+        "자연스러운 순간",
+        "포즈 풀기",
+        "분위기 유도",
+        "분위기 만들기"
+      ],
+      "priority": 49,
+      "note": "상황의 2번째 말. 아직 촬영 중임을 알려주세요. 포즈를 풀고 대화하는 순간에도 카메라를 사용할 수 있게 준비하세요."
     }
   ]
 }

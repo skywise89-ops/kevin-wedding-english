@@ -69,7 +69,7 @@ TPL = """<!doctype html>
   <div class="goal">오늘 목표: {goal}</div><nav class="lesson-steps" aria-label="12분 학습 단계"><a href="#recall">1분 회상</a><a href="#expressions">8분 핵심 학습</a><a href="#output">3분 소리 내기</a></nav><h2 id="recall">안 보고 먼저 떠올려보세요</h2><p class="small muted">이 상황에서 어떤 영어를 쓸까요? 한 문장 떠올리고 아래 표현을 확인하세요.</p>
 
   <h2>왜 이 표현이 필요한가</h2>
-  <div class="card">{why}</div>
+  <div class="card">{why}</div>{sceneentry}
 
   <h2 id="expressions">오늘의 핵심 표현 <span class="h2n">{nexp}개</span></h2>
   <p class="saved-guide">별표로 모아두고 <a href="../field.html#scope=saved">현장 저장 목록</a>이나 <a href="../practice.html#saved">저장한 표현 연습</a>에서 다시 꺼내세요.</p>
@@ -123,7 +123,7 @@ TPL = """<!doctype html>
 <script src="../assets/model.js"></script>
 <script src="../assets/core.js"></script>
 <script type="application/json" id="lesson-sentences">{sentences}</script>
-<script src="../assets/lesson.js"></script>
+<script src="../assets/{pagescript}"></script>
 </body>
 </html>
 """
@@ -178,9 +178,11 @@ for i, l in enumerate(L):
 
     html_out = TPL.format(
         id=l['id'], pid=f"{l['id']:04d}", topic=e(l['topicKo']), emoji=e(l['emoji']),
+        pagescript='scene-release.js' if l.get('scenes') else 'lesson.js',
         lessonlabel='실전 보충 레슨' if l.get('extra') else f'Week {l["week"]} · Day {l["day"]}', weektitle=e(l['weekTitle']),
         reviewbadge='<span class="badge">복습</span>' if l['review'] else '',
         goal=e(l['goal']), why=e(l['why']),
+        sceneentry=('<a class="kit-entry" href="../moments.html#' + e(l['scenes'][0]) + '"><span data-icon="kit"></span><div><h3>이 상황을 촬영 준비에</h3><p>전체 순서를 확인하고 오늘 쓸 말을 담으세요.</p></div><span data-icon="arrow"></span></a>' if l.get('scenes') else ''),
         nexp=len(l['expressions']), expressions=expressions,
         glossary=glossary, scenarios=scenarios, dialogue=dialogue,
         freetalk=e(l['freetalk']), quiz=quiz, checklist=checklist,

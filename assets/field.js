@@ -52,6 +52,7 @@
     document.getElementById('category-label').textContent = category === 'all' ? '모든 상황' : data.categories.find(function (c) { return c.id === category; }).label;
     document.getElementById('clear-search').hidden = !q;
     document.getElementById('quick-search').hidden = !!q || scope !== 'all';
+    document.getElementById('moments-entry').hidden = !!q || scope !== 'all';
     document.getElementById('kit-tools').hidden = scope !== 'kit';
     document.getElementById('kit-name').value = state.kitName;
     var ko = document.getElementById('ko-btn'); ko.setAttribute('aria-pressed', KWE.get('showKo')); ko.textContent = KWE.get('showKo') ? '한국어 표시 중' : '한국어 숨김';

@@ -284,7 +284,7 @@ async function friendsLesson(browser,label,base) {
   check(label+' friends completion and quiz persist alongside prior family progress',await page.evaluate(()=>KWE.load().lessons['22'].done&&KWE.load().checks['22'][0]&&KWE.load().quizAnswers['22'][2]===2&&KWE.load().lessons['21'].due==='2026-10-08'&&KWE.get('rate')===.85));
   await page.locator('#expressions').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(artifacts,'friends-lesson-'+label+'.png')});
   await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
-  check(label+' friends photo search exposes all eight new expressions',await page.locator('.phrase').count()===8);
+  check(label+' friends photo search retains eight prior and ten scene expressions',await page.locator('.phrase').count()===18);
   await page.locator('.phrase[data-id="'+joke+'"] [data-kit]').click();
   check(label+' saved joke can be added to a shooting kit',await page.evaluate(id=>KWE.load().kit.includes(id),joke));
   for(const [query,wanted] of [['그룹 농담',joke],['환호','friends-on-three-cheer-for-these-two'],['앨범 커버','friends-give-me-your-best-album-cover-pose'],['농담 반응 없음',fallback]]){
@@ -292,7 +292,7 @@ async function friendsLesson(browser,label,base) {
    await page.waitForFunction(id=>document.querySelector('.phrase')?.dataset.id===id,wanted);
    check(label+' field search finds friends prompt: '+query,await page.locator('.phrase').first().getAttribute('data-id')===wanted);
   }
-  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('친구사진');await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===8);
+  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('친구사진');await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===18);
   await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
   await page.screenshot({path:path.join(artifacts,'friends-field-'+label+'.png')});
   await page.getByRole('button',{name:'설정',exact:true}).click();
@@ -305,13 +305,113 @@ async function friendsLesson(browser,label,base) {
    await page.goto(base+filename);await page.locator('.exprow').first().waitFor();
    check(label+' friends lesson and saved joke work offline',await page.locator('.exprow').count()===6&&await page.locator('.exprow [data-sentence-save="'+joke+'"]').getAttribute('aria-pressed')==='true');
    await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
-   check(label+' all friends expressions remain searchable offline',await page.locator('.phrase').count()===8);
+   check(label+' all friends expressions remain searchable offline',await page.locator('.phrase').count()===18);
    await page.goto(base+'field.html#scope=kit');await page.waitForSelector('.phrase');
    check(label+' friends shooting kit remains available offline',await page.locator('.phrase[data-id="'+joke+'"]').count()===1);
    await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
    check(label+' friends jokes and fallback enter offline recall',await page.evaluate(({joke,fallback})=>KWE.load().session.ids.includes(joke)&&KWE.load().session.ids.includes(fallback),{joke,fallback}));
   }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
   await page.setViewportSize({width:320,height:844});await page.goto(base+filename);await layout(page,label+' friends lesson 320px');
+ }finally{await context.close();}
+}
+async function moments(browser,label,base) {
+ const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,colorScheme:'light'});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' moments: '+e.message));
+ const guide=JSON.parse(fs.readFileSync(path.join(root,'data/scenes.json'))).scenes;
+ const kiss=guide.find(s=>s.id==='friends-kiss-cheer'),joke=guide.find(s=>s.id==='couple-joke-around');
+ const old='tilt-your-chin-down-just-a-little',saved=kiss.phrases[0];
+ try {
+  await page.goto(base+'index.html');await ready(page);
+  check(label+' scenes discoverable from home',await page.locator('#moments-entry').isVisible());
+  await page.locator('#moments-entry').click();await page.waitForSelector('.scene-card');
+  check(label+' all ten scenes appear without removing family or friend lessons',await page.locator('.scene-card').count()===10&&supplementalLessons.some(l=>l.id===21)&&supplementalLessons.some(l=>l.id===22));
+  await page.evaluate(({old,saved})=>{const s=KWE.load();s.pins=[old];s.kit=[old,saved];s.lessons['21']={done:true,first:'2026-10-04',last:'2026-10-04',due:'2026-10-08',reps:1,ease:2.5,interval:4,lapses:0};s.settings.rate=.85;KWE.save();},{old,saved});
+  await page.goto(base+'moments.html#'+kiss.id);
+  check(label+' deep link opens kiss scene in approved order',await page.locator('#'+kiss.id).getAttribute('open')!==null&&JSON.stringify(await page.locator('#'+kiss.id+' .scene-line').evaluateAll(rows=>rows.map(r=>r.dataset.phraseId)))===JSON.stringify(kiss.phrases));
+  await page.locator('[data-moment-save="'+saved+'"]').click();
+  check(label+' scene phrase saves canonical ID',await page.locator('[data-moment-save="'+saved+'"]').getAttribute('aria-pressed')==='true');
+  await page.locator('[data-scene-kit="'+kiss.id+'"]').click();
+  const expected=[old,...kiss.phrases];
+  check(label+' whole scene appends missing phrases in order',await page.evaluate(ids=>JSON.stringify(KWE.load().kit)===JSON.stringify(ids),expected));
+  await page.locator('[data-scene-kit="'+kiss.id+'"]').click();
+  check(label+' repeating scene addition keeps prior choices and no duplicates',await page.evaluate(ids=>JSON.stringify(KWE.load().kit)===JSON.stringify(ids),expected));
+  await page.evaluate(()=>{window._originalSpeak=speechSynthesis.speak.bind(speechSynthesis);window._originalCancel=speechSynthesis.cancel.bind(speechSynthesis);speechSynthesis.speak=u=>{window._testUtterance=u;u.onstart&&u.onstart();};speechSynthesis.cancel=()=>{};});
+  const speak=page.locator('#'+kiss.id+' [data-say]').first();await speak.click();
+  check(label+' scene playback speaks selected English and exposes stop state',await speak.getAttribute('aria-pressed')==='true'&&await page.evaluate(()=>window._testUtterance.text)===JSON.parse(fs.readFileSync(path.join(root,'data/phrases.json'))).phrases.find(p=>p.id===saved).en);
+  await speak.click();check(label+' scene playback stops',await speak.getAttribute('aria-pressed')==='false');
+  await page.evaluate(()=>{speechSynthesis.speak=window._originalSpeak;speechSynthesis.cancel=window._originalCancel;});
+  await layout(page,label+' kiss scene 390px');
+  await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
+  await page.evaluate(id=>document.getElementById(id).scrollIntoView({block:'start'}),kiss.id);
+  await page.screenshot({path:path.join(artifacts,'moments-kiss-'+label+'.png')});
+  await page.evaluate(async()=>{const d=await KWE.phrasesJson();KWE.load().kit=d.phrases.slice(0,23).map(p=>p.id);KWE.save();});
+  const before=await page.evaluate(()=>localStorage.getItem('kwe_state_v2'));
+  await page.goto(base+'moments.html#'+joke.id);await page.locator('[data-scene-kit="'+joke.id+'"]').click();
+  check(label+' over-capacity scene keeps entire prior kit unchanged',await page.evaluate(value=>localStorage.getItem('kwe_state_v2')===value,before));
+  check(label+' capacity failure provides next action',await page.locator('.toast').innerText().then(t=>t.includes('빼고 다시 담아')));
+  await page.evaluate(ids=>{KWE.load().kit=ids;KWE.save();},expected);
+  for(const lesson of supplementalLessons.filter(l=>l.id>=23)){
+   await page.goto(base+'lessons/'+lesson.filename);await page.waitForSelector('.exprow');
+   check(label+' scene lesson '+lesson.id+' has canonical saves and linked guide',await page.locator('.exprow').count()===6&&await page.locator('a[href^="../moments.html#"]').count()===1);
+   if(lesson.id===24)check(label+' scene saved state shared with lesson',await page.locator('.exprow [data-sentence-save="'+saved+'"]').getAttribute('aria-pressed')==='true');
+   await page.locator('.quiz-choices').first().locator('label[data-correct="true"]').click();
+   await page.locator('#checklist input').first().check();await page.locator('[data-g="4"]').click();await page.reload();
+   check(label+' scene lesson '+lesson.id+' quiz, check and completion persist',await page.evaluate(id=>KWE.load().lessons[id].done&&KWE.load().checks[id][0]&&KWE.load().quizAnswers[id][0]===0,String(lesson.id)));
+  }
+  check(label+' new lessons preserve old pins, due date and speech rate',await page.evaluate(old=>KWE.load().pins.includes(old)&&KWE.load().lessons['21'].due==='2026-10-08'&&KWE.get('rate')===.85,old));
+  await page.goto(base+'field.html#q=키스 환호');await page.waitForSelector('.phrase');
+  check(label+' Korean scene query finds all kiss lines and hides guide entry',await page.locator('.phrase').count()===4&&!(await page.locator('#moments-entry').isVisible()));
+  check(label+' scene saved state shared with field',await page.locator('.phrase[data-id="'+saved+'"] [data-star]').getAttribute('aria-pressed')==='true');
+  await page.goto(base+'field.html#scope=all');await page.waitForSelector('.phrase');
+  check(label+' scene guide discoverable from unfiltered field',await page.locator('#moments-entry').isVisible());
+  await page.getByRole('button',{name:'설정',exact:true}).click();
+  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'백업 내보내기'}).click()]);
+  await page.locator('#import-file').setInputFiles(await download.path());await page.getByRole('button',{name:'확인하고 복원'}).click();await page.waitForSelector('.phrase');
+  check(label+' scene progress, pins and ordered kit roundtrip through backup',await page.evaluate(({expected,saved})=>JSON.stringify(KWE.load().kit)===JSON.stringify(expected)&&KWE.load().pins.includes(saved)&&['23','24','25'].every(id=>KWE.load().lessons[id].done),{expected,saved}));
+  await ready(page);
+  const originPort=server.address().port;
+  if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
+  try{
+   await page.goto(base+'moments.html#'+joke.id);await page.waitForSelector('.scene-card');
+   check(label+' all ten scenes available offline',await page.locator('.scene-card').count()===10);
+   await page.locator('[data-scene-kit="'+joke.id+'"]').click();
+   await page.locator('[data-moment-save="'+joke.phrases[0]+'"]').click();
+   check(label+' offline scene additions and saves persist',await page.evaluate(ids=>ids.every(id=>KWE.load().kit.includes(id))&&KWE.load().pins.includes(ids[0]),joke.phrases));
+   for(const lesson of supplementalLessons.filter(l=>l.id>=23)){
+    await page.goto(base+'lessons/'+lesson.filename);await page.waitForSelector('.exprow');
+    check(label+' scene lesson '+lesson.id+' available offline',await page.locator('.exprow').count()===6);
+   }
+   await page.goto(base+'field.html#q=평소 장난');await page.waitForSelector('.phrase');
+   check(label+' scene search works offline',await page.locator('.phrase[data-id="'+joke.phrases[0]+'"]').count()===1);
+   await page.goto(base+'practice.html#kit');await page.getByRole('button',{name:'영어 확인'}).waitFor();
+   check(label+' ordered scene phrases enter offline recall',await page.evaluate(ids=>ids.every(id=>KWE.load().session.ids.includes(id)),joke.phrases));
+  }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
+  await page.setViewportSize({width:320,height:844});await page.goto(base+'moments.html#'+kiss.id);await layout(page,label+' scene 320px');
+  await page.evaluate(()=>{KWE.set('theme','dark');KWE.set('size',26);});await layout(page,label+' large dark scene');
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.scene-card[open] .speak')).backgroundColor==='rgb(36, 57, 64)');
+  check(label+' dark scene controls use readable dark surface',await page.evaluate(()=>getComputedStyle(document.querySelector('.scene-card[open] .speak')).color==='rgb(155, 216, 193)'));
+  await page.screenshot({path:path.join(artifacts,'moments-dark-'+label+'.png')});
+  await page.evaluate(()=>KWE.toggleOutdoor());await layout(page,label+' outdoor scene');
+  await page.evaluate(()=>KWE.toggleOutdoor());
+  check(label+' scene outdoor mode restores prior font and theme',await page.evaluate(()=>KWE.get('theme')==='dark'&&KWE.get('size')===26));
+  await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{KWE.set('theme','light');KWE.set('size',18);scrollTo(0,0);});
+  await page.screenshot({path:path.join(artifacts,'moments-overview-'+label+'.png')});
+ }finally{await context.close();}
+}
+async function previousSceneRelease(browser,label,base) {
+ const context=await browser.newContext({serviceWorkers:'block'});
+ const page=await context.newPage();page.on('pageerror',e=>errors.push(label+' previous scene release: '+e.message));
+ const previous={version:3,lessons:{},pins:['tilt-your-chin-down-just-a-little'],kit:[],settings:{theme:'dark',size:20,rate:.85}};
+ await context.addInitScript(raw=>{
+  localStorage.setItem('kwe_state_v2',JSON.stringify(raw));
+  Object.defineProperty(window,'KWE',{configurable:true,set(api){delete api.addToKit;Object.defineProperty(window,'KWE',{configurable:true,writable:true,value:api});}});
+ },previous);
+ try{
+  await page.goto(base+'moments.html');await page.locator('#scene-update-needed').waitFor();
+  check(label+' previous core shows update guidance before using new scene actions',await page.locator('[data-scene-kit]').count()===0&&await page.locator('#scene-update-needed').innerText().then(t=>t.includes('업데이트 적용')));
+  await page.goto(base+'lessons/0024-friends-kiss-cheers.html');await page.locator('#scene-update-needed').waitFor();
+  check(label+' previous core keeps new lesson inactive until update',await page.locator('.quiz-choices').count()===0);
+  check(label+' update guidance leaves existing local data untouched',await page.evaluate(raw=>localStorage.getItem('kwe_state_v2')===JSON.stringify(raw),previous));
  }finally{await context.close();}
 }
 async function lessonSaves(browser,label,base) {
@@ -363,8 +463,8 @@ async function lessonSaves(browser,label,base) {
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base=`http://127.0.0.1:${server.address().port}/wedding/`;
  try {
-  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await groupLesson(chrome,'chromium',base);await friendsLesson(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
-  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);await groupLesson(safari,'webkit',base);await friendsLesson(safari,'webkit',base);}finally{await safari.close();}
+  const chrome=await main(chromium,'chromium',base);try{await lessonSaves(chrome,'chromium',base);await groupLesson(chrome,'chromium',base);await friendsLesson(chrome,'chromium',base);await moments(chrome,'chromium',base);await previousSceneRelease(chrome,'chromium',base);await updates(chrome,base);}finally{await chrome.close();}
+  const safari=await main(webkit,'webkit',base);try{await lessonSaves(safari,'webkit',base);await groupLesson(safari,'webkit',base);await friendsLesson(safari,'webkit',base);await moments(safari,'webkit',base);await previousSceneRelease(safari,'webkit',base);}finally{await safari.close();}
   assert.deepEqual(errors,[],'normal flows have no JS errors or failed resources');
   for(const size of [180,192,512,1024]){const metadata=await sharp(path.join(root,`assets/icon-${size}-v3.png`)).metadata();check(`${size}px icon is opaque square`,metadata.width===size&&metadata.height===size&&!metadata.hasAlpha);}
   const images=['home-chromium.png','field-chromium.png','practice-chromium.png'];

@@ -173,6 +173,18 @@
     } else s.kit.splice(i, 1);
     if (!save()) { s.kit = before; return null; } return i < 0;
   }
+  function addToKit(ids) {
+    var s = load(), before = s.kit.slice();
+    var missing = Array.from(new Set(ids)).filter(function (id) { return !before.includes(id); });
+    if (before.length + missing.length > 24) {
+      toast('이 상황은 ' + missing.length + '칸이 필요합니다. 촬영 준비에서 표현을 빼고 다시 담아 주세요.');
+      return null;
+    }
+    if (!missing.length) return 0;
+    s.kit = before.concat(missing);
+    if (!save()) { s.kit = before; return null; }
+    return missing.length;
+  }
   function toggleOutdoor() {
     var s = load().settings;
     if (!s.outdoor) { s.outdoorPrevious = { theme: s.theme, size: s.size }; s.theme = 'light'; s.size = Math.max(22, s.size); s.outdoor = true; }
@@ -545,7 +557,7 @@
     load: load, save: save, day: day, streak: streak, stats: stats,
     completeLesson: completeLesson, resetLesson: resetLesson,
     dueLessons: dueLessons, nextLesson: nextLesson, schedule: schedule,
-    isPinned: isPinned, togglePin: togglePin, toggleSentence: toggleSentence, toggleKit: toggleKit, toggleOutdoor: toggleOutdoor,
+    isPinned: isPinned, togglePin: togglePin, toggleSentence: toggleSentence, toggleKit: toggleKit, addToKit: addToKit, toggleOutdoor: toggleOutdoor,
     get: get, set: set, applyTheme: applyTheme, cycleTheme: cycleTheme,
     speak: speak, stopSpeak: stopSpeak, playButton: playButton, ttsSupported: ttsSupported, enVoices: enVoices,
     listen: listen, srSupported: srSupported, scoreSpeech: scoreSpeech,

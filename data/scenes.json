@@ -1,0 +1,202 @@
+{
+  "scenes": [
+    {
+      "id": "couple-first-thought",
+      "title": "신랑신부의 긴장 풀기",
+      "group": "couple",
+      "cat": "rapport",
+      "lesson": 23,
+      "keywords": [
+        "긴장 풀기",
+        "첫 느낌",
+        "처음 봤을 때",
+        "신랑신부 긴장"
+      ],
+      "note": "서로 대답하도록 기다리세요. 첫 반응을 담은 뒤 다음 말을 건네세요.",
+      "phrases": [
+        "moment-couple-first-thought-1",
+        "moment-couple-first-thought-2"
+      ]
+    },
+    {
+      "id": "couple-joke-around",
+      "title": "평소 장난치는 모습 끌어내기",
+      "group": "couple",
+      "cat": "expression",
+      "lesson": 23,
+      "keywords": [
+        "평소 장난",
+        "신랑신부 장난",
+        "커플 장난",
+        "평소 모습",
+        "장난 보여줘"
+      ],
+      "note": "장난은 두 사람이 고르게 하세요. 반응이 나오면 질문을 더하기보다 그 순간을 찍으세요.",
+      "phrases": [
+        "moment-couple-joke-around-1",
+        "moment-couple-joke-around-2",
+        "moment-couple-joke-around-3"
+      ]
+    },
+    {
+      "id": "couple-whisper",
+      "title": "둘만 아는 말로 웃음 만들기",
+      "group": "couple",
+      "cat": "rapport",
+      "lesson": 23,
+      "keywords": [
+        "귓속말",
+        "둘만 아는 말",
+        "비밀 이야기",
+        "속삭여",
+        "커플 웃음"
+      ],
+      "note": "서로 다가가기 편한 때에 제안하세요. 내용을 듣기보다 두 사람의 표정에 집중하세요.",
+      "phrases": [
+        "moment-couple-whisper-1",
+        "moment-couple-whisper-2"
+      ]
+    },
+    {
+      "id": "couple-walk",
+      "title": "걸으면서 자연스럽게 대화하기",
+      "group": "couple",
+      "cat": "movement",
+      "lesson": 23,
+      "keywords": [
+        "걸으며 대화",
+        "걸으면서",
+        "다음 데이트",
+        "산책 대화",
+        "자연스러운 걷기"
+      ],
+      "note": "걷기 편한 짧은 구간을 고르세요. 옷과 발밑을 확인한 뒤 천천히 걸어 달라고 하세요.",
+      "phrases": [
+        "moment-couple-walk-1",
+        "moment-couple-walk-2"
+      ]
+    },
+    {
+      "id": "friends-make-laugh",
+      "title": "친구들이 신랑신부를 웃겨주기",
+      "group": "friends",
+      "cat": "group",
+      "lesson": 24,
+      "keywords": [
+        "친구 장난",
+        "친구 웃기기",
+        "친구 모여",
+        "친구 이야기",
+        "친구사진"
+      ],
+      "note": "한 질문씩 건네고 대답을 기다리세요. 곤란한 사생활보다 모두 즐거워할 기억을 떠올리게 하세요.",
+      "phrases": [
+        "moment-friends-make-laugh-1",
+        "moment-friends-make-laugh-2",
+        "moment-friends-make-laugh-3"
+      ]
+    },
+    {
+      "id": "friends-kiss-cheer",
+      "title": "친구들 앞에서 키스·환호 유도하기",
+      "group": "friends",
+      "cat": "group",
+      "lesson": 24,
+      "keywords": [
+        "키스 환호",
+        "키스 응원",
+        "친구 키스",
+        "키스 특별석",
+        "키스",
+        "환호",
+        "친구사진"
+      ],
+      "note": "키스는 두 사람이 원할 때 진행하세요. 친구들이 두 사람의 얼굴을 가리지 않게 하고, 조용한 예식 진행 중에는 큰 환호를 피하세요.",
+      "phrases": [
+        "moment-friends-kiss-cheer-1",
+        "moment-friends-kiss-cheer-2",
+        "moment-friends-kiss-cheer-3",
+        "moment-friends-kiss-cheer-4"
+      ]
+    },
+    {
+      "id": "friends-album-cover",
+      "title": "친구들과 장난스러운 단체 포즈 만들기",
+      "group": "friends",
+      "cat": "group",
+      "lesson": 24,
+      "keywords": [
+        "앨범 커버",
+        "앨범커버",
+        "밴드 포즈",
+        "친구 포즈",
+        "진지한 표정",
+        "친구사진"
+      ],
+      "note": "기본 단체 컷을 찍은 뒤 제안하세요. 밴드·앨범 커버 비유를 편하게 받아들이는 그룹에 어울립니다.",
+      "phrases": [
+        "moment-friends-album-cover-1",
+        "moment-friends-album-cover-2",
+        "moment-friends-album-cover-3"
+      ]
+    },
+    {
+      "id": "family-thankful",
+      "title": "가족과 따뜻한 표정 만들기",
+      "group": "family",
+      "cat": "group",
+      "lesson": 25,
+      "keywords": [
+        "가족 감사",
+        "가족 따뜻한 표정",
+        "고마운 일",
+        "감사 이야기",
+        "부모님 감사"
+      ],
+      "note": "가족 관계나 감정을 짐작해 정하지 마세요. 짧은 한마디도 충분하며, 감정을 강요하지 않고 기다리세요.",
+      "phrases": [
+        "moment-family-thankful-1",
+        "moment-family-thankful-2"
+      ]
+    },
+    {
+      "id": "group-laugh",
+      "title": "가족·친구 그룹의 자연스러운 웃음 끌어내기",
+      "group": "family",
+      "cat": "group",
+      "lesson": 25,
+      "keywords": [
+        "가족 웃음",
+        "단체 웃음",
+        "웃음 참기",
+        "가족 친구 웃음",
+        "가장 웃긴 사람"
+      ],
+      "note": "가벼운 장난을 편하게 받아들이는 그룹에 쓰세요. 누군가를 놀리기보다 서로 즐거워하는 관계를 담으세요.",
+      "phrases": [
+        "moment-group-laugh-1",
+        "moment-group-laugh-2"
+      ]
+    },
+    {
+      "id": "between-shots",
+      "title": "촬영 사이의 편안한 순간 담기",
+      "group": "family",
+      "cat": "movement",
+      "lesson": 25,
+      "keywords": [
+        "촬영 사이",
+        "틈새 순간",
+        "편안한 순간",
+        "계속 대화",
+        "자연스러운 순간",
+        "포즈 풀기"
+      ],
+      "note": "아직 촬영 중임을 알려주세요. 포즈를 풀고 대화하는 순간에도 카메라를 사용할 수 있게 준비하세요.",
+      "phrases": [
+        "moment-between-shots-1",
+        "moment-between-shots-2"
+      ]
+    }
+  ]
+}

@@ -3080,5 +3080,682 @@
       "앨범 커버",
       "친구 농담"
     ]
+  },
+  {
+    "id": 23,
+    "week": 0,
+    "day": 3,
+    "weekTitle": "분위기 만드는 실전 영어",
+    "topicKo": "커플의 평소 모습과 자연스러운 반응",
+    "topicEn": "Natural couple moments",
+    "emoji": "",
+    "filename": "0023-couple-natural-moments.html",
+    "review": false,
+    "extra": true,
+    "goal": "질문 하나를 건네고, 서로 대화하는 표정과 평소 장난을 담는다.",
+    "why": "웃으라는 말만 반복하기보다 실제 대화와 작은 동작을 제안하면 표정이 달라집니다. 질문을 하나씩 건네고 기다리세요. 상황 하나를 골라 첫 말, 안내, 반응을 이어 말하는 연습을 합니다.",
+    "expressions": [
+      {
+        "situation": "신랑신부의 긴장 풀기 · 1",
+        "en": "What was your first thought when you saw each other today?",
+        "ko": "오늘 서로 처음 봤을 때 무슨 생각이 들었어요?",
+        "nuance": "",
+        "cat": "rapport"
+      },
+      {
+        "situation": "신랑신부의 긴장 풀기 · 2",
+        "en": "Tell each other. Keep looking at each other as you say it.",
+        "ko": "서로에게 말하면서 계속 바라봐 주세요.",
+        "nuance": "",
+        "cat": "rapport"
+      },
+      {
+        "situation": "평소 장난치는 모습 끌어내기 · 1",
+        "en": "How do you two usually joke around? Show me!",
+        "ko": "평소 어떤 장난을 쳐요? 보여주세요!",
+        "nuance": "",
+        "cat": "expression"
+      },
+      {
+        "situation": "평소 장난치는 모습 끌어내기 · 2",
+        "en": "Forget the camera for a moment. Just be yourselves.",
+        "ko": "잠깐 카메라는 잊고 평소처럼 해보세요.",
+        "nuance": "",
+        "cat": "expression"
+      },
+      {
+        "situation": "둘만 아는 말로 웃음 만들기 · 1",
+        "en": "Whisper something that only the two of you will understand.",
+        "ko": "두 분만 알아들을 수 있는 말을 귓속말로 해주세요.",
+        "nuance": "",
+        "cat": "rapport"
+      },
+      {
+        "situation": "걸으면서 자연스럽게 대화하기 · 1",
+        "en": "Walk slowly together. Tell each other where you'd go on your next date.",
+        "ko": "천천히 걸으면서 다음 데이트에 어디 갈지 얘기해 보세요.",
+        "nuance": "",
+        "cat": "movement"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "first thought",
+        "def": "처음 떠오른 생각"
+      },
+      {
+        "term": "joke around",
+        "def": "가볍게 장난치다"
+      },
+      {
+        "term": "catch the reaction",
+        "def": "반응이 나오는 순간을 담다"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "신랑신부의 긴장 풀기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "What was your first thought when you saw each other today? Tell each other. Keep looking at each other as you say it.",
+        "sampleKo": "오늘 서로 처음 봤을 때 무슨 생각이 들었어요? 서로에게 말하면서 계속 바라봐 주세요."
+      },
+      {
+        "prompt": "평소 장난치는 모습 끌어내기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "How do you two usually joke around? Show me! Forget the camera for a moment. Just be yourselves. That's it! Keep going.",
+        "sampleKo": "평소 어떤 장난을 쳐요? 보여주세요! 잠깐 카메라는 잊고 평소처럼 해보세요. 좋아요! 계속하세요."
+      },
+      {
+        "prompt": "둘만 아는 말로 웃음 만들기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Whisper something that only the two of you will understand. I don't need to hear it — I just want to catch the reaction.",
+        "sampleKo": "두 분만 알아들을 수 있는 말을 귓속말로 해주세요. 내용은 안 들려도 돼요. 반응을 담고 싶어요."
+      },
+      {
+        "prompt": "걸으면서 자연스럽게 대화하기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Walk slowly together. Tell each other where you'd go on your next date. Keep talking — you don't need to look at me.",
+        "sampleKo": "천천히 걸으면서 다음 데이트에 어디 갈지 얘기해 보세요. 계속 대화하세요. 저를 볼 필요 없어요."
+      }
+    ],
+    "dialogue": {
+      "title": "상황별 촬영 디렉팅",
+      "lines": [
+        {
+          "who": "신랑신부의 긴장 풀기",
+          "en": "What was your first thought when you saw each other today?",
+          "ko": "오늘 서로 처음 봤을 때 무슨 생각이 들었어요?"
+        },
+        {
+          "who": "신랑신부의 긴장 풀기",
+          "en": "Tell each other. Keep looking at each other as you say it.",
+          "ko": "서로에게 말하면서 계속 바라봐 주세요."
+        },
+        {
+          "who": "평소 장난치는 모습 끌어내기",
+          "en": "How do you two usually joke around? Show me!",
+          "ko": "평소 어떤 장난을 쳐요? 보여주세요!"
+        },
+        {
+          "who": "평소 장난치는 모습 끌어내기",
+          "en": "Forget the camera for a moment. Just be yourselves.",
+          "ko": "잠깐 카메라는 잊고 평소처럼 해보세요."
+        },
+        {
+          "who": "평소 장난치는 모습 끌어내기",
+          "en": "That's it! Keep going.",
+          "ko": "좋아요! 계속하세요."
+        },
+        {
+          "who": "둘만 아는 말로 웃음 만들기",
+          "en": "Whisper something that only the two of you will understand.",
+          "ko": "두 분만 알아들을 수 있는 말을 귓속말로 해주세요."
+        },
+        {
+          "who": "둘만 아는 말로 웃음 만들기",
+          "en": "I don't need to hear it — I just want to catch the reaction.",
+          "ko": "내용은 안 들려도 돼요. 반응을 담고 싶어요."
+        },
+        {
+          "who": "걸으면서 자연스럽게 대화하기",
+          "en": "Walk slowly together. Tell each other where you'd go on your next date.",
+          "ko": "천천히 걸으면서 다음 데이트에 어디 갈지 얘기해 보세요."
+        },
+        {
+          "who": "걸으면서 자연스럽게 대화하기",
+          "en": "Keep talking — you don't need to look at me.",
+          "ko": "계속 대화하세요. 저를 볼 필요 없어요."
+        }
+      ]
+    },
+    "freetalk": "상황 하나를 고르세요. 영어를 가리고 첫 말을 떠올려 소리 내어 말합니다. 상대의 대답을 기다린 뒤 다음 안내를 이어 말하고, 표정이 나오면 촬영합니다. 다시 펼쳐 확인하고 듣고 따라 말하세요.",
+    "quiz": [
+      {
+        "q": "평소 장난을 보여 달라고 할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "How do you two usually joke around? Show me!",
+            "correct": true
+          },
+          {
+            "text": "What was your first thought when you saw each other today?",
+            "correct": false
+          },
+          {
+            "text": "Tell each other. Keep looking at each other as you say it.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "귓속말 내용보다 반응을 담겠다고 할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "What was your first thought when you saw each other today?",
+            "correct": false
+          },
+          {
+            "text": "I don't need to hear it — I just want to catch the reaction.",
+            "correct": true
+          },
+          {
+            "text": "Tell each other. Keep looking at each other as you say it.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "걸으면서 다음 데이트를 이야기하게 할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "What was your first thought when you saw each other today?",
+            "correct": false
+          },
+          {
+            "text": "Tell each other. Keep looking at each other as you say it.",
+            "correct": false
+          },
+          {
+            "text": "Walk slowly together. Tell each other where you'd go on your next date.",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "상황만 보고 첫 영어 문장을 떠올렸다.",
+      "질문을 하나씩 말하고 대답을 기다렸다.",
+      "다음 안내와 반응의 말을 이어 소리 내었다.",
+      "상대가 편하게 받아들일 상황인지 확인했다."
+    ],
+    "mission": "What was your first thought when you saw each other today?",
+    "nextHint": "분위기 만들기에서 오늘 쓸 상황 하나를 촬영 준비에 담아보세요.",
+    "keywords": [
+      "분위기 만들기",
+      "분위기 유도",
+      "긴장 풀기",
+      "첫 느낌",
+      "처음 봤을 때",
+      "신랑신부 긴장",
+      "평소 장난",
+      "신랑신부 장난",
+      "커플 장난",
+      "평소 모습",
+      "장난 보여줘",
+      "귓속말",
+      "둘만 아는 말",
+      "비밀 이야기",
+      "속삭여",
+      "커플 웃음",
+      "걸으며 대화",
+      "걸으면서",
+      "다음 데이트",
+      "산책 대화",
+      "자연스러운 걷기"
+    ],
+    "scenes": [
+      "couple-first-thought",
+      "couple-joke-around",
+      "couple-whisper",
+      "couple-walk"
+    ]
+  },
+  {
+    "id": 24,
+    "week": 0,
+    "day": 4,
+    "weekTitle": "분위기 만드는 실전 영어",
+    "topicKo": "친구들의 장난·키스·환호 이끌기",
+    "topicEn": "Friends, kisses and cheers",
+    "emoji": "",
+    "filename": "0024-friends-kiss-cheers.html",
+    "review": false,
+    "extra": true,
+    "goal": "친구들을 모으고, 커플의 의사를 확인한 뒤 장난과 환호의 반응을 담는다.",
+    "why": "웃으라는 말만 반복하기보다 실제 대화와 작은 동작을 제안하면 표정이 달라집니다. 질문을 하나씩 건네고 기다리세요. 상황 하나를 골라 첫 말, 안내, 반응을 이어 말하는 연습을 합니다.",
+    "expressions": [
+      {
+        "situation": "친구들이 신랑신부를 웃겨주기 · 1",
+        "en": "Friends, come gather around these two!",
+        "ko": "친구분들, 두 분 주변에 모여주세요!",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들이 신랑신부를 웃겨주기 · 2",
+        "en": "What do they do that always makes you laugh? Tell them!",
+        "ko": "두 분의 어떤 모습이 항상 웃겨요? 두 분에게 얘기해 주세요!",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들 앞에서 키스·환호 유도하기 · 1",
+        "en": "Friends, you've got front-row seats to their wedding kiss!",
+        "ko": "친구분들은 키스 장면 특별석이에요!",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들 앞에서 키스·환호 유도하기 · 2",
+        "en": "You two, ready for a kiss?",
+        "ko": "두 분, 키스할 준비됐나요?",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들 앞에서 키스·환호 유도하기 · 3",
+        "en": "When they kiss, give them your biggest cheer!",
+        "ko": "키스할 때 크게 환호해주세요!",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "친구들과 장난스러운 단체 포즈 만들기 · 1",
+        "en": "You're a band for this photo. Show me your album cover pose!",
+        "ko": "이번 사진에서는 여러분이 밴드예요. 앨범 커버 포즈를 보여주세요!",
+        "nuance": "",
+        "cat": "group"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "front-row seats",
+        "def": "무대 앞자리. 가까이서 지켜본다는 즐거운 비유"
+      },
+      {
+        "term": "keep a straight face",
+        "def": "웃지 않고 진지한 표정을 유지하다"
+      },
+      {
+        "term": "biggest cheer",
+        "def": "가장 큰 환호"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "친구들이 신랑신부를 웃겨주기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Friends, come gather around these two! What do they do that always makes you laugh? Tell them! Look at them while you say it.",
+        "sampleKo": "친구분들, 두 분 주변에 모여주세요! 두 분의 어떤 모습이 항상 웃겨요? 두 분에게 얘기해 주세요! 두 분을 보면서 얘기해 주세요."
+      },
+      {
+        "prompt": "친구들 앞에서 키스·환호 유도하기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Friends, you've got front-row seats to their wedding kiss! You two, ready for a kiss? When they kiss, give them your biggest cheer! Keep cheering — I'm catching their reaction too!",
+        "sampleKo": "친구분들은 키스 장면 특별석이에요! 두 분, 키스할 준비됐나요? 키스할 때 크게 환호해주세요! 계속 환호해주세요. 두 분의 반응도 담을게요!"
+      },
+      {
+        "prompt": "친구들과 장난스러운 단체 포즈 만들기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "You're a band for this photo. Show me your album cover pose! Hold that pose. Now try not to laugh. Okay, look at each other — who's still keeping a straight face?",
+        "sampleKo": "이번 사진에서는 여러분이 밴드예요. 앨범 커버 포즈를 보여주세요! 그대로 웃음을 참아보세요. 서로 봐주세요. 아직 진지한 표정인 사람이 있나요?"
+      }
+    ],
+    "dialogue": {
+      "title": "상황별 촬영 디렉팅",
+      "lines": [
+        {
+          "who": "친구들이 신랑신부를 웃겨주기",
+          "en": "Friends, come gather around these two!",
+          "ko": "친구분들, 두 분 주변에 모여주세요!"
+        },
+        {
+          "who": "친구들이 신랑신부를 웃겨주기",
+          "en": "What do they do that always makes you laugh? Tell them!",
+          "ko": "두 분의 어떤 모습이 항상 웃겨요? 두 분에게 얘기해 주세요!"
+        },
+        {
+          "who": "친구들이 신랑신부를 웃겨주기",
+          "en": "Look at them while you say it.",
+          "ko": "두 분을 보면서 얘기해 주세요."
+        },
+        {
+          "who": "친구들 앞에서 키스·환호 유도하기",
+          "en": "Friends, you've got front-row seats to their wedding kiss!",
+          "ko": "친구분들은 키스 장면 특별석이에요!"
+        },
+        {
+          "who": "친구들 앞에서 키스·환호 유도하기",
+          "en": "You two, ready for a kiss?",
+          "ko": "두 분, 키스할 준비됐나요?"
+        },
+        {
+          "who": "친구들 앞에서 키스·환호 유도하기",
+          "en": "When they kiss, give them your biggest cheer!",
+          "ko": "키스할 때 크게 환호해주세요!"
+        },
+        {
+          "who": "친구들 앞에서 키스·환호 유도하기",
+          "en": "Keep cheering — I'm catching their reaction too!",
+          "ko": "계속 환호해주세요. 두 분의 반응도 담을게요!"
+        },
+        {
+          "who": "친구들과 장난스러운 단체 포즈 만들기",
+          "en": "You're a band for this photo. Show me your album cover pose!",
+          "ko": "이번 사진에서는 여러분이 밴드예요. 앨범 커버 포즈를 보여주세요!"
+        },
+        {
+          "who": "친구들과 장난스러운 단체 포즈 만들기",
+          "en": "Hold that pose. Now try not to laugh.",
+          "ko": "그대로 웃음을 참아보세요."
+        },
+        {
+          "who": "친구들과 장난스러운 단체 포즈 만들기",
+          "en": "Okay, look at each other — who's still keeping a straight face?",
+          "ko": "서로 봐주세요. 아직 진지한 표정인 사람이 있나요?"
+        }
+      ]
+    },
+    "freetalk": "상황 하나를 고르세요. 영어를 가리고 첫 말을 떠올려 소리 내어 말합니다. 상대의 대답을 기다린 뒤 다음 안내를 이어 말하고, 표정이 나오면 촬영합니다. 다시 펼쳐 확인하고 듣고 따라 말하세요.",
+    "quiz": [
+      {
+        "q": "키스하기 전 커플의 의사를 확인할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "You two, ready for a kiss?",
+            "correct": true
+          },
+          {
+            "text": "Friends, come gather around these two!",
+            "correct": false
+          },
+          {
+            "text": "What do they do that always makes you laugh? Tell them!",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "친구들에게 키스 순간 환호를 부탁할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "Friends, come gather around these two!",
+            "correct": false
+          },
+          {
+            "text": "When they kiss, give them your biggest cheer!",
+            "correct": true
+          },
+          {
+            "text": "What do they do that always makes you laugh? Tell them!",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "밴드의 앨범 커버처럼 포즈를 부탁할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "Friends, come gather around these two!",
+            "correct": false
+          },
+          {
+            "text": "What do they do that always makes you laugh? Tell them!",
+            "correct": false
+          },
+          {
+            "text": "You're a band for this photo. Show me your album cover pose!",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "상황만 보고 첫 영어 문장을 떠올렸다.",
+      "질문을 하나씩 말하고 대답을 기다렸다.",
+      "다음 안내와 반응의 말을 이어 소리 내었다.",
+      "상대가 편하게 받아들일 상황인지 확인했다."
+    ],
+    "mission": "Friends, come gather around these two!",
+    "nextHint": "분위기 만들기에서 오늘 쓸 상황 하나를 촬영 준비에 담아보세요.",
+    "keywords": [
+      "분위기 만들기",
+      "분위기 유도",
+      "친구 장난",
+      "친구 웃기기",
+      "친구 모여",
+      "친구 이야기",
+      "친구사진",
+      "키스 환호",
+      "키스 응원",
+      "친구 키스",
+      "키스 특별석",
+      "키스",
+      "환호",
+      "앨범 커버",
+      "앨범커버",
+      "밴드 포즈",
+      "친구 포즈",
+      "진지한 표정"
+    ],
+    "scenes": [
+      "friends-make-laugh",
+      "friends-kiss-cheer",
+      "friends-album-cover"
+    ]
+  },
+  {
+    "id": 25,
+    "week": 0,
+    "day": 5,
+    "weekTitle": "분위기 만드는 실전 영어",
+    "topicKo": "가족의 따뜻한 표정과 촬영 사이의 순간",
+    "topicEn": "Warm family moments",
+    "emoji": "",
+    "filename": "0025-family-warm-moments.html",
+    "review": false,
+    "extra": true,
+    "goal": "고마운 말과 서로의 웃음을 이끌고, 포즈를 푼 뒤의 편안한 순간을 담는다.",
+    "why": "웃으라는 말만 반복하기보다 실제 대화와 작은 동작을 제안하면 표정이 달라집니다. 질문을 하나씩 건네고 기다리세요. 상황 하나를 골라 첫 말, 안내, 반응을 이어 말하는 연습을 합니다.",
+    "expressions": [
+      {
+        "situation": "가족과 따뜻한 표정 만들기 · 1",
+        "en": "Tell each other one thing you're thankful for today.",
+        "ko": "오늘 고마운 일 하나를 서로에게 말해주세요.",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "가족과 따뜻한 표정 만들기 · 2",
+        "en": "Look at each other while you say it. Take your time.",
+        "ko": "서로 바라보면서 천천히 얘기하시면 돼요.",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "가족·친구 그룹의 자연스러운 웃음 끌어내기 · 1",
+        "en": "Everyone, look at the person who makes you laugh the most.",
+        "ko": "여러분을 가장 많이 웃게 하는 사람을 봐주세요.",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "가족·친구 그룹의 자연스러운 웃음 끌어내기 · 2",
+        "en": "Keep looking at them. Now try not to laugh!",
+        "ko": "계속 보면서 웃음을 참아보세요!",
+        "nuance": "",
+        "cat": "group"
+      },
+      {
+        "situation": "촬영 사이의 편안한 순간 담기 · 1",
+        "en": "You can relax now. Stay together and keep chatting.",
+        "ko": "이제 편하게 계세요. 함께 서서 계속 얘기하시면 돼요.",
+        "nuance": "",
+        "cat": "movement"
+      },
+      {
+        "situation": "촬영 사이의 편안한 순간 담기 · 2",
+        "en": "That's it — I'm still taking photos.",
+        "ko": "좋아요, 지금도 찍고 있어요.",
+        "nuance": "",
+        "cat": "movement"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "thankful for",
+        "def": "~을 고맙게 생각하는"
+      },
+      {
+        "term": "take your time",
+        "def": "서두르지 않고 천천히 하세요"
+      },
+      {
+        "term": "keep chatting",
+        "def": "계속 편하게 대화하다"
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "가족과 따뜻한 표정 만들기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Tell each other one thing you're thankful for today. Look at each other while you say it. Take your time.",
+        "sampleKo": "오늘 고마운 일 하나를 서로에게 말해주세요. 서로 바라보면서 천천히 얘기하시면 돼요."
+      },
+      {
+        "prompt": "가족·친구 그룹의 자연스러운 웃음 끌어내기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "Everyone, look at the person who makes you laugh the most. Keep looking at them. Now try not to laugh!",
+        "sampleKo": "여러분을 가장 많이 웃게 하는 사람을 봐주세요. 계속 보면서 웃음을 참아보세요!"
+      },
+      {
+        "prompt": "촬영 사이의 편안한 순간 담기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
+        "sample": "You can relax now. Stay together and keep chatting. That's it — I'm still taking photos.",
+        "sampleKo": "이제 편하게 계세요. 함께 서서 계속 얘기하시면 돼요. 좋아요, 지금도 찍고 있어요."
+      }
+    ],
+    "dialogue": {
+      "title": "상황별 촬영 디렉팅",
+      "lines": [
+        {
+          "who": "가족과 따뜻한 표정 만들기",
+          "en": "Tell each other one thing you're thankful for today.",
+          "ko": "오늘 고마운 일 하나를 서로에게 말해주세요."
+        },
+        {
+          "who": "가족과 따뜻한 표정 만들기",
+          "en": "Look at each other while you say it. Take your time.",
+          "ko": "서로 바라보면서 천천히 얘기하시면 돼요."
+        },
+        {
+          "who": "가족·친구 그룹의 자연스러운 웃음 끌어내기",
+          "en": "Everyone, look at the person who makes you laugh the most.",
+          "ko": "여러분을 가장 많이 웃게 하는 사람을 봐주세요."
+        },
+        {
+          "who": "가족·친구 그룹의 자연스러운 웃음 끌어내기",
+          "en": "Keep looking at them. Now try not to laugh!",
+          "ko": "계속 보면서 웃음을 참아보세요!"
+        },
+        {
+          "who": "촬영 사이의 편안한 순간 담기",
+          "en": "You can relax now. Stay together and keep chatting.",
+          "ko": "이제 편하게 계세요. 함께 서서 계속 얘기하시면 돼요."
+        },
+        {
+          "who": "촬영 사이의 편안한 순간 담기",
+          "en": "That's it — I'm still taking photos.",
+          "ko": "좋아요, 지금도 찍고 있어요."
+        }
+      ]
+    },
+    "freetalk": "상황 하나를 고르세요. 영어를 가리고 첫 말을 떠올려 소리 내어 말합니다. 상대의 대답을 기다린 뒤 다음 안내를 이어 말하고, 표정이 나오면 촬영합니다. 다시 펼쳐 확인하고 듣고 따라 말하세요.",
+    "quiz": [
+      {
+        "q": "가족끼리 오늘 고마운 일을 이야기하게 할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "Tell each other one thing you're thankful for today.",
+            "correct": true
+          },
+          {
+            "text": "Look at each other while you say it. Take your time.",
+            "correct": false
+          },
+          {
+            "text": "Everyone, look at the person who makes you laugh the most.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "서로 바라보며 웃음을 참아보게 할 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "Tell each other one thing you're thankful for today.",
+            "correct": false
+          },
+          {
+            "text": "Keep looking at them. Now try not to laugh!",
+            "correct": true
+          },
+          {
+            "text": "Look at each other while you say it. Take your time.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "포즈를 푼 뒤에도 촬영 중임을 알려줄 때 알맞은 말은?",
+        "choices": [
+          {
+            "text": "Tell each other one thing you're thankful for today.",
+            "correct": false
+          },
+          {
+            "text": "Look at each other while you say it. Take your time.",
+            "correct": false
+          },
+          {
+            "text": "That's it — I'm still taking photos.",
+            "correct": true
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "상황만 보고 첫 영어 문장을 떠올렸다.",
+      "질문을 하나씩 말하고 대답을 기다렸다.",
+      "다음 안내와 반응의 말을 이어 소리 내었다.",
+      "상대가 편하게 받아들일 상황인지 확인했다."
+    ],
+    "mission": "Tell each other one thing you're thankful for today.",
+    "nextHint": "분위기 만들기에서 오늘 쓸 상황 하나를 촬영 준비에 담아보세요.",
+    "keywords": [
+      "분위기 만들기",
+      "분위기 유도",
+      "가족 감사",
+      "가족 따뜻한 표정",
+      "고마운 일",
+      "감사 이야기",
+      "부모님 감사",
+      "가족 웃음",
+      "단체 웃음",
+      "웃음 참기",
+      "가족 친구 웃음",
+      "가장 웃긴 사람",
+      "촬영 사이",
+      "틈새 순간",
+      "편안한 순간",
+      "계속 대화",
+      "자연스러운 순간",
+      "포즈 풀기"
+    ],
+    "scenes": [
+      "family-thankful",
+      "group-laugh",
+      "between-shots"
+    ]
   }
 ]

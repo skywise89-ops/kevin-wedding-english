@@ -159,6 +159,16 @@
 .listen-controls .btn{padding:10px 8px}
 .card{padding:24px;background:var(--card);border:1px solid var(--border);border-radius:24px;margin:16px 0}
 .card.tight{padding:16px}
+.scene-intro{font-size:16px;color:var(--muted);margin:16px 0 20px}
+.scene-jumps{margin-bottom:12px}.scene-jumps a{display:inline-flex;align-items:center}
+.scene-group{margin:32px 0}.scene-group>h2{margin-bottom:16px}
+.scene-card{border:1px solid var(--border);border-radius:24px;background:var(--card);margin:12px 0;overflow:hidden}
+.scene-card>summary{padding:18px 20px;font-size:17px;line-height:1.5;min-height:88px}
+.scene-card>summary>span{flex:1}.scene-card>summary small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:6px}
+.scene-body{padding:0 20px 20px}.scene-lines{list-style:none;margin:0;padding:0}
+.scene-line{padding:20px 0;border-top:1px solid var(--border)}.scene-line .en{margin:0}
+.scene-line .sentence-actions{margin-top:16px}.scene-actions{display:grid;gap:10px;margin-top:20px}
+#moment-kit-count{font-size:13px;color:var(--muted);font-weight:400;white-space:nowrap}
 .quiz-choices{display:grid;gap:10px;margin-top:18px}
 .quiz-choices .choice,.quiz-choices label{display:flex;gap:10px;align-items:center;text-align:left;min-height:56px;padding:14px 16px;border:1px solid var(--border2);border-radius:16px;background:var(--card);font-size:16px;line-height:1.5}
 .quiz-choices label input{accent-color:var(--accent)}
