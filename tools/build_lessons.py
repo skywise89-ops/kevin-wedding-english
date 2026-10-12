@@ -121,7 +121,9 @@ TPL = """<!doctype html>
   </div>
 </main><footer><p data-offline role="status">오프라인 준비 상태 확인 중</p></footer>
 <script src="../assets/model.js"></script>
+<script src="../assets/sync-model.js"></script>
 <script src="../assets/core.js"></script>
+<script src="../assets/sync.js"></script>
 <script type="application/json" id="lesson-sentences">{sentences}</script>
 <script src="../assets/{pagescript}"></script>
 </body>

@@ -19,7 +19,9 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
     try {
-      await Promise.all(urls.map(async url => { const response = await verifiedFetch(url); await cache.put(url,response); }));
+      const results = await Promise.allSettled(urls.map(async url => { const response = await verifiedFetch(url); await cache.put(url,response); }));
+      const failed = results.find(result => result.status === 'rejected');
+      if (failed) throw failed.reason;
       await cache.put(READY, new Response(VERSION));
     } catch (error) {
       await caches.delete(CACHE);

@@ -35,7 +35,7 @@ page = f'''<!doctype html>
 {''.join(sections)}
 <a class="btn block" href="field.html">다른 현장 표현 찾기<span data-icon="search"></span></a></main>
 <footer><p data-offline role="status">오프라인 준비 상태 확인 중</p><span>표현은 현장에, 기록은 이 기기에.</span></footer>
-<script src="assets/model.js"></script><script src="assets/core.js"></script><script type="application/json" id="moment-scenes">{data}</script><script src="assets/scene-release.js"></script></body></html>
+<script src="assets/model.js"></script><script src="assets/sync-model.js"></script><script src="assets/core.js"></script><script src="assets/sync.js"></script><script type="application/json" id="moment-scenes">{data}</script><script src="assets/scene-release.js"></script></body></html>
 '''
 (root / 'moments.html').write_text(page)
 print(f'Built {len(scenes)} scene guides.')

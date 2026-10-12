@@ -4,7 +4,10 @@
   var E = KWE.esc, I = KWE.icon, lessons = [], filter = 'all';
   KWE.init('home');
   KWE.lessonsJson().then(function (data) {
-    lessons = data; var state = KWE.load(), stats = KWE.stats(lessons);
+    lessons = data; renderHome();
+  }).catch(function () { document.getElementById('today-lesson').innerHTML = '<h2>레슨을 준비하지 못했어요</h2><p>첫 준비에는 연결이 필요합니다.</p><button class="btn" type="button" onclick="location.reload()">다시 시도</button>'; });
+  function renderHome() {
+    var state = KWE.load(), stats = KWE.stats(lessons);
     var last = lessons.find(function (l) { return String(l.id) === state.lastLesson && !(state.lessons[l.id] || {}).done; });
     var l = last || KWE.nextLesson(lessons);
     document.getElementById('today-lesson').innerHTML = '<span class="eyebrow">' + (l.extra ? '12 MINUTES · 실전 보충' : '12 MINUTES · DAY ' + l.day) + '</span><h2>' + E(l.topicKo) + '</h2><p>' + E(l.goal || l.topicEn) + '</p><a class="btn" href="lessons/' + E(l.filename) + '">' + (last ? '이어서 학습' : '12분 학습 시작') + I('arrow') + '</a>';
@@ -17,11 +20,11 @@
     document.getElementById('heat').innerHTML = cells.join('');
     document.getElementById('heat-note').textContent = '최근 8주 · 총 ' + stats.activeDays + '일 학습';
     renderLibrary();
-  }).catch(function () { document.getElementById('today-lesson').innerHTML = '<h2>레슨을 준비하지 못했어요</h2><p>첫 준비에는 연결이 필요합니다.</p><button class="btn" type="button" onclick="location.reload()">다시 시도</button>'; });
-  var state = KWE.load();
-  document.getElementById('kit-title').textContent = state.kitName || '이번 촬영 준비';
-  document.getElementById('kit-sub').textContent = state.kit.length ? state.kit.length + '개 표현 준비됨 · 순서대로 꺼내 쓰세요' : '쓸 표현을 미리 모아두세요.';
-  if (state.session && state.session.index < state.session.ids.length) { document.querySelector('.review-entry').href = 'practice.html#' + state.session.mode; document.getElementById('quick-sub').textContent = '이전 연습 ' + state.session.index + ' / ' + state.session.ids.length + '개 완료 · 이어서 연습'; }
+    document.getElementById('kit-title').textContent = state.kitName || '이번 촬영 준비';
+    document.getElementById('kit-sub').textContent = state.kit.length ? state.kit.length + '개 표현 준비됨 · 순서대로 꺼내 쓰세요' : '쓸 표현을 미리 모아두세요.';
+    if (state.session && state.session.index < state.session.ids.length) { document.querySelector('.review-entry').href = 'practice.html#' + state.session.mode; document.getElementById('quick-sub').textContent = '이전 연습 ' + state.session.index + ' / ' + state.session.ids.length + '개 완료 · 이어서 연습'; }
+  }
+  window.addEventListener('kwe-sync-change', function () { if (lessons.length) renderHome(); });
   function renderLibrary() {
     var query = document.getElementById('lesson-search').value.trim().toLowerCase(), s = KWE.load();
     var rows = lessons.filter(function (l) { return (filter === 'all' || (filter === 'todo' ? !(s.lessons[l.id] || {}).done : filter === 'extra' ? l.extra : String(l.week) === filter)) && (!query || [l.topicKo, l.topicEn, l.goal].concat(l.keywords || []).concat(l.expressions.map(function (x) { return x.ko + ' ' + x.en + ' ' + x.situation; })).join(' ').toLowerCase().includes(query)); });

@@ -16,6 +16,7 @@ const mime = {'.html':'text/html','.js':'application/javascript','.json':'applic
 let revision = 1, failCSS = false, mismatch = false;
 function bytes(file, rev=revision) {
  let b = fs.readFileSync(path.join(root,file));
+ if(file==='data/sync-config.json') b=Buffer.from(JSON.stringify({endpoint:''}));
  if(file==='data/phrases.json' && rev>1) {
   const data = JSON.parse(b);data.phrases.find(p=>p.id==='tilt-your-chin-down-just-a-little').en = 'Chin down a little. Release '+rev+'.';b=Buffer.from(JSON.stringify(data));
  }
@@ -210,18 +211,30 @@ async function updates(browser,base) {
  check('user activation switches the entire release',(await offlineStatus(page)).version==='browser-test-2');
  check('activation keeps unrelated app caches',await page.evaluate(async()=>await caches.has('unrelated-app')));
  revision=3;failCSS=true;
- await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});
- await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return !r.installing&&!r.waiting;});
+ await failedUpdate(page);
  check('failed install leaves active release intact',(await offlineStatus(page)).version==='browser-test-2'&&(await offlineStatus(page)).ready);
  check('failed cache is discarded',await page.evaluate(async()=>!(await caches.keys()).some(k=>k.endsWith('browser-test-3'))));
  failCSS=false;revision=4;mismatch=true;
- await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});
- await page.waitForFunction(async()=>{const r=await navigator.serviceWorker.getRegistration();return !r.installing&&!r.waiting;});
+ await failedUpdate(page);
  check('hash mismatch never activates a mixed release',(await offlineStatus(page)).version==='browser-test-2');
  mismatch=false;revision=2;
  await context.setOffline(true);await page.reload();await page.waitForSelector('.phrase');
  check('last good release survives failed updates offline',(await page.locator('.phrase .en').first().innerText()).includes('Release 2'));
  await context.close();revision=1;
+}
+async function failedUpdate(page) {
+ await page.evaluate(async()=>{
+  const registration=await navigator.serviceWorker.getRegistration();
+  const finished=new Promise((resolve,reject)=>{
+   const timeout=setTimeout(()=>reject(new Error('Failed update did not finish installing')),20000);
+   registration.addEventListener('updatefound',()=>{
+    const worker=registration.installing;
+    const check=()=>{if(worker.state==='redundant'||worker.state==='installed'){clearTimeout(timeout);resolve(worker.state);}};
+    worker.addEventListener('statechange',check);check();
+   },{once:true});
+  });
+  await registration.update();await finished;
+ });
 }
 async function groupLesson(browser,label,base) {
  const context=await browser.newContext({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true,colorScheme:'light'});

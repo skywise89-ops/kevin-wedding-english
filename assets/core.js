@@ -21,7 +21,7 @@
 
   function clone(o) { return JSON.parse(JSON.stringify(o)); }
 
-  var state = null, storageBlocked = false;
+  var state = null, storageBlocked = false, savedBaseline = null, lastStoredText = null;
   function load() {
     if (state) return state;
     var raw = null, text;
@@ -34,6 +34,8 @@
       setTimeout(function () { toast('저장 데이터를 읽지 못했습니다. 설정에서 원본 백업을 내려받아 주세요.'); }, 500);
     }
     state = raw || clone(DEFAULTS);
+    lastStoredText = text || null;
+    savedBaseline = savedState();
     return state;
   }
   function migrate() {
@@ -53,9 +55,40 @@
   }
   function save() {
     if (storageBlocked) { toast('기존 데이터 보호 중입니다. 설정에서 백업 후 복원해 주세요.'); return false; }
-    try { localStorage.setItem(KEY, JSON.stringify(load())); return true; }
+    try {
+      load();
+      var currentText = localStorage.getItem(KEY);
+      if (global.KWESyncModel && currentText && currentText !== lastStoredText) {
+        var fresh = KWEModel.normalize(JSON.parse(currentText));
+        Object.assign(state, KWESyncModel.rebase(savedBaseline, savedState(), fresh));
+      }
+      lastStoredText = JSON.stringify(state); localStorage.setItem(KEY, lastStoredText);
+      savedBaseline = savedState();
+      if (global.dispatchEvent && global.CustomEvent) global.dispatchEvent(new CustomEvent('kwe-local-save'));
+      return true;
+    }
     catch (e) { toast('저장 공간을 사용할 수 없습니다. 변경 내용을 백업해 주세요.'); return false; }
   }
+  function savedState() {
+    var s = state || load();
+    return clone({ pins: s.pins, sentences: s.sentences, kit: s.kit, kitName: s.kitName });
+  }
+  function applySaved(next, fromStorage) {
+    load(); if (storageBlocked) return false;
+    try {
+      var normalized = KWEModel.normalize(clone(Object.assign({}, state, next)));
+      var previous = JSON.stringify(savedState()), value = clone({ pins: normalized.pins, sentences: normalized.sentences, kit: normalized.kit, kitName: normalized.kitName });
+      if (!fromStorage) { lastStoredText = JSON.stringify(normalized); localStorage.setItem(KEY, lastStoredText); }
+      Object.assign(state, value); savedBaseline = savedState();
+      if (previous !== JSON.stringify(value) && global.dispatchEvent && global.CustomEvent) global.dispatchEvent(new CustomEvent('kwe-sync-change'));
+      return true;
+    } catch (e) { toast('동기화한 목록을 저장하지 못했습니다. 기존 목록을 백업해 주세요.'); return false; }
+  }
+  if (global.addEventListener) global.addEventListener('storage', function (event) {
+    if (event.key !== KEY || !event.newValue || storageBlocked) return;
+    try { var fresh = KWEModel.normalize(JSON.parse(event.newValue)); lastStoredText = event.newValue; applySaved({ pins: fresh.pins, sentences: fresh.sentences, kit: fresh.kit, kitName: fresh.kitName }, true); }
+    catch (e) { /* Keep the last valid state if another tab has damaged data. */ }
+  });
 
   /* ---------- day log / streak ---------- */
   function day(d) {
@@ -492,6 +525,7 @@
     dialog.innerHTML = '<div class="dialog-head"><h2 id="settings-title">설정</h2><button class="iconbtn" type="button" data-close aria-label="설정 닫기">' + icon('close') + '</button></div>' +
       '<section class="settings-section"><h3>발음과 화면</h3><label for="voice-sel">영어 음성</label><select id="voice-sel"></select><p class="small muted">음성 품질은 기기마다 다릅니다. 네트워크 음성은 오프라인에서 재생되지 않을 수 있습니다.</p><label for="rate-range">속도 <output id="rate-val"></output>×</label><input id="rate-range" type="range" min="0.6" max="1.2" step="0.05"><button class="btn" type="button" id="voice-test">음성 확인</button><label for="font-select">현장 글자 크기</label><select id="font-select"><option value="18">기본 · 18px</option><option value="22">크게 · 22px</option><option value="26">더 크게 · 26px</option></select><label for="theme-select">테마</label><select id="theme-select"><option value="auto">시스템 설정</option><option value="light">라이트</option><option value="dark">다크</option></select></section>' +
       '<section class="settings-section"><h3>오프라인과 설치</h3><p data-offline role="status">준비 상태 확인 중</p><p class="small muted">Safari 공유 메뉴에서 ‘홈 화면에 추가’를 선택하세요. 처음 준비가 끝난 뒤 연결 없이 사용할 수 있습니다. 브라우저 저장소 삭제 시 다시 준비해야 합니다.</p></section>' +
+      '<section class="settings-section"><h3>맥미니 자동 동기화</h3><p data-sync-status role="status">동기화 준비 중</p><p class="small muted">iPhone·PC에서 같은 Tailscale 계정으로 연결하세요. 저장 문장·즐겨찾기·촬영 준비를 자동으로 합칩니다. 연결이 끊겨도 이 기기에 저장하며 다시 연결되면 전송합니다.</p><button class="btn" type="button" data-sync-retry>지금 동기화</button></section>' +
       '<section class="settings-section"><h3>내 데이터</h3><p class="small muted">진도·저장한 표현·촬영 준비는 이 브라우저에 보관됩니다. 기기 이동 전 백업해 주세요. 촬영 준비 최대 24개.</p><div class="row"><button class="btn" id="export-btn" type="button">백업 내보내기</button><button class="btn" id="import-btn" type="button">백업 가져오기</button></div><button class="btn ghost" id="raw-btn" type="button">저장된 원본 내려받기</button><button class="btn ghost" id="recovery-btn" type="button" hidden>변경 전 데이터 내려받기</button><input type="file" id="import-file" accept="application/json" hidden><div id="import-preview" role="status"></div><button class="btn danger" id="reset-btn" type="button">데이터 초기화</button></section><p class="tiny muted">Wedding English · v3</p>';
     document.body.appendChild(dialog);
     function fill() {
@@ -522,18 +556,27 @@
         e.target.value = '';
         if (error) { preview.textContent = error.message; return; }
         preview.innerHTML = '<p>가져올 백업: 레슨 ' + Object.keys(data.lessons).length + '개 · 저장 ' + data.pins.length + '개 · 촬영 준비 ' + data.kit.length + '개</p><p class="small">현재 데이터를 이 백업으로 교체합니다. 변경 전 원본은 복구용으로 보관됩니다.</p><button class="btn primary" type="button">확인하고 복원</button><button class="btn ghost" type="button">취소</button>';
+        if (global.KWESync && KWESync.connected()) preview.insertAdjacentHTML('afterbegin', '<p class="small">저장 목록의 교체는 연결된 다른 기기에도 반영됩니다.</p>');
         preview.querySelectorAll('button')[1].onclick = function () { preview.textContent = ''; };
         preview.querySelectorAll('button')[0].onclick = function () {
           try {
             localStorage.setItem(KEY + ':recovery', localStorage.getItem(KEY) || '{}');
-            localStorage.setItem(KEY, JSON.stringify(data)); state = data; storageBlocked = false; location.reload();
+            localStorage.setItem(KEY, JSON.stringify(data)); state = data; storageBlocked = false;
+            savedBaseline = savedState(); lastStoredText = JSON.stringify(data);
+            if (global.dispatchEvent && global.CustomEvent) global.dispatchEvent(new CustomEvent('kwe-local-save', { detail: { replace: true } }));
+            location.reload();
           } catch (err) { preview.textContent = '저장 공간이 부족해 복원하지 못했습니다. 기존 데이터는 유지됩니다.'; }
         };
       });
     };
     dialog.querySelector('#reset-btn').onclick = function () {
       if (!confirm('진도·복습·저장한 표현·촬영 준비를 초기화합니다. 계속할까요?')) return;
-      try { localStorage.setItem(KEY + ':recovery', localStorage.getItem(KEY) || '{}'); localStorage.removeItem(KEY); localStorage.removeItem(LEGACY); location.reload(); }
+      try {
+        localStorage.setItem(KEY + ':recovery', localStorage.getItem(KEY) || '{}');
+        state = clone(DEFAULTS); storageBlocked = false; lastStoredText = JSON.stringify(state); localStorage.setItem(KEY, lastStoredText); localStorage.removeItem(LEGACY); savedBaseline = savedState();
+        if (global.dispatchEvent && global.CustomEvent) global.dispatchEvent(new CustomEvent('kwe-local-save', { detail: { replace: true } }));
+        location.reload();
+      }
       catch (e) { toast('초기화하지 못했습니다. 원본 백업을 먼저 내려받아 주세요.'); }
     };
   }
@@ -549,12 +592,13 @@
     global.addEventListener('pagehide', stopSpeak);
     if (global.visualViewport) { var keyboard = function () { document.body.classList.toggle('keyboard-open', global.innerHeight - global.visualViewport.height > 140); }; global.visualViewport.addEventListener('resize', keyboard); }
     registerSW();
+    if (global.KWESync) KWESync.start();
     if (global.matchMedia) global.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
   }
 
   global.KWE = {
     ymd: ymd, today: today, addDays: addDays, diffDays: diffDays,
-    load: load, save: save, day: day, streak: streak, stats: stats,
+    load: load, save: save, savedState: savedState, applySaved: applySaved, syncWritable: function () { load(); return !storageBlocked; }, day: day, streak: streak, stats: stats,
     completeLesson: completeLesson, resetLesson: resetLesson,
     dueLessons: dueLessons, nextLesson: nextLesson, schedule: schedule,
     isPinned: isPinned, togglePin: togglePin, toggleSentence: toggleSentence, toggleKit: toggleKit, addToKit: addToKit, toggleOutdoor: toggleOutdoor,

@@ -12,6 +12,9 @@
     route();
   }).catch(function () { menu.innerHTML = '<div class="empty"><h1>연습을 준비하지 못했어요</h1><p>첫 준비에는 연결이 필요합니다.</p><button class="btn" type="button" onclick="location.reload()">다시 시도</button></div>'; });
   window.addEventListener('hashchange', route);
+  window.addEventListener('kwe-sync-change', function () {
+    KWE.phrasesJson().then(function (d) { phrases = d.phrases; byId = {}; phrases.forEach(function (p) { byId[p.id] = p; }); });
+  });
   window.addEventListener('pagehide', function () { generation++; cleanup(); KWE.stopSpeak(); });
   function header(title, sub) {
     return '<div class="practice-head"><a href="practice.html" class="btn ghost">연습 메뉴</a><span class="small muted">' + E(sub || '') + '</span></div><h1 class="practice-title">' + E(title) + '</h1>';

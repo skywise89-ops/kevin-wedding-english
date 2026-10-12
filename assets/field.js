@@ -105,5 +105,9 @@
   showDialog.addEventListener('close', KWE.stopSpeak);
   window.addEventListener('hashchange', function () { view = { q: '', scope: 'all', category: 'all', scroll: 0, expanded: false }; hashView(); q = view.q || ''; scope = view.scope || 'all'; category = 'all'; expanded = false; input.value = q; render(); persist(); });
   var top = document.querySelector('.top');
+  window.addEventListener('kwe-sync-change', function () {
+    if (!data) return;
+    KWE.phrasesJson().then(function (d) { data = d; byId = {}; d.phrases.forEach(function (p) { byId[p.id] = p; }); render(); });
+  });
   if (window.ResizeObserver) new ResizeObserver(function () { document.documentElement.style.setProperty('--header-height', top.offsetHeight + 'px'); }).observe(top);
 })();

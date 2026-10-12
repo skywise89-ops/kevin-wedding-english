@@ -14,6 +14,7 @@
     });
   }
   syncSaved();
+  window.addEventListener('kwe-sync-change', syncSaved);
   if (!(state.lessons[id] || {}).done) { state.lastLesson = id; KWE.save(); }
   if (!location.hash && state.positions[id]) requestAnimationFrame(function () { window.scrollTo(0, state.positions[id]); });
   var positionTimer;

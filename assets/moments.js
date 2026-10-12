@@ -42,6 +42,7 @@
   });
   window.addEventListener('hashchange', openHash);
   window.addEventListener('pageshow', sync);
+  window.addEventListener('kwe-sync-change', sync);
   var top = document.querySelector('.top');
   if (window.ResizeObserver) new ResizeObserver(function () { document.documentElement.style.setProperty('--header-height', top.offsetHeight + 'px'); }).observe(top);
   sync(); openHash();
