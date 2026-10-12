@@ -1,12 +1,13 @@
 # Mac mini sync QA
 
-Date: 2026-10-12 KST. Wedding English v3.5. The user's Mac mini is the datastore; Firebase is not involved.
+Date: 2026-10-12 KST. Wedding English v3.5.1. The user's Mac mini is the datastore; Firebase is not involved.
 
 ## Confirmed
 
 - `npm test`: 42 tests passed, including initial-device union, stale-import deletion protection, independent offline edits, deterministic conflicts, sentence snapshots, kit order/overflow, tab rebasing, malformed data, authenticated/isolated API access, atomic SQLite writes, backup and process restart.
 - `npm run test:browser`: 319 existing Chromium/WebKit checks passed. Search, lesson saves, learning progress, backups, offline assets, visual controls and immutable updates retain their behavior.
 - `npm run test:sync-browser`: 30 checks passed across Chromium and WebKit with two isolated browser contexts and a real SQLite backend. Initial favorites merge, live field refresh, supplemental sentence transfer, offline additions/removals survive reload, reconnect after SQLite restart, account isolation, cached profile return, closed-tab outbox delivery, stale-journal deletion protection, actual backup-replacement propagation, backup warning, 320px layout and future-version protection are covered.
+- `npm run test:upgrade-browser`: 8 checks passed across Chromium and WebKit. A legacy-worker fixture activates the new release through the standalone page, preserves saved IDs/review dates/voice settings, fits 320px, and returns an already-updated installation to the saved collection.
 - Production Mac mini runs Node 24.19.0 and native SQLite, bound to 127.0.0.1:18790. A LaunchAgent starts it automatically. Private HTTPS endpoint and allowed GitHub Pages CORS origin were verified from the MacBook.
 - Actual Tailscale Serve identity was verified. A client-supplied test identity header was stripped, retaining the authenticated account. Unauthenticated local API access is rejected in tests. No password or API secret is published in the repository.
 - Tailscale reports the online iOS and MacBook peers share the same user account. Existing Serve routes were compared before/after installation and preserved. Funnel remains disabled.
@@ -25,6 +26,12 @@ The general browser suite substitutes an unset endpoint so it does not contact t
 ## Not verified on a physical iPhone
 
 Actual Safari/PWA interaction, any local-network permission prompt, background suspension duration, VoiceOver and device-specific network reconnection remain unverified. Both devices need an enabled Tailscale connection and the updated app. Browser emulation is not a physical-device test.
+
+## Public release verification
+
+GitHub Pages published the sync release successfully; deployed runtime files were compared with the release by SHA-256. An existing in-app browser accepted the update and displayed the new sync status. Private API navigation was blocked by the computer-use tooling in both the in-app browser and Chrome (`net::ERR_BLOCKED_BY_CLIENT`). Production HTTPS and authenticated identity were verified separately outside the browser. A live public-page-to-private-API connection has therefore not been confirmed; this limitation does not establish whether ordinary Safari/Chrome use is blocked.
+
+An older Chrome cache retained a legacy screen without an update control. The standalone `upgrade.html` provides an explicit activation control without removing localStorage or user data.
 
 Artifacts: `sync-browser-results.json`, `sync-settings-*.png`, `unit-results.txt`, existing `browser-results.json`. Production deployment verification is recorded separately after publishing. Failed release installs wait for all cache writes before cleanup; release revision includes the service-worker template.
 

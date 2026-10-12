@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const root = path.resolve(__dirname,'..');
-const files = ['index.html','field.html','practice.html','moments.html','manifest.webmanifest', ...['assets','data','lessons'].flatMap(dir=>fs.readdirSync(path.join(root,dir)).filter(f=>/\.(html|js|css|json|svg|png|ico)$/.test(f)).map(f=>dir+'/'+f))].sort();
+const files = ['index.html','field.html','practice.html','moments.html','upgrade.html','manifest.webmanifest', ...['assets','data','lessons'].flatMap(dir=>fs.readdirSync(path.join(root,dir)).filter(f=>/\.(html|js|css|json|svg|png|ico)$/.test(f)).map(f=>dir+'/'+f))].sort();
 const hash = crypto.createHash('sha256');
 const template = fs.readFileSync(path.join(__dirname,'sw-template.js'),'utf8');
 hash.update(template);

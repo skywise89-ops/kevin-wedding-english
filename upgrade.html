@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><title>앱 업데이트 · Wedding English</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f6f5f0;color:#182d34;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;line-height:1.6;padding:calc(28px + env(safe-area-inset-top)) 20px}main{max-width:520px;margin:10vh auto;padding:28px;background:#fffefa;border:1px solid #dce0d7;border-radius:28px}h1{font-size:26px;line-height:1.4;margin:0 0 16px}p{color:#56686a}button,a{font:inherit;display:block;width:100%;min-height:48px;padding:12px 16px;border-radius:16px;text-align:center}button{background:#16675b;color:white;border:0;font-weight:650;cursor:pointer}button:disabled{opacity:.6;cursor:default}a{color:#16675b;margin-top:12px;text-decoration:none}button:focus-visible,a:focus-visible{outline:3px solid #16675b;outline-offset:4px}
+</style></head><body><main><h1>저장 목록을 그대로,<br>최신 앱으로</h1><p>예전 화면이 계속 보이면 여기서 업데이트하세요. 저장 문장·진도·설정은 지우지 않습니다.</p><p id="status" role="status">새 버전을 확인하고 있어요.</p><button id="apply" type="button" disabled>업데이트 준비 중</button><a href="field.html#scope=saved">저장 목록 열기</a></main><script>
+(function(){
+  'use strict';
+  var button=document.getElementById('apply'), status=document.getElementById('status'), registration, watched=new WeakSet();
+  function watch(){var worker=registration.installing;if(worker&&!watched.has(worker)){watched.add(worker);worker.addEventListener('statechange',offer);}offer();}
+  function offer(){
+    if(registration.waiting){status.textContent='새 버전 준비 완료. 적용하면 저장 목록으로 돌아갑니다.';button.textContent='업데이트 적용';button.disabled=false;return;}
+    if(registration.installing){status.textContent='오프라인 파일을 준비하고 있어요. 연결을 유지해 주세요.';return;}
+    if(registration.active){
+      var channel=new MessageChannel();
+      var timeout=setTimeout(function(){channel.port1.close();status.textContent='업데이트 확인이 필요합니다. 다시 확인해 주세요.';button.textContent='업데이트 다시 확인';button.disabled=false;},2500);
+      channel.port1.onmessage=function(event){clearTimeout(timeout);channel.port1.close();if(event.data.ready){status.textContent='최신 앱이 준비됐어요.';button.textContent='최신 앱 열기';button.disabled=false;}else{status.textContent='오프라인 준비 중입니다. 다시 확인해 주세요.';button.textContent='업데이트 다시 확인';button.disabled=false;}};
+      registration.active.postMessage({type:'STATUS'},[channel.port2]);
+    }
+  }
+  async function check(){
+    button.disabled=true;
+    try{
+      registration=await navigator.serviceWorker.register('sw.js',{updateViaCache:'none'});
+      registration.addEventListener('updatefound',watch);watch();
+      await registration.update();watch();
+    }catch(error){status.textContent='새 버전을 불러오지 못했어요. 연결을 확인하고 다시 시도하세요.';button.textContent='업데이트 다시 확인';button.disabled=false;}
+  }
+  button.onclick=function(){if(registration&&registration.waiting){button.disabled=true;status.textContent='업데이트 적용 중';registration.waiting.postMessage({type:'ACTIVATE'});}else if(button.textContent==='최신 앱 열기'){location.replace('field.html#scope=saved');}else check();};
+  if('serviceWorker'in navigator){navigator.serviceWorker.addEventListener('controllerchange',function(){location.replace('field.html#scope=saved');});check();}
+  else{status.textContent='이 브라우저에서는 앱 업데이트를 지원하지 않습니다. Safari 또는 Chrome에서 열어주세요.';}
+})();
+</script></body></html>

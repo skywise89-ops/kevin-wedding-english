@@ -66,6 +66,8 @@ npm run test:browser
 
 iPhone과 PC에서 **Tailscale을 켜고 같은 계정으로 연결**합니다. 앱은 기존 Tailscale 인증으로 맥미니의 SQLite 저장소를 자동으로 찾습니다. 설정의 **맥미니 자동 동기화**와 화면 아래 상태가 **맥미니와 동기화됨**이면 연결과 전송이 끝난 상태입니다. 연결이 안 되면 Tailscale·맥미니 전원을 확인하고 **지금 동기화**를 누릅니다.
 
+예전 화면이 계속 보이거나 업데이트 버튼이 없으면 [앱 업데이트](https://skywise89-ops.github.io/kevin-wedding-english/upgrade.html)를 열고 **업데이트 적용**을 누릅니다. 브라우저 저장소를 지우지 않으므로 기존 목록과 학습 기록을 유지합니다.
+
 같은 표현의 추가·삭제는 논리 시계와 기기 ID로 병합합니다. 삭제 기록을 남겨 오래된 기기의 초기 목록 때문에 삭제한 표현이 다시 나타나지 않도록 합니다. 촬영 준비가 동시에 합쳐져 24개를 넘으면 초과 수를 표시하고 서버에 그대로 보관합니다. 목록에서 표현을 빼면 다음 표현이 나타납니다.
 
 서버는 맥미니의 `~/Library/Application Support/WeddingEnglishSync/data/saved.sqlite`에 보관하며, 자동 시작·일일 SQLite 백업을 사용합니다. API는 Tailscale 내부 HTTPS에서 사용자별로 구분하며 인터넷에 공개하지 않습니다. [서버 운영과 복구](server/README.md) · [동기화 검증](docs/sync-qa.md).
