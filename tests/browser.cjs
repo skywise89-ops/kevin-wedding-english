@@ -248,7 +248,7 @@ async function groupLesson(browser,label,base) {
   await page.getByRole('button',{name:'전체',exact:true}).click();await page.getByRole('searchbox',{name:'레슨 검색'}).fill('그룹 촬영');
   check(label+' Korean group search finds the family and friends lessons',await page.locator('.lesson-item[href="'+filename+'"]').count()===1&&await page.locator('.lesson-item[href="lessons/0022-friends-group-photos.html"]').count()===1);
   await page.locator('#group-lesson').click();await page.locator('.exprow').first().waitFor();
-  check(label+' group lesson teaches all six canonical field phrases',await page.locator('.exprow').count()===6);
+  check(label+' group lesson retains six original phrases and teaches four face-visibility cues',await page.locator('.exprow').count()===10&&await page.locator('.exprow [data-sentence-save="moment-group-back-row-gaps-1"]').count()===1);
   check(label+' supplemental lesson uses a meaningful label instead of Week 0',!(await page.locator('.lesson-wrap').innerText()).includes('Week 0'));
   await layout(page,label+' group lesson');
   await page.screenshot({path:path.join(artifacts,'group-lesson-'+label+'.png')});
@@ -268,7 +268,7 @@ async function groupLesson(browser,label,base) {
   if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
   try {
    await page.goto(base+'index.html');await page.waitForSelector('#today-lesson .btn');await page.locator('#group-lesson').click();await page.locator('.exprow').first().waitFor();
-   check(label+' new group lesson is fully available offline',await page.locator('.exprow').count()===6&&await first.getAttribute('aria-pressed')==='true');
+   check(label+' expanded group lesson is fully available offline',await page.locator('.exprow').count()===10&&await first.getAttribute('aria-pressed')==='true');
    await page.goto(base+'field.html#scope=saved');await page.waitForSelector('.phrase');
    check(label+' group core and supplemental scenario remain usable in field offline',await page.locator('.phrase[data-id="'+family+'"]').count()===1&&await page.locator('.phrase[data-id="'+sampleId+'"]').count()===1);
   }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
@@ -337,7 +337,7 @@ async function moments(browser,label,base) {
   await page.goto(base+'index.html');await ready(page);
   check(label+' scenes discoverable from home',await page.locator('#moments-entry').isVisible());
   await page.locator('#moments-entry').click();await page.waitForSelector('.scene-card');
-  check(label+' all ten scenes appear without removing family or friend lessons',await page.locator('.scene-card').count()===10&&supplementalLessons.some(l=>l.id===21)&&supplementalLessons.some(l=>l.id===22));
+  check(label+' all scenes appear without removing family or friend lessons',await page.locator('.scene-card').count()===guide.length&&supplementalLessons.some(l=>l.id===21)&&supplementalLessons.some(l=>l.id===22));
   await page.evaluate(({old,saved})=>{const s=KWE.load();s.pins=[old];s.kit=[old,saved];s.lessons['21']={done:true,first:'2026-10-04',last:'2026-10-04',due:'2026-10-08',reps:1,ease:2.5,interval:4,lapses:0};s.settings.rate=.85;KWE.save();},{old,saved});
   await page.goto(base+'moments.html#'+kiss.id);
   check(label+' deep link opens kiss scene in approved order',await page.locator('#'+kiss.id).getAttribute('open')!==null&&JSON.stringify(await page.locator('#'+kiss.id+' .scene-line').evaluateAll(rows=>rows.map(r=>r.dataset.phraseId)))===JSON.stringify(kiss.phrases));
@@ -386,7 +386,7 @@ async function moments(browser,label,base) {
   if(label==='webkit')await new Promise(resolve=>server.close(resolve));else await context.setOffline(true);
   try{
    await page.goto(base+'moments.html#'+joke.id);await page.waitForSelector('.scene-card');
-   check(label+' all ten scenes available offline',await page.locator('.scene-card').count()===10);
+   check(label+' all scenes available offline',await page.locator('.scene-card').count()===guide.length);
    await page.locator('[data-scene-kit="'+joke.id+'"]').click();
    await page.locator('[data-moment-save="'+joke.phrases[0]+'"]').click();
    check(label+' offline scene additions and saves persist',await page.evaluate(ids=>ids.every(id=>KWE.load().kit.includes(id))&&KWE.load().pins.includes(ids[0]),joke.phrases));
@@ -398,6 +398,21 @@ async function moments(browser,label,base) {
    check(label+' scene search works offline',await page.locator('.phrase[data-id="'+joke.phrases[0]+'"]').count()===1);
    await page.goto(base+'practice.html#kit');await page.getByRole('button',{name:'영어 확인'}).waitFor();
    check(label+' ordered scene phrases enter offline recall',await page.evaluate(ids=>ids.every(id=>KWE.load().session.ids.includes(id)),joke.phrases));
+   for(const [sceneId,query] of [['group-back-row-gaps','사이사이'],['party-keep-dancing','춤 멈추지마'],['party-group-pose','파티 포즈']]){
+    const scene=guide.find(s=>s.id===sceneId),pid=scene.phrases[0];
+    await page.goto(base+'moments.html#'+sceneId);await page.locator('#'+sceneId+'[open]').waitFor();
+    await page.locator('[data-scene-kit="'+sceneId+'"]').click();await page.locator('[data-moment-save="'+pid+'"]').click();
+    check(label+' '+sceneId+' saves and prepares every line offline',await page.evaluate(({ids,pid})=>ids.every(id=>KWE.load().kit.includes(id))&&KWE.load().pins.includes(pid),{ids:scene.phrases,pid}));
+    await page.setViewportSize({width:320,height:844});await layout(page,label+' '+sceneId+' 320px');await page.setViewportSize({width:390,height:844});
+    await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
+    await page.locator('#'+sceneId).evaluate(e=>e.scrollIntoView({block:'start'}));
+    await page.screenshot({path:path.join(artifacts,sceneId+'-'+label+'.png')});
+    await page.goto(base+'field.html#q='+encodeURIComponent(query));await page.waitForSelector('.phrase');
+    check(label+' '+sceneId+' Korean cue finds saved directing line offline',await page.locator('.phrase').first().getAttribute('data-id')===pid&&await page.locator('.phrase[data-id="'+pid+'"] [data-star]').getAttribute('aria-pressed')==='true');
+    const filename=sceneId==='group-back-row-gaps'?'0021-family-group-photos.html':'0026-party-dance-floor.html';
+    await page.goto(base+'lessons/'+filename);await page.locator('[data-sentence-save="'+pid+'"]').first().waitFor();
+    check(label+' '+sceneId+' shares saved ID with related lesson',await page.locator('[data-sentence-save="'+pid+'"]').evaluateAll(buttons=>buttons.every(button=>button.getAttribute('aria-pressed')==='true')));
+   }
   }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
   await page.setViewportSize({width:320,height:844});await page.goto(base+'moments.html#'+kiss.id);await layout(page,label+' scene 320px');
   await page.evaluate(()=>{KWE.set('theme','dark');KWE.set('size',26);});await layout(page,label+' large dark scene');

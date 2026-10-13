@@ -2652,8 +2652,8 @@
     "filename": "0021-family-group-photos.html",
     "review": false,
     "extra": true,
-    "goal": "가족을 모으고, 촬영 명단을 확인하고, 줄·간격·시선을 정리한 뒤 한 장 더 촬영한다.",
-    "why": "단체 촬영에서는 여러 사람이 동시에 움직이고 다른 카메라를 보기도 합니다. 사람을 모으기, 촬영할 조합 확인하기, 줄과 간격 맞추기, 시선 모으기, 마지막 한 장의 순서로 짧게 안내하면 촬영 흐름을 유지할 수 있습니다. 가족 관계나 가까운 포즈가 편할 것이라고 추측하지 말고 명단과 선호를 확인하세요.",
+    "goal": "가족을 모으고, 명단·줄·간격을 정리하고, 뒷줄 얼굴이 보이게 안내한 뒤 시선을 모아 촬영한다.",
+    "why": "단체 촬영에서는 여러 사람이 동시에 움직이고 다른 카메라를 보기도 합니다. 사람을 모으기, 촬영할 조합 확인하기, 줄과 간격 맞추기, 시선 모으기, 마지막 한 장의 순서로 짧게 안내하면 촬영 흐름을 유지할 수 있습니다. 가족 관계나 가까운 포즈가 편할 것이라고 추측하지 말고 명단과 선호를 확인하세요. 뒷줄은 앞사람들 사이로 얼굴이 보여야 합니다. find a gap으로 위치를 안내하고, whole face로 얼굴 전체를 확인한 뒤 시선을 모으세요.",
     "expressions": [
       {
         "situation": "가족 호출",
@@ -2684,6 +2684,34 @@
         "cat": "group"
       },
       {
+        "situation": "뒷줄 얼굴 사이로",
+        "en": "Back row, find a gap between the people in front.",
+        "ko": "뒷줄 분들은 앞줄 사람들 사이로 얼굴이 보이게 서주세요.",
+        "nuance": "gap은 앞사람들 사이의 빈틈입니다. 손짓으로 얼굴이 보여야 할 위치를 가리키세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "얼굴 전체 보이게",
+        "en": "Make sure I can see your whole face.",
+        "ko": "얼굴 전체가 보이게 해주세요.",
+        "nuance": "눈만 보일 때 얼굴 전체가 드러나게 조금 더 조정하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "가려진 한 사람 미세 이동",
+        "en": "A small step to your right, please.",
+        "ko": "본인 기준 오른쪽으로 조금만 이동해주세요.",
+        "nuance": "your right는 피사체 본인의 오른쪽입니다. 이동할 한 사람을 가리키고 작은 움직임만 요청하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "얼굴 확인 뒤 시선 모으기",
+        "en": "Perfect. I can see everyone now. Eyes on me!",
+        "ko": "좋아요. 이제 모두 보여요. 제 쪽 봐주세요!",
+        "nuance": "촬영자 위치에서 모두의 얼굴이 보이는지 확인한 뒤 카메라 쪽 시선을 모으세요.",
+        "cat": "group"
+      },
+      {
         "situation": "시선 통일",
         "en": "Everyone look at my hand, not the phones.",
         "ko": "다들 휴대폰 말고 제 손을 봐주세요.",
@@ -2710,6 +2738,14 @@
       {
         "term": "your left / my left",
         "def": "피사체 본인의 왼쪽 / 촬영자의 왼쪽. 손짓을 함께 보여주면 방향 혼동을 줄일 수 있습니다."
+      },
+      {
+        "term": "find a gap",
+        "def": "빈틈을 찾다. 앞줄 사람들 사이로 얼굴이 보이는 위치를 찾으라는 말."
+      },
+      {
+        "term": "your whole face",
+        "def": "얼굴 전체. 눈만 보이는 상태에서 조금 더 위치를 조정할 때 씁니다."
       }
     ],
     "scenarios": [
@@ -2727,6 +2763,16 @@
         "prompt": "휴대폰을 보느라 시선이 흩어져 있습니다. 시선을 모으고 눈 감은 사람이 있을 때 한 컷 더 안내하세요.",
         "sample": "Everyone look at my hand, not the phones. Perfect — one more, in case someone blinked.",
         "sampleKo": "다들 휴대폰 말고 제 손을 봐주세요. 좋습니다 — 눈 감으신 분 있을 수 있으니 한 장만 더요."
+      },
+      {
+        "prompt": "앞사람에게 가려 뒷줄 얼굴이 안 보입니다. 사이로 서게 하고 얼굴 전체를 확인한 뒤 카메라를 보게 해보세요.",
+        "sample": "Back row, find a gap between the people in front. Make sure I can see your whole face. Perfect. I can see everyone now. Eyes on me!",
+        "sampleKo": "뒷줄 분들은 앞줄 사람들 사이로 얼굴이 보이게 서주세요. 얼굴 전체가 보이게 해주세요. 좋아요. 이제 모두 보여요. 제 쪽 봐주세요!"
+      },
+      {
+        "prompt": "한 분의 얼굴만 가려져 있습니다. 그분을 가리킨 뒤 본인 기준 오른쪽으로 조금 움직여달라고 하세요.",
+        "sample": "A small step to your right, please.",
+        "sampleKo": "본인 기준 오른쪽으로 조금만 이동해주세요."
       }
     ],
     "dialogue": {
@@ -2764,6 +2810,26 @@
         },
         {
           "who": "You",
+          "en": "Back row, find a gap between the people in front.",
+          "ko": "뒷줄 분들은 앞줄 사람들 사이로 얼굴이 보이게 서주세요."
+        },
+        {
+          "who": "You",
+          "en": "Make sure I can see your whole face.",
+          "ko": "얼굴 전체가 보이게 해주세요."
+        },
+        {
+          "who": "You",
+          "en": "A small step to your right, please.",
+          "ko": "본인 기준 오른쪽으로 조금만 이동해주세요."
+        },
+        {
+          "who": "You",
+          "en": "Perfect. I can see everyone now. Eyes on me!",
+          "ko": "좋아요. 이제 모두 보여요. 제 쪽 봐주세요!"
+        },
+        {
+          "who": "You",
           "en": "Everyone look at my hand, not the phones.",
           "ko": "다들 휴대폰 말고 제 손을 봐주세요."
         },
@@ -2779,7 +2845,7 @@
         }
       ]
     },
-    "freetalk": "10명이 모여 있고, 뒷줄 간격이 넓으며 시선이 휴대폰으로 흩어진 상황입니다. 60초 동안 가족 호출, 명단 확인, 간격·줄·시선 안내, 마지막 한 장을 순서대로 말해보세요. 방향을 말할 때는 피사체 기준인지 손짓으로 보여주세요.",
+    "freetalk": "10명이 모여 있고, 뒷줄 간격이 넓으며 시선이 휴대폰으로 흩어진 상황입니다. 60초 동안 가족 호출, 명단 확인, 간격·줄·시선 안내, 마지막 한 장을 순서대로 말해보세요. 방향을 말할 때는 피사체 기준인지 손짓으로 보여주세요. 특히 뒷줄 얼굴이 가려졌을 때 첫 안내를 안 보고 떠올린 뒤, 한 사람의 위치 조정과 시선 안내까지 이어 말하세요.",
     "quiz": [
       {
         "q": "다음 컷에 가까운 가족을 모으는 부드러운 요청은?",
@@ -2831,6 +2897,23 @@
             "correct": false
           }
         ]
+      },
+      {
+        "q": "뒷줄 얼굴이 앞사람에게 가려졌을 때, 사이로 서게 하는 말은?",
+        "choices": [
+          {
+            "text": "Back row, find a gap between the people in front.",
+            "correct": true
+          },
+          {
+            "text": "Everyone look at my hand, not the phones.",
+            "correct": false
+          },
+          {
+            "text": "Perfect — one more, in case someone blinked.",
+            "correct": false
+          }
+        ]
       }
     ],
     "checklist": [
@@ -2838,7 +2921,8 @@
       "가족 호출과 간격 좁히기 표현을 안 보고 말할 수 있다",
       "your left와 my left의 차이를 손짓과 함께 안내할 수 있다",
       "여러 카메라로 흩어진 시선을 모을 수 있다",
-      "눈 감은 사람을 탓하지 않고 한 컷 더 안내할 수 있다"
+      "눈 감은 사람을 탓하지 않고 한 컷 더 안내할 수 있다",
+      "뒷줄 얼굴이 가려지면 find a gap과 whole face로 짧게 안내할 수 있다"
     ],
     "mission": "Could we get the immediate family for the next one? Everyone, a little closer. Everyone look at my hand, not the phones. Perfect — one more, in case someone blinked.",
     "nextHint": "촬영 전 필요한 세 문장을 저장하고 현장 저장 목록 또는 저장한 표현 연습에서 다시 꺼내보세요.",
@@ -2848,7 +2932,19 @@
       "단체사진",
       "단체 사진",
       "가족사진",
-      "가족 사진"
+      "가족 사진",
+      "뒷줄",
+      "뒷줄 얼굴",
+      "앞사람",
+      "사이사이",
+      "얼굴 가려",
+      "얼굴 가림",
+      "얼굴 보여",
+      "줄 세우기",
+      "단체 줄 정리"
+    ],
+    "scenes": [
+      "group-back-row-gaps"
     ]
   },
   {
@@ -3756,6 +3852,262 @@
       "family-thankful",
       "group-laugh",
       "between-shots"
+    ]
+  },
+  {
+    "id": 26,
+    "week": 0,
+    "day": 6,
+    "weekTitle": "파티·댄스플로어 실전 영어",
+    "topicKo": "파티에서 춤·친구 포즈·환호 이끌기",
+    "topicEn": "Party & Dance Floor",
+    "emoji": "",
+    "filename": "0026-party-dance-floor.html",
+    "review": false,
+    "extra": true,
+    "goal": "춤을 이어가게 하고, 친구들의 동작 따라 하기·1초 포즈·커플 환호를 짧게 제안한다.",
+    "why": "파티에서는 긴 설명보다 짧은 제안 하나가 잘 들립니다. 이미 즐기는 춤을 멈추지 않아도 된다고 알려주고, 필요한 컷에서만 잠깐 포즈를 부탁하세요. 첫 안내를 말하고 동작과 반응이 나온 뒤 다음 말을 건넵니다.",
+    "expressions": [
+      {
+        "situation": "카메라 보고 춤 멈출 때",
+        "en": "Keep dancing — don't stop for me!",
+        "ko": "계속 춤추세요. 저 때문에 멈추지 마세요!",
+        "nuance": "카메라를 보고 춤을 멈추려는 사람에게 말하세요. 원래 즐기던 흐름을 이어가는 컷입니다.",
+        "cat": "movement"
+      },
+      {
+        "situation": "친구끼리 마주 보고 춤추기",
+        "en": "Turn towards your friends and dance together.",
+        "ko": "친구들 쪽을 보고 함께 춤춰주세요.",
+        "nuance": "친구들 쪽을 손짓으로 보여주고 서로를 보며 춤추는 순간을 담으세요.",
+        "cat": "movement"
+      },
+      {
+        "situation": "자신 있는 춤 동작 제안",
+        "en": "Who's got a signature dance move? Show us!",
+        "ko": "나만의 춤 동작 있는 분? 보여주세요!",
+        "nuance": "자원하는 친구에게 즐겨 하는 춤 동작을 보여달라고 합니다. 실력 평가보다 장난과 반응을 담으세요.",
+        "cat": "movement"
+      },
+      {
+        "situation": "같은 동작으로 단체 춤",
+        "en": "Everyone, try that move together!",
+        "ko": "다 같이 그 동작을 따라 해볼까요!",
+        "nuance": "방금 보여준 동작을 손짓으로 가리키며 모두가 함께 따라 하게 합니다.",
+        "cat": "movement"
+      },
+      {
+        "situation": "신난 그룹의 자유 포즈",
+        "en": "Everyone, freeze in your best dance pose!",
+        "ko": "다 같이 춤추는 포즈로 딱 멈춰주세요!",
+        "nuance": "각자 편한 춤 동작에서 잠깐 멈추게 합니다. 이미 신난 그룹에 짧은 한 컷을 제안하세요.",
+        "cat": "group"
+      },
+      {
+        "situation": "손 들고 커플 축하",
+        "en": "Hands up and cheer for these two!",
+        "ko": "손 들고 두 분을 위해 환호해주세요!",
+        "nuance": "손이 얼굴을 가리지 않는 위치에서 환호하게 하세요. 예식·사회자의 안내를 끊지 않는 파티 순간에 씁니다.",
+        "cat": "group"
+      }
+    ],
+    "glossary": [
+      {
+        "term": "signature dance move",
+        "def": "그 사람이 즐겨 하는 자기만의 춤 동작. 자원하는 친구에게 보여달라고 할 때 씁니다."
+      },
+      {
+        "term": "hold it",
+        "def": "지금 동작·포즈를 잠깐 유지하다."
+      },
+      {
+        "term": "keep that energy going",
+        "def": "지금의 신난 분위기를 이어가다. 이미 즐거운 반응이 나왔을 때 씁니다."
+      }
+    ],
+    "scenarios": [
+      {
+        "prompt": "춤추던 친구들이 카메라를 보고 멈추려 합니다. 계속 즐겨도 된다고 말하고 서로를 보며 춤추게 해보세요.",
+        "sample": "Keep dancing — don't stop for me! Turn towards your friends and dance together. That's it! Keep that energy going!",
+        "sampleKo": "계속 춤추세요. 저 때문에 멈추지 마세요! 친구들 쪽을 보고 함께 춤춰주세요. 좋아요! 지금 분위기 그대로 이어가세요!"
+      },
+      {
+        "prompt": "파티 분위기가 올라왔습니다. 자원하는 친구의 춤을 보여달라고 하고 다 같이 따라 하게 해보세요.",
+        "sample": "Who's got a signature dance move? Show us! Everyone, try that move together! One more time — look at each other!",
+        "sampleKo": "나만의 춤 동작 있는 분? 보여주세요! 다 같이 그 동작을 따라 해볼까요! 한 번 더요. 이번에는 서로 보면서요!"
+      },
+      {
+        "prompt": "신난 친구들의 단체 컷이 필요합니다. 자유 포즈를 딱 1초만 잡고 서로의 반응을 보게 해보세요.",
+        "sample": "Everyone, freeze in your best dance pose! Hold it for one second — eyes on me! Now look at each other's poses!",
+        "sampleKo": "다 같이 춤추는 포즈로 딱 멈춰주세요! 딱 1초만 그대로요. 제 쪽 봐주세요! 이번에는 서로의 포즈를 봐주세요!"
+      },
+      {
+        "prompt": "신랑신부와 친구들이 파티 중 함께 있습니다. 가운데 자리를 만들고 친구들의 환호와 커플의 반응을 이어 담아보세요.",
+        "sample": "Make a little space for these two in the middle. Hands up and cheer for these two! Keep cheering! You two, look at your friends!",
+        "sampleKo": "가운데 두 분 자리를 조금 만들어주세요. 손 들고 두 분을 위해 환호해주세요! 계속 환호해주세요! 두 분은 친구들을 봐주세요!"
+      }
+    ],
+    "dialogue": {
+      "title": "파티에서 한 안내씩 이어가는 네 가지 흐름",
+      "lines": [
+        {
+          "who": "춤을 멈추지 않고 친구들과 즐기기",
+          "en": "Keep dancing — don't stop for me!",
+          "ko": "계속 춤추세요. 저 때문에 멈추지 마세요!"
+        },
+        {
+          "who": "춤을 멈추지 않고 친구들과 즐기기",
+          "en": "Turn towards your friends and dance together.",
+          "ko": "친구들 쪽을 보고 함께 춤춰주세요."
+        },
+        {
+          "who": "춤을 멈추지 않고 친구들과 즐기기",
+          "en": "That's it! Keep that energy going!",
+          "ko": "좋아요! 지금 분위기 그대로 이어가세요!"
+        },
+        {
+          "who": "친구의 춤을 다 같이 따라 하기",
+          "en": "Who's got a signature dance move? Show us!",
+          "ko": "나만의 춤 동작 있는 분? 보여주세요!"
+        },
+        {
+          "who": "친구의 춤을 다 같이 따라 하기",
+          "en": "Everyone, try that move together!",
+          "ko": "다 같이 그 동작을 따라 해볼까요!"
+        },
+        {
+          "who": "친구의 춤을 다 같이 따라 하기",
+          "en": "One more time — look at each other!",
+          "ko": "한 번 더요. 이번에는 서로 보면서요!"
+        },
+        {
+          "who": "춤추다 1초만 파티 포즈 잡기",
+          "en": "Everyone, freeze in your best dance pose!",
+          "ko": "다 같이 춤추는 포즈로 딱 멈춰주세요!"
+        },
+        {
+          "who": "춤추다 1초만 파티 포즈 잡기",
+          "en": "Hold it for one second — eyes on me!",
+          "ko": "딱 1초만 그대로요. 제 쪽 봐주세요!"
+        },
+        {
+          "who": "춤추다 1초만 파티 포즈 잡기",
+          "en": "Now look at each other's poses!",
+          "ko": "이번에는 서로의 포즈를 봐주세요!"
+        },
+        {
+          "who": "신랑신부를 가운데 두고 친구들 환호",
+          "en": "Make a little space for these two in the middle.",
+          "ko": "가운데 두 분 자리를 조금 만들어주세요."
+        },
+        {
+          "who": "신랑신부를 가운데 두고 친구들 환호",
+          "en": "Hands up and cheer for these two!",
+          "ko": "손 들고 두 분을 위해 환호해주세요!"
+        },
+        {
+          "who": "신랑신부를 가운데 두고 친구들 환호",
+          "en": "Keep cheering! You two, look at your friends!",
+          "ko": "계속 환호해주세요! 두 분은 친구들을 봐주세요!"
+        }
+      ]
+    },
+    "freetalk": "네 상황 중 하나를 고르세요. 영어를 가리고 첫 안내를 떠올립니다. 상대가 움직일 시간을 준 뒤 다음 한마디를 이어 말하세요. 카메라를 계속 보는 컷과 친구끼리 반응하는 컷을 구분해 연습합니다.",
+    "quiz": [
+      {
+        "q": "카메라를 보고 춤을 멈추려 할 때는?",
+        "choices": [
+          {
+            "text": "Keep dancing — don't stop for me!",
+            "correct": true
+          },
+          {
+            "text": "Hold it for one second — eyes on me!",
+            "correct": false
+          },
+          {
+            "text": "Make a little space for these two in the middle.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "친구가 보여준 춤 동작을 다 같이 따라 하게 할 때는?",
+        "choices": [
+          {
+            "text": "Everyone, try that move together!",
+            "correct": true
+          },
+          {
+            "text": "Keep dancing — don't stop for me!",
+            "correct": false
+          },
+          {
+            "text": "Make a little space for these two in the middle.",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "q": "포즈를 잠깐 유지하고 카메라를 보게 할 때는?",
+        "choices": [
+          {
+            "text": "Hold it for one second — eyes on me!",
+            "correct": true
+          },
+          {
+            "text": "Who's got a signature dance move? Show us!",
+            "correct": false
+          },
+          {
+            "text": "Turn towards your friends and dance together.",
+            "correct": false
+          }
+        ]
+      }
+    ],
+    "checklist": [
+      "상황만 보고 첫 안내를 안 보고 말할 수 있다.",
+      "긴 설명 대신 한 동작씩 안내할 수 있다.",
+      "카메라 보는 컷과 서로 반응하는 컷을 이어 말할 수 있다.",
+      "춤추기나 큰 리액션을 부담스러워하면 편한 대안으로 바꿀 수 있다."
+    ],
+    "mission": "Keep dancing — don't stop for me!",
+    "nextHint": "오늘 쓸 파티 상황 하나를 촬영 준비에 담고, 음악이 있다고 생각하며 짧게 소리 내어 말해보세요.",
+    "keywords": [
+      "파티",
+      "춤",
+      "춤춰",
+      "계속 춤",
+      "춤 멈추지마",
+      "춤 멈추지 말고",
+      "댄스플로어",
+      "리셉션",
+      "파티 자연스럽게",
+      "친구 파티",
+      "시그니처 댄스",
+      "시그니처 춤",
+      "춤 따라",
+      "댄스 따라",
+      "같이 춤",
+      "파티 장난",
+      "파티 포즈",
+      "파티 단체사진",
+      "단체 포즈",
+      "춤 포즈",
+      "친구 파티 포즈",
+      "멈춰 포즈",
+      "파티 환호",
+      "파티 응원",
+      "신랑신부 가운데",
+      "손 들고 환호",
+      "축하 파티"
+    ],
+    "scenes": [
+      "party-keep-dancing",
+      "party-signature-move",
+      "party-group-pose",
+      "party-couple-cheer"
     ]
   }
 ]

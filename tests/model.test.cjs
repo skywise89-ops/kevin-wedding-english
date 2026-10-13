@@ -50,22 +50,29 @@ test('scene kit rolls back when storage fails or future local data is protected'
   assert.equal(api.addToKit([id]),null);assert.equal(api.load().kit.length,0);assert.equal(storage.get('kwe_state_v2'),before);
  }
 });
-test('all ten scene sequences use canonical field IDs and stay available in related lessons',()=>{
+test('all scene sequences use canonical field IDs and stay available in related lessons',()=>{
  const scenes=JSON.parse(fs.readFileSync(path.join(root,'data/scenes.json'))).scenes;
  const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));
- assert.equal(scenes.length,10);assert.equal(scenes.flatMap(s=>s.phrases).length,25);
+ assert.equal(scenes.length,15);assert.equal(scenes.flatMap(s=>s.phrases).length,41);
  for(const s of scenes){
   const l=lessons.find(l=>l.id===s.lesson);assert.ok(l.extra&&l.scenes.includes(s.id));
   for(const pid of s.phrases){const p=phrases.find(p=>p.id===pid);assert.ok(p&&p.ko);assert.ok(l.dialogue.lines.some(line=>line.en===p.en&&line.ko===p.ko));}
   assert.ok(M.search(phrases,s.keywords[0],'all').some(p=>p.id===s.phrases[0]));
  }
 });
+test('back-row Korean cues find face visibility before generic row movement',()=>{
+ for(const query of ['뒷줄','사이사이','얼굴 가려','뒷줄 얼굴'])assert.equal(M.search(phrases,query,'all')[0].id,'moment-group-back-row-gaps-1');
+ assert.equal(M.search(phrases,'얼굴 다 보여','group')[0].id,'moment-group-back-row-gaps-2');
+});
+test('party Korean cues retrieve a usable first directing line',()=>{
+ for(const [query,wanted] of [['춤 멈추지마','party-keep-dancing'],['파티','party-keep-dancing'],['시그니처 댄스','party-signature-move'],['파티 포즈','party-group-pose']])assert.equal(M.search(phrases,query,'all')[0].id,'moment-'+wanted+'-1');
+});
 test('old v3 backups remain valid without supplemental lesson sentences',()=>{const raw={...oldState(),version:3};const state=M.normalize(raw);assert.deepEqual(state.sentences,{});assert.deepEqual(state.pins,raw.pins);});
 test('saved lesson sentences survive backup validation and malformed records fail',()=>{const raw={...oldState(),sentences:{[sentenceId]:savedSentence},pins:[id,sentenceId]};assert.deepEqual(M.normalize(JSON.parse(JSON.stringify(raw))).sentences[ sentenceId ],savedSentence);for(const change of [{id:'wrong'},{en:''},{cat:'bad/category'},{lessons:[0]},{lessons:[1.5]},{lessons:[1001]},{src:'wrong'},{note:7},{html:'<script>'}])assert.throws(()=>M.normalize({...raw,sentences:{[sentenceId]:{...savedSentence,...change}}}));});
 test('lesson save shares canonical pins and rolls back a blocked supplemental save',()=>{const {api}=browserCore(oldState());assert.equal(api.toggleSentence({id,en:'Chin down.'}),false);assert.equal(api.toggleSentence({id,en:'Chin down.'}),true);assert.equal(api.load().pins.filter(x=>x===id).length,1);assert.equal(api.toggleSentence(savedSentence),true);assert.equal(api.load().sentences[sentenceId].en,savedSentence.en);const future=browserCore({...oldState(),version:99});assert.equal(future.api.toggleSentence(savedSentence),null);assert.equal(future.api.load().sentences[sentenceId],undefined);});
 test('all generated lesson save controls resolve to canonical IDs or validated sentence snapshots',()=>{const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));const canonical=new Set(phrases.map(p=>p.id));for(const lesson of lessons){const html=fs.readFileSync(path.join(root,'lessons',lesson.filename),'utf8');const library=JSON.parse(html.match(/<script type="application\/json" id="lesson-sentences">([\s\S]*?)<\/script>/)[1]);for(const [,savedId] of html.matchAll(/data-sentence-save="([^"]+)"/g)){const p=library[savedId];assert.ok(p,`${lesson.id}: ${savedId}`);if(!canonical.has(savedId))assert.doesNotThrow(()=>M.normalize({lessons:{},sentences:{[savedId]:p}}));}for(const expression of lesson.expressions){const p=phrases.find(p=>p.en===expression.en);assert.ok(html.includes(`data-sentence-save="${p.id}"`));}}});
 
-test('supplemental group lesson teaches all six existing expressions without changing IDs',()=>{const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));const group=lessons.find(l=>l.id===21);assert.ok(group.extra);assert.equal(group.expressions.length,6);const canonical=phrases.filter(p=>p.cat==='group'&&p.lessons.includes(21));assert.equal(canonical.length,6);for(const p of canonical){assert.ok(group.expressions.some(x=>x.en===p.en&&x.ko===p.ko));assert.ok(p.lessons.includes(21));}assert.ok(group.scenarios.length>=3&&group.quiz.length>=3);});
+test('group lesson keeps six existing expressions and adds four face-visibility cues with shared IDs',()=>{const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));const group=lessons.find(l=>l.id===21);assert.ok(group.extra);assert.equal(group.expressions.length,10);const canonical=phrases.filter(p=>p.cat==='group'&&p.lessons.includes(21));assert.equal(canonical.length,10);assert.equal(canonical.filter(p=>!p.id.startsWith('moment-group-back-row-gaps-')).length,6);for(const p of canonical){assert.ok(group.expressions.some(x=>x.en===p.en&&x.ko===p.ko));}assert.ok(group.scenarios.length>=5&&group.quiz.length>=4);});
 test('supplemental lesson sentences and completed progress survive backup restoration',()=>{const original=oldState(),extra={...savedSentence,lessons:[21],cat:'group'};const raw={...original,version:3,sentences:{[sentenceId]:extra},lessons:{...original.lessons,'21':{done:true,first:'2026-10-04',last:'2026-10-04',due:'2026-10-05',reps:1,ease:2.5,interval:1,lapses:0}},lastLesson:'21',checks:{...original.checks,'21':[true,false]},quizAnswers:{'21':[0,1,1]},days:{...original.days,'2026-10-04':{lessons:[21],cards:0,quiz:[0,0]}}};const restored=M.normalize(JSON.parse(JSON.stringify(raw)));for(const key of ['lessons','sentences','checks','quizAnswers','days','lastLesson'])assert.deepEqual(restored[key],raw[key]);assert.deepEqual(restored.pins,original.pins);assert.deepEqual(restored.cards,original.cards);});
 
 test('friends photo search separates jokes, action prompts and a quiet fallback',()=>{

@@ -197,6 +197,122 @@
         "moment-between-shots-1",
         "moment-between-shots-2"
       ]
+    },
+    {
+      "id": "group-back-row-gaps",
+      "title": "뒷줄 얼굴을 앞사람 사이로 보이게 하기",
+      "group": "group",
+      "cat": "group",
+      "lesson": 21,
+      "keywords": [
+        "뒷줄",
+        "뒷줄 얼굴",
+        "앞사람",
+        "사이사이",
+        "얼굴 가려",
+        "얼굴 가림",
+        "얼굴 보여",
+        "줄 세우기",
+        "단체 줄 정리"
+      ],
+      "note": "앞줄 사람들 사이의 빈틈을 손으로 가리키세요. 몸 전체를 크게 옮기기보다 얼굴이 보이는 위치로 조금씩 조정합니다. 방향은 움직일 사람을 가리킨 뒤 피사체 기준으로 말하세요. 카메라 위치에서 모든 얼굴이 보이는지 직접 확인합니다.",
+      "phrases": [
+        "moment-group-back-row-gaps-1",
+        "moment-group-back-row-gaps-2",
+        "moment-group-back-row-gaps-3",
+        "moment-group-back-row-gaps-4"
+      ]
+    },
+    {
+      "id": "party-keep-dancing",
+      "title": "춤을 멈추지 않고 친구들과 즐기기",
+      "group": "party",
+      "cat": "movement",
+      "lesson": 26,
+      "keywords": [
+        "파티",
+        "춤",
+        "춤춰",
+        "계속 춤",
+        "춤 멈추지마",
+        "춤 멈추지 말고",
+        "댄스플로어",
+        "리셉션",
+        "파티 자연스럽게"
+      ],
+      "note": "이미 춤을 즐기고 있을 때 첫 말을 건네세요. 음악 소리에 묻히지 않게 가까이서 손짓을 함께 쓰고, 한 번에 한 동작만 안내합니다. 카메라를 보려고 멈추지 않아도 된다는 뜻입니다.",
+      "phrases": [
+        "moment-party-keep-dancing-1",
+        "moment-party-keep-dancing-2",
+        "moment-party-keep-dancing-3"
+      ]
+    },
+    {
+      "id": "party-signature-move",
+      "title": "친구의 춤을 다 같이 따라 하기",
+      "group": "party",
+      "cat": "movement",
+      "lesson": 26,
+      "keywords": [
+        "파티",
+        "친구 파티",
+        "시그니처 댄스",
+        "시그니처 춤",
+        "춤 따라",
+        "댄스 따라",
+        "같이 춤",
+        "파티 장난"
+      ],
+      "note": "자원하는 친구의 춤 동작을 골라 모두가 따라 하게 합니다. 춤 실력을 평가하거나 특정 사람을 억지로 앞에 세우지 말고, 서로 따라 하다가 웃는 반응을 담으세요.",
+      "phrases": [
+        "moment-party-signature-move-1",
+        "moment-party-signature-move-2",
+        "moment-party-signature-move-3"
+      ]
+    },
+    {
+      "id": "party-group-pose",
+      "title": "춤추다 1초만 파티 포즈 잡기",
+      "group": "party",
+      "cat": "group",
+      "lesson": 26,
+      "keywords": [
+        "파티",
+        "파티 포즈",
+        "파티 단체사진",
+        "단체 포즈",
+        "춤 포즈",
+        "친구 파티 포즈",
+        "멈춰 포즈"
+      ],
+      "note": "이미 신난 그룹에 짧은 포즈 한 컷을 제안합니다. 각자 동작을 고르게 하고 오래 정지시키지 마세요. 얼굴이 손이나 다른 사람에게 가리지 않는지 확인한 뒤 곧바로 춤으로 돌아가게 합니다.",
+      "phrases": [
+        "moment-party-group-pose-1",
+        "moment-party-group-pose-2",
+        "moment-party-group-pose-3"
+      ]
+    },
+    {
+      "id": "party-couple-cheer",
+      "title": "신랑신부를 가운데 두고 친구들 환호",
+      "group": "party",
+      "cat": "group",
+      "lesson": 26,
+      "keywords": [
+        "파티",
+        "파티 환호",
+        "파티 응원",
+        "신랑신부 가운데",
+        "손 들고 환호",
+        "친구 파티",
+        "축하 파티"
+      ],
+      "note": "주변 친구들에게 손짓으로 두 사람의 자리를 보여주세요. 손은 얼굴을 가리지 않는 위치로 올리게 하고, 환호 뒤 서로 웃거나 춤추는 반응까지 담으세요. 예식·사회자의 안내를 끊지 않는 파티 순간에 씁니다.",
+      "phrases": [
+        "moment-party-couple-cheer-1",
+        "moment-party-couple-cheer-2",
+        "moment-party-couple-cheer-3"
+      ]
     }
   ]
 }

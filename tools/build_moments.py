@@ -8,7 +8,7 @@ scenes = json.loads((root / 'data/scenes.json').read_text())['scenes']
 phrases = {p['id']: p for p in json.loads((root / 'data/phrases.json').read_text())['phrases']}
 lessons = {l['id']: l for l in json.loads((root / 'data/lessons.json').read_text())}
 e = lambda text: html.escape(str(text), quote=True)
-groups = [('couple', '둘만의 자연스러운 순간'), ('friends', '친구들과 즐겁게'), ('family', '가족과 편안하게')]
+groups = [('group', '단체 줄 정리'), ('couple', '둘만의 자연스러운 순간'), ('friends', '친구들과 즐겁게'), ('family', '가족과 편안하게'), ('party', '파티·댄스플로어')]
 sections = []
 for group, title in groups:
     cards = []
@@ -27,10 +27,10 @@ for group, title in groups:
 
 data = json.dumps({s['id']: s['phrases'] for s in scenes}, ensure_ascii=False).replace('<', '\\u003c')
 page = f'''<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="질문과 작은 동작으로 자연스러운 웨딩 촬영 분위기를 만드는 10가지 상황"><title>분위기 만들기 · Wedding English</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/favicon-v3.ico"><link rel="apple-touch-icon" href="assets/icon-180-v3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding English"><link rel="stylesheet" href="assets/style.css"></head><body>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6f5f0"><meta name="description" content="단체 줄 정리부터 파티까지 짧은 안내로 촬영을 이끄는 {len(scenes)}가지 상황"><title>분위기 만들기 · Wedding English</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="assets/favicon-v3.ico"><link rel="apple-touch-icon" href="assets/icon-180-v3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding English"><link rel="stylesheet" href="assets/style.css"></head><body>
 <a class="skip" href="#main">본문으로 건너뛰기</a><header class="top"><a class="brand" href="index.html"><img src="assets/icon-v3.svg" width="36" height="36" alt=""><span>Wedding English<small>FOR THE MOMENT</small></span></a><div class="hdr-actions"><button class="iconbtn" type="button" data-settings aria-label="설정" data-icon="settings"></button></div></header>
-<main id="main" class="wrap moments-wrap"><div class="page-heading"><div><span class="eyebrow">MAKE THE MOMENT</span><h1>분위기 만들기</h1></div></div><p class="scene-intro">상황 하나, 질문 하나.<br>말을 건넨 뒤 대답과 표정을 기다리세요.</p>
-<nav class="chips scene-jumps" aria-label="촬영 분위기 선택"><a class="chip" href="#couple-heading">신랑신부</a><a class="chip" href="#friends-heading">친구들</a><a class="chip" href="#family-heading">가족·틈새 순간</a></nav>
+<main id="main" class="wrap moments-wrap"><div class="page-heading"><div><span class="eyebrow">MAKE THE MOMENT</span><h1>단체 디렉팅·분위기 만들기</h1></div></div><p class="scene-intro">짧은 안내 하나씩.<br>말을 건넨 뒤 동작과 반응을 기다리세요.</p>
+<nav class="chips scene-jumps" aria-label="촬영 상황 선택"><a class="chip" href="#group-heading">줄 정리</a><a class="chip" href="#couple-heading">신랑신부</a><a class="chip" href="#friends-heading">친구들</a><a class="chip" href="#family-heading">가족·틈새 순간</a><a class="chip" href="#party-heading">파티·춤</a></nav>
 <a class="kit-entry" href="field.html#scope=kit"><span data-icon="kit"></span><div><h3>이번 촬영 준비 <span id="moment-kit-count">0 / 24</span></h3><p>모은 말 확인 · 순서 정리 · 현장에서 꺼내기</p></div><span data-icon="arrow"></span></a>
 {''.join(sections)}
 <a class="btn block" href="field.html">다른 현장 표현 찾기<span data-icon="search"></span></a></main>
