@@ -297,7 +297,7 @@ async function friendsLesson(browser,label,base) {
   check(label+' friends completion and quiz persist alongside prior family progress',await page.evaluate(()=>KWE.load().lessons['22'].done&&KWE.load().checks['22'][0]&&KWE.load().quizAnswers['22'][2]===2&&KWE.load().lessons['21'].due==='2026-10-08'&&KWE.get('rate')===.85));
   await page.locator('#expressions').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(artifacts,'friends-lesson-'+label+'.png')});
   await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
-  check(label+' friends photo search retains eight prior and ten scene expressions',await page.locator('.phrase').count()===18);
+  check(label+' friends photo search retains earlier expressions and includes six extended kiss prompts',await page.locator('.phrase').count()===24);
   await page.locator('.phrase[data-id="'+joke+'"] [data-kit]').click();
   check(label+' saved joke can be added to a shooting kit',await page.evaluate(id=>KWE.load().kit.includes(id),joke));
   for(const [query,wanted] of [['그룹 농담',joke],['환호','friends-on-three-cheer-for-these-two'],['앨범 커버','friends-give-me-your-best-album-cover-pose'],['농담 반응 없음',fallback]]){
@@ -305,7 +305,7 @@ async function friendsLesson(browser,label,base) {
    await page.waitForFunction(id=>document.querySelector('.phrase')?.dataset.id===id,wanted);
    check(label+' field search finds friends prompt: '+query,await page.locator('.phrase').first().getAttribute('data-id')===wanted);
   }
-  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('친구사진');await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===18);
+  await page.getByRole('searchbox',{name:'상황·한국어·영어 검색'}).fill('친구사진');await page.waitForFunction(()=>document.querySelectorAll('.phrase').length===24);
   await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
   await page.screenshot({path:path.join(artifacts,'friends-field-'+label+'.png')});
   await page.getByRole('button',{name:'설정',exact:true}).click();
@@ -318,7 +318,7 @@ async function friendsLesson(browser,label,base) {
    await page.goto(base+filename);await page.locator('.exprow').first().waitFor();
    check(label+' friends lesson and saved joke work offline',await page.locator('.exprow').count()===6&&await page.locator('.exprow [data-sentence-save="'+joke+'"]').getAttribute('aria-pressed')==='true');
    await page.goto(base+'field.html#q=친구사진');await page.waitForSelector('.phrase');
-   check(label+' all friends expressions remain searchable offline',await page.locator('.phrase').count()===18);
+   check(label+' all friends expressions remain searchable offline',await page.locator('.phrase').count()===24);
    await page.goto(base+'field.html#scope=kit');await page.waitForSelector('.phrase');
    check(label+' friends shooting kit remains available offline',await page.locator('.phrase[data-id="'+joke+'"]').count()===1);
    await page.goto(base+'practice.html#saved');await page.getByRole('button',{name:'영어 확인'}).waitFor();
@@ -373,7 +373,7 @@ async function moments(browser,label,base) {
   }
   check(label+' new lessons preserve old pins, due date and speech rate',await page.evaluate(old=>KWE.load().pins.includes(old)&&KWE.load().lessons['21'].due==='2026-10-08'&&KWE.get('rate')===.85,old));
   await page.goto(base+'field.html#q=키스 환호');await page.waitForSelector('.phrase');
-  check(label+' Korean scene query finds all kiss lines and hides guide entry',await page.locator('.phrase').count()===4&&!(await page.locator('#moments-entry').isVisible()));
+  check(label+' Korean scene query finds basic and extended kiss lines and hides guide entry',await page.locator('.phrase').count()===10&&!(await page.locator('#moments-entry').isVisible()));
   check(label+' scene saved state shared with field',await page.locator('.phrase[data-id="'+saved+'"] [data-star]').getAttribute('aria-pressed')==='true');
   await page.goto(base+'field.html#scope=all');await page.waitForSelector('.phrase');
   check(label+' scene guide discoverable from unfiltered field',await page.locator('#moments-entry').isVisible());
@@ -413,6 +413,24 @@ async function moments(browser,label,base) {
     await page.goto(base+'lessons/'+filename);await page.locator('[data-sentence-save="'+pid+'"]').first().waitFor();
     check(label+' '+sceneId+' shares saved ID with related lesson',await page.locator('[data-sentence-save="'+pid+'"]').evaluateAll(buttons=>buttons.every(button=>button.getAttribute('aria-pressed')==='true')));
    }
+   const extended=guide.find(s=>s.id==='friends-kiss-cheer-long'),cheer='moment-friends-kiss-cheer-long-4';
+   await page.goto(base+'moments.html#'+extended.id);await page.locator('#'+extended.id+'[open]').waitFor();
+   await page.locator('[data-scene-kit="'+extended.id+'"]').click();await page.locator('[data-moment-save="'+cheer+'"]').click();
+   check(label+' extended kiss routine reuses prior IDs and fits all eight lines in offline kit',await page.evaluate(ids=>ids.every(id=>KWE.load().kit.includes(id))&&KWE.load().kit.length===24&&new Set(KWE.load().kit).size===24,extended.phrases));
+   const extendedSpeak=page.locator('#'+extended.id+' .scene-line[data-phrase-id="'+cheer+'"] [data-say]');
+   await page.evaluate(()=>{speechSynthesis.speak=function(utterance){window._testUtterance=utterance;utterance.onstart&&utterance.onstart();};speechSynthesis.cancel=function(){};});
+   await extendedSpeak.click();
+   check(label+' extended kiss speech preserves apostrophe and shows playing state',await extendedSpeak.getAttribute('aria-pressed')==='true'&&await page.evaluate(()=>window._testUtterance.text)==="They'll keep kissing until you stop cheering!");await extendedSpeak.click();
+   await page.setViewportSize({width:320,height:844});await layout(page,label+' extended kiss 320px');await page.setViewportSize({width:390,height:844});
+   await page.waitForFunction(()=>!document.querySelector('.toast.show')&&(!document.querySelector('.toast')||getComputedStyle(document.querySelector('.toast')).opacity==='0'));
+   await page.locator('#'+extended.id).evaluate(e=>e.scrollIntoView({block:'start'}));await page.screenshot({path:path.join(artifacts,'kiss-long-start-'+label+'.png')});
+   await page.locator('#'+extended.id+' .scene-line[data-phrase-id="'+cheer+'"]').evaluate(e=>scrollTo(0,scrollY+e.getBoundingClientRect().top-document.querySelector('.top').getBoundingClientRect().height-16));await page.screenshot({path:path.join(artifacts,'kiss-long-cheer-'+label+'.png')});
+   await page.goto(base+'field.html#q='+encodeURIComponent('환호 멈출 때까지'));await page.waitForSelector('.phrase');
+   check(label+' extended kiss Korean cue finds saved directing line offline',await page.locator('.phrase').first().getAttribute('data-id')===cheer&&await page.locator('.phrase[data-id="'+cheer+'"] [data-star]').getAttribute('aria-pressed')==='true');
+   await page.goto(base+'lessons/0024-friends-kiss-cheers.html');await page.locator('#dialogue [data-sentence-save="'+cheer+'"]').waitFor();
+   check(label+' extended kiss routine shares saved state with lesson 24 dialogue',await page.locator('#dialogue [data-sentence-save="'+cheer+'"]').getAttribute('aria-pressed')==='true');
+   await page.locator('.quiz-choices').last().locator('label[data-correct="true"]').click();await page.reload();await page.locator('.exprow').first().waitFor();
+   check(label+' added kiss quiz preserves prior answer and completed lesson',await page.evaluate(()=>KWE.load().quizAnswers['24'][3]===0&&KWE.load().quizAnswers['24'][0]===0&&KWE.load().lessons['24'].done));
   }finally{if(label==='webkit')await new Promise(resolve=>server.listen(originPort,'127.0.0.1',resolve));else await context.setOffline(false);}
   await page.setViewportSize({width:320,height:844});await page.goto(base+'moments.html#'+kiss.id);await layout(page,label+' scene 320px');
   await page.evaluate(()=>{KWE.set('theme','dark');KWE.set('size',26);});await layout(page,label+' large dark scene');

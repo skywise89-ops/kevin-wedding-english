@@ -3423,8 +3423,8 @@
     "filename": "0024-friends-kiss-cheers.html",
     "review": false,
     "extra": true,
-    "goal": "친구들을 모으고, 커플의 의사를 확인한 뒤 장난과 환호의 반응을 담는다.",
-    "why": "웃으라는 말만 반복하기보다 실제 대화와 작은 동작을 제안하면 표정이 달라집니다. 질문을 하나씩 건네고 기다리세요. 상황 하나를 골라 첫 말, 안내, 반응을 이어 말하는 연습을 합니다.",
+    "goal": "친구들을 모으고, 커플의 의사를 확인한 뒤 장난과 환호의 반응을 담는다. 가까이서 키스를 보고 오래 환호하는 장난 연출을 한 문장씩 안내한다.",
+    "why": "웃으라는 말만 반복하기보다 실제 대화와 작은 동작을 제안하면 표정이 달라집니다. 질문을 하나씩 건네고 기다리세요. 상황 하나를 골라 첫 말, 안내, 반응을 이어 말하는 연습을 합니다. 길게 환호하는 키스 연출은 커플과 먼저 맞춘 뒤, 친구들에게 설명을 마치고 시작 신호를 주세요.",
     "expressions": [
       {
         "situation": "친구들이 신랑신부를 웃겨주기 · 1",
@@ -3481,6 +3481,18 @@
       {
         "term": "biggest cheer",
         "def": "가장 큰 환호"
+      },
+      {
+        "term": "this close / up close",
+        "def": "이렇게 가까이서 / 가까운 거리에서. 친구들에게 키스를 가까이서 본다는 장난을 건넬 때 씁니다."
+      },
+      {
+        "term": "until you stop cheering",
+        "def": "여러분이 환호를 멈출 때까지. 커플과 미리 맞춘 장난 연출에서 쓰는 말이며 실제 키스 길이는 두 사람이 편한 만큼 정합니다."
+      },
+      {
+        "term": "make some noise",
+        "def": "환호해주세요, 소리 질러주세요. 파티나 축하 장면에서 즐거운 반응을 끌어내는 말."
       }
     ],
     "scenarios": [
@@ -3498,6 +3510,11 @@
         "prompt": "친구들과 장난스러운 단체 포즈 만들기 상황입니다. 영어를 가리고, 첫 말을 떠올린 뒤 순서대로 말해보세요.",
         "sample": "You're a band for this photo. Show me your album cover pose! Hold that pose. Now try not to laugh. Okay, look at each other — who's still keeping a straight face?",
         "sampleKo": "이번 사진에서는 여러분이 밴드예요. 앨범 커버 포즈를 보여주세요! 그대로 웃음을 참아보세요. 서로 봐주세요. 아직 진지한 표정인 사람이 있나요?"
+      },
+      {
+        "prompt": "커플과 키스·환호 장난 연출을 미리 맞췄습니다. 준비를 확인하고 친구들에게 가까이서 볼 마지막 기회라고 말하세요. 손짓·함성·길게 환호를 제안한 뒤 두 사람에게 시작 신호를 주세요.",
+        "sample": "You two, ready for a kiss? Alright, these two are about to kiss! This is your last chance to see them kiss this close! When they kiss, give them your biggest cheer! Shout, cheer, throw your hands in the air! They'll keep kissing until you stop cheering! So give them a nice, long cheer! You two, go for it! Everyone, make some noise!",
+        "sampleKo": "두 분, 키스할 준비됐나요? 자, 지금부터 두 분이 키스할 거예요! 두 분의 키스를 이렇게 가까이서 볼 수 있는 마지막 기회예요! 키스할 때 크게 환호해주세요! 소리 지르고, 환호하고, 손도 마음껏 들어주세요! 여러분이 환호를 멈출 때까지 두 분이 계속 키스할 거예요! 그러니까 두 분을 위해 오래오래 환호해주세요! 두 분, 시작해볼까요! 여러분, 마음껏 환호해주세요!"
       }
     ],
     "dialogue": {
@@ -3552,6 +3569,46 @@
           "who": "친구들과 장난스러운 단체 포즈 만들기",
           "en": "Okay, look at each other — who's still keeping a straight face?",
           "ko": "서로 봐주세요. 아직 진지한 표정인 사람이 있나요?"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "You two, ready for a kiss?",
+          "ko": "두 분, 키스할 준비됐나요?"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "Alright, these two are about to kiss!",
+          "ko": "자, 지금부터 두 분이 키스할 거예요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "This is your last chance to see them kiss this close!",
+          "ko": "두 분의 키스를 이렇게 가까이서 볼 수 있는 마지막 기회예요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "When they kiss, give them your biggest cheer!",
+          "ko": "키스할 때 크게 환호해주세요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "Shout, cheer, throw your hands in the air!",
+          "ko": "소리 지르고, 환호하고, 손도 마음껏 들어주세요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "They'll keep kissing until you stop cheering!",
+          "ko": "여러분이 환호를 멈출 때까지 두 분이 계속 키스할 거예요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "So give them a nice, long cheer!",
+          "ko": "그러니까 두 분을 위해 오래오래 환호해주세요!"
+        },
+        {
+          "who": "가까이서 키스·오래오래 환호하기",
+          "en": "You two, go for it! Everyone, make some noise!",
+          "ko": "두 분, 시작해볼까요! 여러분, 마음껏 환호해주세요!"
         }
       ]
     },
@@ -3607,13 +3664,31 @@
             "correct": true
           }
         ]
+      },
+      {
+        "q": "환호가 멈출 때까지 키스한다는 장난 연출의 말은?",
+        "choices": [
+          {
+            "text": "They'll keep kissing until you stop cheering!",
+            "correct": true
+          },
+          {
+            "text": "You two, ready for a kiss?",
+            "correct": false
+          },
+          {
+            "text": "This is your last chance to see them kiss this close!",
+            "correct": false
+          }
+        ]
       }
     ],
     "checklist": [
       "상황만 보고 첫 영어 문장을 떠올렸다.",
       "질문을 하나씩 말하고 대답을 기다렸다.",
       "다음 안내와 반응의 말을 이어 소리 내었다.",
-      "상대가 편하게 받아들일 상황인지 확인했다."
+      "상대가 편하게 받아들일 상황인지 확인했다.",
+      "키스·환호 안내를 마친 뒤 커플과 친구들에게 시작 신호를 줄 수 있다."
     ],
     "mission": "Friends, come gather around these two!",
     "nextHint": "분위기 만들기에서 오늘 쓸 상황 하나를 촬영 준비에 담아보세요.",
@@ -3635,12 +3710,20 @@
       "앨범커버",
       "밴드 포즈",
       "친구 포즈",
-      "진지한 표정"
+      "진지한 표정",
+      "가까이서 키스",
+      "키스 오래",
+      "길게 환호",
+      "오래 환호",
+      "환호 멈출 때까지",
+      "마지막 기회",
+      "오래오래 환호"
     ],
     "scenes": [
       "friends-make-laugh",
       "friends-kiss-cheer",
-      "friends-album-cover"
+      "friends-album-cover",
+      "friends-kiss-cheer-long"
     ]
   },
   {

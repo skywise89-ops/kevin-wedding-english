@@ -53,7 +53,7 @@ test('scene kit rolls back when storage fails or future local data is protected'
 test('all scene sequences use canonical field IDs and stay available in related lessons',()=>{
  const scenes=JSON.parse(fs.readFileSync(path.join(root,'data/scenes.json'))).scenes;
  const lessons=JSON.parse(fs.readFileSync(path.join(root,'data/lessons.json')));
- assert.equal(scenes.length,15);assert.equal(scenes.flatMap(s=>s.phrases).length,41);
+ assert.equal(scenes.length,16);assert.equal(scenes.flatMap(s=>s.phrases).length,49);assert.equal(new Set(scenes.flatMap(s=>s.phrases)).size,47);
  for(const s of scenes){
   const l=lessons.find(l=>l.id===s.lesson);assert.ok(l.extra&&l.scenes.includes(s.id));
   for(const pid of s.phrases){const p=phrases.find(p=>p.id===pid);assert.ok(p&&p.ko);assert.ok(l.dialogue.lines.some(line=>line.en===p.en&&line.ko===p.ko));}
@@ -67,6 +67,9 @@ test('back-row Korean cues find face visibility before generic row movement',()=
 test('party Korean cues retrieve a usable first directing line',()=>{
  for(const [query,wanted] of [['춤 멈추지마','party-keep-dancing'],['파티','party-keep-dancing'],['시그니처 댄스','party-signature-move'],['파티 포즈','party-group-pose']])assert.equal(M.search(phrases,query,'all')[0].id,'moment-'+wanted+'-1');
 });
+test('extended kiss cheering can be found by its Korean directing cues',()=>{
+ for(const [query,step] of [['가까이서 키스',1],['마지막 기회',2],['소리 질러도',3],['환호 멈출 때까지',4],['오래오래 환호',5],['키스 시작',6]])assert.equal(M.search(phrases,query,'group')[0].id,'moment-friends-kiss-cheer-long-'+step,query);
+});
 test('old v3 backups remain valid without supplemental lesson sentences',()=>{const raw={...oldState(),version:3};const state=M.normalize(raw);assert.deepEqual(state.sentences,{});assert.deepEqual(state.pins,raw.pins);});
 test('saved lesson sentences survive backup validation and malformed records fail',()=>{const raw={...oldState(),sentences:{[sentenceId]:savedSentence},pins:[id,sentenceId]};assert.deepEqual(M.normalize(JSON.parse(JSON.stringify(raw))).sentences[ sentenceId ],savedSentence);for(const change of [{id:'wrong'},{en:''},{cat:'bad/category'},{lessons:[0]},{lessons:[1.5]},{lessons:[1001]},{src:'wrong'},{note:7},{html:'<script>'}])assert.throws(()=>M.normalize({...raw,sentences:{[sentenceId]:{...savedSentence,...change}}}));});
 test('lesson save shares canonical pins and rolls back a blocked supplemental save',()=>{const {api}=browserCore(oldState());assert.equal(api.toggleSentence({id,en:'Chin down.'}),false);assert.equal(api.toggleSentence({id,en:'Chin down.'}),true);assert.equal(api.load().pins.filter(x=>x===id).length,1);assert.equal(api.toggleSentence(savedSentence),true);assert.equal(api.load().sentences[sentenceId].en,savedSentence.en);const future=browserCore({...oldState(),version:99});assert.equal(future.api.toggleSentence(savedSentence),null);assert.equal(future.api.load().sentences[sentenceId],undefined);});
@@ -76,7 +79,7 @@ test('group lesson keeps six existing expressions and adds four face-visibility 
 test('supplemental lesson sentences and completed progress survive backup restoration',()=>{const original=oldState(),extra={...savedSentence,lessons:[21],cat:'group'};const raw={...original,version:3,sentences:{[sentenceId]:extra},lessons:{...original.lessons,'21':{done:true,first:'2026-10-04',last:'2026-10-04',due:'2026-10-05',reps:1,ease:2.5,interval:1,lapses:0}},lastLesson:'21',checks:{...original.checks,'21':[true,false]},quizAnswers:{'21':[0,1,1]},days:{...original.days,'2026-10-04':{lessons:[21],cards:0,quiz:[0,0]}}};const restored=M.normalize(JSON.parse(JSON.stringify(raw)));for(const key of ['lessons','sentences','checks','quizAnswers','days','lastLesson'])assert.deepEqual(restored[key],raw[key]);assert.deepEqual(restored.pins,original.pins);assert.deepEqual(restored.cards,original.cards);});
 
 test('friends photo search separates jokes, action prompts and a quiet fallback',()=>{
- assert.equal(M.search(phrases,'친구사진','group').length,18);
+ assert.equal(M.search(phrases,'친구사진','group').length,24);
  for(const [query,wanted] of [
   ['그룹 농담','friends-relax-this-isn-t-a-passport-photo'],
   ['진지한 척','friends-one-serious-photo-try-not-to-laugh'],

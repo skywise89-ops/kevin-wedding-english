@@ -313,6 +313,37 @@
         "moment-party-couple-cheer-2",
         "moment-party-couple-cheer-3"
       ]
+    },
+    {
+      "id": "friends-kiss-cheer-long",
+      "title": "가까이서 키스·오래오래 환호하기",
+      "group": "friends",
+      "cat": "group",
+      "lesson": 24,
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "환호 멈출 때까지",
+        "마지막 기회",
+        "오래오래 환호"
+      ],
+      "note": "먼저 커플에게 이 장난 연출을 제안하고 두 사람이 준비됐을 때 진행하세요. 마지막 기회·환호가 끝날 때까지라는 말은 웃으며 하는 농담입니다. 실제 키스는 두 사람이 편한 길이로 마무리합니다. 안내를 모두 마친 뒤 마지막 말로 시작 신호를 주세요. 손은 얼굴을 가리지 않는 위치로 올리게 하고 예식·사회자의 안내를 끊지 않는 순간에 씁니다.",
+      "phrases": [
+        "moment-friends-kiss-cheer-2",
+        "moment-friends-kiss-cheer-long-1",
+        "moment-friends-kiss-cheer-long-2",
+        "moment-friends-kiss-cheer-3",
+        "moment-friends-kiss-cheer-long-3",
+        "moment-friends-kiss-cheer-long-4",
+        "moment-friends-kiss-cheer-long-5",
+        "moment-friends-kiss-cheer-long-6"
+      ]
     }
   ]
 }

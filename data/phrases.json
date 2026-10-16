@@ -2968,6 +2968,175 @@
       ],
       "priority": 64,
       "note": "친구들의 환호와 커플의 반응을 함께 담는 후속 안내입니다. 커플을 가리키며 두 번째 말을 건네세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-1",
+      "en": "Alright, these two are about to kiss!",
+      "ko": "자, 지금부터 두 분이 키스할 거예요!",
+      "cat": "group",
+      "situation": "키스·환호 연출 예고",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "키스할 거예요",
+        "키스 예고",
+        "키스할거야"
+      ],
+      "priority": 67,
+      "note": "커플이 준비됐는지 먼저 확인한 뒤 친구들에게 다음 장면을 예고합니다."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-2",
+      "en": "This is your last chance to see them kiss this close!",
+      "ko": "두 분의 키스를 이렇게 가까이서 볼 수 있는 마지막 기회예요!",
+      "cat": "group",
+      "situation": "키스 가까이서 볼 마지막 기회",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "키스 마지막 기회",
+        "마지막 기회",
+        "가까이서 볼 기회"
+      ],
+      "priority": 66,
+      "note": "친구들에게 웃으며 건네는 장난입니다. 커플과 미리 맞춘 분위기에서 사용하세요.",
+      "shortEn": "Last chance to see this kiss up close!"
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-3",
+      "en": "Shout, cheer, throw your hands in the air!",
+      "ko": "소리 지르고, 환호하고, 손도 마음껏 들어주세요!",
+      "cat": "group",
+      "situation": "함성과 손짓으로 키스 응원",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "소리 질러",
+        "소리 질러도",
+        "손 들고 환호",
+        "손들고 환호",
+        "손 들어도",
+        "마음껏 환호"
+      ],
+      "priority": 64,
+      "note": "어떤 반응을 해도 좋다는 안내입니다. 손이 커플이나 친구들의 얼굴을 가리지 않게 손짓으로 위치를 보여주세요.",
+      "shortEn": "Make some noise! Hands up!"
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-4",
+      "en": "They'll keep kissing until you stop cheering!",
+      "ko": "여러분이 환호를 멈출 때까지 두 분이 계속 키스할 거예요!",
+      "cat": "group",
+      "situation": "환호가 멈출 때까지 키스 · 장난 연출",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "환호 멈출 때까지",
+        "환호를 멈출 때까지",
+        "계속 키스",
+        "오래 키스"
+      ],
+      "priority": 65,
+      "note": "커플과 미리 맞춘 장난 연출에서 웃으며 하는 말입니다. 실제 키스 길이는 두 사람이 편한 만큼으로 마무리합니다."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-5",
+      "en": "So give them a nice, long cheer!",
+      "ko": "그러니까 두 분을 위해 오래오래 환호해주세요!",
+      "cat": "group",
+      "situation": "오래오래 환호 이어가기",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "오래오래 환호",
+        "길게 응원",
+        "계속 응원"
+      ],
+      "priority": 63,
+      "note": "친구들의 환호를 이어가는 말입니다. 커플이 키스를 마친 뒤에는 웃음과 친구들의 반응을 담으세요."
+    },
+    {
+      "id": "moment-friends-kiss-cheer-long-6",
+      "en": "You two, go for it! Everyone, make some noise!",
+      "ko": "두 분, 시작해볼까요! 여러분, 마음껏 환호해주세요!",
+      "cat": "group",
+      "situation": "키스 시작과 단체 환호 신호",
+      "nuance": "",
+      "lessons": [
+        24
+      ],
+      "src": "field",
+      "keywords": [
+        "키스 환호",
+        "가까이서 키스",
+        "키스 오래",
+        "길게 환호",
+        "오래 환호",
+        "키스",
+        "환호",
+        "친구사진",
+        "키스 시작",
+        "키스 큐",
+        "다 같이 소리",
+        "make some noise"
+      ],
+      "priority": 62,
+      "note": "앞의 안내를 마친 뒤 커플을 보고 첫 말을, 친구들을 보고 다음 말을 건넵니다. 키스·환호가 시작되는 신호입니다."
     }
   ]
 }
