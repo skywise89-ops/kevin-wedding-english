@@ -1,6 +1,6 @@
 {
   "name": "kevin-wedding-english",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "private": true,
   "scripts": {
     "build": "python3 tools/build_lessons.py && python3 tools/build_moments.py && node tools/build-icons.cjs && node tools/build-sw.cjs",

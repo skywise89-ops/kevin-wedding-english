@@ -15,3 +15,9 @@ The original short kiss-cheering guide remains. Lesson 24 retains its six core e
 Physical iPhone Safari/PWA, VoiceOver and real device speech were not tested. Synthesis-state tests use simulated callbacks. No new claim is made about the prior private Mac mini connection limitation.
 
 Ignored local evidence: `artifacts/kiss-long-unit-results.txt`, `artifacts/browser-results.json`, `artifacts/kiss-long-content-check.json`, `artifacts/kiss-long-start-webkit.png`, `artifacts/kiss-long-cheer-webkit.png`. Public deployment and byte verification are recorded separately after publishing.
+
+## v3.7.1 wording revision — 2026-10-16
+
+Simplifies the hands-up line to **Hands up and cheer!** / **손 들고 환호해주세요!**, retaining `moment-friends-kiss-cheer-long-3`. The field note, guide note and lesson glossary offer **Hands up! Make some noise!** as an alternative. The longer obsolete short variant is removed. Lesson 24's scenario/dialogue and generated speech/save text use the new primary wording.
+
+`node --test tests/model.test.cjs`: 33 existing checks passed. Build and hash verification passed with 63 assets; no runtime or storage code changes. Phrase IDs, scene orders, lesson URLs and quiz/checklist indices are retained. The full browser suite was not rerun for this wording-only patch; the 377-assertion result above belongs to v3.7.0.

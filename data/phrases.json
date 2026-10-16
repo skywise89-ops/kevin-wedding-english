@@ -3026,8 +3026,8 @@
     },
     {
       "id": "moment-friends-kiss-cheer-long-3",
-      "en": "Shout, cheer, throw your hands in the air!",
-      "ko": "소리 지르고, 환호하고, 손도 마음껏 들어주세요!",
+      "en": "Hands up and cheer!",
+      "ko": "손 들고 환호해주세요!",
       "cat": "group",
       "situation": "함성과 손짓으로 키스 응원",
       "nuance": "",
@@ -3052,8 +3052,7 @@
         "마음껏 환호"
       ],
       "priority": 64,
-      "note": "어떤 반응을 해도 좋다는 안내입니다. 손이 커플이나 친구들의 얼굴을 가리지 않게 손짓으로 위치를 보여주세요.",
-      "shortEn": "Make some noise! Hands up!"
+      "note": "손을 들고 함께 환호해달라는 짧은 안내입니다. 더 신나는 분위기에서는 Hands up! Make some noise!라고 나눠 말해도 좋습니다. 손이 얼굴을 가리지 않게 위치를 보여주세요."
     },
     {
       "id": "moment-friends-kiss-cheer-long-4",

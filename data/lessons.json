@@ -3493,6 +3493,10 @@
       {
         "term": "make some noise",
         "def": "환호해주세요, 소리 질러주세요. 파티나 축하 장면에서 즐거운 반응을 끌어내는 말."
+      },
+      {
+        "term": "Hands up and cheer!",
+        "def": "손 들고 환호해주세요! 더 신나는 분위기에서는 Hands up! Make some noise! (손 들고! 소리 질러주세요!)로 말합니다."
       }
     ],
     "scenarios": [
@@ -3513,8 +3517,8 @@
       },
       {
         "prompt": "커플과 키스·환호 장난 연출을 미리 맞췄습니다. 준비를 확인하고 친구들에게 가까이서 볼 마지막 기회라고 말하세요. 손짓·함성·길게 환호를 제안한 뒤 두 사람에게 시작 신호를 주세요.",
-        "sample": "You two, ready for a kiss? Alright, these two are about to kiss! This is your last chance to see them kiss this close! When they kiss, give them your biggest cheer! Shout, cheer, throw your hands in the air! They'll keep kissing until you stop cheering! So give them a nice, long cheer! You two, go for it! Everyone, make some noise!",
-        "sampleKo": "두 분, 키스할 준비됐나요? 자, 지금부터 두 분이 키스할 거예요! 두 분의 키스를 이렇게 가까이서 볼 수 있는 마지막 기회예요! 키스할 때 크게 환호해주세요! 소리 지르고, 환호하고, 손도 마음껏 들어주세요! 여러분이 환호를 멈출 때까지 두 분이 계속 키스할 거예요! 그러니까 두 분을 위해 오래오래 환호해주세요! 두 분, 시작해볼까요! 여러분, 마음껏 환호해주세요!"
+        "sample": "You two, ready for a kiss? Alright, these two are about to kiss! This is your last chance to see them kiss this close! When they kiss, give them your biggest cheer! Hands up and cheer! They'll keep kissing until you stop cheering! So give them a nice, long cheer! You two, go for it! Everyone, make some noise!",
+        "sampleKo": "두 분, 키스할 준비됐나요? 자, 지금부터 두 분이 키스할 거예요! 두 분의 키스를 이렇게 가까이서 볼 수 있는 마지막 기회예요! 키스할 때 크게 환호해주세요! 손 들고 환호해주세요! 여러분이 환호를 멈출 때까지 두 분이 계속 키스할 거예요! 그러니까 두 분을 위해 오래오래 환호해주세요! 두 분, 시작해볼까요! 여러분, 마음껏 환호해주세요!"
       }
     ],
     "dialogue": {
@@ -3592,8 +3596,8 @@
         },
         {
           "who": "가까이서 키스·오래오래 환호하기",
-          "en": "Shout, cheer, throw your hands in the air!",
-          "ko": "소리 지르고, 환호하고, 손도 마음껏 들어주세요!"
+          "en": "Hands up and cheer!",
+          "ko": "손 들고 환호해주세요!"
         },
         {
           "who": "가까이서 키스·오래오래 환호하기",
